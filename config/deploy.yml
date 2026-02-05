@@ -6,6 +6,9 @@ image: elassadi/hush
 
 # Deploy to these servers.
 servers:
+  builder:
+    hosts:
+      - 77.42.20.140
   web:
     hosts:
       - 157.180.33.216
@@ -89,7 +92,7 @@ env:
 
 # Configure builder setup.
 builder:
-  remote: ssh://root@157.180.33.216
+  remote: ssh://root@77.42.20.140
   arch: amd64
   local: false
   secrets:
