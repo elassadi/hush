@@ -1,0 +1,24 @@
+{
+  "files.exclude": {
+    "**/.DS_Store": true,
+    "**/.git": true,
+    "**/.github": true,
+    "**/.hg": true,
+    "**/.ruby-lsp": true,
+    "**/.svn": true,
+    "**/.terraform/": true,
+    "**/.vscode": true,
+    "**/coverage": true,
+    "**/CVS": true,
+    "**/log": true,
+    "**/logs": true,
+    "**/tmp": true,
+    "**/.vscode": true,
+    "**/.ruby-lsp": true,
+    "**/.github": false
+    "**/public": true,
+    "**/Thumbs.db": true,
+    "**/tmp": true
+  },
+  "explorerExclude.backup": {}
+}

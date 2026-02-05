@@ -1,0 +1,274 @@
+
+
+
+<%= render Avo::TurboFrameWrapperComponent.new(params[:turbo_frame]) do %>
+  <div class="flex flex-col" >
+    <%= render Avo::PanelComponent.new(name: '') do |c| %>
+      <% c.body do %>
+
+
+
+
+<!-- comment form -->
+<div class="flex mx-auto items-center justify-center shadow-lg py-4">
+  <form class="w-full max-w-xl bg-white rounded-lg px-4 pt-2">
+
+    <div class="flex-1 flex flex-col xl:flex-row justify-between mb-4">
+      <div class="overflow-hidden flex flex-col">
+        <div class="text-2xl tracking-normal font-semibold text-gray-800 truncate items-center flex flex-1"
+          data-target="title">
+          <span><%= t('activerecord.attributes.comment.other') %></span>
+        </div>
+      </div>
+    </div>
+    <div class="flex flex-wrap -mx-3 mb-6">
+      <div class="self-center  w-full ">
+<%# <div class="flex -space-x-2 overflow-hidden">
+  <img class="inline-block h-8 w-8 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+</div> %>
+
+        <input autocomplete="off"
+          class="appearance-none inline-flex bg-gray-25 disabled:cursor-not-allowed text-gray-600 disabled:opacity-50 rounded py-2 px-3 leading-tight border focus:border-gray-600 focus-visible:ring-0 focus:text-gray-700 placeholder:text-gray-300 border-gray-200  w-full"
+          data-commentable-target="commentableTriggerInput"
+          data-action="click->commentable#commentableTriggerInputClicked"
+          placeholder="Einen Kommentar hinzufügen.."
+          style="" type="text" name="device[imei]" id="device_imei">
+      </div>
+    </div>
+
+
+    <div class="flex flex-wrap -mx-3 mb-6 hidden" data-commentable-target="commentableInputWrapper">
+
+
+
+<div class="relative bg-white rounded shadow-md ">
+                      <div class="divide-y">
+                  <div class="divide-y" data-controller="belongs-to-field" data-searchable="true" data-association="commentable" data-association-class="Customer">
+    <div class="field-wrapper relative flex flex-col flex-grow pb-2 md:pb-0 leading-tight min-h-14 field-wrapper-layout-inline md:flex-row md:items-center field-wrapper-size-regular field-width-regular   " style=" " data-field-id="commentable" data-field-type="belongs_to" data-resource-edit-target="commentableBelongsToWrapper">
+  <div class="h-full  md:pt-0 md:h-14  pt-4 flex self-start items-center  w-48  md:w-64  px-6 uppercase font-semibold text-gray-500 text-sm" data-slot="label">
+      <label for="comment_commentable">Commentable</label>
+     <span class="text-red-600 ml-1">*</span>
+  </div>
+  <div class="flex-1 flex flex-row md:min-h-inherit py-2  px-6 " data-slot="value">
+    <div class="self-center  md:w-8/12 ">
+
+      <select class="appearance-none inline-flex bg-gray-25 disabled:cursor-not-allowed text-gray-600 disabled:opacity-50 rounded py-2 px-3 leading-tight border focus:border-gray-600 focus-visible:ring-0 focus:text-gray-700 placeholder:text-gray-300 border-gray-200  w-full" data-resource-edit-target="commentableBelongsToInput" data-action="change->belongs-to-field#changeType " data-belongs-to-field-target="select" disabled="disabled" name="comment[commentable_type]" id="comment_commentable_type"><option value="">Choose an option</option>
+<option value="Supplier">Liefereanten</option>
+<option selected="selected" value="Customer">Kunde</option>
+<option value="Merchant">Merchant</option>
+<option value="Contact">Kontakt</option>
+<option value="Issue">Reparaturauftrag</option></select>
+        <input autocomplete="off" type="hidden" value="Customer" name="comment[commentable_type]" id="comment_commentable_type">
+
+    </div>
+  </div>
+</div>      <div class="hidden" data-belongs-to-field-target="type" data-type="Supplier">
+        <div class="field-wrapper relative flex flex-col flex-grow pb-2 md:pb-0 leading-tight min-h-14 field-wrapper-layout-inline md:flex-row md:items-center field-wrapper-size-regular field-width-regular   " style=" " data-field-id="commentable" data-field-type="belongs_to" data-resource-edit-target="commentableBelongsToWrapper">
+  <div class="h-full  md:pt-0 md:h-14  pt-4 flex self-start items-center  w-48  md:w-64  px-6 uppercase font-semibold text-gray-500 text-sm" data-slot="label">
+      <label for="comment_commentable">Liefereanten</label>
+     <span class="text-red-600 ml-1">*</span>
+  </div>
+  <div class="flex-1 flex flex-row md:min-h-inherit py-2  px-6 " data-slot="value">
+    <div class="self-center  md:w-8/12 ">
+
+            <div data-controller="search" class="resource-search flex items-center h-full w-full" data-turbo-remove-before-cache="">
+  <div class="w-full hidden" data-search-target="autocomplete" data-search-resource="suppliers" data-translation-keys="{&quot;no_item_found&quot;: &quot;No %{item} found&quot;}" data-via-association="belongs_to" data-via-association-id="commentable" data-via-reflection-id="" data-via-reflection-class="Comment" data-via-parent-resource-id="15" data-via-parent-resource-class="Customer" data-via-relation="commentable"><div class="aa-Autocomplete" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-labelledby="autocomplete-1-label"><button class="aa-DetachedSearchButton"><div class="aa-DetachedSearchButtonIcon"><svg class="aa-SubmitIcon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M16.041 15.856c-0.034 0.026-0.067 0.055-0.099 0.087s-0.060 0.064-0.087 0.099c-1.258 1.213-2.969 1.958-4.855 1.958-1.933 0-3.682-0.782-4.95-2.050s-2.050-3.017-2.050-4.95 0.782-3.682 2.050-4.95 3.017-2.050 4.95-2.050 3.682 0.782 4.95 2.050 2.050 3.017 2.050 4.95c0 1.886-0.745 3.597-1.959 4.856zM21.707 20.293l-3.675-3.675c1.231-1.54 1.968-3.493 1.968-5.618 0-2.485-1.008-4.736-2.636-6.364s-3.879-2.636-6.364-2.636-4.736 1.008-6.364 2.636-2.636 3.879-2.636 6.364 1.008 4.736 2.636 6.364 3.879 2.636 6.364 2.636c2.125 0 4.078-0.737 5.618-1.968l3.675 3.675c0.391 0.391 1.024 0.391 1.414 0s0.391-1.024 0-1.414z"></path></svg></div><div class="aa-DetachedSearchButtonPlaceholder">Search</div></button></div></div>
+  <div class="relative w-full" autocomplete="off">
+    <input class="appearance-none inline-flex bg-gray-25 disabled:cursor-not-allowed text-gray-600 disabled:opacity-50 rounded py-2 px-3 leading-tight border focus:border-gray-600 focus-visible:ring-0 focus:text-gray-700 placeholder:text-gray-300 border-gray-200  w-full" data-search-target="button clearValue" data-should-be-disabled="true" data-resource-edit-target="commentableBelongsToInput" disabled="disabled" placeholder="Choose an option" style="" type="text" value="Mohamed Elassadi " name="" id="comment_commentable_id" valid-name="comment[commentable_id]">
+  </div>
+  <input value="15" data-search-target="hiddenId clearValue" data-resource-edit-target="commentableBelongsToInput" autocomplete="off" type="hidden" name="" id="comment_commentable_id" valid-name="comment[commentable_id]">
+</div>
+
+
+    </div>
+  </div>
+</div>      </div>
+      <div class="" data-belongs-to-field-target="type" data-type="Customer">
+        <div class="field-wrapper relative flex flex-col flex-grow pb-2 md:pb-0 leading-tight min-h-14 field-wrapper-layout-inline md:flex-row md:items-center field-wrapper-size-regular field-width-regular   " style=" " data-field-id="commentable" data-field-type="belongs_to" data-resource-edit-target="commentableBelongsToWrapper">
+  <div class="h-full  md:pt-0 md:h-14  pt-4 flex self-start items-center  w-48  md:w-64  px-6 uppercase font-semibold text-gray-500 text-sm" data-slot="label">
+      <label for="comment_commentable">Kunde</label>
+     <span class="text-red-600 ml-1">*</span>
+  </div>
+  <div class="flex-1 flex flex-row md:min-h-inherit py-2  px-6 " data-slot="value">
+    <div class="self-center  md:w-8/12 ">
+
+            <div data-controller="search" class="resource-search flex items-center h-full w-full" data-turbo-remove-before-cache="">
+  <div class="w-full hidden" data-search-target="autocomplete" data-search-resource="customers" data-translation-keys="{&quot;no_item_found&quot;: &quot;No %{item} found&quot;}" data-via-association="belongs_to" data-via-association-id="commentable" data-via-reflection-id="" data-via-reflection-class="Comment" data-via-parent-resource-id="15" data-via-parent-resource-class="Customer" data-via-relation="commentable"><div class="aa-Autocomplete" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-labelledby="autocomplete-2-label"><button class="aa-DetachedSearchButton"><div class="aa-DetachedSearchButtonIcon"><svg class="aa-SubmitIcon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M16.041 15.856c-0.034 0.026-0.067 0.055-0.099 0.087s-0.060 0.064-0.087 0.099c-1.258 1.213-2.969 1.958-4.855 1.958-1.933 0-3.682-0.782-4.95-2.050s-2.050-3.017-2.050-4.95 0.782-3.682 2.050-4.95 3.017-2.050 4.95-2.050 3.682 0.782 4.95 2.050 2.050 3.017 2.050 4.95c0 1.886-0.745 3.597-1.959 4.856zM21.707 20.293l-3.675-3.675c1.231-1.54 1.968-3.493 1.968-5.618 0-2.485-1.008-4.736-2.636-6.364s-3.879-2.636-6.364-2.636-4.736 1.008-6.364 2.636-2.636 3.879-2.636 6.364 1.008 4.736 2.636 6.364 3.879 2.636 6.364 2.636c2.125 0 4.078-0.737 5.618-1.968l3.675 3.675c0.391 0.391 1.024 0.391 1.414 0s0.391-1.024 0-1.414z"></path></svg></div><div class="aa-DetachedSearchButtonPlaceholder">Search</div></button></div></div>
+  <div class="relative w-full" autocomplete="off">
+    <input class="appearance-none inline-flex bg-gray-25 disabled:cursor-not-allowed text-gray-600 disabled:opacity-50 rounded py-2 px-3 leading-tight border focus:border-gray-600 focus-visible:ring-0 focus:text-gray-700 placeholder:text-gray-300 border-gray-200  w-full" data-search-target="button clearValue" data-should-be-disabled="true" data-resource-edit-target="commentableBelongsToInput" disabled="disabled" placeholder="Choose an option" style="" type="text" value="Mohamed Elassadi " name="comment[commentable_id]" id="comment_commentable_id" valid-name="comment[commentable_id]">
+  </div>
+  <input value="15" data-search-target="hiddenId clearValue" data-resource-edit-target="commentableBelongsToInput" autocomplete="off" type="hidden" name="comment[commentable_id]" id="comment_commentable_id" valid-name="comment[commentable_id]">
+</div>
+
+
+    </div>
+  </div>
+</div>      </div>
+      <div class="hidden" data-belongs-to-field-target="type" data-type="Merchant">
+        <div class="field-wrapper relative flex flex-col flex-grow pb-2 md:pb-0 leading-tight min-h-14 field-wrapper-layout-inline md:flex-row md:items-center field-wrapper-size-regular field-width-regular   " style=" " data-field-id="commentable" data-field-type="belongs_to" data-resource-edit-target="commentableBelongsToWrapper">
+  <div class="h-full  md:pt-0 md:h-14  pt-4 flex self-start items-center  w-48  md:w-64  px-6 uppercase font-semibold text-gray-500 text-sm" data-slot="label">
+      <label for="comment_commentable">Merchant</label>
+     <span class="text-red-600 ml-1">*</span>
+  </div>
+  <div class="flex-1 flex flex-row md:min-h-inherit py-2  px-6 " data-slot="value">
+    <div class="self-center  md:w-8/12 ">
+
+            <div data-controller="search" class="resource-search flex items-center h-full w-full" data-turbo-remove-before-cache="">
+  <div class="w-full hidden" data-search-target="autocomplete" data-search-resource="merchants" data-translation-keys="{&quot;no_item_found&quot;: &quot;No %{item} found&quot;}" data-via-association="belongs_to" data-via-association-id="commentable" data-via-reflection-id="" data-via-reflection-class="Comment" data-via-parent-resource-id="15" data-via-parent-resource-class="Customer" data-via-relation="commentable"><div class="aa-Autocomplete" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-labelledby="autocomplete-3-label"><button class="aa-DetachedSearchButton"><div class="aa-DetachedSearchButtonIcon"><svg class="aa-SubmitIcon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M16.041 15.856c-0.034 0.026-0.067 0.055-0.099 0.087s-0.060 0.064-0.087 0.099c-1.258 1.213-2.969 1.958-4.855 1.958-1.933 0-3.682-0.782-4.95-2.050s-2.050-3.017-2.050-4.95 0.782-3.682 2.050-4.95 3.017-2.050 4.95-2.050 3.682 0.782 4.95 2.050 2.050 3.017 2.050 4.95c0 1.886-0.745 3.597-1.959 4.856zM21.707 20.293l-3.675-3.675c1.231-1.54 1.968-3.493 1.968-5.618 0-2.485-1.008-4.736-2.636-6.364s-3.879-2.636-6.364-2.636-4.736 1.008-6.364 2.636-2.636 3.879-2.636 6.364 1.008 4.736 2.636 6.364 3.879 2.636 6.364 2.636c2.125 0 4.078-0.737 5.618-1.968l3.675 3.675c0.391 0.391 1.024 0.391 1.414 0s0.391-1.024 0-1.414z"></path></svg></div><div class="aa-DetachedSearchButtonPlaceholder">Search</div></button></div></div>
+  <div class="relative w-full" autocomplete="off">
+    <input class="appearance-none inline-flex bg-gray-25 disabled:cursor-not-allowed text-gray-600 disabled:opacity-50 rounded py-2 px-3 leading-tight border focus:border-gray-600 focus-visible:ring-0 focus:text-gray-700 placeholder:text-gray-300 border-gray-200  w-full" data-search-target="button clearValue" data-should-be-disabled="true" data-resource-edit-target="commentableBelongsToInput" disabled="disabled" placeholder="Choose an option" style="" type="text" value="Mohamed Elassadi " name="" id="comment_commentable_id" valid-name="comment[commentable_id]">
+  </div>
+  <input value="15" data-search-target="hiddenId clearValue" data-resource-edit-target="commentableBelongsToInput" autocomplete="off" type="hidden" name="" id="comment_commentable_id" valid-name="comment[commentable_id]">
+</div>
+
+
+    </div>
+  </div>
+</div>      </div>
+      <div class="hidden" data-belongs-to-field-target="type" data-type="Contact">
+        <div class="field-wrapper relative flex flex-col flex-grow pb-2 md:pb-0 leading-tight min-h-14 field-wrapper-layout-inline md:flex-row md:items-center field-wrapper-size-regular field-width-regular   " style=" " data-field-id="commentable" data-field-type="belongs_to" data-resource-edit-target="commentableBelongsToWrapper">
+  <div class="h-full  md:pt-0 md:h-14  pt-4 flex self-start items-center  w-48  md:w-64  px-6 uppercase font-semibold text-gray-500 text-sm" data-slot="label">
+      <label for="comment_commentable">Kontakt</label>
+     <span class="text-red-600 ml-1">*</span>
+  </div>
+  <div class="flex-1 flex flex-row md:min-h-inherit py-2  px-6 " data-slot="value">
+    <div class="self-center  md:w-8/12 ">
+
+            <div data-controller="search" class="resource-search flex items-center h-full w-full" data-turbo-remove-before-cache="">
+  <div class="w-full hidden" data-search-target="autocomplete" data-search-resource="contacts" data-translation-keys="{&quot;no_item_found&quot;: &quot;No %{item} found&quot;}" data-via-association="belongs_to" data-via-association-id="commentable" data-via-reflection-id="" data-via-reflection-class="Comment" data-via-parent-resource-id="15" data-via-parent-resource-class="Customer" data-via-relation="commentable"><div class="aa-Autocomplete" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-labelledby="autocomplete-4-label"><button class="aa-DetachedSearchButton"><div class="aa-DetachedSearchButtonIcon"><svg class="aa-SubmitIcon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M16.041 15.856c-0.034 0.026-0.067 0.055-0.099 0.087s-0.060 0.064-0.087 0.099c-1.258 1.213-2.969 1.958-4.855 1.958-1.933 0-3.682-0.782-4.95-2.050s-2.050-3.017-2.050-4.95 0.782-3.682 2.050-4.95 3.017-2.050 4.95-2.050 3.682 0.782 4.95 2.050 2.050 3.017 2.050 4.95c0 1.886-0.745 3.597-1.959 4.856zM21.707 20.293l-3.675-3.675c1.231-1.54 1.968-3.493 1.968-5.618 0-2.485-1.008-4.736-2.636-6.364s-3.879-2.636-6.364-2.636-4.736 1.008-6.364 2.636-2.636 3.879-2.636 6.364 1.008 4.736 2.636 6.364 3.879 2.636 6.364 2.636c2.125 0 4.078-0.737 5.618-1.968l3.675 3.675c0.391 0.391 1.024 0.391 1.414 0s0.391-1.024 0-1.414z"></path></svg></div><div class="aa-DetachedSearchButtonPlaceholder">Search</div></button></div></div>
+  <div class="relative w-full" autocomplete="off">
+    <input class="appearance-none inline-flex bg-gray-25 disabled:cursor-not-allowed text-gray-600 disabled:opacity-50 rounded py-2 px-3 leading-tight border focus:border-gray-600 focus-visible:ring-0 focus:text-gray-700 placeholder:text-gray-300 border-gray-200  w-full" data-search-target="button clearValue" data-should-be-disabled="true" data-resource-edit-target="commentableBelongsToInput" disabled="disabled" placeholder="Choose an option" style="" type="text" value="Mohamed Elassadi " name="" id="comment_commentable_id" valid-name="comment[commentable_id]">
+  </div>
+  <input value="15" data-search-target="hiddenId clearValue" data-resource-edit-target="commentableBelongsToInput" autocomplete="off" type="hidden" name="" id="comment_commentable_id" valid-name="comment[commentable_id]">
+</div>
+
+
+    </div>
+  </div>
+</div>      </div>
+      <div class="hidden" data-belongs-to-field-target="type" data-type="Issue">
+        <div class="field-wrapper relative flex flex-col flex-grow pb-2 md:pb-0 leading-tight min-h-14 field-wrapper-layout-inline md:flex-row md:items-center field-wrapper-size-regular field-width-regular   " style=" " data-field-id="commentable" data-field-type="belongs_to" data-resource-edit-target="commentableBelongsToWrapper">
+  <div class="h-full  md:pt-0 md:h-14  pt-4 flex self-start items-center  w-48  md:w-64  px-6 uppercase font-semibold text-gray-500 text-sm" data-slot="label">
+      <label for="comment_commentable">Reparaturauftrag</label>
+     <span class="text-red-600 ml-1">*</span>
+  </div>
+  <div class="flex-1 flex flex-row md:min-h-inherit py-2  px-6 " data-slot="value">
+    <div class="self-center  md:w-8/12 ">
+
+            <div data-controller="search" class="resource-search flex items-center h-full w-full" data-turbo-remove-before-cache="">
+  <div class="w-full hidden" data-search-target="autocomplete" data-search-resource="issues" data-translation-keys="{&quot;no_item_found&quot;: &quot;No %{item} found&quot;}" data-via-association="belongs_to" data-via-association-id="commentable" data-via-reflection-id="" data-via-reflection-class="Comment" data-via-parent-resource-id="15" data-via-parent-resource-class="Customer" data-via-relation="commentable"><div class="aa-Autocomplete" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-labelledby="autocomplete-5-label"><button class="aa-DetachedSearchButton"><div class="aa-DetachedSearchButtonIcon"><svg class="aa-SubmitIcon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M16.041 15.856c-0.034 0.026-0.067 0.055-0.099 0.087s-0.060 0.064-0.087 0.099c-1.258 1.213-2.969 1.958-4.855 1.958-1.933 0-3.682-0.782-4.95-2.050s-2.050-3.017-2.050-4.95 0.782-3.682 2.050-4.95 3.017-2.050 4.95-2.050 3.682 0.782 4.95 2.050 2.050 3.017 2.050 4.95c0 1.886-0.745 3.597-1.959 4.856zM21.707 20.293l-3.675-3.675c1.231-1.54 1.968-3.493 1.968-5.618 0-2.485-1.008-4.736-2.636-6.364s-3.879-2.636-6.364-2.636-4.736 1.008-6.364 2.636-2.636 3.879-2.636 6.364 1.008 4.736 2.636 6.364 3.879 2.636 6.364 2.636c2.125 0 4.078-0.737 5.618-1.968l3.675 3.675c0.391 0.391 1.024 0.391 1.414 0s0.391-1.024 0-1.414z"></path></svg></div><div class="aa-DetachedSearchButtonPlaceholder">Search</div></button></div></div>
+  <div class="relative w-full" autocomplete="off">
+    <input class="appearance-none inline-flex bg-gray-25 disabled:cursor-not-allowed text-gray-600 disabled:opacity-50 rounded py-2 px-3 leading-tight border focus:border-gray-600 focus-visible:ring-0 focus:text-gray-700 placeholder:text-gray-300 border-gray-200  w-full" data-search-target="button clearValue" data-should-be-disabled="true" data-resource-edit-target="commentableBelongsToInput" disabled="disabled" placeholder="Choose an option" style="" type="text" value="Mohamed Elassadi " name="" id="comment_commentable_id" valid-name="comment[commentable_id]">
+  </div>
+  <input value="15" data-search-target="hiddenId clearValue" data-resource-edit-target="commentableBelongsToInput" autocomplete="off" type="hidden" name="" id="comment_commentable_id" valid-name="comment[commentable_id]">
+</div>
+
+
+    </div>
+  </div>
+</div>      </div>
+  </div>
+
+                <div class="field-wrapper relative flex flex-col flex-grow pb-2 md:pb-0 leading-tight min-h-14 field-wrapper-layout-stacked field-wrapper-size-regular field-width-full   " style=" " data-field-id="body" data-field-type="trix" data-resource-edit-target="bodyTrixWrapper">
+  <div class="h-full  md:pt-4  pt-4 flex self-start items-center  w-48  md:w-64  px-6 uppercase font-semibold text-gray-500 text-sm" data-slot="label">
+      <label for="comment_body">Body</label>
+     <span class="text-red-600 ml-1">*</span>
+  </div>
+  <div class="flex-1 flex flex-row md:min-h-inherit py-2  pb-4  px-6 " data-slot="value">
+    <div class="self-center  w-full ">
+
+  <div class="relative block overflow-x-auto max-w-full" data-controller="trix-field" data-trix-field-target="controller" data-resource-name="comment" data-attachments-disabled="false" data-attachment-key="trix_attachments" data-hide-attachment-filename="false" data-hide-attachment-filesize="false" data-hide-attachment-url="false">
+    <trix-toolbar id="trix-toolbar-1"><div class="trix-button-row">
+  <span class="trix-button-group trix-button-group--text-tools" data-trix-button-group="text-tools">
+    <button type="button" class="trix-button trix-button--icon trix-button--icon-bold" data-trix-attribute="bold" data-trix-key="b" title="Bold" tabindex="-1">Bold</button>
+    <button type="button" class="trix-button trix-button--icon trix-button--icon-italic" data-trix-attribute="italic" data-trix-key="i" title="Italic" tabindex="-1">Italic</button>
+    <button type="button" class="trix-button trix-button--icon trix-button--icon-strike" data-trix-attribute="strike" title="Strikethrough" tabindex="-1">Strikethrough</button>
+    <button type="button" class="trix-button trix-button--icon trix-button--icon-link" data-trix-attribute="href" data-trix-action="link" data-trix-key="k" title="Link" tabindex="-1">Link</button>
+  </span>
+
+  <span class="trix-button-group trix-button-group--block-tools" data-trix-button-group="block-tools">
+    <button type="button" class="trix-button trix-button--icon trix-button--icon-heading-1" data-trix-attribute="heading1" title="Heading" tabindex="-1">Heading</button>
+    <button type="button" class="trix-button trix-button--icon trix-button--icon-quote" data-trix-attribute="quote" title="Quote" tabindex="-1">Quote</button>
+    <button type="button" class="trix-button trix-button--icon trix-button--icon-code" data-trix-attribute="code" title="Code" tabindex="-1">Code</button>
+    <button type="button" class="trix-button trix-button--icon trix-button--icon-bullet-list" data-trix-attribute="bullet" title="Bullets" tabindex="-1">Bullets</button>
+    <button type="button" class="trix-button trix-button--icon trix-button--icon-number-list" data-trix-attribute="number" title="Numbers" tabindex="-1">Numbers</button>
+    <button type="button" class="trix-button trix-button--icon trix-button--icon-decrease-nesting-level" data-trix-action="decreaseNestingLevel" title="Decrease Level" tabindex="-1" disabled="">Decrease Level</button>
+    <button type="button" class="trix-button trix-button--icon trix-button--icon-increase-nesting-level" data-trix-action="increaseNestingLevel" title="Increase Level" tabindex="-1" disabled="">Increase Level</button>
+  </span>
+
+  <span class="trix-button-group trix-button-group--file-tools" data-trix-button-group="file-tools">
+    <button type="button" class="trix-button trix-button--icon trix-button--icon-attach" data-trix-action="attachFiles" title="Attach Files" tabindex="-1">Attach Files</button>
+  </span>
+
+  <span class="trix-button-group-spacer"></span>
+
+  <span class="trix-button-group trix-button-group--history-tools" data-trix-button-group="history-tools">
+    <button type="button" class="trix-button trix-button--icon trix-button--icon-undo" data-trix-action="undo" data-trix-key="z" title="Undo" tabindex="-1" disabled="">Undo</button>
+    <button type="button" class="trix-button trix-button--icon trix-button--icon-redo" data-trix-action="redo" data-trix-key="shift+z" title="Redo" tabindex="-1" disabled="">Redo</button>
+  </span>
+</div>
+
+<div class="trix-dialogs" data-trix-dialogs="">
+  <div class="trix-dialog trix-dialog--link" data-trix-dialog="href" data-trix-dialog-attribute="href">
+    <div class="trix-dialog__link-fields">
+      <input type="url" name="href" class="trix-input trix-input--dialog" placeholder="Enter a URL…" aria-label="URL" required="" data-trix-input="" disabled="disabled">
+      <div class="trix-button-group">
+        <input type="button" class="trix-button trix-button--dialog" value="Link" data-trix-method="setAttribute">
+        <input type="button" class="trix-button trix-button--dialog" value="Unlink" data-trix-method="removeAttribute">
+      </div>
+    </div>
+  </div>
+</div></trix-toolbar><trix-editor class="trix-content" data-trix-field-target="editor" data-resource-edit-target="bodyTrixInput" input="trix_comment_body" placeholder="Body" contenteditable="" role="textbox" trix-id="1" toolbar="trix-toolbar-1"></trix-editor>    <textarea class="appearance-none inline-flex bg-gray-25 disabled:cursor-not-allowed text-gray-600 disabled:opacity-50 rounded py-2 px-3 leading-tight border focus:border-gray-600 focus-visible:ring-0 focus:text-gray-700 placeholder:text-gray-300 border-gray-200  w-full hidden" data-resource-edit-target="bodyTrixInput" id="trix_comment_body" placeholder="Body" style="" name="comment[body]"></textarea>
+</div>
+    </div>
+  </div>
+</div>
+            </div>
+
+        </div>
+
+      <div class="w-full md:w-full px-3 mb-2 mt-2">
+        <textarea
+          data-commentable-target="commentableTextArea"
+          data-action="keyup->commentable#commentableEscPressed"
+          rows="8"
+          class="bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-full h-25 py-2 px-3 font-medium
+          placeholder-gray-700 focus:outline-none focus:bg-white"
+          name="body" placeholder='Type Your Comment' required></textarea>
+      </div>
+
+
+      <div class="flex-1 flex flex-col xl:flex-row justify-between mb-4">
+        <div class="flex-1 w-full flex flex-wrap flex-col sm:flex-row xl:justify-end sm:items-end gap-2 mt-4 xl:mt-0"
+          data-target="panel-tools">
+
+
+          <a class="button-component inline-flex flex-grow-0 items-center font-semibold leading-6 fill-current whitespace-nowrap transition duration-100 transform transition duration-100 cursor-pointer disabled:cursor-not-allowed disabled:opacity-70 border justify-center active:outline active:outline-1  rounded text-gray-500 active:outline-gray-500 hover:bg-gray-100 border-transparent px-3 py-1.5 text-sm"
+            data-commentable-target="commentableCancelButton"
+            data-action="commentable#commentableCancelButtonClicked"
+            href="#">
+            <span>Cancel</span>
+          </a>
+
+          <a data-turbo-frame="modal_resource"
+            class="button-component inline-flex flex-grow-0 items-center font-semibold leading-6 fill-current whitespace-nowrap transition duration-100 transform transition duration-100 cursor-pointer disabled:cursor-not-allowed disabled:opacity-70 border justify-center active:outline active:outline-1  rounded bg-primary-500 text-white border-primary-500 hover:bg-primary-600 hover:border-primary-600 active:border-primary-600 active:outline-primary-600 active:bg-primary-600 px-3 py-1.5 text-sm"
+            href="/resources/comments/new?modal_resource=true&amp;via_child_resource=CommentResource&amp;via_relation=commentable&amp;via_relation_class=Customer&amp;via_resource_id=15"><svg
+              xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" aria-hidden="true" class=" mr-1 h-4 my-1">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v18m9-9H3"></path>
+            </svg>
+            <span>
+              Create new comment
+            </span></a>
+        </div>
+      </div>
+  </form>
+
+
+
+      <% end %>
+    <% end %>
+  </div>
+<% end %>
+
+

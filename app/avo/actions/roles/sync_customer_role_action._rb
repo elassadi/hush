@@ -1,0 +1,25 @@
+module Roles
+  class SyncCustomerRoleAction < ::ApplicationBaseAction
+    self.name = "SyncCustomerRoles"
+
+    # test
+    self.visible = lambda do
+      return false unless view == :show
+
+      current_user.may?(:sync_customer_roles, resource.model)
+    end
+
+    def handle(**args)
+      role = args[:models].first
+      authorize_and_run(:sync_customer_roles, role) do |r|
+        sync_system_role(r)
+      end
+    end
+
+    private
+
+    def sync_system_role(role)
+      Roles::SyncCustomerRolesTransaction.call(role_ids: [role.id])
+    end
+  end
+end

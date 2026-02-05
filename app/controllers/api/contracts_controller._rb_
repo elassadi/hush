@@ -1,0 +1,41 @@
+# frozen_string_literal: true
+
+module Api
+  class ContractsController < ::Api::BaseController
+    def index
+      render json: {}, status: :ok
+    end
+
+    def show
+      params.permit(:format, :uuid)
+      response = Messages::FetchService.perform(
+        message_uuid: params[:uuid]
+      )
+      json_response(response, response.http_status)
+    end
+
+    def create
+      render json: {}, status: :ok
+    end
+
+    def _index
+      params.permit(:cursor, :limit, :conversation_uuid)
+      response = Messages::ListService.perform(
+        conversation_uuid: params[:conversation_uuid],
+        cursor: params[:cursor],
+        limit: params[:limit]
+      )
+      json_response(response, response.http_status)
+    end
+
+    private
+
+    def create_message_params
+      params.permit(:conversation_uuid, :body, :format)
+      {
+        body: params[:body],
+        conversation_uuid: params[:conversation_uuid]
+      }
+    end
+  end
+end

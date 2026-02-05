@@ -1,0 +1,8 @@
+module CurrentUserHelper
+  extend ActiveSupport::Concern
+
+  def set_demo_current_user(user_class, **params)
+    user_object = FactoryBot.create(user_class, **params)
+    Current.user = user_object
+  end
+end

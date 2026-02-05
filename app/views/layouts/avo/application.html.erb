@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+      <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/7.2.0/intro.min.js">
+      </script>
+
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/7.2.0/introjs.min.css"  />
+
+
+    <script>
+      var globalRecloudData = <%= Current.user.global_recloud_data.to_json.html_safe %>;
+    </script>
+
+    <%= display_meta_tags site: Avo.configuration.app_name, reverse: true, separator: "—" %>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= render partial: 'avo/partials/javascript' %>
+    <%= render partial: 'recloud/configuration' %>
+    <%= render partial: 'avo/partials/branding' %>
+    <%= render partial: 'avo/partials/pre_head' %>
+    <% if Avo::PACKED %>
+      <%= javascript_include_tag "/avo-assets/avo.base", "data-turbo-track": "reload", defer: true %>
+      <%= stylesheet_link_tag "/avo-assets/avo.base", "data-turbo-track": "reload", defer: true %>
+    <% else %>
+      <%= javascript_include_tag "avo.base", "data-turbo-track": "reload", defer: true %>
+      <%= stylesheet_link_tag "avo.base", "data-turbo-track": "reload", defer: true %>
+      <% if Rails.env.development? %>
+        <%= javascript_include_tag "hotwire-livereload", defer: true %>
+      <% end %>
+    <% end %>
+    <%= render partial: 'avo/partials/head' %>
+
+<% if false %>
+    <!-- OpenReplay Tracking Code for my first project -->
+<script>
+  var initOpts = {
+    projectKey: "6sT5InJfawzDJdcAbd3Q",
+    defaultInputMode: 0,
+    obscureTextNumbers: false,
+    obscureTextEmails: true,
+    __DISABLE_SECURE_MODE: true, // Disable secure mode for local testing
+
+  };
+  var startOpts = { userID: "<%=Current.user.email%>" };
+  (function(A,s,a,y,e,r){
+    r=window.OpenReplay=[e,r,y,[s-1, e]];
+    s=document.createElement('script');s.src=A;s.async=!a;
+    document.getElementsByTagName('head')[0].appendChild(s);
+    r.start=function(v){r.push([0])};
+    r.stop=function(v){r.push([1])};
+    r.setUserID=function(id){r.push([2,id])};
+    r.setUserAnonymousID=function(id){r.push([3,id])};
+    r.setMetadata=function(k,v){r.push([4,k,v])};
+    r.event=function(k,p,i){r.push([5,k,p,i])};
+    r.issue=function(k,p){r.push([6,k,p])};
+    r.isActive=function(){return false};
+    r.getSessionToken=function(){};
+  })("//static.openreplay.com/latest/openreplay-assist.js",1,0,initOpts,startOpts);
+
+</script>
+<% end %>
+
+
+  </head>
+  <body class="bg-application os-mac"  data-controller="recloud-app" data-recloud-app-view-value="<%= @view %>" >
+    <%= turbo_stream_from(Current.user.notifications_key) %>
+    <div class="relative flex flex-1 w-full min-h-full" data-controller="sidebar" data-sidebar-open-value="<%= @sidebar_open %>">
+      <div class="flex-1 flex flex-col max-w-full">
+        <%#= render partial: "avo/partials/navbar"
+        %>
+        <%= render RecloudCore::NavbarComponent.new  %>
+        <div data-sidebar-target="mainArea" class="content-area flex-1 flex pt-16 relative <%= 'sidebar-open' if @sidebar_open %>">
+          <div class="hidden lg:flex">
+            <%= render RecloudCore::SidebarComponent.new sidebar_open: @sidebar_open %>
+          </div>
+          <div class="flex lg:hidden">
+            <%= render RecloudCore::SidebarComponent.new sidebar_open: false, for_mobile: true %>
+          </div>
+          <div class="main-content-area flex-1 flex flex-col min-h-full max-w-full">
+            <div class="content p-4 lg:p-6 flex-1 flex flex-col justify-between items-stretch <%= action_name =="calendar_tool" ? "" : @container_classes %>">
+              <%= render partial: "avo/partials/custom_tools_alert" %>
+              <div class="flex flex-1 flex-col justify-between items-stretch space-y-8">
+                <%= yield %>
+                <%# <%= render partial: "avo/partials/footer" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <%= turbo_frame_tag 'modal_resource' %>
+    <%= turbo_frame_tag 'destroy_belongs_to' %>
+    <%= turbo_frame_tag 'sub_modal_resource' %>
+    <%= turbo_frame_tag 'actions_show' %>
+    <%= turbo_frame_tag 'attach_modal' %>
+    <%= turbo_frame_tag 'destroy_attachment_form' %>
+    <%= turbo_frame_tag 'alerts', class: "fixed inset-0 bottom-0 flex flex-col space-y-4 items-end justify-right px-4 py-6 sm:p-6 justify-end z-[100] pointer-events-none" do %>
+      <%= render Avo::FlashAlertsComponent.new flashes: flash %>
+      <% # In case we have other general error messages %>
+      <% if @errors.present? %>
+        <% @errors.each do |message| %>
+          <%= render Avo::AlertComponent.new :error, message %>
+        <% end %>
+      <% end %>
+    <% end %>
+    <%= render partial: "avo/partials/scripts" %>
+
+
+  </body>
+
+
+
+</html>

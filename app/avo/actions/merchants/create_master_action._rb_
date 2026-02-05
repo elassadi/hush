@@ -1,0 +1,27 @@
+module Merchants
+  class CreateMasterAction < ::ApplicationBaseAction
+    self.name = "CreateMaster"
+
+    # test
+    self.visible = lambda do
+      return false unless view == :show
+
+      current_user.may?(:create_master, resource.model)
+    end
+
+    def handle(**args)
+      models = args[:models]
+      models.each do |model|
+        authorize_and_run(:create_master, model) do |merchant|
+          create_master(merchant)
+        end
+      end
+    end
+
+    private
+
+    def create_master(merchant)
+      Merchants::CreateMasterTransaction.call(merchant_id: merchant.id)
+    end
+  end
+end

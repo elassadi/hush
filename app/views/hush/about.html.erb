@@ -1,0 +1,32 @@
+<%= render 'wellness_meta_styles' %>
+
+<div class="wellness-page">
+  <%= render 'wellness_header' %>
+  <%= render 'wellness_mobile_menu' %>
+  <%= render 'wellness_scroll_to_top' %>
+
+  <main>
+    <div class="container">
+      <section class="wellness-section" style="padding-top: 8rem;">
+        <h2><%= t('hush.wellness.about.title') %></h2>
+
+        <div class="editorial-split" style="margin-top: 3rem;">
+          <div class="editorial-image">
+            <img src="/images/alena.png" alt="<%= t('hush.wellness.about.image_alt') %>" loading="lazy">
+          </div>
+          <div class="editorial-text">
+            <h3><%= t('hush.wellness.about.subtitle') %></h3>
+            <p><%= t('hush.wellness.about.intro') %></p>
+            <p style="margin-top: 1.5rem;"><%= t('hush.wellness.about.idea') %></p>
+            <p style="margin-top: 1.5rem;"><%= t('hush.wellness.about.alena_vision') %></p>
+            <p style="margin-top: 1.5rem;"><%= t('hush.wellness.about.values') %></p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <%= render 'wellness_footer' %>
+</div>
+
+<%= render 'wellness_scripts' %>

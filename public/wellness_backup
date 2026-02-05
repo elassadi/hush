@@ -1,0 +1,1470 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- SEO Meta Tags -->
+    <title>HUSH HAARENTFERNUNG | Professionelle Waxing & Haarentfernung | Wellness & Beauty</title>
+    <meta name="description" content="HUSH HAARENTFERNUNG bietet professionelle Waxing-Behandlungen, Sugaring und dauerhafte Haarentfernung. Erfahren Sie alles über Waxing, Preise, Vorteile und Pflegetipps für seidig glatte Haut.">
+    <meta name="keywords" content="Waxing, Haarentfernung, Professionelle Haarentfernung, Waxing Berlin, Waxing München, Bikini Waxing, Brazilian Wax, Sugaring, dauerhafte Haarentfernung, Beauty-Behandlung, Kosmetikstudio">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="HUSH HAARENTFERNUNG">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="HUSH HAARENTFERNUNG | Professionelle Waxing & Haarentfernung">
+    <meta property="og:description" content="Professionelle Waxing-Behandlungen, Tipps und Preise für seidig glatte Haut. Erleben Sie Wellness auf höchstem Niveau.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="/images/wellness/hero-wellness.jpg">
+    <meta property="og:url" content="https://www.hush-haarentfernung.de/wellness.html">
+    <meta property="og:site_name" content="HUSH HAARENTFERNUNG">
+
+    <!-- Language Alternates -->
+    <link rel="alternate" hreflang="de" href="https://www.hush-haarentfernung.de/wellness.html">
+    <link rel="alternate" hreflang="en" href="https://www.hush-haarentfernung.de/wellness.html?lang=en">
+    <link rel="canonical" href="https://www.hush-haarentfernung.de/wellness.html">
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favs/favicon.ico" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BeautySalon",
+      "name": "HUSH HAARENTFERNUNG",
+      "description": "Professionelle Haarentfernung durch Waxing, Sugaring und dauerhafte Haarentfernung",
+      "url": "https://www.hush-haarentfernung.de",
+      "logo": "https://www.hush-haarentfernung.de/recloud-logo.png",
+      "image": "https://www.hush-haarentfernung.de/images/wellness/hero-wellness.jpg",
+      "priceRange": "€15-€250",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "DE"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Waxing Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Brazilian Wax",
+              "description": "Vollständige Intimhaarentfernung"
+            },
+            "price": "50-75",
+            "priceCurrency": "EUR"
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Full Leg Wax",
+              "description": "Komplette Beinhaarentfernung"
+            },
+            "price": "60-85",
+            "priceCurrency": "EUR"
+          }
+        ]
+      }
+    }
+    </script>
+
+    <style>
+        :root {
+            --primary-color: #00d2c0;
+            --primary-dark: #009386;
+            --primary-darker: #02564f;
+            --accent-color: #c5eef1;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --bg-light: #F9F9F9;
+            --white: #ffffff;
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--bg-light);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--primary-darker);
+            margin-top: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            color: var(--primary-dark);
+            margin-top: 2rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        a {
+            color: var(--primary-dark);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--primary-darker);
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--white);
+            box-shadow: 0 2px 10px var(--shadow);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo .logo-main {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .logo .logo-sub {
+            font-size: 0.7rem;
+            font-weight: 300;
+            color: var(--text-light);
+            letter-spacing: 0.1em;
+            margin-top: -0.3rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .lang-toggle {
+            display: flex;
+            gap: 0.5rem;
+            margin-left: 1rem;
+        }
+
+        .lang-toggle button {
+            background: none;
+            border: 1px solid var(--primary-color);
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+        }
+
+        .lang-toggle button.active {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        .lang-toggle button:hover {
+            background: var(--primary-dark);
+            color: var(--white);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            position: relative;
+            height: 600px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('/images/wellness/hero-wellness.jpg') center/cover;
+            opacity: 0.2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            color: var(--white);
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero-content h1 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-content p {
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            color: var(--white);
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--white);
+            color: var(--primary-dark);
+            font-weight: 600;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            color: var(--primary-darker);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px var(--shadow);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 210, 192, 0.2);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .service-card h3 {
+            color: var(--primary-darker);
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            font-size: 0.95rem;
+        }
+
+        /* Article Sections */
+        .article-section {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px var(--shadow);
+        }
+
+        .article-section h3 {
+            margin-top: 0;
+        }
+
+        .article-section ul, .article-section ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .article-section li {
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+        }
+
+        /* Pricing Table */
+        .pricing-section {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px var(--shadow);
+        }
+
+        .pricing-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+        }
+
+        .pricing-table thead {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: var(--white);
+        }
+
+        .pricing-table th,
+        .pricing-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .pricing-table th {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .pricing-table tbody tr:hover {
+            background: var(--accent-color);
+        }
+
+        .pricing-table .price {
+            font-weight: 600;
+            color: var(--primary-dark);
+            font-size: 1.1rem;
+        }
+
+        .pricing-note {
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        /* Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            aspect-ratio: 4/3;
+            box-shadow: 0 4px 15px var(--shadow);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* FAQ Section */
+        .faq-container {
+            margin-top: 2rem;
+        }
+
+        .faq-item {
+            background: var(--white);
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px var(--shadow);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 4px 15px rgba(0, 210, 192, 0.2);
+        }
+
+        .faq-question {
+            font-weight: 600;
+            color: var(--primary-darker);
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            color: var(--text-light);
+            margin-top: 0.5rem;
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px var(--shadow);
+        }
+
+        .testimonial-rating {
+            color: #ffc107;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary-darker);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: var(--white);
+            padding: 4rem 0;
+            border-radius: 12px;
+            margin: 4rem 0;
+        }
+
+        .contact-section h2 {
+            color: var(--white);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-info {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-info h3 {
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--white);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.9);
+            font-family: inherit;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-button {
+            background: var(--white);
+            color: var(--primary-dark);
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-darker);
+            color: var(--white);
+            padding: 3rem 0 1rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--white);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        /* Language Content */
+        .lang-content {
+            display: none;
+        }
+
+        .lang-content.active {
+            display: block;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                flex-direction: column;
+                background: var(--white);
+                width: 100%;
+                padding: 2rem;
+                box-shadow: 0 4px 10px var(--shadow);
+                transition: left 0.3s ease;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .hero {
+                height: 400px;
+            }
+
+            .services-grid,
+            .gallery-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 2rem 0;
+            }
+
+            .article-section,
+            .pricing-section {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Skip Navigation */
+        .skip-nav {
+            position: absolute;
+            top: -100px;
+            left: 0;
+            background: var(--primary-dark);
+            color: var(--white);
+            padding: 1rem;
+            z-index: 1001;
+            text-decoration: none;
+        }
+
+        .skip-nav:focus {
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-nav">Zum Hauptinhalt springen</a>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <span class="logo-main">HUSH</span>
+                <span class="logo-sub">HAARENTFERNUNG</span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#services">Leistungen</a></li>
+                <li><a href="#why-waxing">Warum Waxing</a></li>
+                <li><a href="#how-it-works">So funktioniert's</a></li>
+                <li><a href="#pricing">Preise</a></li>
+                <li><a href="#gallery">Galerie</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+                <li><a href="/booking" class="cta-button" style="padding: 0.5rem 1.5rem; font-size: 0.9rem;">Termin buchen</a></li>
+            </ul>
+            <div class="lang-toggle">
+                <button class="active" onclick="switchLanguage('de')">DE</button>
+                <button onclick="switchLanguage('en')">EN</button>
+            </div>
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="lang-de active">Professionelle Haarentfernung bei HUSH</h1>
+            <h1 class="lang-en">Professional Hair Removal at HUSH</h1>
+            <p class="lang-de active">Seidig glatte Haut durch Waxing, Sugaring und dauerhafte Haarentfernung. Erleben Sie Wellness auf höchstem Niveau.</p>
+            <p class="lang-en">Silky smooth skin through waxing, sugaring and permanent hair removal. Experience wellness at the highest level.</p>
+            <a href="/booking" class="cta-button lang-de active">Jetzt Termin buchen</a>
+            <a href="/booking" class="cta-button lang-en">Book Appointment Now</a>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <div class="container">
+            <!-- Services Overview -->
+            <section id="services">
+                <h2 class="lang-de active">Unsere Leistungen</h2>
+                <h2 class="lang-en">Our Services</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">🔥</div>
+                        <h3 class="lang-de active">Waxing</h3>
+                        <h3 class="lang-en">Waxing</h3>
+                        <p class="lang-de active">Professionelle Haarentfernung mit heißem und hartem Wachs für alle Körperbereiche.</p>
+                        <p class="lang-en">Professional hair removal with hot and hard wax for all body areas.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🍯</div>
+                        <h3 class="lang-de active">Sugaring</h3>
+                        <h3 class="lang-en">Sugaring</h3>
+                        <p class="lang-de active">Sanfte Haarentfernung mit natürlicher Zuckerpaste - besonders schonend für empfindliche Haut.</p>
+                        <p class="lang-en">Gentle hair removal with natural sugar paste - especially gentle on sensitive skin.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">⚡</div>
+                        <h3 class="lang-de active">Dauerhafte Haarentfernung</h3>
+                        <h3 class="lang-en">Permanent Hair Removal</h3>
+                        <p class="lang-de active">Langfristige Haarreduktion durch moderne Laser- und IPL-Technologie.</p>
+                        <p class="lang-en">Long-term hair reduction through modern laser and IPL technology.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">✨</div>
+                        <h3 class="lang-de active">Gesichtsbehandlungen</h3>
+                        <h3 class="lang-en">Facial Treatments</h3>
+                        <p class="lang-de active">Augenbrauen, Oberlippe, Kinn und andere Gesichtsbereiche mit Präzision behandelt.</p>
+                        <p class="lang-en">Eyebrows, upper lip, chin and other facial areas treated with precision.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">💆</div>
+                        <h3 class="lang-de active">Körperbehandlungen</h3>
+                        <h3 class="lang-en">Body Treatments</h3>
+                        <p class="lang-de active">Beine, Arme, Rücken, Bauch und Intimbereich - wir behandeln alle Bereiche professionell.</p>
+                        <p class="lang-en">Legs, arms, back, abdomen and intimate areas - we treat all areas professionally.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🌟</div>
+                        <h3 class="lang-de active">Ganzkörper-Waxing</h3>
+                        <h3 class="lang-en">Full Body Waxing</h3>
+                        <p class="lang-de active">Komplette Haarentfernung am ganzen Körper in einer Sitzung - für maximale Glätte.</p>
+                        <p class="lang-en">Complete hair removal on the entire body in one session - for maximum smoothness.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Why Waxing Article Section -->
+            <section id="why-waxing">
+                <h2 class="lang-de active">Warum Waxing? Alles was Sie wissen müssen</h2>
+                <h2 class="lang-en">Why Waxing? Everything You Need to Know</h2>
+
+                <article class="article-section">
+                    <h3 class="lang-de active">Was ist Waxing?</h3>
+                    <h3 class="lang-en">What is Waxing?</h3>
+                    <p class="lang-de active">Waxing ist eine bewährte Methode zur Haarentfernung, bei der warmes oder kaltes Wachs auf die Haut aufgetragen und dann schnell gegen die Wuchsrichtung der Haare entfernt wird. Dabei werden die Haare an der Wurzel entfernt, was zu einer deutlich längeren Glattheit führt als bei der Rasur. Die Behandlung kann mit heißem Wachs (Soft Wax) oder hartem Wachs (Hard Wax) durchgeführt werden, wobei Hard Wax besonders für empfindliche Bereiche wie den Intimbereich und das Gesicht geeignet ist.</p>
+                    <p class="lang-en">Waxing is a proven method of hair removal where warm or cold wax is applied to the skin and then quickly removed against the direction of hair growth. This removes the hair at the root, resulting in significantly longer smoothness than shaving. The treatment can be performed with hot wax (soft wax) or hard wax, with hard wax being particularly suitable for sensitive areas such as the intimate area and face.</p>
+
+                    <p class="lang-de active">Das Wachs wird auf die gewünschte Temperatur erhitzt und dann gleichmäßig auf die zu behandelnde Stelle aufgetragen. Nach dem Abkühlen wird das Wachs schnell und präzise entfernt, wodurch die Haare samt ihrer Wurzel aus der Haut gezogen werden. Dieser Prozess kann bei regelmäßiger Anwendung dazu führen, dass die Haare dünner und spärlicher nachwachsen.</p>
+                    <p class="lang-en">The wax is heated to the desired temperature and then applied evenly to the area to be treated. After cooling, the wax is quickly and precisely removed, pulling the hair along with its root from the skin. This process can, with regular application, cause the hair to grow back thinner and sparser.</p>
+                </article>
+
+                <article class="article-section">
+                    <h3 class="lang-de active">Vorteile von Waxing</h3>
+                    <h3 class="lang-en">Benefits of Waxing</h3>
+                    <p class="lang-de active">Waxing bietet zahlreiche Vorteile gegenüber anderen Methoden der Haarentfernung:</p>
+                    <p class="lang-en">Waxing offers numerous advantages over other methods of hair removal:</p>
+
+                    <ul class="lang-de active">
+                        <li><strong>Längere Haltbarkeit:</strong> Im Vergleich zur Rasur hält das Ergebnis 3-6 Wochen, abhängig vom individuellen Haarwachstum.</li>
+                        <li><strong>Dünneres Nachwachsen:</strong> Bei regelmäßiger Behandlung werden die Haare mit der Zeit dünner und weniger dicht.</li>
+                        <li><strong>Weniger Irritationen:</strong> Im Gegensatz zur Rasur entstehen keine Schnitte oder Rasurbrand.</li>
+                        <li><strong>Glattere Haut:</strong> Die Haut fühlt sich deutlich glatter an, da die Haare an der Wurzel entfernt werden.</li>
+                        <li><strong>Keine eingewachsenen Haare:</strong> Bei richtiger Vorbereitung und Nachbehandlung treten deutlich weniger eingewachsene Haare auf.</li>
+                        <li><strong>Exfoliation:</strong> Das Entfernen des Wachses wirkt gleichzeitig als sanfte Peeling-Behandlung.</li>
+                    </ul>
+                    <ul class="lang-en">
+                        <li><strong>Longer Lasting:</strong> Compared to shaving, results last 3-6 weeks, depending on individual hair growth.</li>
+                        <li><strong>Thinner Regrowth:</strong> With regular treatment, hair becomes thinner and less dense over time.</li>
+                        <li><strong>Less Irritation:</strong> Unlike shaving, there are no cuts or razor burn.</li>
+                        <li><strong>Smoother Skin:</strong> The skin feels significantly smoother as hair is removed at the root.</li>
+                        <li><strong>No Ingrown Hairs:</strong> With proper preparation and aftercare, significantly fewer ingrown hairs occur.</li>
+                        <li><strong>Exfoliation:</strong> Removing the wax also acts as a gentle exfoliation treatment.</li>
+                    </ul>
+                </article>
+
+                <article class="article-section">
+                    <h3 class="lang-de active">Waxing vs. andere Methoden</h3>
+                    <h3 class="lang-en">Waxing vs. Other Methods</h3>
+
+                    <p class="lang-de active"><strong>Waxing vs. Rasur:</strong> Während die Rasur nur die Haare an der Oberfläche entfernt und täglich wiederholt werden muss, entfernt Waxing die Haare an der Wurzel und hält 3-6 Wochen. Die Haut bleibt länger glatt und es entstehen keine Schnitte oder Rasurbrand.</p>
+                    <p class="lang-en"><strong>Waxing vs. Shaving:</strong> While shaving only removes hair at the surface and must be repeated daily, waxing removes hair at the root and lasts 3-6 weeks. The skin stays smooth longer and there are no cuts or razor burn.</p>
+
+                    <p class="lang-de active"><strong>Waxing vs. Epilation:</strong> Epilatoren entfernen ebenfalls Haare an der Wurzel, können aber schmerzhafter sein und zu mehr Irritationen führen. Professionelles Waxing ist schneller und effizienter, besonders für größere Bereiche.</p>
+                    <p class="lang-en"><strong>Waxing vs. Epilation:</strong> Epilators also remove hair at the root but can be more painful and cause more irritation. Professional waxing is faster and more efficient, especially for larger areas.</p>
+
+                    <p class="lang-de active"><strong>Waxing vs. Laser:</strong> Laser-Behandlungen bieten langfristige Haarreduktion, sind aber teurer und erfordern mehrere Sitzungen. Waxing ist eine kostengünstigere Alternative für regelmäßige Haarentfernung und kann auch als Vorbereitung für Laser-Behandlungen dienen.</p>
+                    <p class="lang-en"><strong>Waxing vs. Laser:</strong> Laser treatments offer long-term hair reduction but are more expensive and require multiple sessions. Waxing is a more cost-effective alternative for regular hair removal and can also serve as preparation for laser treatments.</p>
+                </article>
+
+                <article class="article-section">
+                    <h3 class="lang-de active">Wie oft sollte man waxen?</h3>
+                    <h3 class="lang-en">How Often Should You Wax?</h3>
+                    <p class="lang-de active">Die ideale Häufigkeit für Waxing-Behandlungen liegt bei etwa alle 4-6 Wochen. Diese Zeitspanne ermöglicht es den Haaren, lang genug nachzuwachsen (mindestens 0,5 cm), damit das Wachs sie effektiv greifen kann. Gleichzeitig ist sie kurz genug, um die Vorteile der Behandlung zu maximieren.</p>
+                    <p class="lang-en">The ideal frequency for waxing treatments is approximately every 4-6 weeks. This timeframe allows the hair to grow back long enough (at least 0.5 cm) so that the wax can effectively grip it. At the same time, it's short enough to maximize the benefits of the treatment.</p>
+
+                    <p class="lang-de active">Die Häufigkeit kann je nach Körperbereich variieren:</p>
+                    <p class="lang-en">The frequency can vary depending on the body area:</p>
+
+                    <ul class="lang-de active">
+                        <li><strong>Gesicht:</strong> Alle 3-4 Wochen</li>
+                        <li><strong>Intimbereich:</strong> Alle 4-5 Wochen</li>
+                        <li><strong>Beine:</strong> Alle 5-6 Wochen</li>
+                        <li><strong>Arme:</strong> Alle 4-6 Wochen</li>
+                        <li><strong>Rücken/Brust:</strong> Alle 5-6 Wochen</li>
+                    </ul>
+                    <ul class="lang-en">
+                        <li><strong>Face:</strong> Every 3-4 weeks</li>
+                        <li><strong>Intimate Area:</strong> Every 4-5 weeks</li>
+                        <li><strong>Legs:</strong> Every 5-6 weeks</li>
+                        <li><strong>Arms:</strong> Every 4-6 weeks</li>
+                        <li><strong>Back/Chest:</strong> Every 5-6 weeks</li>
+                    </ul>
+                </article>
+
+                <article class="article-section">
+                    <h3 class="lang-de active">Vorbereitung für Waxing</h3>
+                    <h3 class="lang-en">Pre-Waxing Preparation</h3>
+                    <p class="lang-de active">Eine gute Vorbereitung ist entscheidend für ein erfolgreiches Waxing-Ergebnis:</p>
+                    <p class="lang-en">Good preparation is crucial for a successful waxing result:</p>
+
+                    <ul class="lang-de active">
+                        <li><strong>Haarlänge:</strong> Die Haare sollten mindestens 0,5 cm lang sein (etwa 2-3 Wochen Wachstum nach der letzten Rasur).</li>
+                        <li><strong>Peeling:</strong> Führen Sie 2-3 Tage vor der Behandlung ein sanftes Peeling durch, um abgestorbene Hautzellen zu entfernen.</li>
+                        <li><strong>Hautpflege:</strong> Vermeiden Sie Retinol, Säuren oder aggressive Peelings 2-3 Tage vor der Behandlung.</li>
+                        <li><strong>Sonnenexposition:</strong> Vermeiden Sie Sonnenbaden oder Solarium 24-48 Stunden vor der Behandlung.</li>
+                        <li><strong>Hautzustand:</strong> Informieren Sie uns über Hauterkrankungen, Medikamente oder Allergien.</li>
+                        <li><strong>Komfort:</strong> Tragen Sie lockere, bequeme Kleidung zum Termin.</li>
+                    </ul>
+                    <ul class="lang-en">
+                        <li><strong>Hair Length:</strong> Hair should be at least 0.5 cm long (about 2-3 weeks of growth after last shave).</li>
+                        <li><strong>Exfoliation:</strong> Perform a gentle exfoliation 2-3 days before treatment to remove dead skin cells.</li>
+                        <li><strong>Skin Care:</strong> Avoid retinol, acids or aggressive peels 2-3 days before treatment.</li>
+                        <li><strong>Sun Exposure:</strong> Avoid sunbathing or tanning beds 24-48 hours before treatment.</li>
+                        <li><strong>Skin Condition:</strong> Inform us about skin conditions, medications or allergies.</li>
+                        <li><strong>Comfort:</strong> Wear loose, comfortable clothing to the appointment.</li>
+                    </ul>
+                </article>
+
+                <article class="article-section">
+                    <h3 class="lang-de active">Nachbehandlung und Pflege</h3>
+                    <h3 class="lang-en">Aftercare and Maintenance</h3>
+                    <p class="lang-de active">Die richtige Nachbehandlung sorgt für optimale Ergebnisse und minimale Irritationen:</p>
+                    <p class="lang-en">Proper aftercare ensures optimal results and minimal irritation:</p>
+
+                    <ul class="lang-de active">
+                        <li><strong>Direkt nach der Behandlung:</strong> Tragen Sie eine beruhigende Lotion oder Aloe Vera auf. Vermeiden Sie Hitze (Sauna, heißes Bad) für 24-48 Stunden.</li>
+                        <li><strong>Kleidung:</strong> Tragen Sie lockere, atmungsaktive Kleidung für die ersten 24 Stunden.</li>
+                        <li><strong>Peeling:</strong> Beginnen Sie nach 48-72 Stunden mit sanftem Peeling, um eingewachsene Haare zu vermeiden.</li>
+                        <li><strong>Feuchtigkeitspflege:</strong> Verwenden Sie täglich eine feuchtigkeitsspendende, parfümfreie Lotion.</li>
+                        <li><strong>Sonnenexposition:</strong> Vermeiden Sie direkte Sonneneinstrahlung für 24-48 Stunden nach der Behandlung.</li>
+                        <li><strong>Sport:</strong> Vermeiden Sie intensive körperliche Aktivität und Schwitzen für 24 Stunden.</li>
+                        <li><strong>Rasur vermeiden:</strong> Zwischen den Waxing-Terminen sollten Sie nicht rasieren, um den Wachstumszyklus nicht zu stören.</li>
+                    </ul>
+                    <ul class="lang-en">
+                        <li><strong>Immediately After Treatment:</strong> Apply a soothing lotion or aloe vera. Avoid heat (sauna, hot bath) for 24-48 hours.</li>
+                        <li><strong>Clothing:</strong> Wear loose, breathable clothing for the first 24 hours.</li>
+                        <li><strong>Exfoliation:</strong> Begin gentle exfoliation after 48-72 hours to prevent ingrown hairs.</li>
+                        <li><strong>Moisturizing:</strong> Use a moisturizing, fragrance-free lotion daily.</li>
+                        <li><strong>Sun Exposure:</strong> Avoid direct sunlight for 24-48 hours after treatment.</li>
+                        <li><strong>Exercise:</strong> Avoid intense physical activity and sweating for 24 hours.</li>
+                        <li><strong>Avoid Shaving:</strong> Between waxing appointments, you should not shave to avoid disrupting the growth cycle.</li>
+                    </ul>
+                </article>
+            </section>
+
+            <!-- How It Works -->
+            <section id="how-it-works">
+                <h2 class="lang-de active">So funktioniert's</h2>
+                <h2 class="lang-en">How It Works</h2>
+
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">1️⃣</div>
+                        <h3 class="lang-de active">Beratung & Vorbereitung</h3>
+                        <h3 class="lang-en">Consultation & Preparation</h3>
+                        <p class="lang-de active">Wir besprechen Ihre Wünsche und bereiten die Haut professionell vor.</p>
+                        <p class="lang-en">We discuss your wishes and professionally prepare the skin.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">2️⃣</div>
+                        <h3 class="lang-de active">Wachs auftragen</h3>
+                        <h3 class="lang-en">Apply Wax</h3>
+                        <p class="lang-de active">Das Wachs wird gleichmäßig in Wuchsrichtung der Haare aufgetragen.</p>
+                        <p class="lang-en">The wax is applied evenly in the direction of hair growth.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">3️⃣</div>
+                        <h3 class="lang-de active">Wachs entfernen</h3>
+                        <h3 class="lang-en">Remove Wax</h3>
+                        <p class="lang-de active">Schnelles und präzises Entfernen gegen die Wuchsrichtung für optimale Ergebnisse.</p>
+                        <p class="lang-en">Quick and precise removal against the direction of growth for optimal results.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">4️⃣</div>
+                        <h3 class="lang-de active">Nachbehandlung</h3>
+                        <h3 class="lang-en">Aftercare</h3>
+                        <p class="lang-de active">Beruhigende Pflegeprodukte sorgen für Wohlbefinden und optimale Hautpflege.</p>
+                        <p class="lang-en">Soothing care products ensure comfort and optimal skin care.</p>
+                    </div>
+                </div>
+
+                <article class="article-section" style="margin-top: 2rem;">
+                    <h3 class="lang-de active">Was Sie während der Behandlung erwartet</h3>
+                    <h3 class="lang-en">What to Expect During Treatment</h3>
+                    <p class="lang-de active">Eine typische Waxing-Behandlung dauert je nach Bereich zwischen 15 Minuten (z.B. Oberlippe) und 60 Minuten (z.B. Ganzkörper). Unsere erfahrenen Kosmetikerinnen arbeiten schnell und präzise, um Ihre Zeit zu respektieren und gleichzeitig optimale Ergebnisse zu erzielen. Während der Behandlung können Sie sich entspannen - wir sorgen für eine angenehme Atmosphäre.</p>
+                    <p class="lang-en">A typical waxing treatment takes between 15 minutes (e.g., upper lip) and 60 minutes (e.g., full body) depending on the area. Our experienced beauticians work quickly and precisely to respect your time while achieving optimal results. During the treatment, you can relax - we ensure a pleasant atmosphere.</p>
+                </article>
+            </section>
+
+            <!-- Pricing Section -->
+            <section id="pricing">
+                <h2 class="lang-de active">Preise</h2>
+                <h2 class="lang-en">Pricing</h2>
+
+                <div class="pricing-section">
+                    <p class="lang-de active">Unsere Preise basieren auf dem aktuellen deutschen Marktstandard und können je nach Aufwand, Haarmenge und Standort variieren. Alle Preise verstehen sich inklusive MwSt.</p>
+                    <p class="lang-en">Our prices are based on current German market standards and may vary depending on effort, amount of hair and location. All prices include VAT.</p>
+
+                    <table class="pricing-table">
+                        <thead>
+                            <tr>
+                                <th class="lang-de active">Behandlung</th>
+                                <th class="lang-en">Treatment</th>
+                                <th class="lang-de active">Preis (ab)</th>
+                                <th class="lang-en">Price (from)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="lang-de active">Oberlippe</td>
+                                <td class="lang-en">Upper Lip</td>
+                                <td class="price">€15 - €25</td>
+                            </tr>
+                            <tr>
+                                <td class="lang-de active">Kinn</td>
+                                <td class="lang-en">Chin</td>
+                                <td class="price">€15 - €25</td>
+                            </tr>
+                            <tr>
+                                <td class="lang-de active">Augenbrauen</td>
+                                <td class="lang-en">Eyebrows</td>
+                                <td class="price">€18 - €28</td>
+                            </tr>
+                            <tr>
+                                <td class="lang-de active">Gesicht komplett</td>
+                                <td class="lang-en">Full Face</td>
+                                <td class="price">€40 - €60</td>
+                            </tr>
+                            <tr>
+                                <td class="lang-de active">Achseln</td>
+                                <td class="lang-en">Underarms</td>
+                                <td class="price">€20 - €30</td>
+                            </tr>
+                            <tr>
+                                <td class="lang-de active">Halbe Beine</td>
+                                <td class="lang-en">Half Legs</td>
+                                <td class="price">€35 - €50</td>
+                            </tr>
+                            <tr>
+                                <td class="lang-de active">Ganze Beine</td>
+                                <td class="lang-en">Full Legs</td>
+                                <td class="price">€60 - €85</td>
+                            </tr>
+                            <tr>
+                                <td class="lang-de active">Arme</td>
+                                <td class="lang-en">Arms</td>
+                                <td class="price">€30 - €45</td>
+                            </tr>
+                            <tr>
+                                <td class="lang-de active">Bikinizone</td>
+                                <td class="lang-en">Bikini Line</td>
+                                <td class="price">€30 - €45</td>
+                            </tr>
+                            <tr>
+                                <td class="lang-de active">Brazilian</td>
+                                <td class="lang-en">Brazilian</td>
+                                <td class="price">€50 - €75</td>
+                            </tr>
+                            <tr>
+                                <td class="lang-de active">Rücken</td>
+                                <td class="lang-en">Back</td>
+                                <td class="price">€45 - €65</td>
+                            </tr>
+                            <tr>
+                                <td class="lang-de active">Brust</td>
+                                <td class="lang-en">Chest</td>
+                                <td class="price">€40 - €60</td>
+                            </tr>
+                            <tr>
+                                <td class="lang-de active">Ganzkörper-Waxing</td>
+                                <td class="lang-en">Full Body Waxing</td>
+                                <td class="price">€150 - €250</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p class="pricing-note lang-de active">* Preise können je nach Standort, Haarmenge, Hautempfindlichkeit und Komplexität der Behandlung variieren. Kontaktieren Sie uns für ein individuelles Angebot.</p>
+                    <p class="pricing-note lang-en">* Prices may vary depending on location, amount of hair, skin sensitivity and complexity of treatment. Contact us for a personalized quote.</p>
+                </div>
+            </section>
+
+            <!-- Gallery Section -->
+            <section id="gallery">
+                <h2 class="lang-de active">Galerie</h2>
+                <h2 class="lang-en">Gallery</h2>
+
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="/images/wellness/salon-interior.jpg" alt="Modernes Kosmetikstudio Interior" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="/images/wellness/waxing-treatment.jpg" alt="Professionelle Waxing-Behandlung" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="/images/wellness/before-after-1.jpg" alt="Vorher Nachher Vergleich Beine" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="/images/wellness/relaxing-atmosphere.jpg" alt="Entspannende Atmosphäre im Studio" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="/images/wellness/professional-tools.jpg" alt="Professionelle Waxing-Werkzeuge" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="/images/wellness/beauty-treatment.jpg" alt="Beauty-Behandlung im Studio" loading="lazy">
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ Section -->
+            <section id="faq">
+                <h2 class="lang-de active">Häufig gestellte Fragen</h2>
+                <h2 class="lang-en">Frequently Asked Questions</h2>
+
+                <div class="faq-container">
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <div class="faq-question">
+                            <span class="lang-de active">Tut Waxing weh?</span>
+                            <span class="lang-en">Does waxing hurt?</span>
+                            <span>+</span>
+                        </div>
+                        <div class="faq-answer lang-de active">
+                            <p>Waxing kann ein kurzes Stechen verursachen, besonders beim ersten Mal oder in empfindlichen Bereichen. Unsere erfahrenen Kosmetikerinnen verwenden hochwertiges Hard Wax, das besonders schonend ist. Die meisten Kunden gewöhnen sich schnell an das Gefühl, und die Ergebnisse sind die kurze Unannehmlichkeit wert.</p>
+                        </div>
+                        <div class="faq-answer lang-en">
+                            <p>Waxing can cause a brief stinging sensation, especially the first time or in sensitive areas. Our experienced beauticians use high-quality hard wax that is particularly gentle. Most customers quickly get used to the feeling, and the results are worth the brief discomfort.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <div class="faq-question">
+                            <span class="lang-de active">Wie lang müssen die Haare für Waxing sein?</span>
+                            <span class="lang-en">How long does hair need to be for waxing?</span>
+                            <span>+</span>
+                        </div>
+                        <div class="faq-answer lang-de active">
+                            <p>Die Haare sollten mindestens 0,5 cm (etwa 1/4 Zoll) lang sein, damit das Wachs sie effektiv greifen kann. Das entspricht etwa 2-3 Wochen Wachstum nach der letzten Rasur. Zu kurze Haare können nicht richtig entfernt werden.</p>
+                        </div>
+                        <div class="faq-answer lang-en">
+                            <p>Hair should be at least 0.5 cm (about 1/4 inch) long so the wax can effectively grip it. This corresponds to about 2-3 weeks of growth after the last shave. Hair that is too short cannot be properly removed.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <div class="faq-question">
+                            <span class="lang-de active">Wie lange halten die Ergebnisse?</span>
+                            <span class="lang-en">How long do the results last?</span>
+                            <span>+</span>
+                        </div>
+                        <div class="faq-answer lang-de active">
+                            <p>Die Ergebnisse halten typischerweise 3-6 Wochen, abhängig vom individuellen Haarwachstum und dem behandelten Bereich. Gesichtsbehandlungen halten meist 3-4 Wochen, während Körperbehandlungen oft 4-6 Wochen halten.</p>
+                        </div>
+                        <div class="faq-answer lang-en">
+                            <p>Results typically last 3-6 weeks, depending on individual hair growth and the area treated. Facial treatments usually last 3-4 weeks, while body treatments often last 4-6 weeks.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <div class="faq-question">
+                            <span class="lang-de active">Wie oft sollte ich waxen?</span>
+                            <span class="lang-en">How often should I wax?</span>
+                            <span>+</span>
+                        </div>
+                        <div class="faq-answer lang-de active">
+                            <p>Für die meisten Bereiche empfehlen wir alle 4-6 Wochen. Regelmäßiges Waxing führt oft zu langsameren Haarwachstum und dünneren Haaren. Wir beraten Sie gerne individuell über die optimale Häufigkeit für Ihre Bedürfnisse.</p>
+                        </div>
+                        <div class="faq-answer lang-en">
+                            <p>For most areas, we recommend every 4-6 weeks. Regular waxing often leads to slower hair growth and thinner hair. We're happy to advise you individually on the optimal frequency for your needs.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <div class="faq-question">
+                            <span class="lang-de active">Kann ich während der Menstruation waxen lassen?</span>
+                            <span class="lang-en">Can I get waxed during my period?</span>
+                            <span>+</span>
+                        </div>
+                        <div class="faq-answer lang-de active">
+                            <p>Ja, Sie können während Ihrer Menstruation waxen lassen. Bitte verwenden Sie einen Tampon und informieren Sie unsere Kosmetikerin. Ihre Haut kann während dieser Zeit etwas empfindlicher sein, aber die Behandlung ist sicher durchführbar.</p>
+                        </div>
+                        <div class="faq-answer lang-en">
+                            <p>Yes, you can get waxed during your period. Please use a tampon and inform our beautician. Your skin may be slightly more sensitive during this time, but the treatment can be safely performed.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <div class="faq-question">
+                            <span class="lang-de active">Was ist der Unterschied zwischen Bikini und Brazilian?</span>
+                            <span class="lang-en">What's the difference between Bikini and Brazilian?</span>
+                            <span>+</span>
+                        </div>
+                        <div class="faq-answer lang-de active">
+                            <p>Bikini-Waxing entfernt Haare außerhalb der Bikinilinie für einen sauberen Look. Brazilian-Waxing entfernt alle Haare im Intimbereich, einschließlich der Bikinizone, komplett. Wir beraten Sie gerne, welche Option für Sie am besten geeignet ist.</p>
+                        </div>
+                        <div class="faq-answer lang-en">
+                            <p>Bikini waxing removes hair outside the bikini line for a clean look. Brazilian waxing removes all hair in the intimate area, including the bikini zone, completely. We're happy to advise you on which option is best for you.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <div class="faq-question">
+                            <span class="lang-de active">Kann ich nach dem Waxing in die Sonne gehen?</span>
+                            <span class="lang-en">Can I go in the sun after waxing?</span>
+                            <span>+</span>
+                        </div>
+                        <div class="faq-answer lang-de active">
+                            <p>Wir empfehlen, direkte Sonneneinstrahlung oder Solarium für 24-48 Stunden nach der Behandlung zu vermeiden, da die Haut empfindlicher ist. Verwenden Sie danach immer Sonnenschutz mit hohem Lichtschutzfaktor.</p>
+                        </div>
+                        <div class="faq-answer lang-en">
+                            <p>We recommend avoiding direct sunlight or tanning beds for 24-48 hours after treatment, as the skin is more sensitive. After that, always use sunscreen with a high SPF.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Testimonials -->
+            <section id="testimonials">
+                <h2 class="lang-de active">Was unsere Kunden sagen</h2>
+                <h2 class="lang-en">What Our Customers Say</h2>
+
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">★★★★★</div>
+                        <p class="testimonial-text lang-de active">"Sehr professionell und freundlich! Die Ergebnisse halten wirklich lange und meine Haut fühlt sich so glatt an. Kann HUSH nur empfehlen!"</p>
+                        <p class="testimonial-text lang-en">"Very professional and friendly! The results really last long and my skin feels so smooth. Can only recommend HUSH!"</p>
+                        <p class="testimonial-author">- Sarah M.</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">★★★★★</div>
+                        <p class="testimonial-text lang-de active">"Mein erstes Brazilian Wax war viel weniger schmerzhaft als erwartet. Das Team ist sehr einfühlsam und erklärt alles genau. Top Service!"</p>
+                        <p class="testimonial-text lang-en">"My first Brazilian wax was much less painful than expected. The team is very empathetic and explains everything in detail. Top service!"</p>
+                        <p class="testimonial-author">- Lisa K.</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">★★★★★</div>
+                        <p class="testimonial-text lang-de active">"Regelmäßige Besuche bei HUSH haben mein Haarwachstum deutlich reduziert. Die Haut ist viel glatter und ich spare Zeit. Perfekt!"</p>
+                        <p class="testimonial-text lang-en">"Regular visits to HUSH have significantly reduced my hair growth. The skin is much smoother and I save time. Perfect!"</p>
+                        <p class="testimonial-author">- Maria T.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="contact-section">
+                <h2 class="lang-de active">Kontakt</h2>
+                <h2 class="lang-en">Contact</h2>
+
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h3 class="lang-de active">Besuchen Sie uns</h3>
+                        <h3 class="lang-en">Visit Us</h3>
+                        <p class="lang-de active">Wir freuen uns darauf, Sie in einem unserer Studios begrüßen zu dürfen. Buchen Sie Ihren Termin online oder kontaktieren Sie uns direkt.</p>
+                        <p class="lang-en">We look forward to welcoming you to one of our studios. Book your appointment online or contact us directly.</p>
+
+                        <h3 style="margin-top: 2rem;" class="lang-de active">Öffnungszeiten</h3>
+                        <h3 style="margin-top: 2rem;" class="lang-en">Opening Hours</h3>
+                        <p>Mo-Fr: 09:00 - 19:00<br>Sa: 10:00 - 16:00<br>So: Geschlossen</p>
+
+                        <div class="social-links" style="margin-top: 2rem;">
+                            <a href="#" aria-label="Facebook">📘</a>
+                            <a href="#" aria-label="Instagram">📷</a>
+                            <a href="#" aria-label="Pinterest">📌</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-form">
+                        <h3 class="lang-de active">Nachricht senden</h3>
+                        <h3 class="lang-en">Send Message</h3>
+                        <form onsubmit="handleFormSubmit(event)">
+                            <div class="form-group">
+                                <label for="name" class="lang-de active">Name</label>
+                                <label for="name" class="lang-en">Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="lang-de active">E-Mail</label>
+                                <label for="email" class="lang-en">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message" class="lang-de active">Nachricht</label>
+                                <label for="message" class="lang-en">Message</label>
+                                <textarea id="message" name="message" required></textarea>
+                            </div>
+                            <button type="submit" class="submit-button lang-de active">Absenden</button>
+                            <button type="submit" class="submit-button lang-en">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>HUSH</h3>
+                    <p class="lang-de active">Dein zuverlässiger Partner für professionelle Haarentfernung und Beauty-Behandlungen.</p>
+                    <p class="lang-en">Your reliable partner for professional hair removal and beauty treatments.</p>
+                </div>
+                <div class="footer-section">
+                    <h3 class="lang-de active">Behandlungen</h3>
+                    <h3 class="lang-en">Treatments</h3>
+                    <ul>
+                        <li><a href="#services" class="lang-de active">Waxing</a><a href="#services" class="lang-en">Waxing</a></li>
+                        <li><a href="#services" class="lang-de active">Sugaring</a><a href="#services" class="lang-en">Sugaring</a></li>
+                        <li><a href="#services" class="lang-de active">Dauerhafte Haarentfernung</a><a href="#services" class="lang-en">Permanent Hair Removal</a></li>
+                        <li><a href="#services" class="lang-de active">Gesichtsbehandlungen</a><a href="#services" class="lang-en">Facial Treatments</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3 class="lang-de active">Unternehmen</h3>
+                    <h3 class="lang-en">Company</h3>
+                    <ul>
+                        <li><a href="/contact" class="lang-de active">Über HUSH</a><a href="/contact" class="lang-en">About HUSH</a></li>
+                        <li><a href="/booking" class="lang-de active">Termin buchen</a><a href="/booking" class="lang-en">Book Appointment</a></li>
+                        <li><a href="#pricing" class="lang-de active">Preise</a><a href="#pricing" class="lang-en">Pricing</a></li>
+                        <li><a href="/contact" class="lang-de active">Kontakt</a><a href="/contact" class="lang-en">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3 class="lang-de active">Rechtliches</h3>
+                    <h3 class="lang-en">Legal</h3>
+                    <ul>
+                        <li><a href="/legal" class="lang-de active">Impressum</a><a href="/legal" class="lang-en">Imprint</a></li>
+                        <li><a href="/agb" class="lang-de active">AGB</a><a href="/agb" class="lang-en">Terms</a></li>
+                        <li><a href="/legal" class="lang-de active">Datenschutz</a><a href="/legal" class="lang-en">Privacy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 HUSH HAARENTFERNUNG. <span class="lang-de active">Alle Rechte vorbehalten.</span><span class="lang-en">All rights reserved.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Language Toggle
+        function switchLanguage(lang) {
+            // Update active button
+            document.querySelectorAll('.lang-toggle button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // Show/hide language content
+            document.querySelectorAll('.lang-de, .lang-en').forEach(el => {
+                el.classList.remove('active');
+            });
+
+            document.querySelectorAll(`.lang-${lang}`).forEach(el => {
+                el.classList.add('active');
+            });
+
+            // Update HTML lang attribute
+            document.documentElement.lang = lang;
+
+            // Store preference
+            localStorage.setItem('preferredLanguage', lang);
+        }
+
+        // Load saved language preference
+        window.addEventListener('DOMContentLoaded', function() {
+            const savedLang = localStorage.getItem('preferredLanguage') || 'de';
+            const langButtons = document.querySelectorAll('.lang-toggle button');
+            langButtons.forEach(btn => {
+                if (btn.textContent === savedLang.toUpperCase()) {
+                    btn.click();
+                }
+            });
+        });
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // FAQ Toggle
+        function toggleFaq(element) {
+            element.classList.toggle('active');
+            const icon = element.querySelector('.faq-question span:last-child');
+            icon.textContent = element.classList.contains('active') ? '−' : '+';
+        }
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    document.getElementById('navLinks').classList.remove('active');
+                }
+            });
+        });
+
+        // Form Submission
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            // In a real implementation, this would send the form data to a server
+            alert(document.documentElement.lang === 'de'
+                ? 'Vielen Dank für Ihre Nachricht! Wir werden uns bald bei Ihnen melden.'
+                : 'Thank you for your message! We will contact you soon.');
+            event.target.reset();
+        }
+
+        // Intersection Observer for animations (optional enhancement)
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe service cards and article sections
+        document.querySelectorAll('.service-card, .article-section').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+
+states:
+  draft:
+    meta:
+      category: open
+    events:
+      - { name: order, transitions_to: ordered}
+      - { name: cancel, transitions_to: canceld }
+
+  ordered:
+    meta:
+      category: in_progress
+    events:
+      - { name: order_delivered, transitions_to: delivered }
+      - { name: cancel, transitions_to: canceld }
+
+  delivered:
+    meta:
+      category: done
+
+  canceld:
+    meta:
+      category: done
+
+
+
+

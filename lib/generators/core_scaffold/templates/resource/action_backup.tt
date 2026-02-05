@@ -1,0 +1,32 @@
+module <%= module_name %>
+  class <%= klass %>Action < ::ApplicationBaseAction
+    self.name = "<%= klass %>"
+
+    # test
+    self.visible = lambda do
+      begin
+        return false unless view == :show
+        return false unless resource.model.can_<%= action_name %>?
+
+        resource.model.can_be_<%= action_name %>ed? &&
+          current_user.ability.can?(:<%= action_name %>_<%= model %>, resource.model)
+
+      end
+    end
+
+    def handle(**args)
+      models, _fields, _current_user, resource = args.values_at(:models, :fields, :current_user, :resource)
+
+      models.each do |<%= model %>|
+        <%= action_name %>(<%= model %>) if resource.authorization.authorize_action(:<%= action_name %>_<%= model %>)
+      end
+    end
+
+    private
+
+    def <%= action_name %>(<%= model %>)
+      result = <%= module_name %>::<%= transaction_class %>.call(<%= model %>_id: <%= model %>.id)
+      fail result.failure unless result.success?
+    end
+  end
+end

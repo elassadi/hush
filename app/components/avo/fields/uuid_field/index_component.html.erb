@@ -1,0 +1,51 @@
+<%= index_field_wrapper **field_wrapper_args do %>
+
+    <%
+      tooltip_enabled = true
+      classes = "uuid-button cursor-pointer "
+      classes += "uuid-copy-button " unless @field.link_to_resource
+      shorten_value = if @field.value.length > 12 && @field.shorten
+        @field.value[0..10] + ".."
+      else
+        @field.value
+      end
+
+      regex = /<a\s+[^>]*>(.*?)<\/a>/
+      disable_copy_click =  shorten_value.match?(regex)
+      if shorten_value
+        classes += "truncate"
+      end
+
+    %>
+
+  <% if @field.link_to_resource %>
+    <% link_to  resource_view_path, title: t('avo.view_item', item: @resource.name).humanize  do %>
+      <span
+        data-tippy="tooltip"
+        title="<%=@field.value %>"
+        class=" whitespace-nowrap  text-xs  font-semibold inline-flex items-center px-2 py-1 rounded <%= classes %>">
+        <%= shorten_value %>
+      </span>
+    <% end %>
+  <% else %>
+    <% if disable_copy_click %>
+      <span class=" whitespace-nowrap  text-xs  font-semibold inline-flex items-center px-2 py-1 rounded <%= classes %>">
+        <%= shorten_value %>
+      </span>
+    <% else %>
+      <span
+        data-controller="uuid-field"
+        data-action="click->uuid-field#onUuidFieldClicked"
+        data-tippy="tooltip"
+        title="Kopieren"
+        class=" whitespace-nowrap  text-xs  font-semibold inline-flex items-center px-2 py-1 rounded <%= classes %>">
+        <%= shorten_value %>
+      </span>
+    <% end %>
+  <% end %>
+<% end %>
+
+
+
+
+

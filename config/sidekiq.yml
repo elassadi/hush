@@ -1,0 +1,32 @@
+---
+:concurrency: 5
+production:
+ :concurrency: 15
+:queues:
+  - ["critical", 8]
+  - ["high", 6]
+  - ["default", 4]
+  - ["low", 2]
+
+:scheduler:
+  :schedule:
+    clean_devices:
+      # run every hour
+      cron: "0 0 * * * *"
+      class: "Devices::CleanJob"
+    cancel_draft_issues:
+      cron: "0 45 1 * * *"
+      class: "Issues::CancelDraftJob"
+    fetch_stock_data:
+      cron: "0 0 2 * * *"
+      class: "Suppliers::FetchStockDataJob"
+    maintenance:
+      cron: "0 0 3 * * *"
+      class: "MaintenanceJob"
+    unlock_issues:
+      # run every hour
+      cron: "0 */15 * * * *"
+      class: "Issues::UnlockJob"
+    reminder:
+      cron: "0 */10 * * * *"
+      class: "CalendarEntries::ReminderJob"

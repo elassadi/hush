@@ -1,0 +1,9 @@
+name: Repariert / Finaltest wurde bestanden. Gerät i.O.
+type: repair_report
+tags: [successfull]
+body: |
+  <p>repariert / Finaltest wurde bestanden. Gerät i.O.</p>
+  <p>Durchgef&uuml;hrte Arbeiten:<br />- fehlerhafte Bauteile ausgetauscht<br />- Funktions- &amp; Empfangstest<br />- Finaltest/Q-Kontrolle</p>
+  <p>Anmerkungen:<br />-</p>
+  <p>getauschte Bauteile:&nbsp;<br />- Display<br />- Adhesive</p>
+  <p>| Eine Garantie auf Wasser- &amp; Staubbest&auml;ndigkeit wird trotz Verwendung von Originalersatzteilen, nicht mehr gegeben. |</p>

@@ -1,0 +1,69 @@
+<div class="flex flex-col">
+  <%= render Avo::PanelComponent.new(name: 'Error page', display_breadcrumbs: true) do |c| %>
+    <% c.tools do %>
+      <div class="text-sm italic"></div>
+    <% end %>
+
+    <% c.body do %>
+
+
+    <div class="bg-white shadow-lg rounded-lg overflow-hidden max-w-4xl mx-auto">
+      <div class="flex">
+        <!-- Left side with the image -->
+        <div class="w-1/2 flex items-center justify-center p-8" style="background: #e4e3e0">
+          <img src="/images/cloudy-500.jpg" alt="Cloudy Error" class="w-full h-auto">
+        </div>
+
+        <!-- Right side with the error message -->
+        <div class="w-1/2 p-8 flex flex-col justify-center">
+          <h1 class="text-5xl font-bold text-teal-600">404</h1>
+          <h2 class="text-3xl font-semibold mt-4 text-gray-800">Oops! Etwas ist schief gelaufen.</h2>
+          <p class="mt-4 text-lg text-gray-600">
+            Oops! Es sieht so aus, als ob die Seite, die Sie suchen, sich gerade in einer Wolke versteckt hat.
+          </p>
+          <% if @model_name.present? %>
+            <p class="mt-2 text-lg text-gray-700">
+              Das <strong><%= @model_name %></strong>-Objekt konnte leider nicht gefunden werden.
+            </p>
+          <% else %>
+            <p class="mt-2 text-lg text-gray-700">
+              Wir können das angeforderte Objekt nicht finden. Vielleicht ist es in den Himmel aufgestiegen? 🌥️
+            </p>
+          <% end %>
+          <p class="mt-4 text-gray-600">
+            Wenn das Problem weiterhin besteht, können Sie uns gerne kontaktieren, damit wir es beheben können.
+          </p>
+
+          <!-- Buttons -->
+          <div class="flex justify-center space-x-4 mt-6">
+            <!-- Contact support button -->
+            <a href="mailto:support@hush-haarentfernung.de" target="_blank" class="bg-teal-600 text-white px-6 py-3 rounded-md text-lg hover:bg-teal-700">
+              Kontaktieren Sie uns
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  <% end %>
+</div>
+
+
+
+<script>
+  (function(d,t) {
+    var BASE_URL="https://messenger.hush-haarentfernung.de";
+    var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+    g.src=BASE_URL+"/packs/js/sdk.js";
+    g.defer = true;
+    g.async = true;
+    s.parentNode.insertBefore(g,s);
+    g.onload=function(){
+      window.chatwootSDK.run({
+        websiteToken: 'wqJK3WShG6zhVTn9AUh95AG1',
+        baseUrl: BASE_URL
+      })
+    }
+  })(document,"script");
+</script>
+

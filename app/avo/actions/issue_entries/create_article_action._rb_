@@ -1,0 +1,27 @@
+module IssueEntries
+  class CreateArticleAction < ::ApplicationBaseAction
+    self.name = "CreateArticle"
+
+    # test
+    self.visible = lambda do
+      return false unless view == :show
+
+      current_user.may?(:create, resource.model)
+    end
+
+    def handle(**args)
+      models = args[:models]
+      models.each do |model|
+        authorize_and_run(:create_article, model) do |issue_entry|
+          create_article(issue_entry)
+        end
+      end
+    end
+
+    private
+
+    def create_article(issue_entry)
+      IssueEntries::CreateArticleTransaction.call(issue_entry_id: issue_entry.id)
+    end
+  end
+end

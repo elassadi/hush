@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="<%= I18n.locale %>">
+<head>
+	<meta charset="utf-8">
+	<meta name="author" content="HUSH">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+
+
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <title><%= content_for?(:title) ? content_for(:title) : 'HUSH | Professionelle Haarentfernung & Beauty-Behandlungen' %></title>
+    <meta name="description" content="<%= content_for?(:meta_description) ? content_for(:meta_description) : 'HUSH bietet professionelle Haarentfernung durch Waxing, Sugaring und dauerhafte Haarentfernung. Buche jetzt Deinen Termin online in unseren Kosmetikstudios.' %>">
+    <meta name="keywords" content="<%= content_for?(:meta_keywords) ? content_for(:meta_keywords) : 'Haarentfernung, Waxing, Sugaring, dauerhafte Haarentfernung, Beauty-Behandlung, Kosmetikstudio' %>">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="HUSH | Professionelle Haarentfernung & Beauty-Behandlungen">
+    <meta property="og:description" content="HUSH bietet professionelle Haarentfernung durch Waxing, Sugaring und dauerhafte Haarentfernung. Buche jetzt Deinen Termin online.">
+    <meta property="og:image" content="https://www.hush-haarentfernung.de/hush-logo.png">
+    <meta property="og:url" content="https://www.hush-haarentfernung.de">
+    <meta property="og:site_name" content="HUSH">
+
+
+    <!-- Canonical Link -->
+    <link rel="canonical" href="https://www.hush-haarentfernung.de">
+
+
+
+    <!-- Favicon and Apple Touch Icons -->
+
+    <link rel="icon" href="/favs/<%= Rails.env.development? ? "dev-" : "" %>favicon.ico" type="image/x-icon">
+
+
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "avo.tailwind.css", "data-turbo-track" => "reload" %>
+    <%= stylesheet_link_tag "core.css", "data-turbo-track" => "reload" %>
+
+    <%= javascript_include_tag "cookieconsent-config.js", type: "module", "data-turbo-track" => "reload" %>
+    <%= stylesheet_link_tag "cookieconsent.css", "data-turbo-track" => "reload" %>
+    <%= javascript_include_tag "booking.js", "data-turbo-track" => "reload" %>
+
+
+    <%= javascript_importmap_tags %>
+
+
+
+
+  <style>
+    #cc-main {
+        --cc-btn-primary-bg: #000000;
+        --cc-btn-primary-color: #FFFFFF;
+        --cc-btn-primary-hover-bg: #000000;
+        --cc-btn-primary-hover-color: #FFFFFF;
+        --cc-btn-secondary-bg: #FFFFFF;
+        --cc-btn-secondary-color: #000000;
+        --cc-btn-secondary-border-color: #000000;
+        --cc-btn-secondary-hover-bg: #000000;
+        --cc-btn-secondary-hover-color: #FFFFFF;
+    }
+  </style>
+
+
+</head>
+
+<body>
+  <%
+
+  flash_alert_class={
+    'error' => 'bg-red-100 border-red-500 text-red-700',
+    'alert' => 'bg-red-100 border-red-500 text-red-700',
+    'notice' => 'bg-teal-100 border-teal-500 text-teal-700'
+  }
+  flash && flash.each do |key, value| %>
+    <div x-data="{ visible: true }" x-show="visible" class=" opacity-80 alert-banner <%= flash_alert_class[key] ||  'alert-info' %> border-l-4  flex justify-between fixed w-full h-16 z-50" role="alert">
+
+    <p class=" w-full p-4 "><%= value %>.</p>
+      <strong  x-on:click="visible = false " class="p-3 text-xl align-center cursor-pointer alert-del">&times;</strong>
+    </div>
+
+  <% end %>
+
+
+
+
+
+<%= yield %>
+	<%# <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> %>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+<script>
+
+setTimeout(() => {
+  elements = document.getElementsByClassName("alert-banner")
+  for (var i = 0; i < elements.length; i++) {
+      elements[i].classList.add("hidden")
+    }
+  }, 45000);
+</script>
+
+
+
+
+<script defer src="https://umami.insidekiq.com/script.js" data-website-id="df91e0b9-3ef8-4630-b921-5e0c015ec8ec"></script>
+</body>
+</html>

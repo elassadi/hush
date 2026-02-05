@@ -1,0 +1,165 @@
+<script>
+  // Header scroll behavior
+  document.addEventListener('DOMContentLoaded', function() {
+    let lastScroll = 0;
+    const header = document.getElementById('wellnessHeader');
+    const headerLogo = document.getElementById('headerLogo');
+    const servicesSection = document.getElementById('services');
+    const heroSection = document.querySelector('.wellness-hero');
+
+    // Calculate trigger points once (absolute position in document)
+    let threshold = null;
+    let heroTriggerPoint = 300; // Default fallback
+
+    if (heroSection) {
+      // Calculate 50% through the hero section
+      const heroHeight = heroSection.offsetHeight;
+      heroTriggerPoint = Math.round(heroHeight * 0.5);
+    }
+
+    if (servicesSection) {
+      const rect = servicesSection.getBoundingClientRect();
+      const servicesTop = Math.round(rect.top + window.pageYOffset);
+      const headerBottomHeight = document.querySelector('.header-bottom')?.offsetHeight || 80;
+      threshold = servicesTop - headerBottomHeight - 50;
+    }
+
+    function handleScroll() {
+      const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+      const scrollDirection = currentScroll > lastScroll ? 'down' : 'up';
+
+      // Handle header scrolled state - trigger at 50% through hero section
+      if (currentScroll > heroTriggerPoint) {
+        header.classList.add('scrolled');
+        if (headerLogo) headerLogo.style.display = 'block';
+      } else {
+        header.classList.remove('scrolled');
+        if (headerLogo) headerLogo.style.display = 'none';
+      }
+
+      // Handle header-bottom hide/show when reaching services section
+      if (servicesSection && threshold !== null) {
+        // Check if we've scrolled to the services section
+        if (currentScroll >= threshold) {
+          // Scrolling down - hide header-bottom
+          if (scrollDirection === 'down' || currentScroll > lastScroll) {
+            header.classList.add('hide-bottom');
+          }
+          // Scrolling up - show header-bottom
+          else if (scrollDirection === 'up' || currentScroll < lastScroll) {
+            header.classList.remove('hide-bottom');
+          }
+        } else {
+          // Before services section - always show header-bottom
+          header.classList.remove('hide-bottom');
+        }
+      }
+
+      lastScroll = currentScroll;
+    }
+
+    // Throttle scroll handler for better performance
+    let ticking = false;
+    function throttledHandleScroll() {
+      if (!ticking) {
+        window.requestAnimationFrame(function() {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }
+
+    window.addEventListener('scroll', throttledHandleScroll, { passive: true });
+    // Run once on load to set initial state
+    handleScroll();
+  });
+
+  function toggleFaq(element) {
+    element.classList.toggle('active');
+    const icon = element.querySelector('.faq-question span:last-child');
+    icon.textContent = element.classList.contains('active') ? '−' : '+';
+  }
+
+  function toggleMobileMenu() {
+    const mobileMenu = document.getElementById('mobileMenuOverlay');
+    const body = document.body;
+
+    mobileMenu.classList.toggle('active');
+
+    // Prevent body scroll when menu is open
+    if (mobileMenu.classList.contains('active')) {
+      body.style.overflow = 'hidden';
+    } else {
+      body.style.overflow = '';
+    }
+  }
+
+  // Close mobile menu when any link is clicked
+  document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenu = document.getElementById('mobileMenuOverlay');
+    const mobileMenuLinks = mobileMenu?.querySelectorAll('.mobile-menu-links a');
+
+    if (mobileMenuLinks) {
+      mobileMenuLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          // Close mobile menu
+          mobileMenu.classList.remove('active');
+          document.body.style.overflow = '';
+        });
+      });
+    }
+  });
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+        // Close mobile menu if open
+        const mobileMenu = document.getElementById('mobileMenuOverlay');
+        if (mobileMenu) {
+          mobileMenu.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      }
+    });
+  });
+
+  function handleFormSubmit(event) {
+    event.preventDefault();
+    alert('<%= t('hush.wellness.scripts.form_success_message') %>');
+    event.target.reset();
+  }
+
+  // Scroll to Top functionality
+  function scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
+
+  // Show/hide scroll to top button
+  window.addEventListener('scroll', function() {
+    const scrollToTopBtn = document.getElementById('scrollToTop');
+    const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+
+    // Show button when scrolled down more than 500px
+    if (scrollPosition > 500) {
+      scrollToTopBtn.classList.add('visible');
+    } else {
+      scrollToTopBtn.classList.remove('visible');
+    }
+  }, { passive: true });
+
+  // Show mobile menu toggle on small screens
+  if (window.innerWidth <= 768) {
+    document.querySelector('.mobile-menu-toggle').style.display = 'block';
+  }
+</script>

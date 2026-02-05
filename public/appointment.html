@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <!-- select2 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" integrity="sha256-FdatTf20PQr/rWg+cAKfl6j4/IY3oohFAJ7gVC3M34E=" crossorigin="anonymous">
+
+  <!-- select2-bootstrap4-theme -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ttskch/select2-bootstrap4-theme/dist/select2-bootstrap4.min.css">
+
+  <!-- Calendly Badge-Widget Beginn -->
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+  <!-- Calendly Badge-Widget Ende -->
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mobile-detect@1.4.5/mobile-detect.min.js"></script>
+
+
+
+  <style>
+
+
+
+  #standort-panel {
+    padding-bottom: 10px;
+  }
+  #branch-address {
+    text-wrap: wrap;
+  }
+ /* Container for the steps */
+ .steps-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  /* Style for step number */
+  .step-number {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    font-weight: bold;
+    color: #fff;
+  }
+
+  /* Active step number styling */
+  .active-step {
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+
+  /* Inactive step styling */
+  .step-number:not(.active-step) {
+    background-color: rgba(0, 0, 0, 0.1);
+    color: rgba(0, 0, 0, 0.3);
+  }
+
+  /* Step label styling */
+  .step-label {
+    font-size: 16px;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.7);
+  }
+
+  /* Step dividers */
+  .step-divider {
+    flex-grow: 1;
+    height: 2px;
+    background-color: rgba(0, 0, 0, 0.1);
+    margin: 0 10px;
+  }
+
+  /* Make the active step label bold */
+  .step-number.active-step + .step-label {
+    color: #007bff;
+  }
+
+  /* end header steps */
+
+
+    /* New wrapper for both main container and right panel */
+    .content-wrapper {
+      max-width: 1000px;
+      margin: 20px auto; /* Center with a margin */
+      padding: 20px;
+      background-color: #fff; /* Ensure it has a white background */
+    }
+
+    /* Main container styling */
+    .main-container {
+      border: 1px solid #d3d3d3; /* Grey border */
+      border-radius: 5px;
+      padding: 15px;
+      max-width: 550px;
+    }
+
+    /* Right panel styling */
+    .right-panel {
+      background-color: #f8f9fa;
+      padding: 15px;
+      border-radius: 5px;
+      border: 1px solid #d3d3d3; /* Grey border for right panel */
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); /* Apply the same shadow */
+      margin-left: 10px;
+    }
+
+    /* Small spacer container with fixed width */
+    .spacer-container {
+      width: 20px;
+      height: auto; /* Maintain full height of the row */
+    }
+
+    .row_flex {
+      display: flex;
+      flex-wrap: nowrap; /* Allow independent wrapping and height */
+      align-items: flex-start; /* Ensure independent alignment at the top */
+      margin-right: -15px;
+      margin-left: -15px;
+    }
+
+    .termin_p {
+      border-bottom: 1px solid rgb(233, 233, 233);
+      color: rgb(61, 61, 61);
+      color: #007bff;
+      margin-bottom: 4px;
+      padding-bottom: 4px;
+    }
+
+
+
+    .product-row {
+      display: flex;
+      justify-content: space-between; /* Align items to opposite sides */
+      width: 100%; /* Full width */
+      padding: 1px;
+      margin-bottom: 2px; /* Space between rows */
+      align-items: baseline;
+    }
+
+    .product-name {
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .product-price {
+      font-size: 16px;
+      color: #28a745; /* Optional color for the price */
+    }
+    .big-price {
+      margin: 10px; color:  #a2c613;
+      text-wrap: nowrap;
+    }
+    .price {
+      margin: 10px; color:  black;
+      text-wrap: nowrap;
+      font-size: 20px;
+    }
+    .hidden {
+      display: none;
+    }
+    .select2-container {
+      min-width: 100px !important;
+      width: 100% !important;
+    }
+
+
+    .container-flex {
+      display: flex;
+      align-items: flex-start; /* Align items at the top */
+    }
+
+    /* Calendar container to mimic the layout */
+    .calendar {
+      /* width: 300px;
+      border: 1px solid #ddd; */
+      padding: 10px;
+    }
+
+    /* Time picker scrollable div */
+    .time-picker {
+      width: 150px;
+      max-height: 300px; /* Set a max height to make it scrollable */
+      overflow-y: auto; /* Scrollable */
+      margin-left: 20px; /* Space between calendar and time picker */
+      /* border: 1px solid #ddd; */
+      border-radius: 5px;
+      padding: 10px;
+    }
+
+    /* Styling the time buttons */
+    .time-button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      font-size: 16px;
+      text-align: center;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      color: #007bff;
+      background-color: #fff;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    /* Highlight button with blue border on hover */
+    .time-button:hover {
+      border-color: #007bff;
+      background-color: #e7f3ff;
+    }
+
+    /* Highlight selected button */
+    .time-button.active {
+      border-color: #007bff;
+      background-color: #f0f8ff;
+    }
+
+    .my-d-flex {
+      display: flex;
+      justify-content: space-between;
+    }
+    .form-group label{
+      font-size:12px;
+    }
+
+    /* On mobile, move the right panel under the main content */
+    @media (max-width: 768px) {
+      .flatpickr-calendar.inline {
+        margin: auto;
+      }
+      .right-panel {
+        margin-top: 20px;
+      }
+      .row_flex {
+        display: flex;
+        flex-wrap: wrap;
+        margin-right: -15px;
+        margin-left: -15px;
+      }
+
+      /* Hide spacer on mobile */
+      .spacer-container {
+        display: none;
+      }
+
+      .time-picker{
+          width: 95%;
+        }
+      .container-flex-mobile {
+        display: block;
+        align-items: flex-start; /* Align items at the top */
+      }
+
+    }
+  </style>
+</head>
+<body>
+   <!-- Header -->
+   <header class=" text-center py-1">
+    <div class="steps-container d-flex justify-content-between align-items-center my-2">
+      <!-- Step 1 -->
+      <div class="step d-flex align-items-center">
+        <span id="step-1" class="step-number active-step">1</span>
+        <span class="step-label ml-2">Leistung</span>
+      </div>
+
+      <!-- Divider -->
+      <div class="step-divider"></div>
+
+      <!-- Step 2 -->
+      <div class="step d-flex align-items-center">
+        <span id="step-2" class="step-number">2</span>
+        <span class="step-label ml-2">Tag-Uhrzeit</span>
+      </div>
+
+      <!-- Divider -->
+      <div class="step-divider"></div>
+
+      <!-- Step 3 -->
+      <div class="step d-flex align-items-center">
+        <span id="step-3" class="step-number">3</span>
+        <span class="step-label ml-2">Kontaktdaten</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Content Wrapper (Main Content and Right Panel) -->
+  <div class="content-wrapper">
+    <div class="row_flex">
+      <!-- Main Container -->
+      <div class="bg-light col-lg-8 col-md-12 main-container">
+        <div class="" id="device-select-container">
+          <h2 class="termin_p">Reparaturleistung auswählen</h2>
+          <div>
+            <span class="label label-default" style="font-size:12px;">Hersteller</span>
+            <select id="device-manufacturer-select" data-placeholder="Auswählen oder suchen" data-allow-clear="1">
+            </select>
+          </div>
+          <div style="margin-top: 5px;">
+            <span class="label label-default" style="font-size:12px;">Model</span>
+            <select id="device-model-select" data-placeholder="Auswählen oder suchen" data-allow-clear="1"></select>
+          </div>
+          <div style="margin-top: 5px;">
+            <span class="label label-default" style="font-size:12px;">Reparatur</span>
+            <select id="repair-set-select" data-placeholder="Auswählen oder suchen" data-allow-clear="1"></select>
+          </div>
+          <div class="form-group">
+            <label for="branch-select" >Standort <span class="text-danger">*</span></label>
+
+            <select id="branch-select" class="form-control"></select>
+              <!-- Options will be populated dynamically -->
+            </select>
+          </div>
+        </div>
+
+        <div class="container-flex container-flex-mobile" id="calendar-timer-container" >
+          <!-- Calendar Container -->
+          <div id="calendar-div" class="calendar">
+            <!-- Simulated Calendar (you can integrate flatpickr here) -->
+            <input type="text" id="calendar" class="hidden">
+          </div>
+
+          <!-- Time Picker Div -->
+          <div class="time-picker">
+          </div>
+        </div>
+
+
+        <div class="container-flex" id="customer-details-container" class="hidden" style="display: none;">
+          <form id="customer-details-form" class="w-100">
+            <h3 class="termin_p">Geben Sie bitte Ihre Kontaktdaten ein!</h3>
+          <!--span>Geben Sie Ihre Kontaktdaten ein, um im Falle von Änderungen informiert zu werden</span-->
+
+            <div class="form-group">
+              <label for="firstName" >Vorname <span class="text-danger">*</span></label>
+
+              <input type="text" class="form-control" id="firstName" name="firstName" maxlength="50" required>
+              <div class="invalid-feedback">Bitte geben Sie Ihren Vornamen ein.</div>
+            </div>
+            <div class="form-group">
+              <label for="lastName">Nachname <span class="text-danger">*</span></label>
+              <input type="text" class="form-control" id="lastName" name="lastName" maxlength="50" required>
+              <div class="invalid-feedback">Bitte geben Sie Ihren Nachnamen ein.</div>
+            </div>
+            <div class="form-group">
+              <label for="email">E-Mail <span class="text-danger">*</span></label>
+              <input type="email" class="form-control" id="email" name="email" required>
+              <div class="invalid-feedback">Bitte geben Sie eine gültige E-Mail-Adresse ein.</div>
+            </div>
+            <div class="form-group">
+              <label for="phone">Rückrufnummer für Terminbestätigung <span class="text-danger">*</span></label>
+              <input type="text" class="form-control" id="phone" name="phone" required>
+              <div class="invalid-feedback">Bitte geben Sie Ihre Telefonnummer ein! z. B. +49/ oder 049/ oder 0176xxxx.</div>
+            </div>
+            <div class="form-group">
+              <label for="notes">Ihre Anfrage</label>
+              <textarea class="form-control" id="notes" name="notes" rows="3"></textarea>
+              <div class="invalid-feedback">Es sind maximal 500 Zeichen erlaubt.</div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Right Panel -->
+      <div class="col-lg-4 col-md-12 right-panel d-flex flex-column">
+        <div class="text-black p-1 flex-grow-1">
+
+          <div id="standort-panel" class="">
+            <p class="termin_p">
+              Ihre Werkstatt
+            </p>
+            <div class="w-100 ml-2" >
+              <p class="mb-0"> <span class="mb-0" id="branch-name"></span></p>
+            </div>
+            <div class="d-flex align-items-center w-100 mb-2">
+              <a href="" id="branch-address-url" target="_blank">
+              <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" style="width: 24px; height: 24px;">
+                <path fill="currentColor" d="M172.3 501.7C23.7 329.7 0 304.2 0 192 0 86 86 0 192 0s192 86 192 192c0 112.2-23.7 137.7-172.3 309.7-9.5 10.7-27 10.7-36.6 0zm19.7-229.7c53 0 96-43 96-96s-43-96-96-96-96 43-96 96 43 96 96 96z"/>
+              </svg>
+              </a>
+              <div class="w-100 ml-2" >
+                <p class="mb-0"> <span class="mb-0" id="branch-address"></span></p>
+              </div>
+            </div>
+          </div>
+
+          <div id="termin-panel" class="hidden">
+            <p class="termin_p">
+              Ihr Termin
+            </p>
+            <div class="d-flex align-items-center w-100 mb-2">
+              <svg aria-hidden="true" focusable="false" class="me-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 24px; height: 24px;">
+                <path fill="currentColor" d="M216.1 408.1C207.6 418.3 192.4 418.3 183 408.1L119 344.1C109.7 335.6 109.7 320.4 119 311C128.4 301.7 143.6 301.7 152.1 311L200 358.1L295 263C304.4 253.7 319.6 253.7 328.1 263C338.3 272.4 338.3 287.6 328.1 296.1L216.1 408.1zM128 0C141.3 0 152 10.75 152 24V64H296V24C296 10.75 306.7 0 320 0C333.3 0 344 10.75 344 24V64H384C419.3 64 448 92.65 448 128V448C448 483.3 419.3 512 384 512H64C28.65 512 0 483.3 0 448V128C0 92.65 28.65 64 64 64H104V24C104 10.75 114.7 0 128 0zM400 192H48V448C48 456.8 55.16 464 64 464H384C392.8 464 400 456.8 400 448V192z"></path>
+              </svg>
+              <div class="w-100 ml-2 text-nowrap" >
+                <p class="mb-0"> <span class="mb-0" id="scheduled-time">10:15 bis 11:15</span>, <span id="scheduled-date">07. September 2024</span></p>
+              </div>
+            </div>
+            <div class="d-flex align-items-center w-100 mb-4">
+              <svg aria-hidden="true" focusable="false" class="me-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="width: 24px; height: 24px;">
+                <path fill="#000000" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5 0-200-89.5-200-200S145.5 56 256 56s200 89.5 200 200-89.5 200-200 200zm92-244h-68V124c0-6.6-5.4-12-12-12h-32c-6.6 0-12 5.4-12 12v136c0 6.6 5.4 12 12 12h100c6.6 0 12-5.4 12-12v-32c0-6.6-5.4-12-12-12z"/>
+              </svg>
+              <div class="w-100 ml-2">
+                <p class="mb-0">Dauer: 1,5 Std.</p>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <p class="termin_p"></p>
+            <img id="device-model-image-preview" src="/images/device_pictures/no-device.png" class="img-fluid mx-auto d-block" alt="Device Image"
+            onerror="this.onerror=null; this.src='/images/device_pictures/no-device.png';" >
+
+            <div class="product-row">
+              <label id="device-model-image-label"></label>
+              <span class="price" id="repair-price"></span>
+            </div>
+          </div>
+
+          <div id="repairbonus-container" style="display: none">
+            <h2 class="text-right" style="margin: 1px; margin-right: 10px; color: white; background-color: #a2c613;"  id="repairbonus">
+              - 50 %
+            </h2>
+            <span style="margin: 2px; margin-right: 10px; white-space: nowrap; font-size: 10px;">
+              (*) Reparaturbonus vorausgesetzt
+            </span>
+            <h1 class="big-price text-right" id="repair-price-with-bonus">
+              75,99 €
+            </h1>
+          </div>
+        </div>
+        <!-- Schedule Button -->
+        <button data-umami-event="booking-requested" id="schedule-button" type="button" class="btn btn-primary w-100 mt-auto" style="display: none;">Terminanfrage</button>
+
+
+        <!-- Schedule Action Buttons -->
+
+        <!-- Schedule Action Buttons -->
+        <div class="my-d-flex justify-content-between mt-2 " id="schedule-action-buttons" style="display: none !important;">
+          <button id="back-button" type="button" class="m-1 btn btn-secondary w-50">Zurück</button>
+          <button data-umami-event="booking-schedule-selected" id="show-form-button" type="button" class="m-1 btn btn-primary w-50" disabled>Weiter</button>
+        </div>
+        <div class="mt-2 " id="submit-action-container" style="display: none !important;">
+          <div class="form-group">
+            <label class="">
+              <input id="agb" type="checkbox" class="m-2" >Ich habe die <a href="https://www.hush-haarentfernung.de/allgemeine-geschaeftsbedingungen/" target="_blank" class="sc-hzDEsm eJPntD">AGB</a> und <a href="https://www.hush-haarentfernung.de/datenschutzvereinbarungen/" target="_blank" class="sc-hzDEsm eJPntD">Datenschutz</a> gelesen und bin damit einverstanden.
+            </label>
+            <div class="agb-invalid-feedback invalid-feedback">Bitte akzeptieren Sie die AGB's.</div>
+          </div>
+
+          <div class="my-d-flex justify-content-between mt-2 " id="" style="display:  !important;">
+            <button id="back-to-scheduling" type="button" class="m-1 btn btn-secondary w-50">Zurück</button>
+            <button  id="submit-button" type="button" class="m-1 btn btn-primary w-50" >Jetzt anfragen</button>
+          </div>
+        </div>
+
+        <!-- Powered by Section -->
+        <div class="mt-1 p-1 text-center bg-gray-100 border-t border-gray-200">
+          <p class="text-sm text-gray-600">Powered by <img src="/logomark.png" width="30" style="border: solid 1px gray;
+            border-radius: 3px;
+            margin-right: 5px;"><a href="https://hush-haarentfernung.de"
+            target="_blank" style="color: #0F766E" ">hush-haarentfernung.de</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal dialogs -->
+  <!-- Modal HTML with dynamic message support -->
+  <div class="modal fade" id="customModal" tabindex="-1" aria-labelledby="customModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="customModalLabel">Information</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Schließen">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div id="customModalMessage" class="alert"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal"> OK </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- bootstrap -->
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha256-7dA7lq5P94hkBsWdff7qobYkp9ope/L5LQy2t/ljPLo=" crossorigin="anonymous"></script>
+  <!-- select2 -->
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js" integrity="sha256-AFAYEOkzB6iIKnTYZOdUf9FFje6lOTYdwRJKwTN5mks=" crossorigin="anonymous"></script>
+
+  <script src="/appointment-app.js"></script> <!-- Link to your new JS file -->
+
+  <script defer src="https://umami.insidekiq.com/script.js" data-website-id="df91e0b9-3ef8-4630-b921-5e0c015ec8ec"></script>
+
+  <!-- Hotjar Tracking Code for https://app.hush-haarentfernung.de -->
+<script>
+  (function(h,o,t,j,a,r){
+      h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+      h._hjSettings={hjid:5210390,hjsv:6};
+      a=o.getElementsByTagName('head')[0];
+      r=o.createElement('script');r.async=1;
+      r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+      a.appendChild(r);
+  })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+</body>
+</html>

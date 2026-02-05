@@ -1,0 +1,6 @@
+---
+# The authentication token for the application.
+# SKYLIGHT_IGNORED_ENDPOINTS=HeartbeatController#status,StatusWorker
+authentication: QbmYBd-TZ3wv9rYAZiNko5H7Ui7km8WRLL-EbTYTODI
+ignored_endpoints:
+  - HealthcheckController#index

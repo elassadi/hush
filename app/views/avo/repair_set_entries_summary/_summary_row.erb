@@ -1,0 +1,22 @@
+<tr class="bg-white hover:bg-gray-50 hover:shadow-row hover:z-[21] relative z-20 border-b" data-controller="item-selector">
+
+  <td class="min-h-[3rem] px-3 leading-tight whitespace-nowrap h-full text-slate-800 text-base  py-3 text-right w-full
+    <%= locals[:bold] ? "font-bold" : ""%> "
+    data-field-id="qty" data-field-type="number" data-resource-index-target="qtyNumberWrapper"
+    data-issue-entry-resource-target="qtyNumberWrapper" style="">
+    <%= locals[:title] %>
+
+
+  </td>
+  <td class="min-h-[3rem] px-3 leading-tight whitespace-nowrap h-full text-slate-800 text-base  py-3
+    <%= locals[:bold] ? "font-bold" : "" %> "
+    data-field-id="price" data-field-type="number" data-resource-index-target="priceNumberWrapper"
+    data-issue-entry-resource-target="priceNumberWrapper" style="">
+
+    <%= locals[:price] %>
+  </td>
+  <td class="min-h-[3rem] px-3 leading-tight whitespace-nowrap h-full text-slate-800 text-base  py-3  min-w-10
+    data-field-id="article_name" data-field-type="text" data-resource-index-target="articleNameTextWrapper"
+    data-issue-entry-resource-target="articleNameTextWrapper" style="">
+  </td>
+</tr>

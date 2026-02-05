@@ -1,0 +1,27 @@
+module IssueEntries
+  class CreateTextAction < ::ApplicationBaseAction
+    self.name = "CreateText"
+
+    # test
+    self.visible = lambda do
+      return false unless view == :show
+
+      current_user.may?(:create_text, resource.model)
+    end
+
+    def handle(**args)
+      models = args[:models]
+      models.each do |model|
+        authorize_and_run(:create_text, model) do |issue_entry|
+          create_text(issue_entry)
+        end
+      end
+    end
+
+    private
+
+    def create_text(issue_entry)
+      IssueEntries::CreateTextTransaction.call(issue_entry_id: issue_entry.id)
+    end
+  end
+end

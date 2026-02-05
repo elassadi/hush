@@ -1,0 +1,6 @@
+<%= field_wrapper **field_wrapper_args do %>
+  <%= @field.one_line_value %>
+
+  <input type="hidden" id="dtime-field-start-at" data-controller="dtime-field" data-dtime-field-target="startAtHiddenInput" value="<%= @field.start_date_formatted_value %>" />
+
+<% end %>

@@ -1,0 +1,5 @@
+name: default-calendar-canceld-sms-template
+type: sms
+protected: true
+body: |
+  Hallo {{customer.name}}, Ihr Termin bei {{merchant.branch_name}} wurde abgesagt. Wir entschuldigen uns für die Unannehmlichkeiten.

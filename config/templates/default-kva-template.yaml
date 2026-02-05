@@ -1,0 +1,161 @@
+name: default-kva-template
+type: print
+protected: true
+body: |
+  <table style="width: 100%" border="0">
+    <tbody>
+      <tr>
+        <td>
+          <h1>KOSTENVORANSCHLAG</h1>
+        </td>
+        <td align="right">
+          <img
+            class="merchant_logo"
+            style="height: 80px"
+            src="{{merchant.logo_url}}"
+          />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <hr />
+  <table style="height: 431px" width="100%">
+    <tbody>
+      <tr>
+        <td width="70%">
+          <p style="font-size: smaller">
+            {{merchant.company_name}} ~ {{merchant.address.street_address}} ~
+            {{merchant.address.post_code}} {{merchant.address.city}}
+          </p>
+          <p>
+            <br />{{customer.salutation}}<br />{{customer.company_name}}<br />{{customer.name}}<br />{{customer.address.street_address}}
+            <br />{{customer.address.post_code}} {{customer.address.city}}
+          </p>
+        </td>
+        <td style="white-space: nowrap" align="right">
+          <p>
+            KVA.NRL {{issue.sequence_id}}<br />Auftragsdatum: {{issue.created_at |
+            date}}<br />Kundennr.:{{customer.sequence_id}}<br />
+            <!-- {% if issue.has_insurance_case %}-->
+            Versicherungsnr.: {{issue.insurance.number}}<br />
+            <!-- {% endif %}-->
+            Ansprechpartner:
+            {{issue.owner_name}}
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td width="80%">
+          <p style="font-weight: bold">
+            Ger&auml;t: {{device.device_manufacturer_name}}
+            {{device.device_model_name}} {{device.device_color_name}}
+          </p>
+        </td>
+        <td style="white-space: nowrap" align="right">
+          <!-- {% if device.imei %}-->
+          <p style="font-weight: bold">IMEI: {{device.imei}}</p>
+          <!-- {% endif %}-->
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <h3>Auftrags-Nr.: {{issue.sequence_id}}</h3>
+  <p>&nbsp;</p>
+  <table style="width: 100%; border-collapse: separate; border-spacing: 5px">
+    <tbody>
+      <tr style="font-weight: bold">
+        <td align="center" width="5%">Pos.</td>
+        <td width="70%%">Beschreibung</td>
+        <td align="center" width="10%">Anz.</td>
+        <td align="right" width="15%">Einzelpreis</td>
+        <td align="right" width="15%">Gesamtpreis</td>
+      </tr>
+      <!-- {% for entry in issue.issue_entries %} -->
+      <tr>
+        <td align="center" width="5%">{{entry.pos}}</td>
+        <td width="70%%">{{entry.name}}</td>
+        <td align="center" width="10%">{{entry.qty}}</td>
+        <td align="right" width="15%">{{entry.price | brutto: issue.tax}}</td>
+        <td align="right" width="15%">{{entry.total | brutto: issue.tax}}</td>
+      </tr>
+      <!-- {% endfor %}-->
+      <!-- {% if issue.has_rabatt %}-->
+      <tr class="top_line" align="right">
+        <td style="font-weight: bold" colspan="4">Rabatt</td>
+        <td>{{issue.rabatt | brutto: issue.tax}}</td>
+      </tr>
+      <!-- {% endif %}-->
+      <tr align="right">
+        <td style="font-weight: bold" colspan="4">Summe Netto</td>
+        <td>{{issue.total_with_rabatt | netto }}</td>
+      </tr>
+      <tr align="right">
+        <td style="font-weight: bold" colspan="4">zzgl. MwSt. {{issue.tax}}%</td>
+        <td>{{issue.total_with_rabatt | tax: issue.tax }}</td>
+      </tr>
+      <tr align="right">
+        <td style="font-weight: bold" colspan="4">Gesamtsumme</td>
+        <td>{{issue.total_with_rabatt| brutto: issue.tax}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>&nbsp;</p>
+  <table>
+    <tbody>
+      <tr style="font-weight: bold">
+        <td colspan="2">
+          <h3>Kostenvoranschlag Best&auml;tigung</h3>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">(Bitte betreffendes ankreuzen)</td>
+      </tr>
+      <tr>
+        <td width="5%"><input name="" type="checkbox" /></td>
+        <td style="font-weight: bold">
+          Ja, ich m&ouml;chte mein Ger&auml;t mit dem Service der o.g.
+          Beschreibung, zum angegebenen Preis von {{issue.total_with_rabatt|
+          brutto: issue.tax}} durchf&uuml;hren lassen.
+        </td>
+      </tr>
+      <tr>
+        <td width="5%"><input name="" type="checkbox" /></td>
+        <td>
+          Nein, ich m&ouml;chte nicht das mein Ger&auml;t mit dem Service der o.g.
+          Beschreibung durchgef&uuml;hrt wird und werde es gegen eine
+          Servicepauschale von 19,90 EUR unrepariert abholen, bzw. f&uuml;r 29,90
+          EUR an mich zur&uuml;ckgesendet wird.
+        </td>
+      </tr>
+      <tr>
+        <td width="5%"><input name="" type="checkbox" /></td>
+        <td>
+          Nein, ich m&ouml;chte nicht das mein Ger&auml;t mit dem Service der o.g.
+          Beschreibung durchgef&uuml;hrt wird und bitte um kostenlose Entsorgung.
+        </td>
+      </tr>
+      <tr>
+        <td style="font-size: smaller" colspan="2">
+          Der Kostenvoranschlag ist erst mit Unterschrift verbindlich und hat nach
+          Erstellung eine G&uuml;ltigkeit von 4 Wochen. Ich willige ein, dass mir
+          {{merchant.company_name}} per E-Mail/Telefon/Fax/SMS/Soziale Netzwerke*
+          Informationen zum Status meines Reparaturauftrages und Angebote zu
+          weiteren Telekommunikationsprodukten zum Zwecke der Werbung
+          &uuml;bersendet. (* bei Nicht-Einwilligung bitte Unzutreffendes
+          streichen).<br />Mit Ihrer Unterschrift best&auml;tigen Sie eine
+          Haftungsfreistellung f&uuml;r Folge,- oder Totalsch&auml;den
+          gegen&uuml;ber uns.
+        </td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td colspan="2">..............................</td>
+      </tr>
+      <tr>
+        <td colspan="2">Datum/Unterschrift</td>
+      </tr>
+    </tbody>
+  </table>
+

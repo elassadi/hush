@@ -1,0 +1,8 @@
+<%= field_wrapper **field_wrapper_args do %>
+<%=
+  render Avo::Fields::StatusBadgeField::StatusBadgeViewerComponent.new(
+        i18n_value: @field.i18n_value, value: @field.value, options: @field.options, shorten: false,
+        i18n_value_tooltip: @field.i18n_value_tooltip
+  ) if @field.show_on_edit
+%>
+<% end %>

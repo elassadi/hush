@@ -1,0 +1,2370 @@
+---
+de:
+  actions:
+    accounts:
+      login_as_action:
+        message: Möchten Sie sich als Benutzer einloggen?
+        name: Einloggen als
+        success: Sie sind jetzt als Benutzer eingeloggt.
+        user_already_logged_in: Sie sind schon als diesen Benutzer eingeloggt.
+        login_as_failed: Einloggen fehlgeschlagen.
+      disable_action:
+        message: Möchten Sie diesen Benutzer wirklich deaktivieren?
+        name: Deaktivieren
+        success: Benutzer wurde deaktiviert
+      activate_action:
+        message: Möchten Sie diesen Benutzer wirklich aktivieren?
+        name: Aktivieren
+        success: Benutzer wurde aktiviert
+    calendar_entries:
+      cancel_action:
+        message: Möchten Sie den Kalendereintrag wirklich stornieren?
+        name: Stornieren
+        notify_customer: Kunde benachrichtigen
+        notify_customer_help: Kunde wird benachrichtigt
+        success: Kalendereintrag wurde storniert
+      confirm_action:
+        message: Möchten Sie den Kalendereintrag bestätigen?
+        name: Bestätigen
+        notify_customer: Kunde benachrichtigen
+        notify_customer_help: Kunde wird benachrichtigt
+        success: Kalendereintrag wurde bestätigt
+    issue_calendar_entries:
+      cancel_action:
+        message: Möchten Sie den Kalendereintrag wirklich stornieren?
+        name: Stornieren
+        notify_customer: Kunde benachrichtigen
+        notify_customer_help: Kunde wird benachrichtigt
+        success: Kalendereintrag wurde storniert
+      confirm_action:
+        message: Möchten Sie den Kalendereintrag bestätigen?
+        name: Bestätigen
+        notify_customer: Kunde benachrichtigen
+        notify_customer_help: Kunde wird benachrichtigt
+        success: Kalendereintrag wurde bestätigt
+    issue_entries:
+      update_rabatt_action:
+        message: Rabatt aktualisieren
+        name: Rabatt aktualisieren
+        rabatt: Rabatt
+        help: Bitte geben Sie den Rabatt in absoluten Zahlen ein.
+
+      update_price_action:
+        message: Preis aktualisieren
+        name: Preis aktualisieren
+        price: preis
+        price_help: Achtung! Der gesamte Setpreis wird aktualisiert.
+      update_total_price_action:
+        message: Gesamtpreis aktualisieren
+        name: Gesamtpreis aktualisieren
+        price: preis
+        price_help: Achtung! Der gesamte Preis wird aktualisiert.
+    issues:
+      cancel_action:
+        comment: :activerecord.models.comment
+        comment_is_required: Bitte geben Sie einen Kommentar ein!
+        message: Auftrag stornieren
+        name: Auftrag stornieren
+        cancel_draft_job_comment: |
+          Der Entwurfsauftrag wurde automatisch vom System storniert, da über
+          einen Zeitraum von 4 Wochen keine Änderungen vorgenommen wurden.
+      complete_action:
+        message: Auftrag abschliessen
+        name: Auftrag abschliessen
+        notify_customer: Kunde benachrichtigen
+        notify_customer_help: Die Rechnung wird erstellt und an den Kunden versendet.
+        print_invoice: Rechnung erstellen
+      device_received_action:
+        message: Gerät eingetroffen
+        name: Gerät eingetroffen
+      done_repairing_action:
+        message: Reparatur beenden
+        name: Reparatur beenden
+        notify_customer: Kunde benachrichtigen
+        repair_result_successfull: Reparatur war erfolgreich?
+        report: Reparaturbericht
+        report_is_missing: Reparaturbericht fehlt
+        template: Vorlage
+      lock_action:
+        message: |
+          <div class="p-4 bg-blue-50 border-l-4 border-blue-400 ">
+            <p class="text-xs">
+                <strong>Achtung: Reparaturauftrag sperren</strong><br><br>
+                Der Auftrag kann weiterhin bearbeitet werden, aber:<br>
+                <ul class="text-xs" style="list-style-type: disc;">
+                  <li class="ml-4">Der <strong>Workflow-Status</strong> wird nicht mehr automatisch aktualisiert.</li>
+                  <li class="ml-4">Maximal <strong>15 Minuten</strong> nach der letzten Bearbeitung wird der Datensatz automatisch entsperrt.</li>
+                </ul>
+                <br>
+                <p class="text-xs">Achten Sie auf das <strong>Schloss-Icon</strong></p>
+
+            </p>
+          </div>
+        name: Sperren
+        success: Reparaturauftrag wurde gesperrt
+      print_canceld_invoice_action:
+        message: Stornorechnung erstellen
+        name: Stornorechnung erstellen
+        print_canceld_invoice_failed: |
+          Es ist ein Fehler beim Verarbeiten Ihrer Anfrage aufgetreten.
+          Bitte versuchen Sie es später erneut.
+      print_invoice_action:
+        message: Rechnung erstellen
+        name: Rechnung erstellen
+        print_invoice_failed: |
+          Es ist ein Fehler beim Verarbeiten Ihrer Anfrage aufgetreten.
+          Bitte versuchen Sie es später erneut.
+      print_kva_action:
+        preview_loading: Vorschau wird geladen, bitte warten...
+        errors:
+          not_in_the_correct_status: |
+            Der Auftrag ist im falschen Status.
+            Bitte überprüfen Sie den Status und versuchen Sie es erneut.
+        message: Kostenvoranschlag erstellen
+        name: Kva erstellen
+        notify_customer: Kunde benachrichtigen
+        print_kva_failed: |
+          Es ist ein Fehler beim Verarbeiten Ihrer Anfrage aufgetreten.
+          Bitte versuchen Sie es später erneut.
+      print_order_action:
+        message: Auftrag drucken
+        name: Auftrag drucken
+        notify_customer: Kunde benachrichtigen
+        print_order_failed: |
+          Es ist ein Fehler beim Verarbeiten Ihrer Anfrage aufgetreten.
+          Bitte versuchen Sie es später erneut.
+      start_repairing_action:
+        message: Auftrage wird repariert
+        name: Reparatur starten
+      stop_repairing_action:
+        comment: :activerecord.models.comment
+        comment_is_required: Bitte geben Sie einen Kommentar ein!
+        message: Geben Sie bitte einen Grund warum die Reparatur angehalten wird
+        name: Reparatur anhalten
+      unlock_action:
+        message: ''
+        name: Entperren
+      update_price_action:
+        message: Preis aktualisieren
+        name: Preis aktualisieren
+      workflow_action:
+        comment: :activerecord.models.comment
+        comment_is_required: Bitte geben Sie einen Kommentar ein!
+        event: Ereigniss
+        message: Workflow
+        name: Workflow
+        print_kva_failed: |
+          Es ist ein Fehler beim Verarbeiten Ihrer Anfrage aufgetreten.
+          Bitte versuchen Sie es später erneut.
+    purchase_order_entries:
+      split_action:
+        errors:
+          empty_entries: Keine Bestellposition angegeben.
+          invalid_min_max_quantity: 'Die Menge der Bestellpositionen ist fehlerhaft.
+
+            '
+          use_workflow_order_delivered: 'Die Bestellung kann nicht aufgeteilt werden,
+            da Sie alle Positionen ausgewählt haben.
+
+            '
+        help_message: Mehr Informationen finden Sie hier.
+        message: |
+          <div class="p-4 bg-blue-50 border-l-4 border-blue-400 ">
+            <p class="text-xs font-semibold">
+              Die Ausgewählten Positionen werden in eine neue Bestellung verschoben und nur dann
+              eingelagert,wenn Sie die Option ‘Sofort-einlagern’ ausgewählt haben.<br>
+              Der Rest bleibt in der ursprünglichen Bestellung.<br/>
+              Die neue Bestellung wird mit der ursprünglichen Bestellung verknüpft.
+            </p>
+          </div>
+        name: Aufteilen und lagern
+        stock_immediately: Sofort-einlagern?
+    purchase_orders:
+      cancel_action:
+        message: Bestellung stornieren
+        name: Storno
+      split_action:
+        errors:
+          empty_entries: Keine Bestellposition angegeben.
+          invalid_min_max_quantity: 'Die Menge der Bestellpositionen ist fehlerhaft.
+
+            '
+          use_workflow_order_delivered: 'Die Bestellung kann nicht aufgeteilt werden,
+            da Sie alle Positionen ausgewählt haben.
+
+            '
+        help_message: Mehr Informationen finden Sie hier.
+        message: |
+          <div class="p-4 bg-blue-50 border-l-4 border-blue-400 ">
+            <p class="text-xs font-semibold">
+              Passen Sie die Menge der bereits gelieferten Bestellpositionen an. <br>
+              Positionen mit einer Menge größer als 0 werden in eine neue Bestellung verschoben und nur dann
+              eingelagert,wenn Sie die Option ‘Sofort-einlagern’ ausgewählt haben.<br>
+              Der Rest bleibt in der ursprünglichen Bestellung.
+              Die neue Bestellung wird mit der ursprünglichen Bestellung verknüpft.
+            </p>
+          </div>
+        name: Aufteilen und lagern
+        stock_immediately: Sofort-einlagern?
+      workflow_action:
+        comment: :activerecord.models.comment
+        event: Ereigniss
+        message: Workflow
+        name: Workflow
+    supplier_articles:
+      add_to_articles_action:
+        message: Artikeln hinzufügen
+        name: Artikeln hinzufügen
+      import_action:
+        help_header: HowTo Import
+        help_message: Hilfe und einen Beispiel zum Download finden Sie hier.
+        message: Importieren Sie neue Artikeln in ihren Katalogue
+        name: Datenimport
+    articles:
+      mark_as_inventoried_action:
+        message: Als inventarisiert markieren
+        name: Als inventarisiert markieren
+    users:
+      login_as_action:
+        message: Möchten Sie sich als Benutzer einloggen?
+        name: Einloggen als
+        success: Sie sind jetzt als Benutzer eingeloggt.
+        user_already_logged_in: Sie sind schon als diesen Benutzer eingeloggt.
+        login_as_failed: Einloggen fehlgeschlagen.
+      activate_action:
+        message: Möchten Sie diesen Benutzer wirklich aktivieren?
+        name: Aktivieren
+        success: Benutzer wurde Aktiviert
+      disable_action:
+        message: Möchten Sie diesen Benutzer wirklich deaktivieren?
+        name: Deaktivieren
+        success: Benutzer wurde deaktiviert
+      create_api_token_action:
+        message: API-Token erstellen
+        name: API-Token erstellen
+        success: API-Token wurde erstellt
+    delete_action:
+      message: Möchten Sie diesen Datensatz wirklich löschen?
+      name: Löschen
+      success: Datensatz wurde gelöscht
+    stocks:
+      export_action:
+        message: Exportieren
+        name: Exportieren
+    device_models:
+      activate_action:
+        message: Möchten Sie dieses Gerätemodell wirklich aktivieren?
+        name: Aktivieren
+        success: Gerätemodell wurde aktiviert
+      disable_action:
+        message: Möchten Sie diesen Benutzer wirklich deaktivieren?
+        name: Deaktivieren
+        success: Benutzer wurde deaktiviert
+    events:
+      retry_action:
+        message: Möchten Sie diesen Event wirklich wiederholen?
+        name: Wiederholen
+        success: Event wurde wiederholt
+    webhook_request:
+      retry_action:
+        message: Möchten Sie diesen Webhook-Request wirklich wiederholen?
+        name: Wiederholen
+        success: Webhook-Request wurde wiederholt
+  activerecord:
+    attributes:
+      ability:
+        account: :activerecord.models.account
+        action_tags: Aktions-Tags
+        effect: Wirkung
+        one: Fähigkeit
+        other: Fähigkeit
+        resources: Ressourcen
+        role: :activerecord.models.role
+        uuid: UUID
+      account:
+        account_type: Konto Typ
+        activated_at: Aktiviert um
+        addresses: Adressen
+        agents: Agenten
+        bank_account_owner: Bankkontoinhaber
+        bank_name: Bank Name
+        bic: Bic
+        deleted_at: Gelöscht um
+        disabled_at: Deaktiviert bei
+        documents: Unterlagen
+        email: Email
+        first_name: Vorname
+        iban: Iban
+        ihk_number: Ihk-Nummer
+        last_name: Familienname, Nachname
+        legal_form: Rechtsform
+        merchant: :activerecord.models.merchant
+        merchants: Händler
+        name: Name
+        one: Konto
+        other: Konto
+        phone: Telefon
+        plan: Tarif
+        primary_address: :activerecord.models.primary_address
+        roles: Rollen
+        status: Status
+        stock_areas: Lagerbereiche
+        stock_locations: Lagerstandorte
+        tax_number: Steuernummer
+        users: Benutzer
+        uuid: UUID
+        vat_id_number: Umsatzsteuer-Identifikationsnummer
+        versions: Versionen
+      active_storage/attachment:
+        blob: :activerecord.models.blob
+        name: Name
+        one: Aktive Lagerung/Befestigung
+        other: Aktive Lagerung/Befestigung
+        record: :activerecord.models.record
+        record_type: Aufnahmetyp
+      active_storage/blob:
+        attachments: Anhänge
+        byte_size: Bytegröße
+        checksum: Prüfsumme
+        content_type: Inhaltstyp
+        filename: Dateinamen
+        key: Taste
+        metadata: Metadaten
+        one: Aktiver Speicher/Blob
+        other: Aktiver Speicher/Blob
+        preview_image_attachment: :activerecord.models.preview_image_attachment
+        preview_image_blob: :activerecord.models.preview_image_blob
+        service_name: Dienstname
+        variant_records: Variantenaufzeichnungen
+      active_storage/variant_record:
+        blob: :activerecord.models.blob
+        image_attachment: :activerecord.models.image_attachment
+        image_blob: :activerecord.models.image_blob
+        one: Aktiver Lager-/Variantendatensatz
+        other: Aktiver Lager-/Variantendatensatz
+        variation_digest: Variationsübersicht
+      activity:
+        activity_names:
+          email_sent: "%{owner_name} hat <b>`%{triggering_event}`</b> ausgeführt,
+            und den Kunden per <b>Email</b> benachrichtigt."
+          sms_sent: "%{owner_name} hat <b>`%{triggering_event}`</b> ausgeführt, und
+            den Kunden per <b>SMS</b> benachrichtigt."
+          workflow_transition: "%{owner_name} hat <b>`%{triggering_event}`</b> ausgeführt"
+        created_at: :shared.created_at
+        customer_notification_method: Benachrichtigungsmethode
+        one: Aktivität
+        other: Aktivitäten
+        owner: Berarbeitet von
+        status_after: Status nachher
+        status_before: Status vorher
+        title: Titel
+        trigger_event: Auslösendes Ereignis
+        triggering_event: Ereignis
+      address:
+        account: :activerecord.models.account
+        addressable: Referenz
+        addressable_type: Adressierbarer Typ
+        city: Stadt
+        country: Land
+        house_number: Hausnummer
+        one: Adresse
+        other: Adresse
+        post_code: Postleitzahl
+        primary: Primär
+        primary_record: Primärer Datensatz
+        status: Status
+        street: Straße
+        uuid: UUID
+        versions: Versionen
+      api_token:
+        counter: Schalter
+        deleted_at: Gelöscht um
+        last_used_at: Zuletzt verwendet um
+        name: Name
+        one: API-Token
+        other: API-Token
+        status: Status
+        token: Zeichen
+        user: :activerecord.models.user
+      app_config:
+        key: Taste
+        one: App-Konfig
+        other: App-Konfig
+        value: Wert
+      application_setting:
+        canceld_invoice_print_template: Stornierte Rechnungsvorlage
+        default_calendar_mail: Standard Kalender E-Mail
+        default_mail_from: Standard Absender
+        default_mail_reply_to: Standard Antwortadresse
+        heading_mail_settings:
+          name: Mail Einstellungen
+          title: |
+            Mail Einstellungen
+            Hilfe und Dokumentationen finden Sie hier."
+        heading_notification_settings:
+          name: Benachrichtigungseinstellungen
+          title: |
+            Benachrichtigungseinstellungen
+            Hilfe und Dokumentationen finden Sie hier.
+        heading_print_templates:
+          name: Druckvorlagen
+          title: |
+            Druckvorlagen
+            Hilfe und Dokumentationen finden Sie hier.
+        heading_sms_settings:
+          name: SMS Einstellungen
+          title: |
+            SMS Einstellungen
+            Hilfe und Dokumentationen finden Sie hier."
+        invoice_print_template: Rechnungsvorlage
+        kva_print_template: Kostenvoranschlagsvorlage
+        mail_authentication: Authentifizierung
+        mail_domain: Domain
+        mail_external_smtp_enabled: Externer SMTP Versand aktivieren
+        mail_password: Passwort
+        mail_smtp_address: SMTP Adresse
+        mail_smtp_port: SMTP Port
+        mail_username: Benutzername
+        notification_enabled: Benachrichtigungen aktivieren
+        one: Applikationseinstellungen
+        order_print_template: Auftragsvorlage
+        other: Applikationseinstellungen
+        repair_report_print_template: Reparaturberichtsvorlage
+        sms_enabled: SMS aktivieren
+        sms_password: Passwort
+        sms_provider: SMS Anbieter
+        sms_username: Benutzername
+        zero: Applikationseinstellungen
+      article:
+        images: Artikelbilder
+        account: :activerecord.models.account
+        article_group: :activerecord.models.article_group
+        article_type: Artikeltyp
+        current_supplier: :activerecord.models.current_supplier
+        default_purchase_price: Einkaufpreis
+        default_retail_price: Verkaufspreis
+        description: Beschreibung
+        ean: Ean
+        heading_pricing_strategie:
+          name: Pricestrategieinformationen
+          title: Hilfe und Dokumentationen zur Preisstrategie finden Sie hier.
+        images_attachments: Bildanhänge
+        images_blobs: Bilder-Blobs
+        in_stock_available: :activerecord.attributes.stock.in_stock_available
+        inventoried_at: Zuletzt inventarisiert am
+        inventoried_by: Inventarisiert von
+        margin: Marge
+        name: Name
+        one: Artikel
+        other: Artikel
+        pricing_strategie: Preisstrategie
+        pricing_strategies:
+          absolut: Absolut
+          disabled: Deaktiviert
+          percentage: Prozentual
+        purchase_price: Einkaufpreis
+        sort_purchase_price: Einkaufspreis
+        repair_set_entries: Set-Einträge reparieren
+        repair_sets: Reparatursätze
+        retail_price: Verkaufspreis
+        status: Status
+        stock: :activerecord.models.stock
+        stock_items: Artikel auf Lager
+        stock_movements: Lagerbewegungen
+        supplier: :activerecord.models.supplier
+        supplier_articles: Lieferantenartikel
+        supplier_source: :activerecord.models.supplier_source
+        supplier_sources: Lieferantenquellen
+        suppliers: Lieferanten
+        tax: Steuer
+        title: Name
+        unit: Einheit
+        uuid: UUID
+      article_group:
+        account: :activerecord.models.account
+        description: Beschreibung
+        name: Name
+        one: Artikelgruppe
+        other: Artikelgruppe
+        uuid: UUID
+      business_hour:
+        day: Geschäftszeiten
+        days:
+          fr: Freitag
+          mo: Montag
+          mo_to_fr: Montag bis Freitag
+          mo_to_sa: Montag bis Samstag
+          mo_to_su: Montag bis Sonntag
+          sa: Samstag
+          su: Sonntag
+          th: Donnerstag
+          tu: Dienstag
+          we: Mittwoch
+        end_time: Bis
+        jsonable: Referenz
+        other: Geschäftszeiten
+        start_time: Von
+      booking_setting:
+        zero: Buchungseinstellungen
+        one: Buchungseinstellungen
+        other: Buchungseinstellungen
+        booking_enabled: Buchung aktivieren
+        booking_slot_duration: Standardbuchungsdauer
+        booking_reminder_enabled: Buchungserinnerung aktivieren
+        heading_booking_settings:
+          name: Buchungseinstellungen
+          title: |
+            Buchungseinstellungen
+            Hilfe und Dokumentationen finden Sie hier.
+        heading_booking_notification:
+          name: Benachrichtigungseinstellungen
+          title: |
+            Benachrichtigungseinstellungen
+            Hilfe und Dokumentationen finden Sie hier.
+        heading_booking_lead_time:
+          name: Buchungslimit. Bestimme den Zeitraum, in dem deine Kunden online Termine buchen können.
+        booking_reminder_frequency: Buchungserinnerungsfrequenz
+        booking_reminder_frequencies:
+          one_day_before: 24 Stunden vorher
+          one_hour_before: Eine Stunde vorher
+        booking_slot_search_mode: Buchungsslot-Suchmodus
+        slot_search_modes:
+          - standard: Standard
+          - optimized: Optimiert
+        booking_lead_time_min: Vorlaufzeit
+        booking_lead_time_max: Buchungszeitraum
+        booking_confirmed_slots_capacity: Kapazität bestätigter Termine
+        booking_unconfirmed_slots_capacity: Kapazität unbestätigter Termine
+      calendar_entry:
+        account: :activerecord.models.account
+        all_day: Ganztägig
+        calendar: :activerecord.models.calendar
+        calendarable: Referenz
+        calendarable_type: Kalenderbarer Typ
+        categories:
+          holiday: Feiertag
+          lunch: Mittagspause
+          other: Anderer Grund
+          pause: Pause
+          private_appointment: Privater Termin
+          sickness: Krankheit
+          vacation: Urlaub
+        category: Kategorie
+        confirmed: Bestätigt
+        customer: Kunde
+        default_notes_for_blocker:
+          holiday: Feiertag
+          lunch: Firmenveranstaltung
+          other: Anderer Grund
+          pause: Pause
+          private_appointment: Firmenveranstaltung
+          sickness: Krankheit
+          vacation: Urlaub
+        default_notes_for_user:
+          holiday: Ist heute nicht im Büro
+          lunch: Macht gerade Mittagspause
+          other: Anderer Grund
+          pause: Macht gerade Pause
+          private_appointment: Hat einen privaten Termin
+          sickness: Ist krank
+          vacation: Ist im Urlaub
+        description: Beschreibung
+        end_at: Endet am
+        entry_type: Terminart
+        entry_types:
+          blocker: Blocker
+          customer: Kundentermin
+          regular: Regeltermin
+          repair: Reparaturtermin
+          user: Mitarbeiterabwesenheit
+        event_color: Ereignisfarbe
+        event: Wann
+        location: Ort
+        notes: Notizen
+        notify_customer: Kunde benachrichtigen
+        confirm_and_notify_customer: Termin bestätigen und Kunde benachrichtigen
+        one: Kalendereintrag
+        other: Kalendereinträge
+        selected_repair_set: Reparaturset
+        start_at: Beginnt am
+        status: Status
+        title: Titel
+        uuid: UUID
+        updated_at: :shared.updated_at
+        created_at: :shared.created_at
+      client:
+        genders:
+          female: Weiblich
+          male: Männlich
+        salutations:
+          mr: Herr
+          ms: Frau
+      comment:
+        account: :activerecord.models.account
+        body: Text
+        commentable: :activerecord.models.commentable
+        commentable_type: Kommentierbarer Typ
+        one: Kommentar
+        other: kommentare
+        owner: :activerecord.models.owner
+        status: Status
+        tags: Stichworte
+        teaser: Teaser
+        trix_attachments_attachments: Trix Anbaugeräte Anbauteile
+        trix_attachments_blobs: Trix-Anhangs-Blobs
+        uuid: UUID
+        zero: Kommentar
+        notify_customer_with: Kunden Benachrichtigen
+        notify_customer_withs:
+          mail: Email
+          sms: SMS
+          none: Keine Benachrichtigung
+      contact:
+        account: :activerecord.models.account
+        accounting_email: Buchhaltungs-E-Mail
+        addresses: Adressen
+        bank_account_owner: Bankkontoinhaber
+        bank_name: Bank Name
+        bic: Bic
+        ceo_name: CEO-Name
+        city: Stadt
+        comments: Kommentare
+        company_name: Name der Firma
+        country: Land
+        court_in_charge: Zuständiges Gericht
+        email: Email
+        first_name: Vorname
+        hrb_number: Hrb-Nummer
+        iban: Iban
+        last_name: Familienname, Nachname
+        mobile_number: Handy Nummer
+        one: Kontakt
+        other: Kontakt
+        phone_number: Telefonnummer
+        post_code: Postleitzahl
+        primary_address: :activerecord.models.primary_address
+        salutation: Anrede
+        street: Straße
+        tax: Steuer
+        tax_number: Steuernummer
+        uuid: UUID
+        web_page: Website
+        zero: Kontakt
+      contact_record:
+        account: :activerecord.models.account
+        accounting_email: Buchhaltungs-E-Mail
+        bank_account_owner: Bankkontoinhaber
+        bank_name: Bank Name
+        bic: Bic
+        ceo_name: CEO-Name
+        city: Stadt
+        company_name: Name der Firma
+        country: Land
+        court_in_charge: Zuständiges Gericht
+        email: Email
+        first_name: Vorname
+        hrb_number: Hrb-Nummer
+        iban: Iban
+        last_name: Familienname, Nachname
+        mobile_number: Handy Nummer
+        one: Kontaktdatensatz
+        other: Kontaktdatensatz
+        phone_number: Telefonnummer
+        post_code: Postleitzahl
+        salutation: Anrede
+        street: Straße
+        tax: Steuer
+        tax_number: Steuernummer
+        uuid: UUID
+        web_page: Website
+      customer:
+        account: :activerecord.models.account
+        addresses: Adressen
+        city: Stadt
+        comments: Kommentare
+        company_name: Name der Firma
+        country: Land
+        devices: Geräte
+        draft_device_color: :activerecord.models.draft_device_color
+        draft_device_model: :activerecord.models.draft_device_model
+        email: Email
+        first_name: Vorname
+        headers:
+          heading_address: Adressinformationen
+          heading_contact_channel: Kontaktinformationen
+        house_number: Hausnummer
+        iban: Iban
+        issues: Reparaturaufträge
+        last_name: Familienname, Nachname
+        merchant: :activerecord.models.merchant
+        mobile_number: Handy Nummer
+        old_ref: Alte Ref
+        one: Kunde
+        other: Kunde
+        owner: :activerecord.models.owner
+        phone_number: Telefonnummer
+        post_code: Postleitzahl
+        primary_address: :activerecord.models.primary_address
+        repair_orders: Reparaturaufträge
+        salutation: Anrede
+        salutations:
+          company: Firma
+          female: Frau
+          male: Herr
+        search_query_help: Suche nach Name, Vorname, Firma, Email, Telefonnummer
+        sequence_id: Kundennummer
+        street: Straße
+        uuid: UUID
+        zero: Kunde
+        updated_at: :shared.updated_at
+      customer_notification_rule:
+        channel: Kanal
+        one: Kundenbenachrichtigungsregel
+        other: Kundenbenachrichtigungsregeln
+        template: Vorlage
+        trigger_events:
+          calendar_entry_created: Kalendereintrag erstellt
+          calendar_entry_updated: Kalendereintrag aktualisiert
+          calendar_entry_confirmed: Kalendereintrag bestätigt
+          calendar_entry_canceld: Kalendereintrag storniert
+          calendar_entry_reminder_requested: Kalendereintrag Erinnerung
+          issue_awaiting_device: Warte auf Gerät
+          issue_canceld_invoice_printed: Stornierte Rechnung erstellt
+          issue_complete: Auftrag abschliessen
+          issue_completed: Auftrag abgeschlossen
+          issue_kva_printed: Kostenvoranschlag erstellt
+          issue_locked: Auftrag gesperrt
+          issue_order_printed: Auftrag erstellt
+          issue_repairing: Reparatur gestartet
+          issue_repairing_successfull: Reparatur erfolgreich
+          issue_repairing_unsuccessfull: Reparatur nicht erfolgreich
+          issue_unlocked: Auftrag entsperrt
+          comment_created: Kommentar erstellt
+        zero: Kundenbenachrichtigungsregel
+      default_document:
+        account: :activerecord.models.account
+        activated_at: Aktiviert um
+        active_record: Aktiver Rekord
+        archived_at: Archiviert unter
+        deleted_at: Gelöscht um
+        documentable: :activerecord.models.documentable
+        documentable_type: Dokumentierbarer Typ
+        file_attachment: :activerecord.models.file_attachment
+        file_blob: :activerecord.models.file_blob
+        key: Taste
+        one: Standarddokument
+        other: Standarddokument
+        status: Status
+        uuid: UUID
+      device:
+        account: :activerecord.models.account
+        device_color: :activerecord.models.device_color
+        device_manufacturer: :activerecord.models.device_manufacturer
+        device_model: :activerecord.models.device_model
+        headers:
+          device_model_information: Gerätemodellinformationen
+          technical_device_information: Technische Geräteinformationen
+          unlock_pattern: Entsperrmuster
+        imei: Imei
+        issues: Reparaturaufträge
+        metadata: Metadaten
+        one: Gerät
+        other: Gerät
+        repair_set_entries: Reparaturset Artikeln
+        repair_sets: Reparatursätze
+        serial_number: Seriennummer
+        unlock_pattern: Entsperrmuster
+        unlock_pin: Entsperr-Pin
+        uuid: UUID
+      device_color:
+        account: :activerecord.models.account
+        device_manufacturer: :activerecord.models.device_manufacturer
+        device_model: :activerecord.models.device_model
+        name: Name
+        one: Gerätefarbe
+        other: Gerätefarbe
+        uuid: UUID
+      device_failure_category:
+        account: :activerecord.models.account
+        description: Beschreibung
+        name: Name
+        one: Gerätefehlerkategorie
+        other: Gerätefehlerkategorie
+        protected: Geschützt
+        uuid: UUID
+      device_manufacturer:
+        account: :activerecord.models.account
+        description: Beschreibung
+        device_models: Gerätemodelle
+        name: Name
+        one: Gerätehersteller
+        other: Gerätehersteller
+        uuid: UUID
+      device_model:
+        account: :activerecord.models.account
+        description: Beschreibung
+        device_colors: Gerätefarben
+        device_manufacturer: :activerecord.models.device_manufacturer
+        device_model_category: Gerätemodellkategorie
+        gsm_path: Bild
+        image_attachment: :activerecord.models.image_attachment
+        image_blob: :activerecord.models.image_blob
+        name: Name
+        one: Gerätemodell
+        other: Gerätemodell
+        repair_sets: Reparatursätze
+        uuid: UUID
+      device_model_category:
+        account: :activerecord.models.account
+        description: Beschreibung
+        name: Name
+        one: Gerätemodellkategorie
+        other: Gerätemodellkategorie
+        uuid: UUID
+        updated_at: :shared.updated_at
+        created_at: :shared.created_at
+      document:
+        account: :activerecord.models.account
+        activated_at: Aktiviert um
+        active_record: Aktiver Rekord
+        archived_at: Archiviert unter
+        created_at: :shared.created_at
+        deleted_at: Gelöscht um
+        document_types:
+          InvoiceDocument: Rechnung
+          KvaDocument: Kostenvoranschlag
+          OrderDocument: Auftrag
+          RepairReportDocument: Reparaturbericht
+        documentable: :activerecord.models.documentable
+        documentable_type: Dokumentierbarer Typ
+        file: Dateiname
+        file_attachment: :activerecord.models.file_attachment
+        file_blob: :activerecord.models.file_blob
+        key: Taste
+        one: Dokument
+        other: Dokumente
+        sequence_id: Dokumentennummer
+        status: Status
+        tab_description: Ihre Dokumente
+        updated_at: :shared.updated_at
+        uuid: UUID
+      event:
+        data: Daten
+        event_jobs: Event-Jobs
+        name: Name
+        one: Fall
+        other: Fall
+        result: Ergebnis
+        retry_counter: Wiederholungszähler
+        status: Status
+      event_job:
+        data: Daten
+        event: :activerecord.models.event
+        klass_name: Klasse Name
+        one: Event-Job
+        other: Event-Job
+        result: Ergebnis
+        status: Status
+      leads:
+        advanced:
+          message: Ich interessiere mich für den Advanced-Tarif Ihrer Software und möchte gerne weitere Informationen erhalten. Bitte kontaktieren Sie mich.
+        ref_customer:
+          message: Ich möchte mich als Referenzkunde für Ihre Software bewerben und freue mich auf weitere Informationen. Bitte kontaktieren Sie mich.
+      insurance:
+        account: :activerecord.models.account
+        accounting_email: Buchhaltungs-E-Mail
+        bank_account_owner: Bankkontoinhaber
+        bank_name: Bank Name
+        bic: Bic
+        ceo_name: CEO-Name
+        city: Stadt
+        company_name: Name der Firma
+        country: Land
+        court_in_charge: Zuständiges Gericht
+        email: Email
+        first_name: Vorname
+        hrb_number: Hrb-Nummer
+        iban: Iban
+        last_name: Familienname, Nachname
+        mobile_number: Handy Nummer
+        one: Versicherung
+        other: Versicherung
+        phone_number: Telefonnummer
+        post_code: Postleitzahl
+        salutation: Anrede
+        street: Straße
+        tax: Steuer
+        tax_number: Steuernummer
+        uuid: UUID
+        web_page: Website
+      issue:
+        account: :activerecord.models.account
+        activities: Aktivitäten
+        assigned_at: Zugewiesen am
+        assignee: Zugewiesener Techniker
+        calendar_entries: Kalendereinträge
+        comments: Kommentare
+        created_at: :shared.created_at
+        customer: :activerecord.models.customer
+        device: :activerecord.models.device
+        device_accessories_list: Zubehör
+        device_received: Gerät eingetroffen
+        device_repaired: Reparatur erfolgreich durchgeführt
+        documents: Dokumente
+        has_insurance_case: Versicherungsfall
+        headers:
+          additional_data_heading: Zusätzliche Daten
+          input_device_heading: Geräteinformationen
+        imported_ref_id: Importierte Ref-ID
+        input_device_failure_categories: Gerätefehlern
+        insurance: Versicherung
+        insurance_number: Versicherungsfallnummer
+        issue_entries: Reparaturartikeln
+        lock: Datensatz sperren, Workflow status wird nicht mehr geändert.
+        lock_code: Sperrcode
+        locked: Gesperrt
+        merchant: :activerecord.models.merchant
+        metadata: Metadaten
+        new_issue: Reparaturauftrag erstellen
+        notify_customer: Kunde benachrichtigen
+        one: Reparaturauftrag
+        other: Reparaturaufträge
+        owner: Author
+        price: Preis
+        private_comment: Interner Kommentar
+        repair_report_content: Reparaturbericht
+        request_approved: Reparaturfreigabe erteilt
+        scheduled_repair_at: Geplante Reparatur am
+        selected_repair_set: Reparaturset
+        sequence_id: Auftragsnummer
+        status: Status
+        status_categories:
+          done: Abgeschlossen
+          in_progress: In Bearbeitung
+          open: Offen
+        status_category: Statuskategorie
+        statuses:
+          awaiting_approval: Warte auf Freigabe
+          awaiting_device: Warte auf Kundengerät
+          awaiting_parts: Warte auf Ersatzteile
+          canceld: Storno
+          completed: Abgeschlossen
+          done: Abgeschlossen
+          draft: Entwurf
+          ready_to_repair: Kann repariert werden
+          repair_done_successful: Reparatur erfolgreich
+          repair_done_unsuccessful: Reparatur nicht möglich
+          repair_in_progress: Wird repariert
+          repairing: In Reparatur
+          repairing_successfull: Reparatur erfolgreich
+          repairing_unsuccessfull: Reparatur nicht möglich
+          short:
+            awaiting_approval: WAF
+            awaiting_device: WAK
+            awaiting_parts: WAE
+            canceld: ST
+            completed: AB
+            done: AB
+            draft: EW
+            ready_to_repair: KRW
+            repair_done_successful: OK
+            repair_done_unsuccessful: NOK
+            repair_in_progress: WR
+            repairing: IR
+            repairing_successfull: RE
+            repairing_unsuccessfull: RNE
+        unlock: Datensatz entsperren
+        uuid: UUID
+        versions: Versionen
+        workflow_events:
+          activate: Reparaturfreigabe erteilen
+          cancel: Auftrag stornieren
+          cancel_invoice: Rechnung stornieren
+          complete_order: Auftrag abgeschlossen
+          create_delivery_note: Lieferschein erstellen
+          create_invoice: Rechnung erstellen
+          create_pickup: Abholschein erstellen
+          deactivate: Reparaturfreigabe zurücknehmen
+          delete_repair_order: Auftrag löschen
+          device_received: Gerät eingetroffen
+          done_repairing_successfull: Reparatur erfolgreich
+          done_repairing_unsuccessfull: Reparatur nicht möglich
+          not_ready_to_repair: Nicht bereit für die Reparatur
+          notify_client: Kunde informieren
+          open: Auf offen zurücksetzen
+          open_awaiting_device: Warte auf Kundengerät
+          print_kva: KVA erstellen
+          print_order: Auftrag drucken
+          re_activate: Auftrag reaktivieren
+          ready_to_repair: Bereit für die Reparatur
+          repair_done: Reparatur beendet
+          request_approval: Reparaturfreigabe abwarten
+          reset_repairing: Reparatur zurücksetzen
+          start_repairing: Reparatur starten
+          stop_repairing: Reparatur anhalten
+          to_done: Auftrag abgeschlossen
+          to_done_and_create_invoice: Reparatur abgeschlossen & Rechnung erstellen
+          undo_complete_order: Rechnung stornieren
+        zero: Reparaturauftrag
+        table_possible_repair_sets: Verfügbare Reparatursets
+      issue_entry:
+        account: :activerecord.models.account
+        article: :activerecord.models.article
+        article_name: Artikelname
+        article_unit: Artikeleinheit
+        categories:
+          article: Artikel
+          rabatt: Rabatt
+          repair_set: Reparaturset
+          text: Text
+        category: Kategorie
+        issue: :activerecord.models.issue
+        one: Reparaturposition
+        other: Reparaturpositionen
+        price: Preis
+        price_b2b: Preis b2b
+        qty: Menge
+        repair_set: :activerecord.models.repair_set
+        repair_set_entry: :activerecord.models.repair_set_entry
+        stock_status: Verfügbarkeit
+        stock_statuses: :activerecord.attributes.supplier_source.stock_statuses
+        tax: Steuer
+        uuid: UUID
+        zero: Reparaturposition
+      merchant:
+        account: :activerecord.models.account
+        accounting_email: Buchhaltungs-E-Mail
+        addresses: Adressen
+        affiliate_type: Affiliate-Typ
+        bank_account_owner: Bankkontoinhaber
+        bank_name: Name der Bank
+        bic: Bic
+        branch_name: Filialname
+        company_name: Name der Firma
+        customers: Kunden
+        email: Email
+        first_name: Vorname
+        iban: Iban
+        last_name: Familienname, Nachname
+        logo_attachment: :activerecord.models.logo_attachment
+        logo_blob: :activerecord.models.logo_blob
+        master: Type
+        master_record: Master-Aufzeichnung
+        mobile_number: Handy Nummer
+        one: Händler
+        other: Händler
+        phone_number: Telefonnummer
+        primary_address: :activerecord.models.primary_address
+        repair_orders: Reparaturaufträge
+        tax_number: Steuernummer
+        users: Benutzer
+        uuid: UUID
+        ceo_name: Geschäftsführer
+        hrb_number: Handelsregisternummer
+        court_in_charge: Gerichtsstand
+
+        headers:
+          heading_comunication_channel: Kommunikationseinstellungen
+          heading_bank_account: Bankkontoinformationen
+          heading_legal_information: Rechtliche Informationen
+      notification:
+        account: :activerecord.models.account
+        body: Inhalt
+        deleted_at: Gelöscht um
+        file_attachments_attachments: Dateianhänge Anhänge
+        file_attachments_blobs: Blobs für Dateianhänge
+        one: Benachrichtigung
+        other: Benachrichtigungen
+        receiver: :activerecord.models.receiver
+        recevier: :activerecord.models.recevier
+        resource: Ressource
+        sender: :activerecord.models.sender
+        sent_at: Versendet am
+        status: Status
+        statuses:
+          deleted: Gelöscht
+          new: Neu
+          read: Gelesen
+        title: Titel
+        uuid: UUID
+      paper_trail/address_version:
+        event: Operation
+        item: Element
+        item_type: Gegenstandsart
+        object: Objekt
+        one: Adressversion
+        other: Adressversion
+        whodunnit: :activerecord.models.whodunnit
+        whodunnit_type: Benutzer-typ
+      paper_trail/contract_version:
+        event: Operation
+        item: Element
+        item_type: Gegenstandsart
+        object: Objekt
+        object_changes: Objektänderungen
+        old_object: Altes Objekt
+        old_object_changes: Alte Objektänderungen
+        one: Vertragsversion
+        other: Vertragsversion
+        whodunnit: :activerecord.models.whodunnit
+        whodunnit_type: Benutzer-typ
+      paper_trail/issue_version:
+        event: Operation
+        item: Element
+        item_type: Gegenstandsart
+        object: Objekt
+        object_changes: Objektänderungen
+        one: Ausgabeversion
+        other: Ausgabeversion
+        whodunnit: :activerecord.models.whodunnit
+        whodunnit_type: Benutzer-typ
+      paper_trail/user_version:
+        event: Operation
+        item: Element
+        item_type: Gegenstandsart
+        object: Objekt
+        object_changes: Objektänderungen
+        old_object: Altes Objekt
+        old_object_changes: Alte Objektänderungen
+        one: Benutzerversion
+        other: Benutzerversion
+        whodunnit: :activerecord.models.whodunnit
+        whodunnit_type: Benutzer-typ
+      paper_trail/version:
+        event: Operation
+        item: Element
+        item_type: Gegenstandsart
+        object: Objekt
+        object_changes: Objektänderungen
+        old_object: Altes Objekt
+        old_object_changes: Alte Objektänderungen
+        one: Version
+        other: Version
+        whodunnit: :activerecord.models.whodunnit
+        whodunnit_type: Benutzer-typ
+      purchase_order:
+        account: :activerecord.models.account
+        comments: Kommentare
+        linked_purchase_order: Verknüpfte Bestellung
+        linked_purchase_orders: Verknüpfte Bestellungen
+        one: Einkaufsbestellung
+        other: Einkaufsbestellungen
+        purchase_order_entries: Bestellpositionen
+        status_categories:
+          done: Abgeschlossen
+          in_progress: In Bearbeitung
+          open: Offen
+        status_category: Statuskategorie
+        statuses:
+          canceld: Storno
+          delivered: Ausgeliefert
+          draft: Entwurf
+          ordered: Bestellt
+          short:
+            canceld: ST
+            delivered: AG
+            done: AB
+            draft: EW
+            ordered: BE
+        supplier: :activerecord.models.supplier
+        uuid: Bestellnummer
+        workflow_events:
+          cancel: Stornieren
+          one: Erstellt am
+          order: Bestellen
+          order_delivered: Bestellung eingetroffen
+          stock_order: Einlagern
+        zero: Einkaufsbestellung
+        created_at: :shared.created_at
+      purchase_order_entry:
+        account: :activerecord.models.account
+        article: Artikel
+        article_name: Artikelname
+        headers:
+          base_data_heading: Basisdaten
+        issue: :activerecord.models.issue
+        one: Bestellposition
+        other: Bestellpositionen
+        price: Preis
+        qty: Menge
+        supplier_sku: Lieferanten-Sku
+        tax: Steuer
+        total_price: Gesamtpreis
+        uuid: Pos.Nummer
+        zero: Bestellposition
+      repair_set:
+        account: :activerecord.models.account
+        articles: Artikel
+        beautified_brutto_b2c: Verschönert brutto b2c
+        description: Beschreibung
+        device_color: :activerecord.models.device_color
+        device_failure_category: :activerecord.models.device_failure_category
+        device_manufacturer: :activerecord.models.device_manufacturer
+        device_model: :activerecord.models.device_model
+        headers:
+          base_data_heading: Basisdaten
+          device_failure_category_heading: Gerätefehlerinformationen
+          device_heading: Geräteinformationen
+        name: Name
+        one: Reparaturset
+        other: Reparatursets
+        price: Preis
+        raw_retail_price: VK-Preis Ohne Rundung
+        repair_set_entries: Reparatursetartikeln
+        retail_price: VK-preis netto
+        retail_price_b2b: Verkaufspreis b2b
+        retail_price_b2c: Verkaufspreis b2c
+        stock_statuses: :activerecord.attributes.supplier_source.stock_statuses
+        uuid: UUID
+      repair_set_entry:
+        account: :activerecord.models.account
+        article: :activerecord.models.article
+        stock_statuses: :activerecord.attributes.supplier_source.stock_statuses
+        stock_status: Verfügbarkeit
+        margin_b2b: Rand b2b
+        margin_b2c: Marge b2c
+        one: Eintrag Reparatursatz
+        optional: Optional
+        other: Eintrag Reparatursatz
+        qty: Menge
+        repair_set: :activerecord.models.repair_set
+        supplier_sources: Lieferantenquellen
+        tax: Steuer
+        uuid: UUID
+        headers:
+          repair_set_entry_details: Reparatursetartikeldetails
+      role:
+        abilities: Fähigkeiten
+        account: :activerecord.models.account
+        name: Name
+        one: Rolle
+        other: Rolle
+        protected: Geschützt
+        status: Status
+        type: Typ
+        uuid: UUID
+      sequence:
+        active_since: Gültig ab
+        counter_start: Startnummer
+        heading_sequences:
+          name: Globale Nummernkreise
+          title: |
+            Globale Nummernkreise
+            Hilfe und Dokumentationen finden Sie hier.
+        one: Nummmernkreis
+        other: Nummmernkreise
+        sequenceable_type: Nummerkreis für
+        sequenceable_types:
+          customer: Kunde
+          invoice_document: Rechnungsdocument
+          issue: Reparaturauftrag
+          kva_document: Kostenvoranschlagsdocument
+          order_document: Auftragsdocument
+          purchase_order: Einkaufsbestellung
+        zero: Nummmernkreis
+      setting:
+        category: Kategorie
+        created_at: :shared.created_at
+        document_footer: Dokumentenfußzeile
+        issue_awaiting_device_notification: wartet auf Gerät
+        issue_completed_notification: abgeschlossen wurde
+        issue_kva_printed_notification: Konstenvoranschlag erstellt
+        issue_order_printed_notification: erstellt wird
+        issue_repairing_notification: repariert wird
+        issue_repairing_successfull_notification: erfolgreich repariert wurde
+        issue_repairing_unsuccessfull_notification: nicht erfolgreich repariert wurde
+        notification_enabled: Benachrichtigungen aktivieren
+        one: Globale Einstellungen
+        other: Globale Einstellungen
+        print_detailed_issue_entries: Detaillierte Reparaturpositionen drucken
+        sequences: Nummernkreise
+        tax: Steuer
+        updated_at: :shared.updated_at
+        zero: Globale Einstellungen
+        global: :menus.settings.global_settings.label
+        application: :menus.settings.application_settings.label
+        booking: :menus.settings.booking_settings.label
+
+      stock:
+        account: :activerecord.models.account
+        article: :activerecord.models.article
+        in_stock: Auf Lager
+        in_stock_available: Auf Lager verfügbar
+        in_stock_each_area: Auf Lager in jedem Bereich
+        location: Lagerort
+        one: Bestand
+        other: Bestände
+        reserved: Reserviert
+        stock_items: Artikel auf Lager
+        uuid: UUID
+      stock_area:
+        account: :activerecord.models.account
+        description: Beschreibung
+        name: Name
+        one: Lagerbereich
+        other: Lagerbereich
+        stock_items: Artikel auf Lager
+        stock_location: :activerecord.models.stock_location
+        stock_movements: Lagerbewegungen
+        uuid: UUID
+      stock_item:
+        account: :activerecord.models.account
+        article: :activerecord.models.article
+        in_stock: Auf Lager
+        one: Lagerware
+        other: Lagerware
+        reserved: Reserviert
+        status: Status
+        stock_area: :activerecord.models.stock_area
+        stock_location: :activerecord.models.stock_location
+        stock_movements: Lagerbewegungen
+        uuid: UUID
+      stock_location:
+        account: :activerecord.models.account
+        description: Beschreibung
+        name: Name
+        one: Lagerort
+        other: Lagerort
+        primary: Primär
+        primary_record: Primärer Datensatz
+        stock_areas: Lagerbereiche
+        uuid: UUID
+      stock_movement:
+        account: :activerecord.models.account
+        action: Aktion
+        action_type: Aktionstyp
+        action_types:
+          defective: Defekt
+          retoure: Retoure
+          stock_with_referenz: Lagern mit Bezug
+          stock_without_referenz: Lagern ohne Bezug
+        actions:
+          stock_in: Einlagern
+          stock_out: Auslagern
+        article: :activerecord.models.article
+        created_at: :shared.created_at
+        issue: Reparaturauftrag
+        one: Lagerbewegung
+        originator: Auftragsposition
+        originator_type: Referenztype
+        other: Lagerbewegungen
+        owner: Erfasser
+        qty: Menge
+        stock_area: :activerecord.models.stock_area
+        stock_item: :activerecord.models.stock_item
+        stock_location: :activerecord.models.stock_location
+        uuid: UUID
+      stock_reservation:
+        issue: :activerecord.models.issue
+        one: Reservierung
+        other: Reservierungen
+        prio_badge: Priorität
+        prio_badges:
+          high: Hoch
+          low: Niedrig
+          medium: Mittel
+        qty: Menge
+      supplier:
+        account: :activerecord.models.account
+        accounting_email: Buchhaltungs-E-Mail
+        addresses: Adressen
+        bank_account_owner: Bankkontoinhaber
+        bank_name: Bank Name
+        bic: Bic
+        ceo_name: CEO-Name
+        city: Stadt
+        company_name: Name der Firma
+        country: Land
+        court_in_charge: Zuständiges Gericht
+        email: Email
+        first_name: Vorname
+        hrb_number: Hrb-Nummer
+        iban: Iban
+        last_name: Familienname, Nachname
+        mobile_number: Handy Nummer
+        one: Liefereanten
+        other: Lieferanten
+        phone_number: Telefonnummer
+        post_code: Postleitzahl
+        primary_address: :activerecord.models.primary_address
+        salutation: Anrede
+        statuses:
+          active: Aktiv
+          inactive: Inaktiv
+        street: Straße
+        tax: Steuer
+        tax_number: Steuernummer
+        uuid: UUID
+        web_page: Website
+        zero: Lieferant
+      supplier_article:
+        account: :activerecord.models.account
+        article_description: Artikelbeschreibung
+        article_name: Artikelname
+        days_to_ship: Tage bis zum Versand
+        documents: Dokumente
+        ean: Ean
+        image_url: Bild URL
+        int_stock_status: Int-Lagerstatus
+        manufacturer_number: Herstellernummer
+        one: Lieferantenartikel
+        other: Lieferantenartikel
+        purchase_price: Kaufpreis
+        sku: Sku
+        stared_items: Gestarrte Elemente
+        stock_status: Verfügbarkeit
+        stock_statuses: :activerecord.attributes.supplier_source.stock_statuses
+        supplier: :activerecord.models.supplier
+        supplier_article_group: Lieferantenartikelgruppe
+        tax: Steuer
+        unit: Einheit
+        uuid: UUID
+      supplier_source:
+        account: :activerecord.models.account
+        article: :activerecord.models.article
+        article_description: Artikelbeschreibung
+        article_name: Artikelname
+        days_to_ship: Tage bis zum Versand
+        favorite: Favorit
+        manufacturer_number: Herstellernummer
+        one: Lieferantenquelle
+        other: Lieferantenquelle
+        purchase_price: Kaufpreis
+        sku: Sku
+        stock_status: Verfügbarkeit
+        stock_statuses:
+          available: Auf Lager
+          can_be_ordered: Bestellbar
+          is_a_set: Es handelt sich um einen Reparaturset
+          ordered: Bestellt
+          short:
+            available: AL
+            can_be_ordered: KB
+            is_a_set: RS
+            ordered: IB
+            shortly_available: IL
+            unavailable: NL
+            unknown: KI
+            upon_order: AB
+            will_be_ordered: IE
+            delivered: AG
+          shortly_available: In Kürze lieferbar
+          unavailable: Nicht lieferbar
+          unknown: Keine Infos
+          upon_order: Auf Bestellung
+          will_be_ordered: Auf Einkaufsliste
+          delivered: Ausgeliefert
+        supplier: :activerecord.models.supplier
+        supplier_articles: Lieferantenartikel
+        tax: Steuer
+        unit: Einheit
+        uuid: UUID
+      template:
+        account: :activerecord.models.account
+        activated_at: Aktiviert um
+        active_record: Aktiver Rekord
+        archived_at: Archiviert unter
+        body: Inhalt
+        customer_notification_rule_triggers: In Verwendung für
+        deleted_at: Gelöscht um
+        documentable: :activerecord.models.documentable
+        documentable_type: Dokumentierbarer Typ
+        file_attachment: :activerecord.models.file_attachment
+        file_blob: :activerecord.models.file_blob
+        heading_variable_list:
+          name: Variablenliste
+          title: |
+            Variablenliste
+            Variablenliste für die Vorlage finden Sie hier.
+        key: Taste
+        name: Name
+        one: Vorlage
+        other: Vorlage
+        protected: Geschützt
+        status: Status
+        subject: Betreff
+        tags: Tags
+        tags_values:
+          repair_report:
+            successfull: erfolgreiche Reparatur
+            unsuccessfull: nicht erfolgreiche Reparatur
+        template_type: Vorlagentyp
+        template_types:
+          mail: E-Mail
+          print: Druck
+          repair_report: Reparaturbericht
+          sms: SMS
+          text: Text
+        trigger_events: :activerecord.attributes.customer_notification_rule.trigger_events
+          # calendar_entry_created: Kalendereintrag erstellt
+          # calendar_entry_updated: Kalendereintrag aktualisiert
+          # calendar_entry_confirmed: Kalendereintrag bestätigt
+          # calendar_entry_canceld: Kalendereintrag storniert
+          # comment_created: Kommentar erstellt
+          # issue_awaiting_device: Warte auf Gerät
+          # issue_canceld_invoice_printed: Stornierte Rechnung erstellt
+          # issue_completed: Auftrag abgeschlossen
+          # issue_kva_printed: Kostenvoranschlag erstellt
+          # issue_order_printed: Auftrag erstellt
+          # issue_repairing: Reparatur gestartet
+          # issue_repairing_successfull: Reparatur erfolgreich
+          # issue_repairing_unsuccessfull: Reparatur nicht erfolgreich
+        uuid: UUID
+      user:
+        access_level: Zugriffsebene
+        account: :activerecord.models.account
+        api_only: Nur API
+        api_token: :activerecord.models.api_token
+        api_tokens: API-Token
+        avatar_attachment: :activerecord.models.avatar_attachment
+        avatar_blob: :activerecord.models.avatar_blob
+        confirmation_sent_at: Bestätigung gesendet am
+        confirmation_token: Bestätigungs-Token
+        confirmed_at: Bestätigt am
+        confirmed: Bestätigt
+        consumed_timestep: Verbrauchter Zeitschritt
+        current_account: :activerecord.models.current_account
+        current_sign_in_at: Aktuelle Anmeldung vom
+        current_sign_in_ip: IP der aktuellen Anmeldung
+        email: E-Mail
+        encrypted_password: Verschlüsseltes Passwort
+        heading_password_information:
+          name: Benutzer wird eine Email zum setzen des Passwortes zugeschickt
+          title: Hilfe und Dokumentationen zur Benutzeranlage finden Sie hier.
+        ip: IP
+        last_sign_in_at: Letzte Anmeldung am
+        last_sign_in_ip: IP der letzten Anmeldung
+        locale: Sprache
+        locales:
+          de: Deutsch
+          en: Englisch
+        merchant: :activerecord.models.merchant
+        name: Name
+        notifications: Benachrichtigungen
+        one: Benutzer
+        other: Benutzer
+        otp_required_for_login: OTP für die Anmeldung erforderlich
+        otp_secret: Otp Geheimnis
+        remember_created_at: Angemeldet bleiben vom
+        reset_password_sent_at: Passwort-Zurücksetzen-E-Mail gesendet am
+        reset_password_token: Passwort-Zurücksetzen-Token
+        role: :activerecord.models.role
+        salt: Salz
+        status: Status
+        unconfirmed_email: Unbestätigte E-Mail-Adresse
+        uuid: UUID
+        versions: Versionen
+        zero: Benutzer
+        headers:
+          user_informations_heading: Benutzerinformationen
+          access_heading: Zugriffsebene
+          extra_information: Zusätzliche Informationen
+          api_heading: API Informationen
+
+      webhook_request:
+        body: Körper
+        contract: :activerecord.models.contract
+        event: Operation
+        headers: Überschriften
+        one: Webhook-Anfrage
+        other: Webhook-Anfrage
+        path: Weg
+        payment: :activerecord.models.payment
+        payment_uuid: Zahlungs-UUID
+        retry_counter: Wiederholungszähler
+        status: Status
+        webhook_request_jobs: Webhook-Anforderungsjobs
+      webhook_request_job:
+        data: Daten
+        one: Webhook-Anforderungsjob
+        other: Webhook-Anforderungsjob
+        result: Ergebnis
+        status: Status
+        webhook_request: :activerecord.models.webhook_request
+    errors:
+      models:
+        sequence:
+          attributes:
+            counter_start:
+              greater_than_last_sequence_id: Muss größer als die letzte Nummer sein
+                (%{current_sequence_id})
+        template:
+          attributes:
+            base:
+              still_in_use: Vorlage wird noch verwendet fuer %{key}
+        user:
+          attributes:
+            agb:
+              inclusion: Bitte zustimmen!
+        stock_movement:
+          attributes:
+            action:
+              inclusion: Aktionstyp ist nicht gültig
+            qty:
+              stock_empty: ist Fehlerhaft. Artikel is nicht auf Lager
+              stock_out_min_qty: muss größer gleich %{qty} sein
+              greater_than: Menge muss größer als 0 sein
+    models:
+      ability: Fähigkeit
+      account: Konto
+      active_storage/attachment: Aktive Lagerung/Befestigung
+      active_storage/blob: Aktiver Speicher/Blob
+      active_storage/variant_record: Aktiver Lager-/Variantendatensatz
+      activity:
+        one: Aktivität
+        other: Aktivitäten
+      address: Adresse
+      api_token: API-Token
+      app_config: App-Konfig
+      article: Artikel
+      article_group: Artikelgruppe
+      calendarable: Referenz
+      comment: Kommentar
+      contact: Kontakt
+      contact_record: Kontaktdatensatz
+      customer: Kunde
+      default_document: Standarddokument
+      device: Gerät
+      device_color: Gerätefarbe
+      device_failure_category: Gerätefehlerkategorie
+      device_model_category: Gerätemodellkategorie
+      device_manufacturer: Gerätehersteller
+      device_model: Gerätemodell
+      document: Dokumente
+      docx_template: Docx-Vorlage
+      event: Erreignis
+      event_job: Event-Job
+      insurance: Versicherung
+      issue: Reparaturauftrag
+      issue_entry: Reparaturauftragsposition
+      merchant: Händler
+      notification: Benachrichtigung
+      owner: Besitzer
+      paper_trail/address_version: Adressversion
+      paper_trail/contract_version: Vertragsversion
+      paper_trail/issue_version: Ausgabeversion
+      paper_trail/user_version: Benutzerversion
+      paper_trail/version: Version
+      repair_set: Reparaturset
+      repair_set_entry: Eintrag Reparatursatz
+      role: Rolle
+      sequence: Nummernkreise
+      stock: Bestand
+      stock_area: Lagerbereich
+      stock_item: Lagerware
+      stock_location: Lagerort
+      stock_movement: Lagerbewegung
+      supplier: Lieferant
+      supplier_article: Lieferantenartikel
+      supplier_source: Lieferantenquelle
+      template: Vorlage
+      user:
+        one: Benutzer
+        other: Benutzer
+      webhook_request: Webhook-Anfrage
+      webhook_request_job: Webhook-Anforderungsjob
+      whodunnit: Benutzer
+  filters:
+    by_trigger_event_filter:
+      name: Trigger-Ereignis
+      button_label: Filtern nach Trigger-Ereignis
+    by_template_filter:
+      name: Vorlage
+    by_role_filter:
+      name: Nach Rolle filtern
+    by_account_filter:
+      name: Nur meine Einträge
+    by_all_account_filter:
+      name: Alle Einträge
+    by_document_type_filter:
+      name: Dokumententyp
+    by_in_use_filter:
+      name: In Benutzung
+    by_template_type_filter:
+      name: Vorlagentypfilter
+    issues:
+      canceld_filter:
+        button_label: Filtern nach Stornierung
+        hide_canceld: Stornierte Aufträge ausblenden
+        name: Stornierungsfilter
+    purchase_orders:
+      supplier_filter:
+        name: nach Lieferanten
+      sku_filter:
+        name: SKU Filter
+        button_label: Filtern nach SKU
+    device_model_category_filter:
+      name: Gerätemodellkategorie
+      button_label: Filtern nach Gerätemodellkategorie
+    device_failure_categories:
+      name: Gerätefehlerkategorie
+      button_label: Filtern nach Gerätefehlerkategorie
+  helpers:
+    account:
+      name: Unternehmensname
+      feature_not_available: <span class="text-red-600"> Funktion nicht verfügbar </span>, <a href="/upgrade" target=_blank>jetzt upgraden</a>
+
+    article:
+      margin: Marge wird je nach Preisstrategie, entweder als absolut oder als prozent
+        verwendet.
+    comment_tool:
+      how_to_use_tips: 'Geben Sie Ihren Kommentar ein und drücken Sie <b>Ctrl+Enter</b>
+        um zu speichern, <b>Esc</b> um abzubrechen.
+
+        '
+      placeholder: Schreiben Sie Ihren Kommentar hier… (Markdown unterstützt)
+    device:
+      unlock_pattern: 'Muster mit der Maus zeichnen. auf eine Leere Stelle klicken
+        um das Muster zu löschen.
+
+        '
+    issue:
+      comment:
+        title: "%{author} hat ein neues Kommentar zum Reparaturauftrag <b>%{uuid}</b>
+          geschrieben"
+      selected_repair_set: Achtung Gerät und Fehlerkategorie werden automatisch angelegt!
+      possible_repair_sets: |
+        <p><b>Mehrfachauswahl möglich.</b> Die Reparaturpositionen, und die Fehlerkategorien werden automatisch erstellt.</p>
+      no_sets_found: Keine Reparatursets gefunden
+    merchant:
+      branch_name: Bitte geben Sie den Namen der Filiale ein, wenn der Affiliate-Typ
+        auf Filiale gesetzt ist
+    on_boarding:
+      master_address_missing:
+        title: Bitte tragen Sie ihre Hauptadresse ein
+    sequence:
+      active_since: Ab diesem Datum erhalten die Dokumente die Nummerierung, die mindestens
+        die Startnummer entspricht
+      counter_start: Wenn die Startnummer 100 ist, wird das nächste Dokument die Nummer
+        101 erhalten
+    setting:
+      default_calendar_mail: |
+        Standardmäßig wird eine E-Mail an den Kunden gesendet, wenn ein Kalendereintrag erstellt wird,
+        Sie bekommen eine Kopie der E-Mail.
+      sms_password: SMS Passwort oder API Key/Token
+      booking_enabled: |
+        Wenn aktiviert, können Kunden Termine buchen.
+      booking_slot_duration: |
+        Standarddauer für einen Termin in Minuten. Standardmäßig werden 90 Minuten verwendet wenn nichts angegeben.
+      booking_slot_search_mode: |
+        Wählen Sie die bevorzugte Methode zur Suche nach freien Terminslots: <b>Standard</b> für eine kontinuierliche Suche in 15-Minuten-Schritten, bei der Kunden flexibel starten können, oder <b>Optimiert</b> für eine effizientere Slotvergabe, bei der ungenutzte Lücken vermieden werden.<br>
+        <br>
+        <b>Beispiel:</b><br>Wenn zwischen 9 und 12 Uhr Zeit frei ist, würde der optimierte Modus vorschlagen, um 9 oder 10:30 zu starten, um die verfügbaren Zeiten bestmöglich auszunutzen.
+        <br>Im <b>Standard-Modus</b> hingegen könnten Kunden in 15-Minuten-Schritten flexibel buchen, z. B. um 9:00, 9:15, 9:30 und so weiter, was ihnen maximale Flexibilität bei der Auswahl der Startzeit bietet, jedoch unter Umständen zu kürzeren, weniger optimalen Lücken im Terminplan führen kann.
+      booking_reminder_enabled: |
+        Wenn aktiviert, wird der Kunde per sms daran erinnert, dass er einen Termin hat.
+        Sms Vorlage finden Sie unter Vorlagen.
+
+      booking_confirmed_slots_capacity: |
+        <p>Definiere die maximale Anzahl bestätigter Termine, die gleichzeitig in einem Zeitslot gebucht werden können. Ein Wert von <strong>0</strong> bedeutet, dass es kein Limit gibt und unendlich viele bestätigte Termine im gleichen Zeitslot möglich sind. Ein Wert von <strong>2</strong> bedeutet, dass maximal 2 bestätigte Termine im gleichen Zeitslot gebucht werden dürfen.</p>
+      booking_unconfirmed_slots_capacity: |
+        <p>Definiere die maximale Anzahl unbestätigter Termine, die gleichzeitig in einem Zeitslot gebucht werden können. </p>
+      booking_lead_time_min: |
+        <p><strong>Minimales Buchungslimit:</strong> Bestimme, wie viele Tage im Voraus Kunden buchen können.<br>Wenn du z. B. „Mindestens 1 Werktag im Voraus“ wählst, können Kunden frühestens am nächsten Werktag buchen. Ist der Buchungstag ein Samstag, kann der Kunde frühestens am Dienstag buchen. Nur Werktage werden bei der Vorlaufzeit berücksichtigt.</p>
+      booking_lead_time_max: |
+        <p><strong>Maximales Buchungslimit:</strong> Definiere, wie weit im Voraus Kunden Termine buchen können. Zum Beispiel bedeutet „Maximal 30 Tage im Voraus“, dass Kunden Termine bis zu 30 Tage in die Zukunft buchen können.</p>
+      booking_reminder_frequency: |
+        Wann soll der Kunde benachrichtigt werden?
+    stock_movement:
+      total_in_stock: "Aktuell auf Lager sind: %{count} Artikel"
+    user:
+      password_help: |
+        <p>Das Passwort muss mindestens 8 Zeichen lang sein und mindestens einen Großbuchstaben, einen Kleinbuchstaben enthalten.</p>
+  js:
+    move_confirmed_event:
+      dialog_question: Dieses Ereignis ist bestätigt. Sind Sie sicher, dass Sie es
+        verschieben möchten?
+      dialog_title: Bitte bestätigen!
+    select_an_option: Wählen Sie eine Option
+  mailer:
+    customer:
+      document_email:
+        subject: Es gibt ein neues Dokument fuer Ihre Anfrage
+    user:
+      activation_email:
+        subject: Ihr Account ist aktiviert!
+      imported_email:
+        subject: Import abgeschlossen!
+
+  menus:
+    sections:
+      home: Start
+      resources: Ressourcen
+      system: System
+      profil: Profil
+      user: Benutzer
+      su_admin: Super Admin
+      admin_tools: Admin Tools
+    articles:
+      article_groups:
+        label: Warengruppen
+      articles:
+        label: Artikel
+      label: Artikel
+      repair_set_requests:
+        label: Reparatursetanfragen
+      supplier_articles:
+        label: Lieferanten-Katalog
+      supplier_sources:
+        label: Bezugsquellen
+    crm:
+      accounts:
+        label: Konten
+      contacts:
+        label: Kontakte
+      customers:
+        label: Kunden
+      insurances:
+        label: Versicherungen
+      label: CRM
+      merchants:
+        label: Händler
+      suppliers:
+        label: Lieferanten
+    devices:
+      device_colors:
+        label: Farben
+      device_failure_categories:
+        label: Fehlerkategorien
+      device_manufacturers:
+        label: Hersteller
+      device_models:
+        label: Modelle
+      device_model_categories:
+        label: Kategorien
+      devices:
+        label: Geräte
+      label: Geräte
+    documents:
+      documents:
+        label: Dokumente
+      label: Unterlagen
+      templates:
+        label: Vorlagen
+    events:
+      sms_queues:
+        label: SMS-Queue
+      element_requests:
+        label: Elementrequests
+      event_jobs:
+        label: Eventjobs
+      events:
+        label: Events
+      label: events
+      webhook_request_jobs:
+        label: Webhooksjobs
+      webhook_requests:
+        label: Webhooks
+    forms:
+      label: __Dokumente
+    issues:
+      calendar_entries:
+        label: Kalendereinträge
+      issues:
+        label: Aufträge
+      label: Reparaturen
+      purchase_orders:
+        label: Einkauf
+      repair_sets:
+        label: Sets
+    purchase:
+      label: Einkauf
+      purchase_order_entries:
+        label: Einkaufsbestellpositionen
+      purchase_orders:
+        label: Einkaufsbestellungen
+    repair_orders:
+      device_customer:
+        label: Kundendaten
+      device_failure:
+        label: Gerätefehler
+      device_insurance:
+        label: Versicherung
+      device_meta_information:
+        label: Zus. Daten
+      device_repair_order_entry:
+        label: Reparatur
+      device_search:
+        label: Reparaturauftrag anlegen
+        tab_label: Gerätedaten
+      document:
+        label: Dms
+      forms:
+        label: Dokumente
+      label: Aufträge
+      orders:
+        label: Reparaturaufträge
+      quick_order:
+        label: Expressauftrag
+      repair_sets:
+        label: Sets
+      summary:
+        label: Zusammenfassung
+      version:
+        label: Log
+    settings:
+      back: Zurück
+      abilitys:
+        label: Berechtigungen
+      app_configs:
+        label: Application
+      application_settings:
+        label: Applikation
+      booking_settings:
+        label: Buchung
+      global_settings:
+        label: Global
+      label: Einstellungen
+      notifications:
+        label: Benachrichtigungen
+      roles:
+        label: Rollen
+      taxonomy_records:
+        label: Attributes
+      users:
+        label: Benutzer
+    stocks:
+      label: Bestandsverwaltung
+      stock_actions:
+        label: Ein/Auslagern
+      stock_areas:
+        label: Bereiche
+      stock_locations:
+        label: Orte
+      stock_movements:
+        label: Bewegungen
+      stock_reservations:
+        label: Reservierungen
+      stocks:
+        label: Bestand
+    users:
+      accounts:
+        label: Konten
+      label: Benutzerverwaltung
+      roles:
+        label: Rollen
+      users:
+        label: Benutzer
+      notifications:
+        label: Benachrichtigungen
+    profil:
+      notifications:
+        label: Benachrichtigungen
+
+  shared:
+    brutto_sum: Brutto gesamt
+    created_at: Erstellt am
+    device_accessories_list:
+    - Datenkabel
+    - Headset
+    - KfZ-Ladekabel
+    - Netzteil
+    - SIM-Karte
+    - SIM-Karten-Halter
+    - Akku
+    - Akkufachdeckel
+    - Speicherkarte
+    - Case/Hülle/Bumber
+    - USB-Stick/Festplatte
+    - Pen/Stift
+
+    messages:
+      account_pending_activation: Ihr Konto wurde noch nicht aktiviert. Sie erhalten eine E-Mail, sobald Ihr Konto aktiviert wurde.
+      account_pending_confirmation: |
+        <h1 class="my-3 text-3xl font-semibold text-gray-700 dark:text-gray-200">Vielen Dank, dass Sie sich für ReCloud entschieden haben!</h1>
+        <h2>
+          Bitte bestätigen Sie zunächst Ihre E-Mail-Adresse. Sie haben soeben eine E-Mail zur Bestätigung erhalten.
+          <br><br>
+          Vielen Dank!
+        </h2>
+      destroy_not_possible: Datensatz kann nicht gelöscht werden
+      destroy_not_possible_still_in_use: 'Datensatz kann nicht gelöscht werden, es
+        sind noch %{count} Kundengeräte, die diesen Datensatz verwenden.
+
+        '
+      error: Bei der Verarbeitung ist ein Fehler aufgetreten
+      live_contract_exists_already: hat bereits einen aktiven Vertrag
+      no_access: Sie haben keine Berechtigung diese Aktion %{action} für %{model}
+        auszuführen
+      success: Erfolgreich ausgeführt
+    navigation_label:
+      config: Einstellungen
+      payments: Abos-Zahlungen-Transaktionen
+    netto_sum: Netto
+    notifications:
+      chanels:
+        mail: E-Mail
+        sms: SMS
+    rabatt: Rabatt
+    select_an_option: Wählen Sie eine Option
+    status:
+      active: Aktiv
+      approval_pending: Genehmigungausstehend
+      approved: Genehmigt
+      archived: Archiviert
+      canceld: Storniert
+      declined: Abgelehnt
+      deleted: Gelöscht
+      disabled: Deaktiviert
+      failure: Fehler
+      first_reminder: Mahnung1
+      inkasso: Inkasso
+      none: leer
+      offer: Angebot
+      open: Offen
+      paid: Bezahlt
+      pending: Wartend
+      pending_verification: Wartend
+      refunded: Erstattet
+      revoked: Widerufen
+      second_reminder: Mahnung2
+      skipped: Skipped
+      success: Erfolg
+      terminated: Gekündigt
+      unknown: Unbekannt
+      queued: Eingereiht
+      sent: Versendet
+      delivered: Ausgeliefert
+      received: Empfangen
+      failed: Fehlgeschlagen
+    tax_sum: Mwst.
+    unit:
+      dousaine: Duzent
+      piece: Stück
+    updated_at: Aktualisiert am
+    actions:
+      load_preview: Vorschau laden
+  hush:
+    wellness:
+      meta:
+        title: "HUSH HAARENTFERNUNG | Professionelle Waxing & Haarentfernung | Wellness & Beauty"
+        description: "HUSH HAARENTFERNUNG bietet professionelle Waxing-Behandlungen, Sugaring und dauerhafte Haarentfernung. Erfahren Sie alles über Waxing, Preise, Vorteile und Pflegetipps für seidig glatte Haut."
+        keywords: "Waxing, Haarentfernung, Professionelle Haarentfernung, Waxing Berlin, Waxing München, Bikini Waxing, Sugaring, dauerhafte Haarentfernung, Beauty-Behandlung, Kosmetikstudio"
+      hero:
+        title: Professionelle Behandlung
+        subtitle: "Seidig glatte Haut durch Waxing, Sugaring und dauerhafte Haarentfernung. Erleben Sie Wellness auf höchstem Niveau."
+        cta: "Termin buchen"
+      nav:
+        services: "Leistungen"
+        why_waxing: "Warum Waxing"
+        how_it_works: "So funktioniert's"
+        pricing: "Preise"
+        gallery: "Galerie"
+        faq: "FAQ"
+        contact: "Kontakt"
+      what_is_waxing:
+        title: "Professionelle Haarentfernung mit Wachs"
+        overview_title: "Was ist Waxing?"
+        intro: "Waxing ist eine klassische und bewährte Methode der Haarentfernung, bei der Haare samt der Haarwurzel mit warmem oder heißem Wachs entfernt werden. Diese Methode ermöglicht ein dauerhaft glattes Hautgefühl, das oft bis zu 3–6 Wochen nach der Behandlung anhält. Die Haare wachsen mit der Zeit feiner und weniger dicht nach, je regelmäßiger gewachst wird."
+        description: "Das Waxing (=Wachsen) ist eine Art der Haarentfernung mit kosmetischem Wachs. Es gehört für viele Männer und Frauen zum festen Beauty-Programm und bietet ein wochenlang andauerndes seidig glattes Hautgefühl."
+        how_it_works_title: "Wie funktioniert Waxing?"
+        how_it_works_1: "Warmes oder heißes Wachs wird auf die Haut aufgetragen"
+        how_it_works_2: "Das Wachs umschließt die Haare und greift sie an der Wurzel"
+        how_it_works_3: "Durch schnelles Abziehen gegen die Haarwuchsrichtung werden die Haare mitsamt der Wurzel entfernt"
+        how_it_works_4: "Der Haarfollikel muss ein neues Haar produzieren, was Zeit in Anspruch nimmt"
+        hair_length_title: "Mindestlänge der Haare:"
+        hair_length: "Die Haare sollten mindestens zwischen 4 und 5 mm (0,5 cm) lang sein, um eine möglichst schmerzfreie und gründliche Haarentfernung zu gewährleisten. Dies entspricht etwa 2-3 Wochen Wachstum nach der letzten Rasur."
+      treatment_process:
+        title: "So läuft eine professionelle Waxing-Behandlung ab"
+        step1_title: "Vorbereitung der Haut"
+        step1: "Die Haut wird gereinigt und eventuell leicht abgestreift, damit das Wachs optimal greift. Vor der Behandlung sollte die Haut trocken und frei von Cremes, Ölen oder anderen Rückständen sein."
+        step1_alt: "Sanfte Hautreinigung und Vorbereitung für die Waxing-Behandlung"
+        step2_title: "Wachs auftragen"
+        step2: "Warmes oder heißes Wachs wird in Haarwuchsrichtung auf die Haut aufgetragen. Bei professionellen Behandlungen wird häufig ein Roll-On-System verwendet, das eine gleichmäßige Wachsschicht hinterlässt."
+        step2_alt: "Professionelle Roll-On-Wachs-Auftragungstechnik"
+        step3_title: "Vliesstreifen auflegen (bei Streifenwachs)"
+        step3: "Bei der Streifenwachs-Methode wird ein Vliesstreifen auf die Wachsschicht aufgelegt und leicht angedrückt, damit er optimal haftet."
+        step3_alt: "Vliesstreifen wird auf die Wachsschicht aufgelegt"
+        step4_title: "Abzug gegen Haarwuchsrichtung"
+        step4: "Nach dem Abkühlen wird das Wachs ruckartig entgegen der Wuchsrichtung abgezogen – inklusive der Haare. Diese schnelle Bewegung ist entscheidend für ein schmerzarmes Ergebnis."
+        step4_alt: "Professionelle Wachs-Abziehtechnik gegen Haarwuchsrichtung"
+        step5_title: "Pflege danach"
+        step5: "Nach der Behandlung wird die Haut beruhigt und ggf. mit einer sanften Lotion oder Aloe-Vera-Gel gepflegt. Dies reduziert Rötungen und sorgt für Wohlbefinden."
+        step5_alt: "Beruhigende Nachpflege-Lotion nach der Waxing-Behandlung"
+      benefits:
+        title: "Warum sich professionelles Wachsen lohnt"
+        benefit1_title: "Langanhaltende Ergebnisse"
+        benefit1: "Seidig glatte Haut für 3–6 Wochen. Deutlich länger als bei der Rasur. Mit regelmäßigen Behandlungen werden die Ergebnisse noch langanhaltender."
+        benefit2_title: "Dünneres Nachwachsen"
+        benefit2: "Haare wachsen weniger stark nach und werden mit der Zeit feiner. Nach mehreren Behandlungen wird das Haarwachstum deutlich reduziert. Keine unschönen Stoppeln wie bei der Rasur."
+        benefit3_title: "Weniger Hautirritationen"
+        benefit3: "Keine Schnittverletzungen oder Rasurbrand. Professionelle Technik minimiert Hautreizungen. Sanftere Methode als tägliche Rasur."
+        benefit4_title: "Gründlichkeit"
+        benefit4: "Haare werden an der Wurzel entfernt. Auch schwer zugängliche Bereiche werden gründlich behandelt. Für große und kleine Körperbereiche geeignet."
+        benefit5_title: "Zeitersparnis"
+        benefit5: "Keine tägliche Rasur mehr nötig. Mit der Zeit werden die Abstände zwischen den Behandlungen länger. Mehr Zeit für andere Dinge."
+      techniques:
+        title: "Warmwachs oder Heißwachs? Die richtige Technik für jeden Bereich"
+        strip_wax_title: "Streifenwachs (Warmwachs)"
+        strip_wax_desc: "Klassische Methode mit Vlies- oder Stoffstreifen, besonders geeignet für größere Körperflächen wie Beine oder Rücken."
+        strip_wax_benefits: "Schnell und effizient für große Flächen, gut für Anfänger geeignet, kostengünstiger"
+        strip_wax_areas: "Beine (komplett oder teilweise), Arme, Rücken, Bauch"
+        hot_wax_title: "Heißwachs / Hartwachs (Film Wax)"
+        hot_wax_desc: "Wachs ohne Streifen, ideal für empfindlichere Zonen wie Gesicht oder Intimbereich – weniger schmerzhaft und hautschonender."
+        hot_wax_benefits: "Sanfter für empfindliche Haut, keine Streifen nötig, präziser für kleine Bereiche, weniger schmerzhaft"
+        hot_wax_areas: "Intimbereich (Bikini), Gesicht (Oberlippe, Augenbrauen), Achseln, Empfindliche Bereiche"
+        temperature: "Professionelles Warmwachs sollte eine Temperatur zwischen 43°C und 50°C haben, um die Haare zuverlässig zu entfernen. Die Wärme weitet die Poren und erleichtert das Entfernen der Haare."
+      common_mistakes:
+        title: "Die 8 häufigsten Fehler beim Waxing – und wie Sie sie vermeiden"
+        mistake1_title: "Fehler 1: Zu kurz gewachsen"
+        mistake1_problem: "Damit das Wachs Haare richtig greifen kann, sollten sie mindestens 4–5 mm lang sein."
+        mistake1_solution: "2-3 Wochen vor dem Termin nicht mehr rasieren. Bei zu langen Haaren (über 1 cm) diese leicht stutzen."
+        mistake2_title: "Fehler 2: Zu wenig Vorbereitung"
+        mistake2_problem: "Dusche, Sauna oder Peelings zu kurz vor der Behandlung können die Haut unnötig reizen."
+        mistake2_solution: "24 Stunden vor Waxing: Kein Sport, keine Sauna, kein Sonnenbaden. Keine Peelings am Tag der Behandlung. Haut sollte sauber und trocken sein."
+        mistake3_title: "Fehler 3: Rasur unmittelbar vor dem Termin"
+        mistake3_problem: "Rasieren entfernt nur die Haare oberflächlich und verhindert optimale Ergebnisse beim Waxing."
+        mistake3_solution: "Mindestens 2 Wochen vor dem Termin nicht mehr rasieren. Haare müssen an der Wurzel greifbar sein."
+        mistake4_title: "Fehler 4: Zu frühes Sportprogramm danach"
+        mistake4_problem: "Heißes Training direkt nach dem Waxing kann Rötungen und Reizungen verstärken."
+        mistake4_solution: "24 Stunden nach der Behandlung keinen Sport. Keine enge Sportkleidung tragen. Übermäßiges Schwitzen vermeiden."
+        mistake5_title: "Fehler 5: Falscher Zeitpunkt"
+        mistake5_problem: "Der Zeitpunkt des Waxings hat große Auswirkungen auf das Schmerzempfinden."
+        mistake5_solution: "Während der Periode eher meiden (höhere Schmerzempfindlichkeit). Am besten 2 Wochen vor oder nach der Regel. Nachmittagsstunden eignen sich am besten (Schmerzempfinden ist dann niedriger)."
+        mistake6_title: "Fehler 6: Alkohol vor der Behandlung"
+        mistake6_problem: "Alkohol macht die Haut sensibler und kann Blutergüsse begünstigen."
+        mistake6_solution: "Kein Alkohol 24 Stunden vor der Behandlung. Keine alkoholhaltigen Pflegeprodukte vor und nach dem Waxing."
+        mistake7_title: "Fehler 7: Falsche oder fehlende Nachpflege"
+        mistake7_problem: "Ohne richtige Pflege können Rötungen, eingewachsene Haare und Reizungen entstehen."
+        mistake7_solution: "Beruhigende Lotionen wie Aloe-Vera-Gel verwenden. Kokosöl spendet Feuchtigkeit und wirkt entzündungshemmend. Keine fetthaltigen Produkte (verstopfen Poren). Ab 2 Tagen nach Behandlung regelmäßig peelen (2-3x pro Woche)."
+        mistake8_title: "Fehler 8: DIY-Waxing statt professioneller Behandlung"
+        mistake8_problem: "Zu Hause fehlen Erfahrung, richtige Temperaturkontrolle und professionelle Techniken."
+        mistake8_solution: "Professionelle Behandlung im Studio buchen. Erfahrene Kosmetikerinnen kennen die besten Techniken. Professionelle Produkte sind hochwertiger als Drogerieprodukte."
+      preparation:
+        title: "Vorbereitung & Nachbereitung: So wird Ihr Waxing-Termin perfekt"
+        before_title: "Vor dem Termin"
+        before_hair_title: "Haarlänge"
+        before_hair: "Haare sollten ca. 2–3 Wochen nachwachsen (je nach Körperregion). Mindestlänge: 0,5 cm (4-5 mm). Bei zu langen Haaren (über 1 cm) diese leicht stutzen."
+        before_24h_title: "24 Stunden vor Waxing"
+        before_24h: "Kein Sport, Sauna, Sonnenbaden. Keine Peelings oder aggressive Hautpflege. Keine Cremes oder Öle auf den zu behandelnden Bereichen. Kein Alkohol."
+        before_day_title: "Am Tag der Behandlung"
+        before_day: "Lockere Kleidung tragen (Baumwollslip empfohlen). Haut sollte sauber, trocken und frei von Rückständen sein. Keine Cremes oder Deos auf den zu behandelnden Bereichen."
+        after_title: "Nach dem Waxing"
+        after_immediate_title: "Sofort nach der Behandlung"
+        after_immediate: "Beruhigende Lotion oder Aloe-Vera-Gel auftragen. Lockere Kleidung tragen. Haut nicht reiben oder kratzen."
+        after_24h_title: "24 Stunden nach Waxing"
+        after_24h: "Keine enge Kleidung, kein Solarium, keine Sonne. Kein Sport oder übermäßiges Schwitzen. Kein Deo mit Alkohol nach Achsel-Waxing. Kein Baden in gechlortem Wasser."
+        after_2days_title: "Ab 2 Tagen nach Waxing"
+        after_2days: "Regelmäßiges Peeling (2-3x pro Woche). Sanfte, feuchtigkeitsspendende Pflege. Aloe-Vera-Gel oder Kokosöl für Feuchtigkeit. Keine fetthaltigen Produkte (verstopfen Poren)."
+        after_longterm_title: "Langfristige Pflege"
+        after_longterm: "Regelmäßige Peelings beugen eingewachsenen Haaren vor. Feuchtigkeitscreme täglich verwenden. Sonnenschutz bei behandelten Bereichen."
+      faq:
+        title: "Häufige Fragen zum Waxing – Ihre Antworten"
+        q1_question: "Tut Waxing weh?"
+        q1_answer: "Beim ersten Mal kann es etwas spürbar sein, aber mit regelmäßigen Behandlungen wird es meist weniger schmerzhaft. Die Schmerzempfindung variiert je nach Körperregion und individueller Empfindlichkeit. Professionelle Kosmetikerinnen verwenden Techniken, die das Unbehagen minimieren."
+        q2_question: "Wie lange hält die Wirkung?"
+        q2_answer: "Ein professionelles Waxing kann bis zu 6 Wochen lang glatte Haut schenken. Die genaue Dauer hängt vom individuellen Haarwachstum ab. Mit regelmäßigen Behandlungen werden die Abstände zwischen den Terminen länger."
+        q3_question: "Kann es zu Hautreaktionen kommen?"
+        q3_answer: "Leichte Rötungen oder Pünktchen können auftreten, verschwinden aber meist nach einigen Stunden. Mit der richtigen Nachpflege (Aloe-Vera-Gel, beruhigende Lotionen) werden Reizungen minimiert."
+        q4_question: "Wann sollte man kein Waxing machen?"
+        q4_answer: "Bei Sonnenbrand, offenen Wunden oder kürzlich stark gereizter Haut lieber auf Waxing verzichten. Auch bei bestimmten Hautkrankheiten wie Neurodermitis, Allergien oder Krampfadern sollte man vorher einen Arzt konsultieren. In diesem Fall ist Sugaring oft die bessere Alternative."
+        q5_question: "Wie lang müssen die Haare sein?"
+        q5_answer: "Die Haare sollten mindestens 4-5 mm (0,5 cm) lang sein. Das entspricht etwa 2-3 Wochen Wachstum nach der letzten Rasur."
+        q6_question: "Verändern sich die Haare durch Waxing?"
+        q6_answer: "Ja, mit regelmäßigen Behandlungen werden die Haare dünner, weicher und wachsen langsamer nach. Dies ist einer der großen Vorteile des Waxings."
+        q7_question: "Kann man auch als Schwangere zum Waxing gehen?"
+        q7_answer: "Grundsätzlich ja, aber die Haut ist während der Schwangerschaft empfindlicher. Es ist ratsam, dies vorher mit dem behandelnden Arzt zu besprechen und eine erfahrene Kosmetikerin zu wählen."
+        q8_question: "Spielt das Alter beim Intimwaxing eine Rolle?"
+        q8_answer: "Nein, das Alter spielt keine Rolle. Wichtig ist, dass die Haut gesund ist und keine Kontraindikationen vorliegen."
+        q9_question: "Was kann man gegen einwachsende Haare tun?"
+        q9_answer: "Regelmäßiges Peeling (2-3x pro Woche, ab 2 Tagen nach Behandlung). Feuchtigkeitscreme verwenden. Sanfte Massage der betroffenen Bereiche. Bei starken Problemen einen Dermatologen konsultieren."
+        q10_question: "Wann und wie oft sollte man ein Peeling machen?"
+        q10_answer: "Ab 2 Tagen nach dem Waxing beginnen. 2-3x pro Woche peelen. Sanfte Duschpeelings verwenden. Nicht zu aggressiv peelen."
+      intimate_waxing:
+        title: "Intim-Waxing: Brazilian, Hollywood & mehr – Ihre Möglichkeiten"
+        intro: "Brazilian Waxing ist eine intensive Form der Intimhaarentfernung, bei der Haare im Intimbereich komplett entfernt werden. Sie können selbst entscheiden, ob Sie einen kleinen Streifen stehen lassen möchten oder eine komplett glatte Zone bevorzugen."
+        bikini_classic_title: "Bikini Classic"
+        bikini_classic: "Hier werden alle Haare entfernt, die aus dem Bikini-Höschen hervortreten. Dies ist in der Regel ein Streifen von ein paar Zentimetern."
+        bikini_brazilian_title: "Bikini Brazilian"
+        bikini_brazilian: "Hier bleibt ein länglicher Haarstreifen (Landing Strip) stehen. Sie können selbst über die Länge und Breite des Haarstreifens entscheiden. Die Schamlippen werden hier nicht enthaart."
+        bikini_american_title: "Bikini American"
+        bikini_american: "Hier bleibt ein dreieckiger Haarstreifen auf dem Venushügel stehen. Sie können selbst über die Breite und Höhe des Dreiecks entscheiden. Die Schamlippen werden hier nicht enthaart."
+        bikini_complete_title: "Bikini Complete / Brazilian Hollywood"
+        bikini_complete: "Bei dieser Art bleibt kein einziges Härchen stehen. Wir entfernen alle Haare in der Bikinizone, inklusive der Schamlippen und Pofalte, wenn gewünscht. Selbstverständlich können Sie auch einen kleinen Haarstreifen auf dem Venushügel stehen lassen."
+        bikini_complete_benefits: "Seidig glatter Schambereich von bis zu vier Wochen. Besondere Gründlichkeit. Nach einigen Behandlungen wachsen die Haare weniger stark nach. Jedes weitere Waxing wird spürbar angenehmer."
+        men_zone_title: "Für Männer: Men Zone Intim"
+        men_zone: "Auch Männer können sich den Intimbereich professionell wachsen lassen. Die Behandlung wird mit besonderer Sorgfalt und Diskretion durchgeführt."
+      appointment:
+        title: "Waxing Termin buchen"
+        page_title: "Waxing Termin buchen"
+        page_description: "Buchen Sie Ihren Waxing-Termin online"
+        step1_title: "Behandlung auswählen"
+        step1_subtitle: "Wählen Sie eine oder mehrere Behandlungen aus"
+        step2_title: "Datum & Uhrzeit"
+        step2_subtitle: "Wählen Sie Ihren bevorzugten Termin"
+        continue_button: "Weiter"
+        back_button: "Zurück"
+        select_date: "Datum auswählen"
+        select_time: "Uhrzeit auswählen"
+        selected_treatments: "Ausgewählte Behandlungen"
+        total_price: "Gesamtpreis"
+        no_treatment_selected: "Bitte wählen Sie mindestens eine Behandlung aus"
+        treatments:
+          upper_lip: "Oberlippe"
+          eyebrow_wax: "Augenbrauen wachsen"
+          eyebrow_wax_and_shape: "Augenbrauen wachsen und formen"
+          eyebrows: "Augenbrauen"
+          half_legs: "Halbe Beine"
+          full_legs: "Ganze Beine"
+          forearms: "Unterarme"
+          full_arms: "Arme komplett"
+          underarms: "Achseln"
+          back: "Rücken"
+          full_face: "Gesicht komplett"
+          lower_legs: "Unterschenkel"
+          upper_legs: "Oberschenkel"
+          classic_bikini: "Klassisches Bikini"
+          deep_bikini: "Tiefes Bikini"
+          stomach: "Bauch"
+          lower_back: "Lendenbereich (unterer Rücken)"
+          buttocks: "Gesäß"
+          package_1: "Tiefes Bikini & Achseln"
+          package_2: "Tiefes Bikini, Achseln & Unterschenkel"
+          package_3: "Tiefes Bikini, Achseln & Beine komplett"
+          package_4: "Ganzkörper (5 Zonen nach Wahl)"
+        confirm_appointment: "Termin bestätigen"
+        appointment_booked_for: "Termin gebucht für"
+        treatments_label: "Behandlungen"
+        please_select_date_time: "Bitte wählen Sie Datum und Uhrzeit aus."
+        step3_title: "Ihre Kontaktdaten"
+        step3_subtitle: "Bitte füllen Sie das Formular aus"
+        first_name: "Vorname"
+        last_name: "Nachname"
+        full_name: "Vor- und Nachname"
+        phone_number: "Telefonnummer"
+        email: "E-Mail (optional)"
+        consent_checkbox: "Ich stimme zu, per SMS und/oder E-Mail kontaktiert zu werden, um den Termin zu bestätigen, und akzeptiere die Datenschutzrichtlinie"
+        submit_appointment: "Termin absenden"
+        validation:
+          first_name_required: "Vorname ist erforderlich"
+          first_name_min: "Vorname muss mindestens 2 Zeichen lang sein"
+          last_name_required: "Nachname ist erforderlich"
+          last_name_min: "Nachname muss mindestens 2 Zeichen lang sein"
+          full_name_required: "Vor- und Nachname sind erforderlich"
+          full_name_invalid: "Bitte geben Sie Vor- und Nachname ein (mindestens 2 Zeichen pro Teil)"
+          phone_required: "Telefonnummer ist erforderlich"
+          phone_invalid: "Bitte geben Sie eine gültige Mobilnummer ein (beginnt mit 0 oder +XX)"
+          email_invalid: "Bitte geben Sie eine gültige E-Mail-Adresse ein"
+          consent_required: "Sie müssen der Datenschutzrichtlinie zustimmen"
+          fake_value: "Bitte geben Sie einen gültigen Wert ein"
+          generic_error: "Es ist ein unbekannter Fehler aufgetreten. Bitte versuchen Sie es später erneut."
+        thanks_title: "Vielen Dank!"
+        thanks_subtitle: "Ihre Terminanfrage wurde erfolgreich übermittelt."
+        thanks_message: "Wir werden Ihre Anfrage überprüfen und Sie in Kürze kontaktieren, um den Termin zu bestätigen."
+        thanks_footer: "Sie erhalten eine Bestätigung per SMS oder E-Mail."
+        book_another: "Weiteren Termin buchen"
+      pricing:
+        title: "Behandlung"
+        price: "Preis"
+        packages: "Pakete"
+        description: "Da jede Haut und jede Behandlung einzigartig ist, gestalten sich unsere Preise individuell – basierend auf Aufwand, Haarmenge und Körperbereich. Unsere Preisangaben verstehen sich daher als Richtwerte. So stellen wir sicher, dass Sie die volle Aufmerksamkeit, Präzision und Qualität erhalten, die HUSH auszeichnet."
+        note: "* Preise können je nach Standort, Haarmenge, Hautempfindlichkeit und Komplexität der Behandlung variieren."
+        women: "Frauen"
+        men: "Männer"
+      men_treatments:
+        nose: "Nase"
+        ears: "Ohren"
+        eyebrows: "Augenbrauen"
+        face: "Gesicht"
+        arms_to_elbow: "Arme bis zum Ellenbogen"
+        full_arms: "Arme komplett"
+        legs_to_knees: "Beine bis zu den Knien"
+        legs_above_knees: "Beine über den Knien"
+        full_legs: "Beine komplett"
+        back: "Rücken"
+        upper_body: "Oberkörper"
+      men_packages:
+        back_upper_body: "Rücken + Oberkörper"
+        arms_legs_full: "Arme + Beine komplett"
+        complete: "Komplettpaket (Gesicht + Arme + Beine + Rücken + Oberkörper)"
+      contact:
+        visit_us: "Besuchen Sie uns"
+        visit_description: "Wir freuen uns darauf, Sie in einem unserer Studios begrüßen zu dürfen. Buchen Sie Ihren Termin online oder kontaktieren Sie uns direkt."
+        address_title: "Adresse"
+        address: "Pestalozzistraße 16<br />10625 Berlin<br />Deutschland"
+        phone_title: "Telefon"
+        phone: "0175 7125889"
+        phone_link: "tel:+491757125889"
+        google_maps: "Auf Google Maps anzeigen"
+        opening_hours: "Öffnungszeiten"
+        sunday_closed: "So: Geschlossen"
+        social_media: "Social Media"
+        follow_us: "Folgen Sie uns"
+        instagram: "Instagram"
+        facebook: "Facebook"
+        tiktok: "TikTok"
+        coming_soon: "Bald verfügbar"
+        send_message: "Nachricht senden"
+        name: "Name"
+        email: "E-Mail"
+        message: "Nachricht"
+        submit: "Absenden"
+      calendar:
+        months:
+          january: "Januar"
+          february: "Februar"
+          march: "März"
+          april: "April"
+          may: "Mai"
+          june: "Juni"
+          july: "Juli"
+          august: "August"
+          september: "September"
+          october: "Oktober"
+          november: "November"
+          december: "Dezember"
+        days:
+          monday: "Mo"
+          tuesday: "Di"
+          wednesday: "Mi"
+          thursday: "Do"
+          friday: "Fr"
+          saturday: "Sa"
+          sunday: "So"
+      date_format: "de-DE"
+      testimonials:
+        title: "Was unsere Kunden sagen"
+        testimonial_1: '"Sehr professionell und freundlich! Die Ergebnisse halten wirklich lange und meine Haut fühlt sich so glatt an. Kann HUSH nur empfehlen!"'
+        testimonial_2: '"Meine erste Waxing-Behandlung war viel weniger schmerzhaft als erwartet. Das Team ist sehr einfühlsam und erklärt alles genau. Top Service!"'
+        testimonial_3: '"Professioneller Service und tolle Ergebnisse! Das Team hat mich während der Behandlung sehr wohl fühlen lassen. Sehr empfehlenswert für Männer-Waxing!"'
+      why_waxing:
+        professional_treatment_alt: "Professionelle Waxing-Behandlung"
+        smooth_skin_alt: "Glatte Haut nach Waxing"
+        professional_treatment_alt_2: "Professionelle Behandlung"
+      image:
+        wellness_spa_alt: "Wellness Spa Atmosphäre"
+      services:
+        waxing_description: "Professionelle Haarentfernung mit heißem und hartem Wachs für alle Körperbereiche."
+        sugaring_description: "Sanfte Haarentfernung mit natürlicher Zuckerpaste - besonders schonend für empfindliche Haut."
+        permanent_removal_title: "Dauerhafte Haarentfernung"
+        permanent_removal_description: "Langfristige Haarreduktion durch moderne Laser- und IPL-Technologie."
+        facial_treatments_title: "Gesichtsbehandlungen"
+        facial_treatments_description: "Augenbrauen, Oberlippe, Kinn und andere Gesichtsbereiche mit Präzision behandelt."
+        body_treatments_title: "Körperbehandlungen"
+        body_treatments_description: "Beine, Arme, Rücken, Bauch und Intimbereich - wir behandeln alle Bereiche professionell."
+        full_body_title: "Ganzkörper-Waxing"
+        full_body_description: "Komplette Haarentfernung am ganzen Körper in einer Sitzung - für maximale Glätte."
+      scripts:
+        form_success_message: "Vielen Dank für Ihre Nachricht! Wir werden uns bald bei Ihnen melden."
+      about:
+        title: "Über uns"
+        page_title: "Über uns - Hush Haarentfernung"
+        page_description: "Erfahren Sie mehr über Hush Haarentfernung und Alena Obluchynska"
+        subtitle: "Die Idee hinter HUSH"
+        intro: "HUSH HAARENTFERNUNG steht für professionelle Haarentfernung mit Leidenschaft und Hingabe. Unsere Mission ist es, Ihnen ein außergewöhnliches Erlebnis zu bieten, das über die reine Behandlung hinausgeht."
+        idea: "Die Idee von HUSH entstand aus dem Wunsch, eine Oase der Ruhe und Professionalität zu schaffen, in der sich jeder Kunde wertgeschätzt und wohl fühlt. Wir glauben daran, dass Haarentfernung mehr ist als nur eine Beauty-Behandlung – es ist ein Akt der Selbstfürsorge und des Wohlbefindens."
+        alena_vision: "Alena Obluchynska, die Gründerin von HUSH, steht für Qualität, Präzision und eine persönliche Betreuung jedes einzelnen Kunden. Mit jahrelanger Erfahrung und einer tiefen Leidenschaft für das Handwerk setzt sie sich dafür ein, dass jede Behandlung zu einem besonderen Moment wird."
+        values: "Bei HUSH legen wir Wert auf Vertrauen, Diskretion und höchste Qualitätsstandards. Wir verwenden nur die besten Produkte und Techniken, um Ihnen optimale Ergebnisse zu garantieren. Ihr Wohlbefinden steht für uns an erster Stelle."
+        image_alt: "Alena Obluchynska - Hush Haarentfernung"
+      footer:
+        tagline: "Dein zuverlässiger Partner für professionelle Haarentfernung und Beauty-Behandlungen."
+        treatments_title: "Behandlungen"
+        permanent_removal: "Dauerhafte Haarentfernung"
+        company_title: "Unternehmen"
+        about_hush: "Über HUSH"
+        book_appointment: "Termin buchen"
+        legal_title: "Rechtliches"
+        imprint: "Impressum"
+        terms: "AGB"
+        privacy: "Datenschutz"
+        all_rights_reserved: "Alle Rechte vorbehalten."

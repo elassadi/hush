@@ -1,0 +1,9 @@
+class <%= policy_class %> < ApplicationPolicy
+  attributes :user, :model
+
+  def call
+    return model if user.admin?
+
+    model
+  end
+end

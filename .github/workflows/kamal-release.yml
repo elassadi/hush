@@ -1,0 +1,144 @@
+name: Kamal deployment
+
+
+# on:
+#   push:
+#     branches:
+#       - main
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+
+    # - name: Free Disk Space (Ubuntu)
+    #   uses: jlumbroso/free-disk-space@main
+    #   with:
+    #     # this might remove tools that are actually needed,
+    #     # if set to "true" but frees about 6 GB
+    #     tool-cache: false
+    #     # all of these default to true, but feel free to set to
+    #     # "false" if necessary for your workflow
+    #     android: true
+    #     dotnet: true
+    #     haskell: true
+    #     large-packages: false
+    #     docker-images: true
+    #     swap-storage: false
+
+    - uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 3.2.2
+        bundler-cache: true
+
+    - run: gem install kamal
+
+    - uses: actions/checkout@v3
+      with:
+        ref: ${{ github.head_ref }}
+
+    - name: Inject Kamal Secrets
+      run: |
+        mkdir -p .kamal
+        echo "${{ secrets.HUSH_KAMAL_SECRETS_FILE_CONTENT }}" > .kamal/secrets
+        chmod 600 .kamal/secrets
+
+    - name: Get short SHA
+      id: slug
+      run: echo "sha7=$(echo ${GITHUB_SHA} | cut -c1-7)" >> $GITHUB_OUTPUT
+
+    - name: Get Git SHA
+      id: git-sha
+      run: echo "sha=$(echo ${GITHUB_SHA})" >> $GITHUB_OUTPUT
+
+    - name: Get release version
+      id: release_version
+      run: |
+        echo "::set-output name=tag::$(sed "s|refs/tags/v||" <<< ${{ github.ref }})"
+
+
+    - name: Login to gitHub packages
+      uses: docker/login-action@v1
+      id: login
+      with:
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Lowercase repo
+      id: repo
+      shell: bash
+      run: echo "repo_lc=${GITHUB_REPOSITORY,,}" >> "$GITHUB_OUTPUT"
+
+    - name: pull image
+      id: pull-image
+      run: docker pull ghcr.io/${{ steps.repo.outputs.repo_lc }}:${{ steps.slug.outputs.sha7 }}
+      continue-on-error: true # This allows the workflow to continue even if this step fails
+
+
+
+    - name: Set up docker buildx
+      if: steps.pull-image.outcome == 'failure' # This step only runs if the previous step fails
+      uses: docker/setup-buildx-action@v1
+      id: buildx
+      with:
+        install: true
+
+    - name: Build and push docker image
+      if: steps.pull-image.outcome == 'failure' # This step only runs if the previous step fails
+      uses: docker/build-push-action@v2
+      id: build-and-push
+      with:
+        context: .
+        file: KamalDockerfile
+        push: true
+        tags: |
+            ghcr.io/elassadi/hush:latest
+            ghcr.io/elassadi/hush:${{ steps.slug.outputs.sha7 }}
+            ghcr.io/elassadi/hush:${{ steps.git-sha.outputs.sha }}
+        labels: |
+          service=hush
+        cache-from: type=gha
+        cache-to: type=gha,mode=max
+
+    - uses: webfactory/ssh-agent@v0.9.0
+      with:
+        ssh-private-key: ${{ secrets.HUSH_SSH_PRIVATE_KEY }}
+
+    #- run: kamal deploy --tag ${{ steps.release_version.outputs.tag }} --env production
+    - run: kamal redeploy -P --verbose
+
+    - name: Send Message to Slack
+      if: always() # Ensure this step runs even if previous steps fail
+      run: |
+        if [ "${{ job.status }}" == "success" ]; then
+          STATUS=":white_check_mark: *Success*"
+        else
+          STATUS=":x: *Failed*"
+        fi
+
+        # Create JSON payload using jq
+        MESSAGE=$(jq -n --arg status "$STATUS" \
+                        --arg repo "${{ steps.repo.outputs.repo_lc }}" \
+                        --arg branch "${{ github.ref }}" \
+                        --arg tag "${{ steps.release_version.outputs.tag }}" \
+                        --arg sha "${{ steps.git-sha.outputs.sha }}" \
+                        '{
+                          blocks: [
+                            {
+                              type: "section",
+                              text: {
+                                type: "mrkdwn",
+                                text: "*Kamal Deployment Status*: \($status)\n*Repository*: \($repo)\n*Branch*: \($branch)\n*Tag*: \($tag)\n*Commit SHA*: \($sha)"
+                              }
+                            }
+                          ]
+                        }')
+
+        # Send the message to Slack
+        curl -X POST -H 'Content-type: application/json' \
+            --data "$MESSAGE" ${{ secrets.SLACK_WEBHOOK_URL }}

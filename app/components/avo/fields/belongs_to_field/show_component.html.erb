@@ -1,0 +1,7 @@
+<%= field_wrapper **field_wrapper_args do %>
+  <% if  Current.user.can?(:read, @field.value) %>
+   <%= link_to @field.label, resource_view_path, data: {turbo_frame: @field.target} %>
+  <% else %>
+    <%= @field.label  %>
+  <% end %>
+<% end %>

@@ -1,0 +1,257 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/api/partner/clients":
+    post:
+      summary: Create a client
+      tags:
+      - clients
+      security:
+      - Bearer: {}
+      parameters: []
+      responses:
+        '201':
+          description: Successfully created a client
+          content:
+            application/json:
+              example:
+                uuid: cli_0f1a7256b54e4c
+                status: active
+                updated_at: 1670863740
+                birthdate: '2022-12-12'
+                email: bernie_lddefdasdflers12@lebsack.com
+                first_name: Henning
+                last_name: Rosenauer
+                phone: "+491677418667777"
+                remote_client_id: 936eb09d-88dd-4cb0-b8b0-ac7604ae4355
+                addresses:
+                - uuid: add_5fa45a37699444
+                  status: active
+                  street: Neuenkamp 27c
+                  house_number: '10'
+                  post_code: '10243'
+                  city: Berlin
+                  country: de
+              schema:
+                "$ref": "#/components/schemas/ClientResponse"
+        '422':
+          description: Unprocessable Entity
+          content:
+            application/json:
+              example:
+                message:
+                  email:
+                  - ist bereits vergeben
+              schema:
+                "$ref": "#/components/schemas/ErrorResponse"
+        '401':
+          description: Authorization failed
+          content:
+            application/json:
+              example:
+                message: Authorization failed
+              schema:
+                "$ref": "#/components/schemas/AuthorizationFailedResponse"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/CreateClientRequest"
+  "/api/partner/clients/{uuid}":
+    get:
+      summary: Fetch a client
+      tags:
+      - clients
+      security:
+      - Bearer: {}
+      parameters:
+      - name: uuid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful
+          content:
+            application/json:
+              example:
+                uuid: cli_78c5ad92bfde4f
+                status: active
+                updated_at: 1670863740
+                birthdate: '1992-10-03'
+                email: horace@rodriguez.com
+                first_name: Ricardo
+                last_name: Stanger
+                phone: "+49 168-4912118"
+                remote_client_id:
+                addresses:
+                - uuid: add_b64606eec9d640
+                  status: active
+                  street: Reusrather Str.
+                  house_number: '460'
+                  post_code: '14705'
+                  city: Maikeheim
+                  country: DE
+        '404':
+          description: Client not found
+          content:
+            application/json:
+              example:
+                message:
+                - Couldn't find Client
+                status: error
+        '401':
+          description: Wrong Token, Authorization failed
+          content:
+            application/json:
+              example:
+                message: Authorization failed
+servers:
+- url: http://{defaultHost}:3000
+  variables:
+    defaultHost:
+      default: localhost
+components:
+  securitySchemes:
+    Bearer:
+      description: Authorization bearer token
+      type: apiKey
+      name: Authorization
+      in: header
+  schemas:
+    AddressResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        uuid:
+          type: string
+        street:
+          type: string
+        house_number:
+          type: string
+        post_code:
+          type: string
+        city:
+          type: string
+        country:
+          type: string
+      required:
+      - uuid
+      - status
+      - street
+      - house_number
+      - post_code
+      - city
+      - country
+    AddressRequest:
+      type: object
+      properties:
+        street:
+          type: string
+        house_number:
+          type: string
+        post_code:
+          type: string
+        city:
+          type: string
+      required:
+      - street
+      - house_number
+      - post_code
+      - city
+    CreateClientRequest:
+      type: object
+      properties:
+        birthdate:
+          type: string
+        email:
+          type: string
+        first_name:
+          type: string
+        last_name:
+          type: string
+        phone:
+          type: string
+        remote_client_id:
+          type: string
+        addresses:
+          type: array
+          items:
+            "$ref": "#/components/schemas/AddressRequest"
+      required:
+      - birthdate
+      - email
+      - first_name
+      - last_name
+      - phone
+      - addresses
+    ClientResponse:
+      type: object
+      properties:
+        uuid:
+          type: string
+        status:
+          type: string
+        birthdate:
+          type: string
+        email:
+          type: string
+        first_name:
+          type: string
+        last_name:
+          type: string
+        phone:
+          type: string
+        remote_client_id:
+          type:
+          - string
+          - 'null'
+        updated_at:
+          type: integer
+        addresses:
+          type: array
+          items:
+            "$ref": "#/components/schemas/AddressResponse"
+      required:
+      - uuid
+      - status
+      - birthdate
+      - email
+      - first_name
+      - last_name
+      - phone
+      - remote_client_id
+      - updated_at
+      - addresses
+    ClientsListResponse:
+      type: object
+      properties:
+        Clients:
+          type: array
+          items:
+            "$ref": "#/components/schemas/ClientResponse"
+        clients_total_count:
+          type: integer
+        limit:
+          type: integer
+        offset:
+          type: integer
+      required:
+      - clients_total_count
+      - limit
+      - offset
+    ErrorResponse:
+      type: object
+      properties:
+        message:
+          type: object
+    AuthorizationFailedResponse:
+      type: object
+      properties:
+        message:
+          type: string

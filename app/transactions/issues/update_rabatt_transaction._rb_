@@ -1,0 +1,21 @@
+module Issues
+  class UpdateRabattTransaction < BaseTransaction
+    attributes :issue_id, :rabatt
+    def call
+      issue  = Issue.find(issue_id)
+      result= ActiveRecord::Base.transaction do
+        yield update_rabatt.call(issue: issue, rabatt: rabatt)
+      end
+      Success(result)
+    rescue Dry::Monads::Do::Halt => e
+      ErrorTracking.capture_message(
+        "#{self.class.name} failed  to update rabatt with #{e.result.failure}"
+      )
+      raise
+    end
+
+    private
+
+    def update_rabatt = Issues::UpdateRabattOperation
+  end
+end

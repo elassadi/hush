@@ -1,0 +1,46 @@
+#puts YAML.load(Article.last.to_json).to_yaml
+---
+de:
+
+  article_group:
+    - name: Dienstleistungen
+      description: Alle Dienstleistungen
+
+  supplier:
+    - company_name: Wellness GmbH
+
+  article:
+    - status: active
+      ean: '10010001'
+      sku: '10001'
+      article_type: service
+      name: Bikini-Zone Haarentfernung
+      description: "Dauerhafte Haarentfernung der Bikini-Zone mit der SHR-Methode"
+      tax: 19
+      unit: piece
+      default_retail_price: '100.0'
+      default_purchase_price: '10.0'
+      supplier_id:
+      article_group_id: article_group_0
+
+
+
+  customer:
+    - salutation: female
+      first_name: Alena
+      last_name: Obluschynska
+      email: alena@hush.hush-haarentfernung.de
+      phone_number: "+4912345678987654121"
+      skip_address_validation: true
+
+  address:
+    - status: active
+      street: Strasse der Hoffnung
+      house_number: '69'
+      post_code: '10243'
+      city: Berlin
+      country: de
+      primary: true
+      addressable_type: Customer
+      addressable_id: customer_0
+

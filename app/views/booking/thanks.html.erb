@@ -1,0 +1,145 @@
+  <style>
+
+    /* end header steps */
+
+    /* New wrapper for both main container and right panel */
+    .content-wrapper {
+      max-width: 1000px;
+      margin: 20px auto; /* Center with a margin */
+      padding: 20px;
+      background-color: #fff; /* Ensure it has a white background */
+    }
+
+    /* Main container styling */
+    .main-container {
+      border: 1px solid #d3d3d3; /* Grey border */
+      border-radius: 5px;
+      padding: 15px;
+    }
+
+    .termin_p {
+      border-bottom: 1px solid rgb(233, 233, 233);
+      color: rgb(61, 61, 61);
+      color: #007bff;
+      margin-bottom: 4px;
+      padding-bottom: 4px;
+    }
+
+    .product-row {
+      display: flex;
+      justify-content: space-between; /* Align items to opposite sides */
+      width: 100%; /* Full width */
+      padding: 1px;
+      margin-bottom: 2px; /* Space between rows */
+      align-items: baseline;
+    }
+
+    .container-flex {
+      display: flex;
+      align-items: flex-start; /* Align items at the top */
+    }
+
+    /* On mobile, move the right panel under the main content */
+    @media (max-width: 768px) {
+      .container-flex-mobile {
+        display: block;
+        align-items: flex-start; /* Align items at the top */
+      }
+    }
+  </style>
+  <!-- Header -->
+  <header class="text-center py-1">
+    <div
+      class="steps-container d-flex justify-content-between align-items-center my-2"
+    >
+      <!-- Step 1 -->
+      <div class="step d-flex align-items-center">
+        <span class="step-label ml-2"></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Content Wrapper (Main Content and Right Panel) -->
+  <div class="content-wrapper">
+    <div class="row_flex">
+      <!-- Main Container -->
+      <div class="bg-light col-lg-12 col-md-12 main-container">
+        <h2>
+          Vielen Dank! <br />Ihre Terminanfrage wurde erfolgreich übermittelt.
+        </h2>
+        <br /><br />
+        <div>
+          <p>
+            Wir werden Ihre Anfrage überprüfen und Sie in Kürze kontaktieren,
+            um die Verfügbarkeit des benötigten Ersatzteils zu bestätigen.
+            <b
+              >Bitte beachten Sie, dass wir den Termin erst final bestätigen
+              können</b
+            >, sobald wir diese Information erhalten haben. Wir bitten um Ihr
+            Verständnis und werden uns schnellstmöglich bei Ihnen melden.
+            <br>
+            <br>
+            <br>
+
+            <br><b><%= @account.master_merchant.company_name%></b><br>
+            <%= @account.master_merchant.primary_address.one_liner%><br>
+            Telefon: <%= @account.master_merchant.phone_number%><br>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal dialogs -->
+  <!-- Modal HTML with dynamic message support -->
+  <div
+    class="modal fade"
+    id="customModal"
+    tabindex="-1"
+    aria-labelledby="customModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="customModalLabel">Information</h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Schließen"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div id="customModalMessage" class="alert"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">
+            Verstanden
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <table style="border-collapse: collapse; margin-top: 1em" width="100%">
+    <tbody>
+      <tr>
+        <td style="padding-top: 1em" align="center">
+          <a
+            href="/appointment"
+            style="
+              display: inline-block;
+              padding: 10px 20px;
+              background-color: #10766e;
+              color: white;
+              text-decoration: none;
+              border-radius: 5px;
+            "
+            >Neuen Termin buchen</a>
+        </td>
+      </tr>
+    </tbody>
+  </table> -->

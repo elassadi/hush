@@ -1,0 +1,46 @@
+<!-- app/views/errors/500.html.erb -->
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>500 - Interner Serverfehler</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+  <div class="bg-white shadow-lg rounded-lg overflow-hidden max-w-4xl mx-auto">
+    <div class="flex">
+      <!-- Left side with the image -->
+      <div class="w-1/2 flex items-center justify-center p-8" style="background: #e4e3e0">
+        <img src="/images/cloudy-500.jpg" alt="Cloudy Error" class="w-full h-auto">
+      </div>
+
+      <!-- Right side with the error message -->
+      <div class="w-1/2 p-8 flex flex-col justify-center">
+        <h1 class="text-5xl font-bold text-teal-600">500</h1>
+        <h2 class="text-3xl font-semibold mt-4 text-gray-800">Oops! Etwas ist schief gelaufen.</h2>
+        <p class="mt-4 text-lg text-gray-600">
+          Unser Server hat gerade eine kleine Auszeit genommen. Keine Sorge, wir arbeiten daran, ihn wieder in die Wolken zu bringen! ☁️
+        </p>
+        <p class="mt-4 text-gray-600">
+          Wenn das Problem weiterhin besteht, können Sie uns gerne kontaktieren, damit wir es beheben können.
+        </p>
+
+        <!-- Buttons -->
+        <div class="flex justify-center space-x-4 mt-6">
+          <!-- Go Back button -->
+          <a href="/" class="bg-gray-400 text-white px-6 py-3 rounded-md text-lg hover:bg-gray-500">
+            Zurück
+          </a>
+          <!-- Contact support button -->
+          <a href="mailto:support@recloud.de" target="_blank" class="bg-teal-600 text-white px-6 py-3 rounded-md text-lg hover:bg-teal-700">
+            Kontaktieren Sie uns
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+<script defer src="https://umami.insidekiq.com/script.js" data-website-id="df91e0b9-3ef8-4630-b921-5e0c015ec8ec"></script>
+</html>

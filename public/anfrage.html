@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <!-- select2 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" integrity="sha256-FdatTf20PQr/rWg+cAKfl6j4/IY3oohFAJ7gVC3M34E=" crossorigin="anonymous">
+
+  <!-- select2-bootstrap4-theme -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ttskch/select2-bootstrap4-theme/dist/select2-bootstrap4.min.css">
+
+
+
+  <!-- Calendly Badge-Widget Beginn -->
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+
+<!-- Calendly Badge-Widget Ende -->
+
+
+</head>
+
+
+
+<body class="pt-5" style="min-height:90vh">
+
+<div class="container" style="width: 800px;">
+
+  <form>
+
+    <div id="repair-set-container" class="form-group" >
+      <h1>Handy Reparatur Preise </h2>
+
+      <div style="float: left; width: 550px; margin-top: 40px ">
+        <div style="float: left; width: 380px;">
+          <span class="label label-default" style="font-size:12px;">Hersteller</span>
+
+          <select id="device-manufacturer-select" data-placeholder="Auswählen oder suchen" data-allow-clear="1">
+          </select>
+
+        </div>
+        <div style="float: left; width: 380px; margin-top: 5px;">
+          <span class="label label-default" style="font-size:12px;">Model</span>
+          <select id="device-model-select" data-placeholder="Auswählen oder suchen" data-allow-clear="1"></select>
+        </div>
+
+        <br style="clear: left;" />
+        <div style="float: left; width: 380px; margin-top: 5px;">
+          <span class="label label-default" style="font-size:12px;">Reparatur</span>
+          <select id="repair-set-select" data-placeholder="Auswählen oder suchen" data-allow-clear="1"></select>
+        </div>
+
+        <div class="form-group float-xl-end" style="width: 380px; margin: 5px; padding-top: 10px ; display: grid">
+          <table>
+            <tr>
+              <td>
+                <img src="/images/device_pictures/no-device.png" data-default-src="/images/device_pictures/no-device.png" id="device-model-image-preview" style="max-height: 300px;max-width: 200px;" />
+              </td>
+              <td align="right">
+
+                <label id="device-model-image-label"></label>
+                <h2 style="margin: 10px;" id="repair-price" ></h2>
+                <button id="checkout-button"  type="button" class="btn btn-primary" style="display: none;" >Termin vereinbaren</button>
+                <a href="https://hush-haarentfernung.de/retourenlabel/" id="label-button"  style="display: none; margin-top: 5px" class="btn btn-secondary " role="button" target="_blank">Versandlabel anfordern</a>
+              </td>
+            </tr>
+          </table>
+
+
+
+
+
+        </div>
+
+      </div>
+
+
+
+    </div>
+  </form>
+</div>
+<div class="container" >
+  <button id="back-button"  type="button" class="btn btn-primary" style="display: none ;" >Zurueck</button>
+    <div id="calendly-container" style="min-width:800px;height:630px;"></div>
+</div>
+
+<!-- bootstrap -->
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha256-7dA7lq5P94hkBsWdff7qobYkp9ope/L5LQy2t/ljPLo=" crossorigin="anonymous"></script>
+<!-- select2 -->
+<script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js" integrity="sha256-AFAYEOkzB6iIKnTYZOdUf9FFje6lOTYdwRJKwTN5mks=" crossorigin="anonymous"></script>
+
+<!-- select2-bootstrap4-theme -->
+<script>
+
+  function getSelectOptions(model, min_input){
+
+    var url = window.location.origin + "/api/partner/"+model;
+    var fields =["name"];
+    var token = "7yVmSUwiuGPoWL6V2xMwLgXBaNnqGXwFWpXm"
+    var selectOptions = {
+      language: {
+        inputTooShort: function () {
+          return "Bitte mindestens 2 Zeichen eingeben!";
+        }
+      },
+      theme: 'bootstrap4',
+      width: 380,
+      minimumInputLength: min_input,
+      allowClear: true,
+      ajax: {
+        url: url,
+        dataType: "json",
+        delay: 250,
+        cache: true,
+        data: function(params) {
+
+          var query = {
+            search_term: params.term,
+            device_manufacturer_id: $("#device-manufacturer-select").val(),
+            device_model_id: $("#device-model-select").val(),
+            device_failure_category_id: $("#device-failure-category-select").val(),
+            device_failure_specification_id: $("#device-failure-specification-select").val(),
+          };
+          return query;
+        },
+        beforeSend: function(xhr) {
+          xhr.setRequestHeader('Authorization', 'Token token=' + token);
+        },
+        processResults: function(data) {
+          var processed = {
+            results: jQuery.map(data, function(resource) {
+              return {
+                id: resource.id,
+                text: resource["name"].toString(),
+                image_path: resource["image_path"] ? resource["image_path"].toString() : null,
+                price: resource["beautified_brutto_b2c"] ? resource["beautified_brutto_b2c"].toString() : null,
+              };
+            })
+          };
+
+          return processed;
+        }
+      }
+    };
+    //$(el).on("select2:select", onItemSelected);
+    //$(el).on("select2:close", onSelectClosed);
+    return selectOptions;
+  }
+
+
+  var repair_sets=[];
+  var current_model=null;
+
+  function getRepairSetItems() {
+
+  var url = window.location.origin + "/api/repair_set";
+  var fields =["name"];
+  var predicate="contains"
+  var selectOptions = {
+    language: {
+        inputTooShort: function () {
+          return "Bitte mindestens 2 Zeichen eingeben!";
+        }
+      },
+    theme: 'bootstrap4',
+    width: 380,
+    minimumInputLength: 0,
+    allowClear: true,
+    ajax: {
+      url: url,
+      dataType: "json",
+      delay: 250,
+      cache: true,
+      data: function(params) {
+        return  {
+          order: "name_desc",
+          search_term: params.term,
+          device_manufacturer_id: $("#device-manufacturer-select").val(),
+          device_model_id: $("#device-model-select").val(),
+          device_color_id: $("#device-color-select").val(),
+          device_failure_category_id: $("#device-failure-category-select").val(),
+          device_failure_specification_id: $("#device-failure-specification-select").val(),
+        };
+      },
+      processResults: function(data) {
+        repair_sets = {
+          results: jQuery.map(data, function(resource) {
+            return {
+              id: resource.id,
+              text: resource["name"].toString(),
+              price: resource["beautified_brutto_b2c"].toString()
+            };
+          })
+        };
+
+        return repair_sets;
+      }
+    }
+  };
+  //$(el).on("select2:select", onItemSelected);
+  //$(el).on("select2:close", onSelectClosed);
+  return selectOptions;
+}
+
+
+
+  function init_components() {
+
+    $("#device-manufacturer-select").select2(getSelectOptions("device_manufacturers", 0));
+    $("#device-model-select").select2(getSelectOptions("device_models", 0 ));
+
+
+    $("#device-model-select").prop('disabled', true);
+
+
+    $("#device-failure-category-select").select2(getSelectOptions("device_failure_categories", 0));
+    $("#device-failure-specification-select").select2(getSelectOptions("device_failure_specifications", 0));
+    $("#device-failure-detail-select").select2(getSelectOptions("device_failure_detail", 0));
+
+
+    $("#repair-set-select").select2(getSelectOptions("repair_sets", 0));
+    $("#repair-set-select").prop('disabled', true);
+
+  }
+
+
+
+  function setup_manufacturer() {
+
+    $('#device-manufacturer-select').on('select2:select', function (e) {
+      if (e.params) {
+        $("#device-model-select").prop('disabled', false);
+        $("#device-model-select").val(null).trigger('change.select2');
+        $("#repair-set-select").prop('disabled', true);
+        $("#repair-set-select").val(null).trigger('change.select2');
+
+        update_model_card();
+
+        window.setTimeout(function () {
+          $("#device-model-select").select2("open");
+        }, 50);
+      }
+      }
+    );
+
+
+    $('#device-manufacturer-select').on('select2:unselecting', function (e) {
+      $("#device-model-select").val(null).trigger('change.select2');
+      $("#device-model-select").prop('disabled', true);
+      $("#repair-set-select").val(null).trigger('change.select2');
+      $("#repair-set-select").prop('disabled', true);
+      update_model_card();
+    });
+  }
+
+
+
+
+  function update_model_card()  {
+
+
+    var data = $('#device-model-select').select2('data');
+
+    if (data.length > 0) {
+      $("#device-model-image-preview").attr("src", data[0].image_path);
+      $("#device-model-image-label").text(data[0].text);
+    }else {
+      $("#device-model-image-label").text( "");
+      $("#device-model-image-preview").attr("src", "/images/device_pictures/no-device.png");
+    }
+    update_repair_set_price();
+
+  }
+
+  function update_repair_set_price()  {
+    var data = $('#repair-set-select').select2('data');
+    if (data.length > 0) {
+      $("#checkout-button").show();
+      $("#label-button").show();
+      $("#repair-price").text(`${data[0].price.replace(".", ",")} €`);
+    }else {
+      $("#checkout-button").hide();
+      $("#label-button").hide();
+      $("#repair-price").text("");
+    }
+
+  }
+
+
+
+
+  function setup_model() {
+
+    $('#device-model-select').on('select2:select', function (e) {
+      if (e.params) {
+        $("#repair-set-select").prop('disabled', false);
+        $("#repair-set-select").val(null).trigger('change.select2');
+        window.setTimeout(function () {
+          $("#repair-set-select").select2("open");
+          update_model_card();
+        }, 50);
+      }
+      }
+    );
+
+    $('#device-model-select').on('select2:unselecting', function (e) {
+      $("#repair-set-select").val(null).trigger('change.select2');
+      $("#repair-set-select").prop('disabled', true);
+      update_model_card();
+    });
+
+  }
+
+
+
+
+
+  function setup_repair_set (){
+
+    $('#repair-set-select').on('select2:select', function (e) {
+      if (e.params) {
+        window.setTimeout(function () {
+          update_repair_set_price();
+        }, 50);
+      }
+      }
+    );
+
+    $('#repair-set-select').on('select2:unselecting', function (e) {
+      if (e.params) {
+        window.setTimeout(function () {
+          update_repair_set_price();
+        }, 50);
+      }
+      }
+    );
+
+  }
+
+
+  function setup_checkout_button() {
+
+    $('#checkout-button').on('click', function(event) {
+        event.preventDefault(); // To prevent following the link (optional)
+        open_calendly();
+    });
+
+    $('#back-button').on('click', function(event) {
+        event.preventDefault(); // To prevent following the link (optional)
+        close_calendly();
+    });
+  }
+
+  function open_calendly() {
+
+    //$("#repair-set-container").hide();
+    //$("#back-button").show();
+    //$("#calendly-container").show();
+
+    var model_data = $('#device-model-select').select2('data');
+    var manufacturer_data = $('#device-manufacturer-select').select2('data');
+    var repair_set_data = $('#repair-set-select').select2('data');
+
+    Calendly.initPopupWidget({
+        url: 'https://calendly.com/hush/reparatur',
+        parentElement: document.getElementById('calendly-container'),
+        prefill: {
+            customAnswers: {
+                a2: model_data[0].text + " " + manufacturer_data[0].text,
+                a3: repair_set_data[0].text
+            }
+        }
+   });
+  }
+
+
+  function close_calendly() {
+
+    $("#repair-set-container").show();
+    $("#calendly-container").empty();
+    $("#back-button").hide();
+
+  }
+
+  $(function () {
+
+    init_components();
+    setup_manufacturer();
+    setup_model();
+    setup_repair_set();
+
+    setup_checkout_button();
+  });
+
+
+
+
+
+
+</script>
+</body>
+</html>

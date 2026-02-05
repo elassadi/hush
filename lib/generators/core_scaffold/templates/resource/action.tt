@@ -1,0 +1,30 @@
+module <%= module_name %>
+  class <%= klass %>Action < ::ApplicationBaseAction
+    self.name = "<%= klass %>"
+
+    # test
+    self.visible = lambda do
+      begin
+        return false unless view == :show
+
+        current_user.may?(:<%= action_name %>, resource.model)
+      end
+    end
+
+    def handle(**args)
+
+      models = args[:models]
+      models.each do |model|
+        authorize_and_run(:<%= action_name %>, model) do |<%= model %>|
+          <%= action_name %>(<%= model %>)
+        end
+      end
+    end
+
+    private
+
+    def <%= action_name %>(<%= model %>)
+      <%= module_name %>::<%= transaction_class %>.call(<%= model %>_id: <%= model %>.id)
+    end
+  end
+end

@@ -1,0 +1,5 @@
+<%= javascript_tag nonce: true do %>
+  window.Recloud = window.Recloud || { configuration: {} }
+  Recloud.configuration.locale = '<%= I18n.locale %>'
+  Recloud.configuration.i18n = <%= I18n.t('js').to_json.html_safe %>
+<% end %>

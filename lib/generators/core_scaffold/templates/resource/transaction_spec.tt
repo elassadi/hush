@@ -1,0 +1,33 @@
+RSpec.describe <%= module_name %>::<%= transaction_class %> do
+  describe "#call" do
+    subject(:call) do
+      described_class.call(<%= model %>_id: <%= model %>.id)
+    end
+
+
+    include_context "setup demo account and user"
+    include_context "setup system user"
+
+    let(:operation) do
+      instance_double(<%= module_name %>::<%= operation_class %>)
+    end
+
+
+
+    before do
+      allow(<%= module_name %>::<%= operation_class %>).to receive(:new)
+        .with({<%= model %>:})
+        .and_return(operation)
+    end
+
+    context "with valid data " do
+      let(:<%= model %>) { create(:<%= model %>) }
+
+      it "returns success result" do
+        expect(operation).to receive(:call).and_return(Dry::Monads::Success(<%= model %>))
+        expect(call).to be_success
+        expect(call.success).to eq(<%= model %>)
+      end
+    end
+  end
+end

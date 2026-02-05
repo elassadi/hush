@@ -1,0 +1,26 @@
+class <%= resource_class %>  < ApplicationBaseResource
+  include Concerns::PaymentResourceSidebar.with_options(date_fields: %i(created_at updated_at))
+  # include Concerns::PaymentResourceSidebar
+
+  STATUS_OPTIONS = {
+    gray: %w[unknown],
+    info: %w[],
+    success: %w[paid],
+    warning: %w[refunded],
+    danger: %w[unknown]
+  }.freeze
+
+  self.title = :id
+  self.includes = []
+
+  # self.search_query = -> do
+  #   scope.ransack(id_eq: params[:q], m: "or").result(distinct: false)
+  # end
+
+  field :id, as: :id
+  field :status, as: :status_badge, options: STATUS_OPTIONS
+
+  # field :versions, as: :has_many, use_resource: ContractVersionResource, is_readonly: true
+  # filter ::Contracts::StatusFilter
+  # action ::Contracts::CreatePayment
+end

@@ -1,0 +1,10 @@
+<a  href="<%= @href %>" target='<%= @target %>'>
+  <div class="flex flex-row space-x-0  items-center">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="cursor-pointer mx-5 w-4 h-4">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"></path>
+    </svg>
+  <span data-tippy="<%=@title.present? ? 'tooltip' : '' %>" title="<%= @title %>" class="whitespace-nowrap  text-xs uppercase font-semibold inline-flex items-center px-2 py-1 rounded">
+    <%= @text %>
+  </span>
+  </div>
+</a>

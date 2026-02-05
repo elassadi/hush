@@ -1,0 +1,2236 @@
+---
+en:
+  activerecord:
+    attributes:
+      article:
+        pricing_strategies:
+          absolut: Absolute
+          percentage: Percentage
+          disabled: Disabled
+        heading_pricing_strategie:
+          name: Pricing strategy information
+          title: Help and documentation for pricing strategy can be found here.
+        images: Article images
+        article_type: Article type
+        default_purchase_price: Purchase price
+        default_retail_price: Retail price
+        description: Description
+        ean: EAN
+        images_attachments: Image attachments
+        images_blobs: Image blobs
+        inventoried_at: Last inventoried at
+        inventoried_by: Inventoried by
+        margin: Margin
+        name: Name
+        one: Article
+        other: Articles
+        pricing_strategie: Pricing strategy
+        purchase_price: Purchase price
+        sort_purchase_price: Purchase price
+        repair_set_entries: Repair set entries
+        repair_sets: Repair sets
+        retail_price: Retail price
+        status: Status
+        stock_items: Articles in stock
+        stock_movements: Stock movements
+        supplier_articles: Supplier articles
+        supplier_sources: Supplier sources
+        suppliers: Suppliers
+        tax: Tax
+        title: Name
+        unit: Unit
+        uuid: UUID
+      user:
+        zero: User
+        one: User
+        other: Users
+        locales:
+          de: German
+          en: English
+        heading_password_information:
+          name: User is sent an email to reset the password
+          title: Help and documentation on how to create a user can be found here.
+        access_level: Access level
+        api_only: API only
+        api_tokens: API tokens
+        confirmation_sent_at: Confirmation sent at
+        confirmation_token: Confirmation token
+        confirmed_at: Confirmed at
+        confirmed: Confirmed
+        consumed_timestep: Consumed timestep
+        current_sign_in_at: Current sign in at
+        current_sign_in_ip: Current sign in IP
+        email: Email
+        encrypted_password: Encrypted password
+        ip: IP
+        last_sign_in_at: Last sign in at
+        last_sign_in_ip: Last sign in IP
+        locale: Language
+        name: Name
+        notifications: Notifications
+        otp_required_for_login: OTP required for login
+        otp_secret: OTP secret
+        remember_created_at: Remember created at
+        reset_password_sent_at: Reset password sent at
+        reset_password_token: Reset password token
+        salt: Salt
+        status: Status
+        unconfirmed_email: Unconfirmed email address
+        uuid: UUID
+        versions: Versions
+        headers:
+          user_informations_heading: User information
+          access_heading: Access level
+          extra_information: Additional information
+          api_heading: API information
+      contact:
+        zero: Contact
+        one: Contact
+        other: Contacts
+        accounting_email: Accounting email
+        addresses: Addresses
+        bank_account_owner: Bank account owner
+        bank_name: Bank name
+        bic: BIC
+        ceo_name: CEO name
+        city: City
+        comments: Comments
+        company_name: Company name
+        country: Country
+        court_in_charge: Court in charge
+        email: Email
+        first_name: First name
+        hrb_number: HRB number
+        iban: IBAN
+        last_name: Last name
+        mobile_number: Mobile number
+        phone_number: Phone number
+        post_code: Postal code
+        salutation: Salutation
+        street: Street
+        tax: Tax
+        tax_number: Tax number
+        uuid: UUID
+        web_page: Website
+      customer:
+        zero: Customer
+        one: Customer
+        other: Customers
+        salutations:
+          male: Mr.
+          female: Ms.
+          company: Company
+        addresses: Addresses
+        city: City
+        comments: Comments
+        company_name: Company name
+        country: Country
+        devices: Devices
+        email: Email
+        first_name: First name
+        headers:
+          heading_address: Address information
+          heading_contact_channel: Contact information
+        house_number: House number
+        iban: IBAN
+        issues: Service orders
+        last_name: Last name
+        mobile_number: Mobile number
+        old_ref: Old reference
+        phone_number: Phone number
+        post_code: Postal code
+        repair_orders: Service orders
+        salutation: Salutation
+        search_query_help: Search by name, first name, company, email, phone number
+        sequence_id: Customer number
+        street: Street
+        uuid: UUID
+      supplier:
+        zero: Supplier
+        one: Supplier
+        other: Suppliers
+        accounting_email: Accounting email
+        addresses: Addresses
+        bank_account_owner: Bank account owner
+        bank_name: Bank name
+        bic: BIC
+        ceo_name: CEO name
+        city: City
+        company_name: Company name
+        country: Country
+        court_in_charge: Court in charge
+        email: Email
+        first_name: First name
+        hrb_number: HRB number
+        iban: IBAN
+        last_name: Last name
+        mobile_number: Mobile number
+        phone_number: Phone number
+        post_code: Postal code
+        salutation: Salutation
+        statuses:
+          active: Active
+          inactive: Inactive
+        street: Street
+        tax: Tax
+        tax_number: Tax number
+        uuid: UUID
+        web_page: Website
+      issue:
+        zero: Repair order
+        one: Repair order
+        other: Service orders
+        issue_entries: Repair items
+        activities: Activities
+        assigned_at: Assigned at
+        assignee: Assigned technician
+        calendar_entries: Calendar entries
+        comments: Comments
+        device_accessories_list: Accessories
+        device_received: Device received
+        device_repaired: Repair completed successfully
+        documents: Documents
+        has_insurance_case: Insurance case
+        headers:
+          additional_data_heading: Additional data
+          input_device_heading: Device information
+        imported_ref_id: Imported reference ID
+        input_device_failure_categories: Device failures
+        insurance: Insurance
+        insurance_number: Insurance case number
+        lock: Lock record, workflow status will no longer be changed.
+        lock_code: Lock code
+        locked: Locked
+        metadata: Metadata
+        new_issue: Create repair order
+        notify_customer: Notify customer
+        owner: Author
+        price: Price
+        private_comment: Internal comment
+        repair_report_content: Repair report
+        request_approved: Repair approval granted
+        scheduled_repair_at: Scheduled repair at
+        selected_repair_set: Repair set
+        sequence_id: Order number
+        status: Status
+        status_categories:
+          done: Completed
+          in_progress: In progress
+          open: Open
+        status_category: Status category
+        statuses:
+          awaiting_approval: Awaiting approval
+          awaiting_device: Awaiting customer device
+          awaiting_parts: Awaiting parts
+          canceld: Canceled
+          completed: Completed
+          done: Completed
+          draft: Draft
+          ready_to_repair: Ready to repair
+          repair_done_successful: Repair successful
+          repair_done_unsuccessful: Repair not possible
+          repair_in_progress: Being repaired
+          repairing: In repair
+          repairing_successfull: Repair successful
+          repairing_unsuccessfull: Repair not possible
+          short:
+            awaiting_approval: WAF
+            awaiting_device: WAK
+            awaiting_parts: WAE
+            canceld: ST
+            completed: AB
+            done: AB
+            draft: EW
+            ready_to_repair: KRW
+            repair_done_successful: OK
+            repair_done_unsuccessful: NOK
+            repair_in_progress: WR
+            repairing: IR
+            repairing_successfull: RE
+            repairing_unsuccessfull: RNE
+        unlock: Unlock record
+        uuid: UUID
+        versions: Versions
+        workflow_events:
+          activate: Grant repair approval
+          cancel: Cancel order
+          cancel_invoice: Cancel invoice
+          complete_order: Order completed
+          create_delivery_note: Create delivery note
+          create_invoice: Create invoice
+          create_pickup: Create pickup note
+          deactivate: Revoke repair approval
+          delete_repair_order: Delete order
+          device_received: Device received
+          done_repairing_successfull: Repair successful
+          done_repairing_unsuccessfull: Repair not possible
+          not_ready_to_repair: Not ready for repair
+          notify_client: Notify customer
+          open: Reset to open
+          open_awaiting_device: Awaiting customer device
+          print_kva: Create cost estimate
+          print_order: Print order
+          re_activate: Reactivate order
+          ready_to_repair: Ready for repair
+          repair_done: Repair finished
+          request_approval: Await repair approval
+          reset_repairing: Reset repair
+          start_repairing: Start repair
+          stop_repairing: Stop repair
+          to_done: Order completed
+          to_done_and_create_invoice: Repair completed & create invoice
+          undo_complete_order: Cancel invoice
+        table_possible_repair_sets: Available repair sets
+      address:
+        one: Address
+        other: Addresses
+        addressable:
+          one: Reference
+          other: Reference
+        street:
+          one: Street
+          other: Streets
+        house_number:
+          one: House number
+          other: House numbers
+        post_code:
+          one: Postal code
+          other: Postal codes
+        city:
+          one: City
+          other: Cities
+        created_at:
+          one: Created at
+        addressable_type: Addressable type
+        country: Country
+        primary: Primary
+        primary_record: Primary record
+        status: Status
+        uuid: UUID
+        versions: Versions
+      client:
+        genders:
+          male: Male
+          female: Female
+        salutations:
+          mr: Mr.
+          ms: Ms.
+      setting:
+        zero: Global settings
+        one: Global settings
+        other: Global settings
+        heading_number_ranges:
+          name: Global number ranges
+          title: |
+            Global number ranges
+            Help and documentation can be found here.
+        category: Category
+        document_footer: Document footer
+        issue_awaiting_device_notification: awaiting device
+        issue_completed_notification: has been completed
+        issue_kva_printed_notification: cost estimate created
+        issue_order_printed_notification: is being created
+        issue_repairing_notification: is being repaired
+        issue_repairing_successfull_notification: has been successfully repaired
+        issue_repairing_unsuccessfull_notification: has not been successfully repaired
+        notification_enabled: Enable notifications
+        print_detailed_issue_entries: Print detailed repair items
+        sequences: Number ranges
+        tax: Tax
+      stock_movement:
+        one: Stock movement
+        other: Stock movements
+        actions:
+          stock_in: Stock in
+          stock_out: Stock out
+        action_types:
+          stock_without_referenz: Stock without reference
+          stock_with_referenz: Stock with reference
+          retoure: Return
+          defective: Defective
+        action: Action
+        action_type: Action type
+        issue: Repair order
+        originator: Order position
+        originator_type: Reference type
+        owner: Recorder
+        qty: Quantity
+        uuid: UUID
+      supplier_source:
+        one: Supplier source
+        other: Supplier sources
+        stock_statuses:
+          available: In stock
+          can_be_ordered: Can be ordered
+          will_be_ordered: On purchase list
+          ordered: Is ordered
+          unavailable: Not available
+          shortly_available: Available shortly
+          upon_order: On order
+          unknown: No information
+          is_a_set: This is a repair set
+          short:
+            available: AL
+            can_be_ordered: KB
+            will_be_ordered: IE
+            ordered: IB
+            unknown: KI
+            unavailable: NL
+            shortly_available: IL
+            is_a_set: RS
+            upon_order: AB
+            delivered: AG
+          delivered: Delivered
+        article_description: Article description
+        article_name: Article name
+        days_to_ship: Days until shipment
+        favorite: Favorite
+        manufacturer_number: Manufacturer number
+        purchase_price: Purchase price
+        sku: SKU
+        stock_status: Availability
+        supplier_articles: Supplier articles
+        tax: Tax
+        unit: Unit
+        uuid: UUID
+      issue_entry:
+        zero: Repair item
+        one: Repair item
+        other: Repair items
+        categories:
+          article: Article
+          repair_set: Repair set
+          text: Text
+          rabatt: Discount
+        article_name: Article name
+        article_unit: Article unit
+        category: Category
+        price: Price
+        price_b2b: Price B2B
+        qty: Quantity
+        stock_status: Availability
+        tax: Tax
+        uuid: UUID
+      template:
+        template_types:
+          mail: Email
+          sms: SMS
+          text: Text
+          print: Print
+          repair_report: Repair report
+        activated_at: Activated at
+        active_record: Active record
+        archived_at: Archived at
+        body: Content
+        customer_notification_rule_triggers: In use for
+        deleted_at: Deleted at
+        documentable_type: Documentable type
+        heading_variable_list:
+          name: Variable list
+          title: |
+            Variable list
+            Variable list for the template can be found here.
+        key: Key
+        name: Name
+        one: Template
+        other: Templates
+        protected: Protected
+        status: Status
+        subject: Subject
+        tags: Tags
+        tags_values:
+          repair_report:
+            successfull: successful repair
+            unsuccessfull: unsuccessful repair
+        template_type: Template type
+        uuid: UUID
+      notification:
+        sent_at: Sent at
+        statuses:
+          new: New
+          read: Read
+          deleted: Deleted
+        body: Content
+        deleted_at: Deleted at
+        file_attachments_attachments: File attachments
+        file_attachments_blobs: File attachment blobs
+        one: Notification
+        other: Notifications
+        resource: Resource
+        status: Status
+        title: Title
+        uuid: UUID
+      stock_reservation:
+        one: Reservation
+        other: Reservations
+        prio_badges:
+          high: High
+          medium: Medium
+          low: Low
+        prio_badge: Priority
+        qty: Quantity
+      ability:
+        action_tags: Action tags
+        effect: Effect
+        one: Ability
+        other: Abilities
+        resources: Resources
+        uuid: UUID
+      account:
+        account_type: Account type
+        activated_at: Activated at
+        addresses: Addresses
+        agents: Agents
+        bank_account_owner: Bank account owner
+        bank_name: Bank name
+        bic: BIC
+        deleted_at: Deleted at
+        disabled_at: Disabled at
+        documents: Documents
+        email: Email
+        first_name: First name
+        iban: IBAN
+        ihk_number: IHK number
+        last_name: Last name
+        legal_form: Legal form
+        merchants: Merchants
+        name: Name
+        one: Account
+        other: Accounts
+        phone: Phone
+        plan: Plan
+        roles: Roles
+        status: Status
+        stock_areas: Stock areas
+        stock_locations: Stock locations
+        tax_number: Tax number
+        users: Users
+        uuid: UUID
+        vat_id_number: VAT ID number
+        versions: Versions
+      active_storage/attachment:
+        name: Name
+        one: Active storage attachment
+        other: Active storage attachments
+        record_type: Record type
+      active_storage/blob:
+        attachments: Attachments
+        byte_size: Byte size
+        checksum: Checksum
+        content_type: Content type
+        filename: Filename
+        key: Key
+        metadata: Metadata
+        one: Active storage blob
+        other: Active storage blobs
+        service_name: Service name
+        variant_records: Variant records
+      active_storage/variant_record:
+        one: Active storage variant record
+        other: Active storage variant records
+        variation_digest: Variation digest
+      activity:
+        activity_names:
+          email_sent: "%{owner_name} executed <b>`%{triggering_event}`</b> and notified the customer via <b>Email</b>."
+          sms_sent: "%{owner_name} executed <b>`%{triggering_event}`</b> and notified the customer via <b>SMS</b>."
+          workflow_transition: "%{owner_name} executed <b>`%{triggering_event}`</b>"
+        customer_notification_method: Notification method
+        one: Activity
+        other: Activities
+        owner: Edited by
+        status_after: Status after
+        status_before: Status before
+        title: Title
+        trigger_event: Triggering event
+        triggering_event: Event
+      api_token:
+        counter: Counter
+        deleted_at: Deleted at
+        last_used_at: Last used at
+        name: Name
+        one: API token
+        other: API tokens
+        status: Status
+        token: Token
+      app_config:
+        key: Key
+        one: App config
+        other: App configs
+        value: Value
+      application_setting:
+        canceld_invoice_print_template: Canceled invoice template
+        default_calendar_mail: Default calendar email
+        default_mail_from: Default sender
+        default_mail_reply_to: Default reply-to address
+        heading_mail_settings:
+          name: Mail settings
+          title: |
+            Mail settings
+            Help and documentation can be found here.
+        heading_notification_settings:
+          name: Notification settings
+          title: |
+            Notification settings
+            Help and documentation can be found here.
+        heading_print_templates:
+          name: Print templates
+          title: |
+            Print templates
+            Help and documentation can be found here.
+        heading_sms_settings:
+          name: SMS settings
+          title: |
+            SMS settings
+            Help and documentation can be found here.
+        invoice_print_template: Invoice template
+        kva_print_template: Cost estimate template
+        mail_authentication: Authentication
+        mail_domain: Domain
+        mail_external_smtp_enabled: Enable external SMTP sending
+        mail_password: Password
+        mail_smtp_address: SMTP address
+        mail_smtp_port: SMTP port
+        mail_username: Username
+        notification_enabled: Enable notifications
+        one: Application settings
+        order_print_template: Order template
+        other: Application settings
+        repair_report_print_template: Repair report template
+        sms_enabled: Enable SMS
+        sms_password: Password
+        sms_provider: SMS provider
+        sms_username: Username
+        zero: Application settings
+      article_group:
+        description: Description
+        name: Name
+        one: Article group
+        other: Article groups
+        uuid: UUID
+      business_hour:
+        day: Business hours
+        days:
+          fr: Friday
+          mo: Monday
+          mo_to_fr: Monday to Friday
+          mo_to_sa: Monday to Saturday
+          mo_to_su: Monday to Sunday
+          sa: Saturday
+          su: Sunday
+          th: Thursday
+          tu: Tuesday
+          we: Wednesday
+        end_time: Until
+        jsonable: Reference
+        other: Business hours
+        start_time: From
+      booking_setting:
+        zero: Booking settings
+        one: Booking settings
+        other: Booking settings
+        booking_enabled: Enable booking
+        booking_slot_duration: Default booking duration
+        booking_reminder_enabled: Enable booking reminder
+        heading_booking_settings:
+          name: Booking settings
+          title: |
+            Booking settings
+            Help and documentation can be found here.
+        heading_booking_notification:
+          name: Notification settings
+          title: |
+            Notification settings
+            Help and documentation can be found here.
+        heading_booking_lead_time:
+          name: Booking limit. Determine the time period in which your customers can book appointments online.
+        booking_reminder_frequency: Booking reminder frequency
+        booking_reminder_frequencies:
+          one_day_before: 24 hours before
+          one_hour_before: One hour before
+        booking_slot_search_mode: Booking slot search mode
+        booking_lead_time_min: Lead time
+        booking_lead_time_max: Booking period
+        booking_confirmed_slots_capacity: Confirmed appointments capacity
+        booking_unconfirmed_slots_capacity: Unconfirmed appointments capacity
+      calendar_entry:
+        all_day: All day
+        calendarable: Reference
+        calendarable_type: Calendarable type
+        categories:
+          holiday: Holiday
+          lunch: Lunch break
+          other: Other reason
+          pause: Break
+          private_appointment: Private appointment
+          sickness: Sickness
+          vacation: Vacation
+        category: Category
+        confirmed: Confirmed
+        customer: Customer
+        default_notes_for_blocker:
+          holiday: Holiday
+          lunch: Company event
+          other: Other reason
+          pause: Break
+          private_appointment: Company event
+          sickness: Sickness
+          vacation: Vacation
+        default_notes_for_user:
+          holiday: Is not in the office today
+          lunch: Is currently on lunch break
+          other: Other reason
+          pause: Is currently on break
+          private_appointment: Has a private appointment
+          sickness: Is sick
+          vacation: Is on vacation
+        description: Description
+        end_at: Ends at
+        entry_type: Appointment type
+        entry_types:
+          blocker: Blocker
+          customer: Customer appointment
+          regular: Regular appointment
+          repair: Repair appointment
+          user: Staff absence
+        event_color: Event color
+        event: When
+        location: Location
+        notes: Notes
+        notify_customer: Notify customer
+        confirm_and_notify_customer: Confirm appointment and notify customer
+        one: Calendar entry
+        other: Calendar entries
+        selected_repair_set: Repair set
+        start_at: Starts at
+        status: Status
+        title: Title
+        uuid: UUID
+      comment:
+        body: Text
+        commentable_type: Commentable type
+        one: Comment
+        other: Comments
+        status: Status
+        tags: Tags
+        teaser: Teaser
+        trix_attachments_attachments: Trix attachments
+        trix_attachments_blobs: Trix attachment blobs
+        uuid: UUID
+        zero: Comment
+        notify_customer_with: Notify customer with
+        notify_customer_withs:
+          mail: Email
+          sms: SMS
+          none: No notification
+      contact_record:
+        accounting_email: Accounting email
+        bank_account_owner: Bank account owner
+        bank_name: Bank name
+        bic: BIC
+        ceo_name: CEO name
+        city: City
+        company_name: Company name
+        country: Country
+        court_in_charge: Court in charge
+        email: Email
+        first_name: First name
+        hrb_number: HRB number
+        iban: IBAN
+        last_name: Last name
+        mobile_number: Mobile number
+        one: Contact record
+        other: Contact records
+        phone_number: Phone number
+        post_code: Postal code
+        salutation: Salutation
+        street: Street
+        tax: Tax
+        tax_number: Tax number
+        uuid: UUID
+        web_page: Website
+      customer_notification_rule:
+        channel: Channel
+        one: Customer notification rule
+        other: Customer notification rules
+        template: Template
+        trigger_events:
+          calendar_entry_created: Calendar entry created
+          calendar_entry_updated: Calendar entry updated
+          calendar_entry_confirmed: Calendar entry confirmed
+          calendar_entry_canceld: Calendar entry canceled
+          calendar_entry_reminder_requested: Calendar entry reminder
+          issue_awaiting_device: Awaiting device
+          issue_canceld_invoice_printed: Canceled invoice created
+          issue_complete: Complete order
+          issue_completed: Order completed
+          issue_kva_printed: Cost estimate created
+          issue_locked: Order locked
+          issue_order_printed: Order created
+          issue_repairing: Repair started
+          issue_repairing_successfull: Repair successful
+          issue_repairing_unsuccessfull: Repair unsuccessful
+          issue_unlocked: Order unlocked
+          comment_created: Comment created
+        zero: Customer notification rule
+      default_document:
+        activated_at: Activated at
+        active_record: Active record
+        archived_at: Archived at
+        deleted_at: Deleted at
+        documentable_type: Documentable type
+        key: Key
+        one: Default document
+        other: Default documents
+        status: Status
+        uuid: UUID
+      device:
+        headers:
+          device_model_information: Device model information
+          technical_device_information: Technical device information
+          unlock_pattern: Unlock pattern
+        imei: IMEI
+        issues: Service orders
+        metadata: Metadata
+        one: Device
+        other: Devices
+        repair_set_entries: Repair set articles
+        repair_sets: Repair sets
+        serial_number: Serial number
+        unlock_pattern: Unlock pattern
+        unlock_pin: Unlock PIN
+        uuid: UUID
+      device_color:
+        name: Name
+        one: Device color
+        other: Device colors
+        uuid: UUID
+      device_failure_category:
+        description: Description
+        name: Name
+        one: Device failure category
+        other: Device failure categories
+        protected: Protected
+        uuid: UUID
+      device_manufacturer:
+        description: Description
+        device_models: Device models
+        name: Name
+        one: Device manufacturer
+        other: Device manufacturers
+        uuid: UUID
+      device_model:
+        description: Description
+        device_colors: Device colors
+        device_model_category: Device model category
+        gsm_path: Image
+        name: Name
+        one: Device model
+        other: Device models
+        repair_sets: Repair sets
+        uuid: UUID
+      device_model_category:
+        description: Description
+        name: Name
+        one: Device model category
+        other: Device model categories
+        uuid: UUID
+      document:
+        activated_at: Activated at
+        active_record: Active record
+        archived_at: Archived at
+        deleted_at: Deleted at
+        document_types:
+          InvoiceDocument: Invoice
+          KvaDocument: Cost estimate
+          OrderDocument: Order
+          RepairReportDocument: Repair report
+        documentable_type: Documentable type
+        file: Filename
+        key: Key
+        one: Document
+        other: Documents
+        sequence_id: Document number
+        status: Status
+        tab_description: Your documents
+        uuid: UUID
+      event:
+        data: Data
+        event_jobs: Event jobs
+        name: Name
+        one: Event
+        other: Events
+        result: Result
+        retry_counter: Retry counter
+        status: Status
+      event_job:
+        data: Data
+        klass_name: Class name
+        one: Event job
+        other: Event jobs
+        result: Result
+        status: Status
+      leads:
+        advanced:
+          message: I am interested in the Advanced plan of your software and would like to receive more information. Please contact me.
+        ref_customer:
+          message: I would like to apply as a reference customer for your software and look forward to more information. Please contact me.
+      insurance:
+        accounting_email: Accounting email
+        bank_account_owner: Bank account owner
+        bank_name: Bank name
+        bic: BIC
+        ceo_name: CEO name
+        city: City
+        company_name: Company name
+        country: Country
+        court_in_charge: Court in charge
+        email: Email
+        first_name: First name
+        hrb_number: HRB number
+        iban: IBAN
+        last_name: Last name
+        mobile_number: Mobile number
+        one: Insurance
+        other: Insurances
+        phone_number: Phone number
+        post_code: Postal code
+        salutation: Salutation
+        street: Street
+        tax: Tax
+        tax_number: Tax number
+        uuid: UUID
+        web_page: Website
+      merchant:
+        accounting_email: Accounting email
+        addresses: Addresses
+        affiliate_type: Affiliate type
+        bank_account_owner: Bank account owner
+        bank_name: Bank name
+        bic: BIC
+        branch_name: Branch name
+        company_name: Company name
+        customers: Customers
+        email: Email
+        first_name: First name
+        iban: IBAN
+        last_name: Last name
+        master: Type
+        master_record: Master record
+        mobile_number: Mobile number
+        one: Merchant
+        other: Merchants
+        phone_number: Phone number
+        repair_orders: Service orders
+        tax_number: Tax number
+        users: Users
+        uuid: UUID
+        ceo_name: Managing director
+        hrb_number: Commercial register number
+        court_in_charge: Court of jurisdiction
+        headers:
+          heading_comunication_channel: Communication settings
+          heading_bank_account: Bank account information
+          heading_legal_information: Legal information
+      paper_trail/address_version:
+        event: Operation
+        item: Item
+        item_type: Item type
+        object: Object
+        one: Address version
+        other: Address versions
+        whodunnit_type: User type
+      paper_trail/contract_version:
+        event: Operation
+        item: Item
+        item_type: Item type
+        object: Object
+        object_changes: Object changes
+        old_object: Old object
+        old_object_changes: Old object changes
+        one: Contract version
+        other: Contract versions
+        whodunnit_type: User type
+      paper_trail/issue_version:
+        event: Operation
+        item: Item
+        item_type: Item type
+        object: Object
+        object_changes: Object changes
+        one: Issue version
+        other: Issue versions
+        whodunnit_type: User type
+      paper_trail/user_version:
+        event: Operation
+        item: Item
+        item_type: Item type
+        object: Object
+        object_changes: Object changes
+        old_object: Old object
+        old_object_changes: Old object changes
+        one: User version
+        other: User versions
+        whodunnit_type: User type
+      paper_trail/version:
+        event: Operation
+        item: Item
+        item_type: Item type
+        object: Object
+        object_changes: Object changes
+        old_object: Old object
+        old_object_changes: Old object changes
+        one: Version
+        other: Versions
+        whodunnit_type: User type
+      purchase_order:
+        comments: Comments
+        linked_purchase_order: Linked order
+        linked_purchase_orders: Linked orders
+        one: Purchase order
+        other: Purchase orders
+        purchase_order_entries: Order positions
+        status_categories:
+          done: Completed
+          in_progress: In progress
+          open: Open
+        status_category: Status category
+        statuses:
+          canceld: Canceled
+          delivered: Delivered
+          draft: Draft
+          ordered: Ordered
+          short:
+            canceld: ST
+            delivered: AG
+            done: AB
+            draft: EW
+            ordered: BE
+        uuid: Order number
+        workflow_events:
+          cancel: Cancel
+          one: Created at
+          order: Order
+          order_delivered: Order received
+          stock_order: Stock in
+        zero: Purchase order
+      purchase_order_entry:
+        article: Article
+        article_name: Article name
+        headers:
+          base_data_heading: Base data
+        one: Order position
+        other: Order positions
+        price: Price
+        qty: Quantity
+        supplier_sku: Supplier SKU
+        tax: Tax
+        total_price: Total price
+        uuid: Position number
+        zero: Order position
+      repair_set:
+        articles: Articles
+        beautified_brutto_b2c: Beautified gross B2C
+        description: Description
+        headers:
+          base_data_heading: Base data
+          device_failure_category_heading: Device failure information
+          device_heading: Device information
+        name: Name
+        one: Repair set
+        other: Repair sets
+        price: Price
+        raw_retail_price: Retail price without rounding
+        repair_set_entries: Repair set articles
+        retail_price: Retail price net
+        retail_price_b2b: Retail price B2B
+        retail_price_b2c: Retail price B2C
+        uuid: UUID
+      repair_set_entry:
+        stock_status: Availability
+        margin_b2b: Margin B2B
+        margin_b2c: Margin B2C
+        one: Repair set entry
+        optional: Optional
+        other: Repair set entries
+        qty: Quantity
+        supplier_sources: Supplier sources
+        tax: Tax
+        uuid: UUID
+        headers:
+          repair_set_entry_details: Repair set article details
+      role:
+        abilities: Abilities
+        name: Name
+        one: Role
+        other: Roles
+        protected: Protected
+        status: Status
+        type: Type
+        uuid: UUID
+      sequence:
+        active_since: Valid from
+        counter_start: Start number
+        heading_sequences:
+          name: Global number ranges
+          title: |
+            Global number ranges
+            Help and documentation can be found here.
+        one: Number range
+        other: Number ranges
+        sequenceable_type: Number range for
+        sequenceable_types:
+          customer: Customer
+          invoice_document: Invoice document
+          issue: Repair order
+          kva_document: Cost estimate document
+          order_document: Order document
+          purchase_order: Purchase order
+        zero: Number range
+      stock:
+        in_stock: In stock
+        in_stock_available: Available in stock
+        in_stock_each_area: In stock in each area
+        location: Stock location
+        one: Stock
+        other: Stocks
+        reserved: Reserved
+        stock_items: Articles in stock
+        uuid: UUID
+      stock_area:
+        description: Description
+        name: Name
+        one: Stock area
+        other: Stock areas
+        stock_items: Articles in stock
+        stock_movements: Stock movements
+        uuid: UUID
+      stock_item:
+        in_stock: In stock
+        one: Stock item
+        other: Stock items
+        reserved: Reserved
+        status: Status
+        stock_movements: Stock movements
+        uuid: UUID
+      stock_location:
+        description: Description
+        name: Name
+        one: Stock location
+        other: Stock locations
+        primary: Primary
+        primary_record: Primary record
+        stock_areas: Stock areas
+        uuid: UUID
+      supplier_article:
+        article_description: Article description
+        article_name: Article name
+        days_to_ship: Days until shipment
+        documents: Documents
+        ean: EAN
+        image_url: Image URL
+        int_stock_status: Internal stock status
+        manufacturer_number: Manufacturer number
+        one: Supplier article
+        other: Supplier articles
+        purchase_price: Purchase price
+        sku: SKU
+        stared_items: Starred items
+        stock_status: Availability
+        supplier_article_group: Supplier article group
+        tax: Tax
+        unit: Unit
+        uuid: UUID
+      webhook_request:
+        body: Body
+        event: Operation
+        headers: Headers
+        one: Webhook request
+        other: Webhook requests
+        path: Path
+        payment_uuid: Payment UUID
+        retry_counter: Retry counter
+        status: Status
+        webhook_request_jobs: Webhook request jobs
+      webhook_request_job:
+        data: Data
+        one: Webhook request job
+        other: Webhook request jobs
+        result: Result
+        status: Status
+    errors:
+      models:
+        user:
+          attributes:
+            agb:
+              inclusion: Please agree!
+        sequence:
+          attributes:
+            counter_start:
+              greater_than_last_sequence_id: Must be greater than the last number (%{current_sequence_id})
+        template:
+          attributes:
+            base:
+              still_in_use: Template is still in use for %{key}
+        stock_movement:
+          attributes:
+            action:
+              inclusion: Action type is not valid
+            qty:
+              stock_empty: is incorrect. Article is not in stock
+              stock_out_min_qty: must be greater than or equal to %{qty}
+              greater_than: Quantity must be greater than 0
+    models:
+      ability: Ability
+      account: Account
+      active_storage/attachment: Active storage attachment
+      active_storage/blob: Active storage blob
+      active_storage/variant_record: Active storage variant record
+      activity:
+        one: Activity
+        other: Activities
+      address: Address
+      api_token: API token
+      app_config: App config
+      article: Article
+      article_group: Article group
+      calendarable: Reference
+      comment: Comment
+      contact: Contact
+      contact_record: Contact record
+      customer: Customer
+      default_document: Default document
+      device: Device
+      device_color: Device color
+      device_failure_category: Device failure category
+      device_model_category: Device model category
+      device_manufacturer: Device manufacturer
+      device_model: Device model
+      document: Document
+      docx_template: Docx template
+      event: Event
+      event_job: Event job
+      insurance: Insurance
+      issue: Repair order
+      issue_entry: Repair order item
+      merchant: Merchant
+      notification: Notification
+      owner: Owner
+      paper_trail/address_version: Address version
+      paper_trail/contract_version: Contract version
+      paper_trail/issue_version: Issue version
+      paper_trail/user_version: User version
+      paper_trail/version: Version
+      repair_set: Repair set
+      repair_set_entry: Repair set entry
+      role: Role
+      sequence: Number range
+      stock: Stock
+      stock_area: Stock area
+      stock_item: Stock item
+      stock_location: Stock location
+      stock_movement: Stock movement
+      supplier: Supplier
+      supplier_article: Supplier article
+      supplier_source: Supplier source
+      template: Template
+      user:
+        one: User
+        other: Users
+      webhook_request: Webhook request
+      webhook_request_job: Webhook request job
+      whodunnit: User
+  shared:
+    unit:
+      piece: Piece
+      dousaine: Dozen
+    age_group:
+      up_to_22: Up to 22
+      from_22_to_50: 22 to 50
+      from_51_to_69: 51 to 69
+      above_70: Above 70
+    status:
+      offer: Offer
+      none: Empty
+      active: Active
+      pending_verification: Pending
+      revoked: Revoked
+      canceld: Canceled
+      declined: Declined
+      terminated: Terminated
+      deleted: Deleted
+      approval_pending: Approval pending
+      approved: Approved
+      skipped: Skipped
+      refunded: Refunded
+      paid: Paid
+      unknown: Unknown
+      success: Success
+      failure: Error
+      open: Open
+      first_reminder: Reminder 1
+      second_reminder: Reminder 2
+      inkasso: Collection
+      pending: Pending
+      disabled: Disabled
+      archived: Archived
+      queued: Queued
+      sent: Sent
+      delivered: Delivered
+      received: Received
+      failed: Failed
+    messages:
+      success: Successfully executed
+      no_access: You do not have permission to perform this action
+      live_contract_exists_already: already has an active contract
+      destroy_not_possible: Record cannot be deleted
+      destroy_client_not_possible: Customer cannot be deleted, there are contracts present
+      account_pending_activation: Your account has not been activated yet. You will receive an email as soon as your account is activated.
+      account_pending_confirmation: |
+        <h1 class="my-3 text-3xl font-semibold text-gray-700 dark:text-gray-200">Thank you for choosing ReCloud!</h1>
+        <h2>
+          Please confirm your email address first. You have just received an email for confirmation.
+          <br><br>
+          Thank you!
+        </h2>
+      destroy_not_possible_still_in_use: 'Record cannot be deleted, there are still %{count} customer devices using this record.
+
+        '
+      error: An error occurred during processing
+    navigation_label:
+      payments: Subscriptions-Payments-Transactions
+      config: Settings
+    tax_sum: VAT
+    brutto_sum: Gross total
+    netto_sum: Net
+    rabatt: Discount
+    device_accessories_list:
+    - Data cable
+    - Headset
+    - Car charger cable
+    - Power adapter
+    - SIM card
+    - SIM card holder
+    - Battery
+    - Battery cover
+    - Memory card
+    - Case/cover/bumper
+    - USB stick/hard drive
+    - Pen/stylus
+    created_at: Created at
+    notifications:
+      chanels:
+        mail: Email
+        sms: SMS
+    select_an_option: Please select an option
+    updated_at: Updated at
+    actions:
+      load_preview: Load preview
+  menus:
+    issues:
+      label: Repairs
+      issues:
+        label: Service Orders
+      repair_sets:
+        label: Repair sets
+      calendar_entries:
+        label: Calendar entries
+      purchase_orders:
+        label: Purchase
+    devices:
+      label: Devices
+      issues:
+        label: Service orders
+      devices:
+        label: Devices
+      device_models:
+        label: Device models
+      device_manufacturers:
+        label: Device manufacturers
+      device_colors:
+        label: Device colors
+      device_failure_categories:
+        label: Failure categories
+      device_failure_specifications:
+        label: Error specifications
+      device_failure_details:
+        label: Error details
+      device_model_categories:
+        label: Categories
+    crm:
+      label: CRM
+      merchants:
+        label: Merchants
+      contacts:
+        label: Contacts
+      insurances:
+        label: Insurances
+      customers:
+        label: Customers
+      suppliers:
+        label: Suppliers
+      accounts:
+        label: Accounts
+    stocks:
+      label: Inventory Management
+      stocks:
+        label: Stock
+      stock_locations:
+        label: Locations
+      stock_areas:
+        label: Areas
+      stock_movements:
+        label: Movements
+      stock_actions:
+        label: Stock in/out
+      stock_reservations:
+        label: Reservations
+    articles:
+      label: Articles
+      articles:
+        label: Articles
+      article_groups:
+        label: Article groups
+      supplier_sources:
+        label: Supplier sources
+      supplier_articles:
+        label: Supplier catalog
+      repair_set_requests:
+        label: Repair set requests
+    documents:
+      label: Documents
+      documents:
+        label: All
+      templates:
+        label: Templates
+    accounts:
+      label: Accounts
+      accounts:
+        label: Accounts
+    settings:
+      label: Settings
+      taxonomy_records:
+        label: Attributes
+      users:
+        label: Users
+      roles:
+        label: Roles
+      abilitys:
+        label: Permissions
+      app_configs:
+        label: Application
+      back: Back
+      application_settings:
+        label: Application
+      booking_settings:
+        label: Booking
+      global_settings:
+        label: Global
+      notifications:
+        label: Notifications
+    events:
+      label: Events
+      events:
+        label: Events
+      event_jobs:
+        label: Event jobs
+      webhook_requests:
+        label: Webhooks
+      webhook_request_jobs:
+        label: Webhook jobs
+      element_requests:
+        label: Element requests
+      sms_queues:
+        label: SMS Queue
+    forms:
+      label: Documents
+    repair_orders:
+      forms:
+        label: Documents
+      label: Orders
+      device_customer:
+        label: Customer data
+      device_search:
+        label: Create repair order
+        tab_label: Device data
+      device_failure:
+        label: Device fault
+      device_repair_order_entry:
+        label: Repair
+      orders:
+        label: Service orders
+      repair_sets:
+        label: Sets
+      device_insurance:
+        label: Insurance
+      device_meta_information:
+        label: Additional data
+      summary:
+        label: Summary
+      document:
+        label: DMS
+      version:
+        label: Log
+      quick_order:
+        label: Express order
+    purchase:
+      label: Purchase
+      purchase_orders:
+        label: Purchase orders
+      purchase_order_entries:
+        label: Purchase order entries
+    sections:
+      home: Home
+      resources: Resources
+      system: System
+      profil: Profile
+      user: User
+      su_admin: Super Admin
+      admin_tools: Admin Tools
+    users:
+      accounts:
+        label: Accounts
+      label: User Management
+      roles:
+        label: Roles
+      users:
+        label: Users
+      notifications:
+        label: Notifications
+    profil:
+      notifications:
+        label: Notifications
+  mailer:
+    activation_email:
+      subject: Your account has been activated!
+    imported_email:
+      subject: Import completed!
+    customer:
+      document_email:
+        subject: There is a new document for your request
+    user:
+      activation_email:
+        subject: Your account has been activated!
+      imported_email:
+        subject: Import completed!
+  filters:
+    by_account_filter:
+      name: Only my entries
+    by_trigger_event_filter:
+      name: Trigger event
+      button_label: Filter by trigger event
+    by_template_filter:
+      name: Template
+    by_role_filter:
+      name: Filter by role
+    by_all_account_filter:
+      name: All entries
+    by_document_type_filter:
+      name: Document type
+    by_in_use_filter:
+      name: In use
+    by_template_type_filter:
+      name: Template type filter
+    issues:
+      canceld_filter:
+        button_label: Filter by cancellation
+        hide_canceld: Hide canceled orders
+        name: Cancellation filter
+    purchase_orders:
+      supplier_filter:
+        name: By supplier
+      sku_filter:
+        name: SKU Filter
+        button_label: Filter by SKU
+    device_model_category_filter:
+      name: Device model category
+      button_label: Filter by device model category
+    device_failure_categories:
+      name: Device failure category
+      button_label: Filter by device failure category
+  actions:
+    supplier_articles:
+      import_action:
+        message: Import new articles into your catalog
+        name: Data import
+        help_header: HowTo Import
+        help_message: Help and an example for download can be found here.
+      add_to_articles_action:
+        message: Add to articles
+        name: Add to articles
+    accounts:
+      login_as_action:
+        message: Do you want to log in as this user?
+        name: Log in as
+        success: You are now logged in as the user.
+        user_already_logged_in: You are already logged in as this user.
+        login_as_failed: Login failed.
+      disable_action:
+        message: Do you really want to disable this user?
+        name: Disable
+        success: User has been disabled
+      activate_action:
+        message: Do you really want to activate this user?
+        name: Activate
+        success: User has been activated
+    calendar_entries:
+      cancel_action:
+        message: Do you really want to cancel this calendar entry?
+        name: Cancel
+        notify_customer: Notify customer
+        notify_customer_help: Customer will be notified
+        success: Calendar entry has been canceled
+      confirm_action:
+        message: Do you want to confirm this calendar entry?
+        name: Confirm
+        notify_customer: Notify customer
+        notify_customer_help: Customer will be notified
+        success: Calendar entry has been confirmed
+    issue_calendar_entries:
+      cancel_action:
+        message: Do you really want to cancel this calendar entry?
+        name: Cancel
+        notify_customer: Notify customer
+        notify_customer_help: Customer will be notified
+        success: Calendar entry has been canceled
+      confirm_action:
+        message: Do you want to confirm this calendar entry?
+        name: Confirm
+        notify_customer: Notify customer
+        notify_customer_help: Customer will be notified
+        success: Calendar entry has been confirmed
+    issue_entries:
+      update_rabatt_action:
+        message: Update discount
+        name: Update discount
+        rabatt: Discount
+        help: Please enter the discount in absolute numbers.
+      update_price_action:
+        message: Update price
+        name: Update price
+        price: Price
+        price_help: Warning! The entire set price will be updated.
+      update_total_price_action:
+        message: Update total price
+        name: Update total price
+        price: Price
+        price_help: Warning! The entire price will be updated.
+    issues:
+      cancel_action:
+        comment_is_required: Please enter a comment!
+        message: Cancel order
+        name: Cancel order
+        cancel_draft_job_comment: |
+          The draft order was automatically canceled by the system because no changes
+          were made over a period of 4 weeks.
+      complete_action:
+        message: Complete order
+        name: Complete order
+        notify_customer: Notify customer
+        notify_customer_help: The invoice will be created and sent to the customer.
+        print_invoice: Create invoice
+      device_received_action:
+        message: Device received
+        name: Device received
+      done_repairing_action:
+        message: Finish repair
+        name: Finish repair
+        notify_customer: Notify customer
+        repair_result_successfull: Was the repair successful?
+        report: Repair report
+        report_is_missing: Repair report is missing
+        template: Template
+      lock_action:
+        message: |
+          <div class="p-4 bg-blue-50 border-l-4 border-blue-400 ">
+            <p class="text-xs">
+                <strong>Warning: Lock repair order</strong><br><br>
+                The order can still be edited, but:<br>
+                <ul class="text-xs" style="list-style-type: disc;">
+                  <li class="ml-4">The <strong>workflow status</strong> will no longer be automatically updated.</li>
+                  <li class="ml-4">Maximum <strong>15 minutes</strong> after the last edit, the record will be automatically unlocked.</li>
+                </ul>
+                <br>
+                <p class="text-xs">Pay attention to the <strong>lock icon</strong></p>
+
+            </p>
+          </div>
+        name: Lock
+        success: Repair order has been locked
+      print_canceld_invoice_action:
+        message: Create cancellation invoice
+        name: Create cancellation invoice
+        print_canceld_invoice_failed: |
+          An error occurred while processing your request.
+          Please try again later.
+      print_invoice_action:
+        message: Create invoice
+        name: Create invoice
+        print_invoice_failed: |
+          An error occurred while processing your request.
+          Please try again later.
+      print_kva_action:
+        preview_loading: Loading preview, please wait...
+        errors:
+          not_in_the_correct_status: |
+            The order is in the wrong status.
+            Please check the status and try again.
+        message: Create cost estimate
+        name: Create cost estimate
+        notify_customer: Notify customer
+        print_kva_failed: |
+          An error occurred while processing your request.
+          Please try again later.
+      print_order_action:
+        message: Print order
+        name: Print order
+        notify_customer: Notify customer
+        print_order_failed: |
+          An error occurred while processing your request.
+          Please try again later.
+      start_repairing_action:
+        message: Order is being repaired
+        name: Start repair
+      stop_repairing_action:
+        comment_is_required: Please enter a comment!
+        message: Please provide a reason why the repair is being stopped
+        name: Stop repair
+      unlock_action:
+        message: ''
+        name: Unlock
+      update_price_action:
+        message: Update price
+        name: Update price
+      workflow_action:
+        comment_is_required: Please enter a comment!
+        event: Event
+        message: Workflow
+        name: Workflow
+        print_kva_failed: |
+          An error occurred while processing your request.
+          Please try again later.
+    purchase_order_entries:
+      split_action:
+        errors:
+          empty_entries: No order position specified.
+          invalid_min_max_quantity: 'The quantity of the order positions is incorrect.
+
+            '
+          use_workflow_order_delivered: 'The order cannot be split,
+            because you have selected all positions.
+
+            '
+        help_message: More information can be found here.
+        message: |
+          <div class="p-4 bg-blue-50 border-l-4 border-blue-400 ">
+            <p class="text-xs font-semibold">
+              The selected positions will be moved to a new order and will only be
+              stored if you have selected the 'Stock immediately' option.<br>
+              The remainder stays in the original order.<br/>
+              The new order will be linked to the original order.
+            </p>
+          </div>
+        name: Split and stock
+        stock_immediately: Stock immediately?
+    purchase_orders:
+      cancel_action:
+        message: Cancel order
+        name: Cancel
+      split_action:
+        errors:
+          empty_entries: No order position specified.
+          invalid_min_max_quantity: 'The quantity of the order positions is incorrect.
+
+            '
+          use_workflow_order_delivered: 'The order cannot be split,
+            because you have selected all positions.
+
+            '
+        help_message: More information can be found here.
+        message: |
+          <div class="p-4 bg-blue-50 border-l-4 border-blue-400 ">
+            <p class="text-xs font-semibold">
+              Adjust the quantity of already delivered order positions. <br>
+              Positions with a quantity greater than 0 will be moved to a new order and will only be
+              stored if you have selected the 'Stock immediately' option.<br>
+              The remainder stays in the original order.
+              The new order will be linked to the original order.
+            </p>
+          </div>
+        name: Split and stock
+        stock_immediately: Stock immediately?
+      workflow_action:
+        comment_is_required: Please enter a comment!
+        event: Event
+        message: Workflow
+        name: Workflow
+    articles:
+      mark_as_inventoried_action:
+        message: Mark as inventoried
+        name: Mark as inventoried
+    users:
+      login_as_action:
+        message: Do you want to log in as this user?
+        name: Log in as
+        success: You are now logged in as the user.
+        user_already_logged_in: You are already logged in as this user.
+        login_as_failed: Login failed.
+      activate_action:
+        message: Do you really want to activate this user?
+        name: Activate
+        success: User has been activated
+      disable_action:
+        message: Do you really want to disable this user?
+        name: Disable
+        success: User has been disabled
+      create_api_token_action:
+        message: Create API token
+        name: Create API token
+        success: API token has been created
+    delete_action:
+      message: Do you really want to delete this record?
+      name: Delete
+      success: Record has been deleted
+    stocks:
+      export_action:
+        message: Export
+        name: Export
+    device_models:
+      activate_action:
+        message: Do you really want to activate this device model?
+        name: Activate
+        success: Device model has been activated
+      disable_action:
+        message: Do you really want to disable this device model?
+        name: Disable
+        success: Device model has been disabled
+    events:
+      retry_action:
+        message: Do you really want to retry this event?
+        name: Retry
+        success: Event has been retried
+    webhook_request:
+      retry_action:
+        message: Do you really want to retry this webhook request?
+        name: Retry
+        success: Webhook request has been retried
+  helpers:
+    account:
+      name: Company name
+      feature_not_available: <span class="text-red-600"> Feature not available </span>, <a href="/upgrade" target=_blank>upgrade now</a>
+    article:
+      margin: Margin will be used either as absolute or as percentage depending on the pricing strategy.
+    setting:
+      invoice_uuid_prefix: "Example: 'INV_' a maximum of 4 characters are allowed. Only letters and underscores"
+      sms_password: The password is used to send SMS messages.
+      default_calendar_mail: |
+        By default, an email will be sent to the customer when a calendar entry is created,
+        you will receive a copy of the email.
+      booking_enabled: |
+        If enabled, customers can book appointments.
+
+      booking_slot_duration: |
+        Default duration for an appointment in minutes. By default, 90 minutes are used if nothing is specified.
+
+      booking_slot_search_mode: |
+        Choose your preferred method for searching free appointment slots: <b>Standard</b> for a continuous search in 15-minute steps, where customers can start flexibly, or <b>Optimized</b> for more efficient slot allocation, where unused gaps are avoided.<br>
+        <br>
+        <b>Example:</b><br>If there is free time between 9 and 12 o'clock, the optimized mode would suggest starting at 9 or 10:30 to make the best use of available times.
+        <br>In <b>Standard mode</b>, on the other hand, customers could book flexibly in 15-minute steps, e.g. at 9:00, 9:15, 9:30 and so on, which gives them maximum flexibility in choosing the start time, but may lead to shorter, less optimal gaps in the schedule.
+      booking_reminder_enabled: |
+        If enabled, the customer will be reminded via SMS that they have an appointment.
+        SMS template can be found under Templates.
+      booking_confirmed_slots_capacity: "<p>Define the maximum number of confirmed
+        appointments that can be booked simultaneously in one time slot. A value
+        of <strong>0</strong> means there is no limit and infinitely many
+        confirmed appointments in the same time slot are possible. A value of <strong>2</strong>
+        means that a maximum of 2 confirmed appointments may be booked in the same time slot.</p>\n"
+      booking_unconfirmed_slots_capacity: "<p>Define the maximum number of unconfirmed
+        appointments that can be booked simultaneously in one time slot. </p>\n"
+      booking_lead_time_min: "<p><strong>Minimum booking limit:</strong> Determine
+        how many days in advance customers can book.<br>If you choose e.g. \"At least
+        1 business day in advance\", customers can book at the earliest on the next business day.
+        If the booking day is a Saturday, the customer can book at the earliest on Tuesday.
+        Only business days are taken into account for the lead time.</p>\n"
+      booking_lead_time_max: "<p><strong>Maximum booking limit:</strong> Define
+        how far in advance customers can book appointments. For example,
+        \"Maximum 30 days in advance\" means that customers can book appointments up to 30 days in
+        the future.</p>\n"
+      booking_reminder_frequency: 'When should the customer be notified?
+
+        '
+    comment_tool:
+      how_to_use_tips: 'Enter your comment and press <b>Ctrl+Enter</b>
+        to save, <b>Esc</b> to cancel.
+
+        '
+      placeholder: Write your comment here… (Markdown supported)
+    device:
+      unlock_pattern: 'Draw pattern with the mouse. Click on an empty spot to
+        delete the pattern.
+
+        '
+    issue:
+      comment:
+        title: "%{author} wrote a new comment on repair order <b>%{uuid}</b>"
+      selected_repair_set: Warning! Device and failure category will be created automatically!
+      possible_repair_sets: "<p><b>Multiple selection possible.</b> The repair items
+        and failure categories will be created automatically.</p>\n"
+      no_sets_found: No repair sets found
+    merchant:
+      branch_name: Please enter the branch name if the affiliate type is set to
+        branch
+    on_boarding:
+      master_address_missing:
+        title: Please enter your main address
+    sequence:
+      active_since: From this date, documents will receive numbering that is at least
+        equal to the start number
+      counter_start: If the start number is 100, the next document will receive number
+        101
+    stock_movement:
+      total_in_stock: 'Currently in stock: %{count} articles'
+    user:
+      password_help: "<p>The password must be at least 8 characters long and contain at least
+        one uppercase letter and one lowercase letter.</p>\n"
+  notifications:
+    issue:
+      comment:
+        title: "%{author} added a comment to issue <b>%{uuid}</b>"
+  js:
+    select_an_option: Please select an option
+    move_confirmed_event:
+      dialog_question: This event is confirmed. Are you sure you want to move it?
+      dialog_title: Please confirm!
+  hush:
+    wellness:
+      meta:
+        title: "HUSH HAARENTFERNUNG | Professional Waxing & Hair Removal | Wellness & Beauty"
+        description: "HUSH HAARENTFERNUNG offers professional waxing treatments. Learn everything about waxing, prices, benefits and care tips for silky smooth skin."
+        keywords: "Waxing, Hair Removal, Professional Hair Removal, Waxing Berlin, Waxing Munich, Bikini Waxing, Wax, Sugaring, Permanent Hair Removal, Beauty Treatment, Beauty Salon"
+      hero:
+        title: "Professional Hair Removal at HUSH"
+        subtitle: "Quiet care, without noise. Professional wax hair removal in a calm and discreet space in Berlin."
+        cta: "Book Appointment"
+      nav:
+        services: "Services"
+        why_waxing: "Why Waxing"
+        how_it_works: "How It Works"
+        pricing: "Pricing"
+        gallery: "Gallery"
+        faq: "FAQ"
+        contact: "Contact"
+      what_is_waxing:
+        title: "Professional Hair Removal with Wax"
+        overview_title: "What is Waxing?"
+        intro: "Waxing is a classic and proven method of hair removal where hair is removed along with the hair root using warm or hot wax. This method enables a long-lasting smooth skin feeling that often lasts up to 3–6 weeks after treatment. The hair grows back finer and less dense over time, the more regularly you wax."
+        description: "Waxing (=waxing) is a type of hair removal with cosmetic wax. It is part of the regular beauty program for many men and women and offers a silky smooth skin feeling that lasts for weeks."
+        how_it_works_title: "How does waxing work?"
+        how_it_works_1: "Warm or hot wax is applied to the skin"
+        how_it_works_2: "The wax surrounds the hair and grips it at the root"
+        how_it_works_3: "By quickly pulling against the direction of hair growth, the hair is removed along with the root"
+        how_it_works_4: "The hair follicle must produce a new hair, which takes time"
+        hair_length_title: "Minimum hair length:"
+        hair_length: "Hair should be at least 4-5 mm (0.5 cm) long to ensure the most pain-free and thorough hair removal possible. This corresponds to about 2-3 weeks of growth after the last shave."
+      treatment_process:
+        title: "How a Professional Waxing Treatment Works"
+        step1_title: "Skin Preparation"
+        step1: "The skin is cleaned and possibly lightly exfoliated so that the wax can grip optimally. Before treatment, the skin should be dry and free of creams, oils or other residues."
+        step1_alt: "Gentle skin cleaning and preparation for waxing treatment"
+        step2_title: "Apply Wax"
+        step2: "Warm or hot wax is applied to the skin in the direction of hair growth. Professional treatments often use a roll-on system that leaves an even layer of wax."
+        step2_alt: "Professional roll-on wax application technique"
+        step3_title: "Apply Fabric Strip (for strip wax)"
+        step3: "With the strip wax method, a fabric strip is placed on the wax layer and lightly pressed so that it adheres optimally."
+        step3_alt: "Fabric strip being applied to wax layer"
+        step4_title: "Remove Against Hair Growth"
+        step4: "After cooling, the wax is pulled off with a quick, jerky movement against the direction of growth - including the hair. This quick movement is crucial for a pain-free result."
+        step4_alt: "Professional wax removal technique against hair growth direction"
+        step5_title: "Aftercare"
+        step5: "After treatment, the skin is soothed and, if desired, cared for with a gentle lotion or aloe vera gel. This reduces redness and ensures well-being."
+        step5_alt: "Soothing aftercare lotion application after waxing treatment"
+      benefits:
+        title: "Why Professional Waxing is Worth It"
+        benefit1_title: "Long-Lasting Results"
+        benefit1: "Silky smooth skin for 3–6 weeks. Significantly longer than shaving. With regular treatments, the results become even more long-lasting."
+        benefit2_title: "Thinner Regrowth"
+        benefit2: "Hair grows back less strongly and becomes finer over time. After several treatments, hair growth is significantly reduced. No unsightly stubble like with shaving."
+        benefit3_title: "Fewer Skin Irritations"
+        benefit3: "No cuts or razor burn. Professional technique minimizes skin irritation. Gentler method than daily shaving."
+        benefit4_title: "Thoroughness"
+        benefit4: "Hair is removed at the root. Even hard-to-reach areas are thoroughly treated. Suitable for large and small body areas."
+        benefit5_title: "Time Saving"
+        benefit5: "No more daily shaving needed. Over time, the intervals between treatments become longer. More time for other things."
+      techniques:
+        title: "Warm Wax or Hot Wax? The Right Technique for Every Area"
+        strip_wax_title: "Strip Wax (Warm Wax)"
+        strip_wax_desc: "Classic method with fabric or cloth strips, particularly suitable for larger body areas such as legs or back."
+        strip_wax_benefits: "Fast and efficient for large areas, good for beginners, more cost-effective"
+        strip_wax_areas: "Legs (complete or partial), Arms, Back, Abdomen"
+        hot_wax_title: "Hot Wax / Hard Wax (Film Wax)"
+        hot_wax_desc: "Wax without strips, ideal for more sensitive zones such as face or intimate area - less painful and gentler on the skin."
+        hot_wax_benefits: "Gentler for sensitive skin, no strips needed, more precise for small areas, less painful"
+        hot_wax_areas: "Intimate area (Bikini), Face (upper lip, eyebrows), Underarms, Sensitive areas"
+        temperature: "Professional warm wax should have a temperature between 43°C and 50°C to reliably remove hair. The heat widens the pores and makes hair removal easier."
+      common_mistakes:
+        title: "The 8 Most Common Waxing Mistakes – and How to Avoid Them"
+        mistake1_title: "Mistake 1: Hair Too Short"
+        mistake1_problem: "For the wax to properly grip hair, it should be at least 4–5 mm long."
+        mistake1_solution: "Don't shave 2-3 weeks before the appointment. If hair is too long (over 1 cm), trim it slightly."
+        mistake2_title: "Mistake 2: Too Little Preparation"
+        mistake2_problem: "Showering, sauna or peels too shortly before treatment can unnecessarily irritate the skin."
+        mistake2_solution: "24 hours before waxing: No sports, no sauna, no sunbathing. No peels on the day of treatment. Skin should be clean and dry."
+        mistake3_title: "Mistake 3: Shaving Immediately Before Appointment"
+        mistake3_problem: "Shaving only removes hair superficially and prevents optimal results with waxing."
+        mistake3_solution: "Don't shave at least 2 weeks before the appointment. Hair must be grippable at the root."
+        mistake4_title: "Mistake 4: Exercise Too Soon After"
+        mistake4_problem: "Hot training directly after waxing can increase redness and irritation."
+        mistake4_solution: "No sports 24 hours after treatment. Don't wear tight sportswear. Avoid excessive sweating."
+        mistake5_title: "Mistake 5: Wrong Timing"
+        mistake5_problem: "The timing of waxing has a major impact on pain perception."
+        mistake5_solution: "Better avoid during period (higher pain sensitivity). Best 2 weeks before or after period. Afternoon hours are best (pain perception is lower then)."
+        mistake6_title: "Mistake 6: Alcohol Before Treatment"
+        mistake6_problem: "Alcohol makes the skin more sensitive and can promote bruising."
+        mistake6_solution: "No alcohol 24 hours before treatment. No alcohol-containing care products before and after waxing."
+        mistake7_title: "Mistake 7: Wrong or Missing Aftercare"
+        mistake7_problem: "Without proper care, redness, ingrown hairs and irritation can occur."
+        mistake7_solution: "Use soothing lotions like aloe vera gel. Coconut oil provides moisture and has anti-inflammatory effects. No fatty products (clog pores). Regular peeling from 2 days after treatment (2-3x per week)."
+        mistake8_title: "Mistake 8: DIY Waxing Instead of Professional Treatment"
+        mistake8_problem: "At home, experience, proper temperature control and professional techniques are missing."
+        mistake8_solution: "Book professional treatment at a studio. Experienced beauticians know the best techniques. Professional products are higher quality than drugstore products."
+      preparation:
+        title: "Preparation & Aftercare: Making Your Waxing Appointment Perfect"
+        before_title: "Before the Appointment"
+        before_hair_title: "Hair Length"
+        before_hair: "Hair should grow back for about 2–3 weeks (depending on body region). Minimum length: 0.5 cm (4-5 mm). If hair is too long (over 1 cm), trim it slightly."
+        before_24h_title: "24 Hours Before Waxing"
+        before_24h: "No sports, sauna, sunbathing. No peels or aggressive skin care. No creams or oils on areas to be treated. No alcohol."
+        before_day_title: "On the Day of Treatment"
+        before_day: "Wear loose clothing (cotton underwear recommended). Skin should be clean, dry and free of residues. No creams or deodorants on areas to be treated."
+        after_title: "After Waxing"
+        after_immediate_title: "Immediately After Treatment"
+        after_immediate: "Apply soothing lotion or aloe vera gel. Wear loose clothing. Don't rub or scratch the skin."
+        after_24h_title: "24 Hours After Waxing"
+        after_24h: "No tight clothing, no tanning bed, no sun. No sports or excessive sweating. No alcohol-based deodorant after underarm waxing. No bathing in chlorinated water."
+        after_2days_title: "From 2 Days After Waxing"
+        after_2days: "Regular peeling (2-3x per week). Gentle, moisturizing care. Aloe vera gel or coconut oil for moisture. No fatty products (clog pores)."
+        after_longterm_title: "Long-Term Care"
+        after_longterm: "Regular peels prevent ingrown hairs. Use moisturizer daily. Sun protection on treated areas."
+      faq:
+        title: "Frequently Asked Questions About Waxing – Your Answers"
+        q1_question: "Does waxing hurt?"
+        q1_answer: "The first time it can be somewhat noticeable, but with regular treatments it usually becomes less painful. Pain perception varies depending on body region and individual sensitivity. Professional beauticians use techniques that minimize discomfort."
+        q2_question: "How long does it last?"
+        q2_answer: "A professional waxing can give smooth skin for up to 6 weeks. The exact duration depends on individual hair growth. With regular treatments, the intervals between appointments become longer."
+        q3_question: "Can skin reactions occur?"
+        q3_answer: "Slight redness or spots can occur, but usually disappear after a few hours. With proper aftercare (aloe vera gel, soothing lotions), irritation is minimized."
+        q4_question: "When should you not get waxing?"
+        q4_answer: "Better avoid waxing with sunburn, open wounds or recently severely irritated skin. Also with certain skin diseases such as neurodermatitis, allergies or varicose veins, you should consult a doctor first. In this case, sugaring is often the better alternative."
+        q5_question: "How long must the hair be?"
+        q5_answer: "Hair should be at least 4-5 mm (0.5 cm) long. This corresponds to about 2-3 weeks of growth after the last shave."
+        q6_question: "Does hair change through waxing?"
+        q6_answer: "Yes, with regular treatments, hair becomes thinner, softer and grows back more slowly. This is one of the great advantages of waxing."
+        q7_question: "Can you get waxing while pregnant?"
+        q7_answer: "Basically yes, but the skin is more sensitive during pregnancy. It is advisable to discuss this with your doctor first and choose an experienced beautician."
+        q8_question: "Does age play a role in intimate waxing?"
+        q8_answer: "No, age does not play a role. It is important that the skin is healthy and there are no contraindications."
+        q9_question: "What can you do about ingrown hairs?"
+        q9_answer: "Regular peeling (2-3x per week, from 2 days after treatment). Use moisturizer. Gentle massage of affected areas. Consult a dermatologist for severe problems."
+        q10_question: "When and how often should you do a peel?"
+        q10_answer: "Start from 2 days after waxing. Peel 2-3x per week. Use gentle shower peels. Don't peel too aggressively."
+      intimate_waxing:
+        title: "Intimate Waxing: Brazilian, Hollywood & More – Your Options"
+        intro: "Brazilian waxing is an intensive form of intimate hair removal where hair in the intimate area is completely removed. You can decide for yourself whether you want to leave a small strip or prefer a completely smooth zone."
+        bikini_classic_title: "Bikini Classic"
+        bikini_classic: "Here all hair that protrudes from the bikini bottom is removed. This is usually a strip of a few centimeters."
+        bikini_brazilian_title: "Bikini Brazilian"
+        bikini_brazilian: "Here a long hair strip (landing strip) remains. You can decide for yourself about the length and width of the hair strip. The labia are not depilated here."
+        bikini_american_title: "Bikini American"
+        bikini_american: "Here a triangular hair strip remains on the mons pubis. You can decide for yourself about the width and height of the triangle. The labia are not depilated here."
+        bikini_complete_title: "Bikini Complete / Brazilian Hollywood"
+        bikini_complete: "With this type, not a single hair remains. We remove all hair in the bikini zone, including the labia and gluteal fold if desired. Of course, you can also leave a small hair strip on the mons pubis."
+        bikini_complete_benefits: "Silky smooth intimate area for up to four weeks. Special thoroughness. After several treatments, hair grows back less strongly. Each further waxing becomes noticeably more pleasant."
+        men_zone_title: "For Men: Men Zone Intimate"
+        men_zone: "Men can also have their intimate area professionally waxed. The treatment is carried out with special care and discretion."
+      appointment:
+        title: "Book Waxing Appointment"
+        page_title: "Book Waxing Appointment"
+        page_description: "Book your waxing appointment online"
+        step1_title: "Select Treatment"
+        step1_subtitle: "Choose one or more treatments"
+        step2_title: "Date & Time"
+        step2_subtitle: "Choose your preferred appointment"
+        continue_button: "Continue"
+        back_button: "Back"
+        select_date: "Select Date"
+        select_time: "Select Time"
+        selected_treatments: "Selected Treatments"
+        total_price: "Total Price"
+        no_treatment_selected: "Please select at least one treatment"
+        treatments:
+          upper_lip: "Upper Lip"
+          eyebrow_wax: "Eyebrow Wax"
+          eyebrow_wax_and_shape: "Eyebrow Wax and Shape"
+          eyebrows: "Eyebrows"
+          underarms: "Underarms"
+          half_legs: "Half Legs"
+          full_legs: "Full Legs"
+          back: "Back"
+          full_face: "Full Face"
+          forearms: "Forearms"
+          full_arms: "Full Arms"
+          lower_legs: "Lower Legs"
+          upper_legs: "Upper Legs"
+          classic_bikini: "Classic Bikini"
+          deep_bikini: "Deep Bikini"
+          stomach: "Stomach"
+          lower_back: "Lumbar Region (Lower Back)"
+          buttocks: "Buttocks"
+          package_1: "Package 1 - Deep Bikini & Underarms"
+          package_2: "Package 2 - Deep Bikini, Underarms & Lower Legs"
+          package_3: "Package 3 - Deep Bikini, Underarms & Full Legs"
+          package_4: "Package 4 - Full Body (5 Zones of Choice)"
+        confirm_appointment: "Confirm Appointment"
+        appointment_booked_for: "Appointment booked for"
+        treatments_label: "Treatments"
+        please_select_date_time: "Please select date and time."
+        step3_title: "Your Contact Information"
+        step3_subtitle: "Please fill out the form"
+        first_name: "First Name"
+        last_name: "Last Name"
+        full_name: "Full Name"
+        phone_number: "Phone Number"
+        email: "Email (optional)"
+        consent_checkbox: "I agree to be contacted via SMS and/or email to confirm the appointment and accept the Privacy Policy"
+        submit_appointment: "Submit Appointment"
+        validation:
+          first_name_required: "First name is required"
+          first_name_min: "First name must be at least 2 characters"
+          last_name_required: "Last name is required"
+          last_name_min: "Last name must be at least 2 characters"
+          full_name_required: "Full name is required"
+          full_name_invalid: "Please enter both first and last name (at least 2 characters each)"
+          phone_required: "Phone number is required"
+          phone_invalid: "Please enter a valid mobile number (starts with 0 or +XX)"
+          email_invalid: "Please enter a valid email address"
+          consent_required: "You must agree to the Privacy Policy"
+          fake_value: "Please enter a valid value"
+          generic_error: "An unknown error occurred. Please try again later."
+        thanks_title: "Thank You!"
+        thanks_subtitle: "Your appointment request has been successfully submitted."
+        thanks_message: "We will review your request and contact you shortly to confirm the appointment."
+        thanks_footer: "You will receive a confirmation via SMS or email."
+        book_another: "Book Another Appointment"
+      pricing:
+        title: "Treatment"
+        price: "Price"
+        packages: "Packages"
+        description: "Because every skin type and treatment is unique, our pricing is individually tailored based on treatment scope, hair density, and body area. The prices shown are intended as guideline estimates. This ensures that you receive the attention, precision, and quality that define the HUSH experience."
+        note: "* Prices may vary depending on location, amount of hair, skin sensitivity and complexity of treatment."
+        women: "Women"
+        men: "Men"
+      men_treatments:
+        nose: "Nose"
+        ears: "Ears"
+        eyebrows: "Eyebrows"
+        face: "Face"
+        arms_to_elbow: "Arms to Elbow"
+        full_arms: "Full Arms"
+        legs_to_knees: "Legs to Knees"
+        legs_above_knees: "Legs Above Knees"
+        full_legs: "Full Legs"
+        back: "Back"
+        upper_body: "Upper Body"
+      men_packages:
+        back_upper_body: "Back + Upper Body"
+        arms_legs_full: "Arms + Full Legs"
+        complete: "Complete Package (Face + Arms + Legs + Back + Upper Body)"
+      contact:
+        visit_us: "Visit Us"
+        visit_description: "We look forward to welcoming you to one of our studios. Book your appointment online or contact us directly."
+        address_title: "Address"
+        address: "Pestalozzistraße 16<br />10625 Berlin<br />Germany"
+        phone_title: "Phone"
+        phone: "0175 7125889"
+        phone_link: "tel:+491757125889"
+        google_maps: "View on Google Maps"
+        opening_hours: "Opening Hours"
+        sunday_closed: "Sun: Closed"
+        social_media: "Social Media"
+        follow_us: "Follow Us"
+        instagram: "Instagram"
+        facebook: "Facebook"
+        tiktok: "TikTok"
+        coming_soon: "Coming Soon"
+        send_message: "Send Message"
+        name: "Name"
+        email: "Email"
+        message: "Message"
+        submit: "Submit"
+      calendar:
+        months:
+          january: "January"
+          february: "February"
+          march: "March"
+          april: "April"
+          may: "May"
+          june: "June"
+          july: "July"
+          august: "August"
+          september: "September"
+          october: "October"
+          november: "November"
+          december: "December"
+        days:
+          monday: "Mon"
+          tuesday: "Tue"
+          wednesday: "Wed"
+          thursday: "Thu"
+          friday: "Fri"
+          saturday: "Sat"
+          sunday: "Sun"
+      date_format: "en-US"
+      testimonials:
+        title: "What Our Customers Say"
+        testimonial_1: '"Very professional and friendly! The results really last long and my skin feels so smooth. Can only recommend HUSH!"'
+        testimonial_2: '"My first waxing treatment was much less painful than expected. The team is very empathetic and explains everything in detail. Top service!"'
+        testimonial_3: '"Professional service and great results! The team made me feel comfortable throughout the treatment. Highly recommend for men''s waxing!"'
+      why_waxing:
+        professional_treatment_alt: "Professional Waxing Treatment"
+        smooth_skin_alt: "Smooth Skin After Waxing"
+        professional_treatment_alt_2: "Professional Treatment"
+      image:
+        wellness_spa_alt: "Wellness Spa Atmosphere"
+      services:
+        waxing_description: "Professional hair removal with hot and hard wax for all body areas."
+        sugaring_description: "Gentle hair removal with natural sugar paste - especially gentle on sensitive skin."
+        permanent_removal_title: "Permanent Hair Removal"
+        permanent_removal_description: "Long-term hair reduction through modern laser and IPL technology."
+        facial_treatments_title: "Facial Treatments"
+        facial_treatments_description: "Eyebrows, upper lip, chin and other facial areas treated with precision."
+        body_treatments_title: "Body Treatments"
+        body_treatments_description: "Legs, arms, back, abdomen and intimate areas - we treat all areas professionally."
+        full_body_title: "Full Body Waxing"
+        full_body_description: "Complete hair removal on the entire body in one session - for maximum smoothness."
+      scripts:
+        form_success_message: "Thank you for your message! We will contact you soon."
+      about:
+        title: "About Us"
+        page_title: "About Us - Hush Haarentfernung"
+        page_description: "Learn more about Hush Haarentfernung and Alena Obluchynska"
+        subtitle: "The Idea Behind HUSH"
+        intro: "HUSH HAARENTFERNUNG stands for professional hair removal with passion and dedication. Our mission is to provide you with an exceptional experience that goes beyond mere treatment."
+        idea: "The idea of HUSH was born from the desire to create an oasis of tranquility and professionalism where every customer feels valued and comfortable. We believe that hair removal is more than just a beauty treatment – it is an act of self-care and well-being."
+        alena_vision: "Alena Obluchynska, the founder of HUSH, stands for quality, precision, and personal care for each individual customer. With years of experience and a deep passion for the craft, she is committed to making every treatment a special moment."
+        values: "At HUSH, we value trust, discretion, and the highest quality standards. We use only the best products and techniques to guarantee you optimal results. Your well-being is our top priority."
+        image_alt: "Alena Obluchynska - Hush Haarentfernung"
+      footer:
+        tagline: "Your reliable partner for professional hair removal and beauty treatments."
+        treatments_title: "Treatments"
+        permanent_removal: "Permanent Hair Removal"
+        company_title: "Company"
+        about_hush: "About HUSH"
+        book_appointment: "Book Appointment"
+        legal_title: "Legal"
+        imprint: "Imprint"
+        terms: "Terms"
+        privacy: "Privacy"
+        all_rights_reserved: "All rights reserved."

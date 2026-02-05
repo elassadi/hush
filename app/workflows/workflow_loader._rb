@@ -1,0 +1,103 @@
+class WorkflowLoader < ::RecloudCore::DryBase
+  attributes :workflow, :config, :resource
+
+  def call
+    if_methods = collect_if_methods
+    event_methods = collect_event_methods
+
+    setup_workflow
+
+    if_methods.each do |if_method|
+      create_if_method(if_method:)
+    end
+
+    event_methods.uniq.each do |event_method|
+      create_event_method(event_method:)
+    end
+    Success(true)
+  end
+
+
+  def setup_state(state:, state_data:)
+    events = state_data["events"]
+    meta = state_data["meta"]
+    workflow.class.state(state, meta:) do
+      Array(events).each do |event|
+        setup_event(event)
+      end
+    end
+  end
+
+  private
+  def setup_workflow
+    states = config["states"]
+    this = self
+    workflow.class.workflow do |_args|
+      states.each_key do |state|
+        this.setup_state(state:, state_data: states[state])
+      end
+      after_transition do |from, to, triggering_event, *_event_args|
+        ::Event.broadcast("after_transition_from_#{from}_to_#{to}", resource_id: resource.id,
+                                                                    resource_class: resource.class.name,
+                                                                    triggering_event:)
+        workflow.send(:update_status_category, to:, triggering_event:)
+      end
+    end
+  end
+
+
+  def setup_event(event)
+    args = {
+      transitions_to: event["transitions_to"],
+      if: event["if"].present? ? event["if"].to_sym : nil
+    }.compact
+
+    workflow.class.event event["name"], **args
+  end
+
+  def collect_if_methods
+    events = extract_events_from_states(config["states"])
+    if_methods = extract_if_methods_from_events(events)
+    if_methods.map(&:to_sym)
+  end
+
+  def collect_event_methods
+    events = extract_events_from_states(config["states"])
+    event_names = extract_event_names_from_events(events)
+    event_names.map(&:to_sym)
+  end
+
+  def extract_events_from_states(states)
+    states.flat_map do |_state, state_data|
+      state_data["events"]
+    end.compact
+  end
+
+  def extract_if_methods_from_events(events)
+    events.flat_map { |event| event["if"] }.compact
+  end
+
+  def extract_event_names_from_events(events)
+    events.flat_map { |event| event["name"] }.compact
+  end
+
+  def create_if_method(if_method:)
+    return if workflow.respond_to?(if_method)
+
+    mod = workflow.class.module_parent
+
+    workflow.define_singleton_method(if_method) do
+      "#{mod}::WorkflowConditions::#{if_method.to_s.camelize}".constantize.call(resource:).success?
+    end
+  end
+
+  def create_event_method(event_method:)
+    return if workflow.respond_to?(event_method)
+
+    mod = workflow.class.module_parent
+
+    workflow.define_singleton_method(event_method) do
+      "#{mod}::WorkflowEvents::#{event_method.to_s.camelize}".constantize.call(resource:).success?
+    end
+  end
+end

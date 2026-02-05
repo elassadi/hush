@@ -1,0 +1,91 @@
+<table style="width: 100%;" border="0" cellspacing="0" cellpadding="2">
+  <tbody>
+    <tr>
+      <td style="width: 70%;">
+        <p style="font-size: 30px; font-weight: bold;">HandyRepair</p>
+        <p>123 Street,<br>ABC City,<br>DEF Country</p>
+        <p>Tel: 012 345 6789</p>
+      </td>
+      <td style="width: 30%;">Your company logo</td>
+    </tr>
+  </tbody>
+</table>
+<table style="margin: 20px 0; width: 100%;" border="0" cellspacing="0" cellpadding="2">
+  <tbody>
+    <tr>
+      <td style="width: 50%; vertical-align: top;">
+        <table style="width: 100%;" border="0" cellspacing="0" cellpadding="2">
+          <tbody>
+            <tr>
+              <td style="background-color: #d6d6d6;" colspan="2" align="left"><strong>Customer Information</strong></td>
+            </tr>
+            <tr>
+              <td width="50%"><strong>Name</strong></td>
+              <td width="50%">{{customer.first_name}}</td>
+            </tr>
+            <tr>
+              <td width="50%"><strong>Last name </strong></td>
+              <td width="50%">{{customer.last_name}}</td>
+            </tr>
+            <tr>
+              <td width="50%"><strong>Street</strong></td>
+              <td width="50%">{{customer.address.street}}</td>
+            </tr>
+            <tr>
+              <td width="50%"><strong>House number </strong></td>
+              <td width="50%">{{customer.address.house_number}}</td>
+            </tr>
+
+            <tr>
+              <td width="50%"><strong>City</strong></td>
+              <td width="50%">{{customer.address.city}}</td>
+            </tr>
+            <tr>
+              <td width="50%"><strong>Post Code</strong></td>
+              <td width="50%">{{customer.address.post_code}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+      <td style="width: 50%; vertical-align: top;">
+        <table style="width: 100%;" border="0" cellspacing="0" cellpadding="2">
+          <tbody>
+            <tr>
+              <td style="background-color: #d6d6d6;" colspan="2" align="left"><strong>Order Information</strong></td>
+            </tr>
+            <tr>
+              <td width="50%"><strong>Order Number</strong></td>
+              <td width="50%">{{order_number}}</td>
+            </tr>
+            <tr>
+              <td width="50%"><strong>Date</strong></td>
+              <td width="50%">{{order_date}}</td>
+            </tr>
+            <tr>
+              <td width="50%"><strong>Payment method</strong></td>
+              <td width="50%">{{payment_method}}</td>
+            </tr>
+            <tr>
+              <td width="50%"><strong>Payment ID</strong></td>
+              <td width="50%">{{transaction_id}}</td>
+            </tr>
+            <tr>
+              <td width="50%"><strong>Payment Status</strong></td>
+              <td width="50%">Paid</td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<table style="width: 100%;" border="0" cellspacing="0" cellpadding="2">
+  <tbody>
+    <tr>
+      <td style="background-color: #d6d6d6;" colspan="2" align="left"><strong>Gift Cards</strong></td>
+    </tr>
+    <tr>
+      <td colspan="2">{{order_items}}</td>
+    </tr>
+  </tbody>
+</table>

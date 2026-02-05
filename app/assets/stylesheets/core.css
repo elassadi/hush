@@ -1,0 +1,898 @@
+/*
+
+recloud color :  #0F766E
+tailwind bg-teal-600 : #0d9488
+  #0d9488
+
+*/
+
+/* custom tailwind overwrite */
+:root {
+  --recloud-teal-color: #0F766E; /* Define the variable */
+}
+
+.uppercase {
+  text-transform: none !important;
+}
+
+
+
+@media (min-width: 768px) {
+  .md\:h-14 {
+      height: 2.8rem !important;
+  }
+}
+
+td.py-3 {
+  padding-top: 0.55rem !important;
+  padding-bottom: 0.55rem !important;
+}
+
+/* */
+
+.uuid-button {
+  color: rgb(100, 100, 100);
+  background: rgb(250, 250, 250);
+  font-family: Menlo, Consolas, monospace;
+  font-size: 12px;
+  border: 1px solid rgb(120,120,120);
+}
+
+.uuid-copy-button {
+  border: 1px solid #019285;
+}
+
+table tr td[data-field-id="uuid"] {
+  width: 40px;
+}
+table tr td[data-field-id="account"] {
+  width: 40px;
+}
+
+div[data-association="commentable"]{
+  display: none;
+}
+
+
+.field_with_errors input {
+  border: 1px solid red;
+  width: 100%;
+}
+
+div.field_with_errors {
+  width: 100%;
+}
+
+.tox-promotion,.tox-statusbar__branding {
+  display: none;
+}
+
+.modal-container .modal-body {
+  max-height: 90%;
+}
+
+
+/* TRix */
+
+
+/* Base status badge for both OK and Error */
+.textarea-status::after {
+  content: attr(data-status); /* Dynamically set content using the data attribute */
+  position: absolute;
+  top: -22px;
+  right: 12px;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: white;
+  width: 85px;
+  height: 30px;
+  margin-top: 32px;
+  text-align: center;
+}
+
+/* OK status (green background) */
+.error-status::after {
+  background-color: red; /* Tailwind's green-500 */
+  border: 2px solid red;
+  content: "Fehlerhaft";
+}
+
+/* Error status (red background) */
+.ok-status::after {
+  background-color: #10766e; /* Tailwind's red-500 */
+  border: 2px solid #10766e;
+  content: "OK";
+}
+
+.error-status {
+  border: 2px solid red;
+}
+
+.ok-status {
+  border: 2px solid #10766e;
+}
+
+
+trix-editor.trix-content{
+  height: 350px;
+  /* border: 2px solid #10766e; */
+  border-radius: 6px;
+}
+
+
+.trix-button--icon-strike,
+.trix-button--icon-link,
+.trix-button--icon-attach,
+.trix-button--icon-quote,
+.trix-button--icon-code,
+.trix-button--icon-decrease-nesting-level,
+.trix-button--icon-increase-nesting-level,
+
+.trix-button-group--file-tools,
+.trix-button-group--history-tools {
+  display: none !important;
+}
+
+
+label[for="comment_body"] {
+  display: none;
+}
+
+.comment_article {
+  position: relative;
+  border-top: 1px solid lightgray;
+
+  transition: box-shadow 0.3s ease;
+}
+
+
+.customer_comment{
+  background-color: #f6ffc7;
+}
+
+.__comment_article:hover {
+  border: 1px solid #10766e;
+  box-shadow: 0 0 10px 2px rgba(16, 118, 110, 0.5); /* Creates a blurred border effect */
+}
+
+.comment_article .ml-auto .controll-buttons {
+  display: none;
+}
+
+.comment_article:hover .ml-auto .controll-buttons{
+  display: flex;
+}
+
+@keyframes highlight {
+  0% { background-color: #10766e; }
+  100% { background-color: transparent; }
+}
+
+.highlight {
+  animation: highlight 2s ease-out;
+}
+
+
+.inline-comment-textarea{
+  max-height: 280px;
+  height: 102px;
+  display: block;
+  width: 100%;
+  min-height: 102px;
+  line-height: 20px;
+  resize: vertical;
+  /* Focus state */
+  &:focus {
+
+  }
+
+}
+
+/* TODO Patternlock move to some where else */
+
+
+svg.patternlock g.lock-lines line {
+  stroke-width: 1.5;
+  stroke: black;
+  opacity: 0.5;
+}
+
+svg.patternlock g.lock-dots circle {
+  stroke: transparent;
+  fill: black;
+  stroke-width: 13.5;
+}
+
+svg.patternlock g.lock-actives circle {
+  fill: black;
+  opacity: .2;
+  animation: lock-activate-dot .15s 0s ease 1;
+  transform-origin: center;
+}
+
+svg.patternlock g.lock-lines line {
+  stroke-width: 1.5;
+  stroke-linecap: round;
+}
+
+svg.patternlock.success g.lock-actives circle {
+  fill: green;
+}
+
+svg.patternlock.error g.lock-actives circle {
+  fill: red;
+}
+
+
+
+@keyframes lock-activate-dot {
+  0% {
+      transform: scale(0);
+  }
+  75% {
+      transform: scale(1.1);
+  }
+  100% {
+      transform: scale(1.0);
+  }
+}
+
+
+.lock-actives circle:first-of-type {
+  fill: blue !important; /* Optional: change the color of the first circle */
+  position: relative !important;
+}
+
+.lock-actives circle:last-of-type {
+  fill: rgb(255, 0, 0) !important; /* Optional: change the color of the first circle */
+  position: relative !important;
+}
+
+
+.fill-green-500 {
+  fill: #22c55e;
+}
+
+.fill-blue-400 {
+  fill: #4299e1;
+}
+
+.fill-orange-400 {
+  fill: #ed8936;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Calendar css   */
+
+
+.fc-icon-date-icon {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  position: relative;
+  background-color: #fff;
+  background-image: url("/icons/calendar-month.png");
+  background-size: cover; /* Ensures the image covers the entire area */
+  background-position: center; /* Centers the image */
+}
+/*
+.fc-icon-date-icon:before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 6px;
+  background-color: #000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+}
+
+.fc-icon-date-icon:after {
+  content: '15'; /* You can change this to any date
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 12px;
+  font-weight: bold;
+  color: #000;
+} */
+
+
+.fc-icon-add-icon {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border: 2px solid #000;
+  border-radius: 50%;
+  position: relative;
+  background-color: #fff;
+}
+
+.fc-icon-add-icon:before,
+.fc-icon-add-icon:after {
+  content: '';
+  position: absolute;
+  background-color: #000;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.fc-icon-add-icon:before {
+  width: 12px;
+  height: 2px;
+}
+
+.fc-icon-add-icon:after {
+  width: 2px;
+  height: 12px;
+}
+
+.fc .fc-non-business {
+  background-color: #f5f5f5; /* Base background color */
+  background-image: repeating-linear-gradient(
+    45deg,            /* Angle of the stripes */
+    rgba(0, 0, 0, 0.05), /* Color of the stripe */
+    rgba(0, 0, 0, 0.05) 5px, /* Stripe width */
+    transparent 6px,    /* Gap between stripes */
+    transparent 10px     /* Distance before repeating */
+  );
+  background-size: 1000px 1000px; /* Size of each "tile" */
+
+}
+
+
+
+/* app/assets/stylesheets/custom_avo.css */
+.horizontal-fields {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* Adjust the gap between fields as needed */
+}
+
+.horizontal-fields .field {
+  flex: 1; /* Make each field take equal space */
+  min-width: 200px; /* Ensure a minimum width */
+}
+
+
+.horizontal-time-fields {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.embedded-issue-calendar {
+  height: 900px;
+}
+
+.fc .fc-timegrid-slot {
+  height: 40px; /* Adjust this value as needed */
+}
+
+.calendar-entry {
+  border: 1px solid #1ed145;
+  background-color: #d1edbc;
+}
+
+.confirmed-event {
+  border-top: 2px solid green !important;
+  font-family: "Nunito Sans","Open Sans",Arial,sans-serif;
+  /* font-size: 12px; */
+  cursor: pointer;
+}
+
+
+.unconfirmed-event {
+  background-color: #d1edbc !important;
+  background-image:
+    linear-gradient(45deg, #f0f0f0 25%, transparent 25%, transparent 75%, #f0f0f0 75%, #f0f0f0),
+    linear-gradient(45deg, #f0f0f0 25%, transparent 25%, transparent 75%, #f0f0f0 75%, #f0f0f0);
+  background-position: 0 0, 10px 10px;
+  background-size: 20px 20px;
+}
+
+.canceld-event {
+
+  background-color: #ffd9d9 !important;
+  background-image:
+    linear-gradient(45deg, #f0f0f0 25%, transparent 25%, transparent 75%, #f0f0f0 75%, #f0f0f0),
+    linear-gradient(45deg, #f0f0f0 25%, transparent 25%, transparent 75%, #f0f0f0 75%, #f0f0f0);
+  background-position: 0 0, 10px 10px;
+  background-size: 20px 20px;
+
+  border: 1px solid red !important;
+  font-family: "Nunito Sans","Open Sans",Arial,sans-serif;
+  /* font-size: 12px; */
+  font-style: italic;
+  color: rgb(157, 156, 156);
+  cursor: pointer;
+  /* cursor: default !important; */
+}
+
+
+
+.draft-event {
+  background-color: #73aad9 !important;
+  border: 2px dashed black;
+}
+
+.pre-selected-range {
+  background-color: #d1edbc !important;
+  border: 1px solid darkgreen;
+}
+
+
+#calendar_entry_color {
+  width: 100px;
+}
+
+
+.event-start-label,
+.event-end-label {
+  position: absolute;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.event-start-label {
+  top: 5px;
+  left: 5px;
+}
+
+.event-end-label {
+  bottom: 5px;
+  left: 5px;
+}
+
+
+.fc-event-main {
+  overflow: auto;
+}
+.event-label {
+  position: absolute;
+  font-size: 9px;
+  font-weight: bold;
+  background-color: #fff;
+  font-family: "Nunito Sans","Open Sans",Arial,sans-serif;
+  color: #2d2d2d;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.event-start-label {
+  top: -14px;
+  left: 2px;
+}
+
+.event-end-label {
+  bottom: -14px;
+  left: 2px;
+}
+
+
+.fc table {
+  font-family: "Nunito Sans","Open Sans",Arial,sans-serif;
+  font-size: 12px;
+   color: rgb(62, 74, 84);
+}
+
+.underline-on-hover {
+  /* text-decoration: underline; */
+ }
+
+
+ #calendar {
+  max-height: 85vh;
+  overflow-y: auto;
+}
+
+.calendar-badge {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.55rem !important;
+  min-width: 20px;
+}
+
+.fc-button.fc-prev-button, .fc-button.fc-next-button, .fc-button.fc-today-button, .fc-button.fc-timeGridDay-button, .fc-button.fc-timeGridWeek-button,
+.fc-button.fc-dayGridThreeDays-button,.fc-button.fc-listWeek-button, .fc-button.fc-selectDate-button {
+    /* Add styles equivalent to all the classes */
+    height: 30px;
+    display: inline-flex;
+    flex-grow: 0;
+    align-items: center;
+    font-weight: 600; /* Equivalent to font-semibold */
+    line-height: 1.5; /* Equivalent to leading-6 */
+    fill: currentColor;
+    white-space: nowrap;
+    transition: all 0.1s ease; /* Equivalent to transition duration-100 */
+    cursor: pointer;
+    border: 1px solid; /* Equivalent to border */
+    justify-content: center;
+    outline: none;
+    border-radius: 0.25rem; /* Equivalent to rounded */
+    background-color: white !important; /* Equivalent to bg-white */
+    color: #3182ce !important; /* Equivalent to text-primary-500 */
+    border-color: #3182ce !important; /* Equivalent to border-primary-500 */
+    padding: 0.25rem 0.75rem; /* Equivalent to px-3 py-1 */
+    font-size: 0.875rem; /* Equivalent to text-sm */
+
+    /* Hover and active states */
+    &:hover {
+      background-color: #ebf8ff; /* Equivalent to hover:bg-primary-100 */
+      color: #2c5282 !important; /* Equivalent to hover:text-primary-700 */
+    }
+
+    &:active {
+      background-color: #b4e1fa !important; /* Equivalent to active:bg-primary-500 */
+      border-color: #3182ce; /* Equivalent to active:border-primary-500 */
+      outline: none !important;
+    }
+
+    /* Focus state */
+    &:focus {
+      outline: none !important;
+      box-shadow: none !important;
+
+    }
+
+    /* Disabled state */
+    &:disabled {
+      cursor: not-allowed; /* Equivalent to disabled:cursor-not-allowed */
+      opacity: 0.7; /* Equivalent to disabled:opacity-70 */
+    }
+
+}
+
+.fc-button.fc-prev-button.fc-button-active, .fc-button.fc-next-button.fc-button-active, .fc-button.fc-today-button.fc-button-active, .fc-button.fc-timeGridDay-button.fc-button-active, .fc-button.fc-timeGridWeek-button.fc-button-active,
+.fc-button.fc-dayGridThreeDays-button.fc-button-active, .fc-listWeek-button.fc-button-active  {
+  background-color: #b4e1fa !important; /* Equivalent to bg-primary-500 */
+
+}
+
+
+/* Highlighted event with a glowing border animation */
+.highlighted-event {
+  background-color: white !important;
+  border: 2px solid blue !important;
+  box-shadow: 0 0 10px rgba(0, 0, 255, 0.7), 0 0 20px rgba(0, 0, 255, 0.5);
+  animation: glowing-border 2s ease-in-out infinite;
+}
+
+/* Selected event with a solid border */
+.selected-event {
+  border: 2px solid blue !important;
+  box-shadow: none;
+}
+
+.fc-timegrid-event-harness .selected-event {
+  z-index: 1000 !important;
+}
+
+/* Glowing border keyframes */
+@keyframes glowing-border {
+  0% {
+    box-shadow: 0 0 5px rgba(0, 0, 255, 0.5), 0 0 10px rgba(0, 0, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(0, 0, 255, 0.7), 0 0 30px rgba(0, 0, 255, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(0, 0, 255, 0.5), 0 0 10px rgba(0, 0, 255, 0.3);
+  }
+}
+
+
+#calendar-loader {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  display: flex ;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  opacity: 0.5;
+  background-color: #ffffff;
+  z-index: 99;
+}
+
+#loading-image {
+  z-index: 100;
+  width: 70px; /* Set size of the loading image */
+  height: 70px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+/* uuid-field*/
+
+.copied-badge {
+  position: absolute;
+  background-color: rgba(0, 128, 0, 0.6); /* Green background with transparency */
+  color: white;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: translateY(-10px); /* Initial position for animation */
+  pointer-events: none; /* Ensure it doesn't interfere with clicks */
+}
+
+.copied-badge.show {
+  opacity: 1;
+  transform: translateY(0); /* Slide in effect */
+}
+
+
+
+
+
+
+
+
+/* Styled sweet alert */
+
+.custom-confirm-button {
+  background-color: rgb(15, 118, 110) !important;
+  color: white !important;
+}
+
+
+/* tooltip */
+
+.tippy-box[data-theme~=calendar] {
+    position: relative;
+    background-color: var(--recloud-teal-color);
+    color: #fff;
+    border-radius: 5px;
+    font-size: 10px;
+    line-height: 1.2;
+    outline: 0;
+    transition-property: transform, visibility, opacity;
+}
+
+/* Modern tooltip styling for calendar notes */
+.tippy-box[data-theme~=calendar-note] {
+  position: relative;
+  background-color: var(--recloud-teal-color); /* Main background color */
+  color: #ffffff; /* Text color for readability */
+  border-radius: 10px; /* Slightly rounded corners for a modern look */
+  font-size: 14px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Professional font */
+  line-height: 1.5;
+  outline: 0;
+  padding: 10px 15px; /* Balanced padding for better content layout */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Light shadow for subtle depth */
+  max-width: 350px; /* Keeps the content concise and contained */
+  border: 2px solid rgb(209, 237, 188); /* Contrasting border */
+}
+
+
+/* Header styling for emphasized content within notes */
+.tippy-box[data-theme~=calendar-note] .tooltip-header {
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 5px;
+}
+
+/* Adjustments for links and interactive elements */
+.tippy-box[data-theme~=calendar-note] a {
+  color: rgb(209, 237, 188); /* Accent color for links */
+  text-decoration: underline;
+}
+
+/* Hover state for links */
+.tippy-box[data-theme~=calendar-note] a:hover {
+  text-decoration: none;
+}
+
+/* Optional border icon container */
+.tippy-box[data-theme~=calendar-note] .icon-container {
+  display: inline-block;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+/* Custom tooltip styling for calendar notes */
+.tippy-box[data-theme~=calendar-note] {
+  position: relative;
+  background-color: var(--recloud-teal-color);
+  color: #ffffff;
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 1.4;
+  outline: 0;
+  padding: 5px ;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Soft shadow for depth */
+  transition: transform 0.2s ease, visibility 0.2s ease, opacity 0.2s ease;
+  max-width: 350px;
+}
+
+
+
+
+
+
+
+
+
+/* search */
+
+
+.aa-DetachedCancelButton{
+  display: none !important;
+}
+.aa-InputWrapperPrefix{
+}
+
+.aa-Input {
+
+  font-size: 48px !important;
+  height: 60px !important;
+  color: var(--recloud-teal-color) !important;
+  padding: 5px !important;
+  padding: 10px !important;
+  margin: 8px 0px !important;
+}
+
+.aa-InputWrapper, .aa-Input{
+
+}
+
+
+/* issue_entries */
+
+tr[data-resource-name="issue_entries"] {
+display: none;
+}
+
+tr[data-resource-name="issue_entries"].show-row {
+  display: table-row !important;
+}
+
+[contenteditable]:focus {
+  outline: 0px solid transparent;
+  /* color: var(--recloud-teal-color); */
+}
+
+
+[contenteditable=true] {
+  cursor: text;
+}
+
+td {
+  cursor: default;
+}
+
+
+/* issue entries summary */
+
+#summary {
+  margin-top: 0 !important; /* Remove any top spacing applied by the space-y-12 */
+}
+
+
+
+/* spin loader for purchase pages  */
+
+
+.loader {
+  border-top-color: #3498db;  /* Color of the spinner */
+  animation: spin 1s ease-in-out infinite;  /* Spinner animation */
+  border-radius: 50%;  /* Make it a circle */
+  border-width: 4px;  /* Border width */
+  height: 48px;  /* Height of the loader */
+  width: 48px;  /* Width of the loader */
+  border-style: solid;
+  border-color: #f3f3f3 #f3f3f3 #f3f3f3 #3498db; /* Make the top different color */
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+/* tabs make sure there is some room under the tabs  */
+
+[data-tabs-target="tabPanel"] {
+  padding-bottom: 200px;
+}
+
+
+
+
+
+/****************************************************
+ *  Specialized styles for filter     *
+ ****************************************************/
+
+
+#avo_filters_trigger_ereignis {
+  min-height: 350px;
+}
+
+
+
+/****************************************************
+ *  Specialized styles repair set select input      *
+ ****************************************************/
+
+ select[data-resource-edit-target="possibleRepairSetsSelectInput"] {
+  min-height: 200px; /* Ensures the height is at least 250px */
+  font-size: 16px; /* Makes the text more readable */
+  line-height: 1.5; /* Adds spacing between lines */
+  padding: 8px; /* Adds padding inside the select box */
+  border: 1px solid var(--recloud-teal-color); /* Sets a border color */
+  border-radius: 4px; /* Adds rounded corners */
+  background-color: #deeef9; /* Light background for better contrast */
+
+
+}
+
+select[data-resource-edit-target="possibleRepairSetsSelectInput"] option {
+  padding: 5px 10px; /* Adds spacing around the options */
+}
+
+select[data-resource-edit-target="possibleRepairSetsSelectInput"] option:checked {
+  background-color: var(--recloud-teal-color); /* Highlight selected option */
+  color: #ffffff; /* Text color for selected option */
+}
+
+
+select[data-resource-edit-target="possibleRepairSetsSelectInput"] option:checked {
+  background-color: var(--recloud-teal-color); /* Highlight selected option */
+  color: #ffffff; /* Text color for selected option */
+}
+
+#issue_possible_repair_sets.no-sets {
+  position: relative;
+
+  background-size: 200px 200px; /* Adjust size for a water-like effect */
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: center;
+  color: #444; /* Default text color */
+}
+
+#issue_possible_repair_sets.no-sets::before {
+  content: "Keine Sets gefunden";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgba(0, 0, 0, 0.5); /* Semi-transparent for better readability */
+  font-size: 16px;
+  pointer-events: none; /* Ensure text does not interfere with interactions */
+  z-index: 1;
+}
+
+#issue_possible_repair_sets.no-sets:focus::before {
+  content: "Keine Sets gefunden"; /* Ensure the message stays visible on focus */
+}

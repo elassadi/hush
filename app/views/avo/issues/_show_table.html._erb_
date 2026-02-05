@@ -1,0 +1,18 @@
+<table class="w-full px-4 bg-white">
+  <thead class="bg-white border-b border-gray-200 pb-1">
+    <tr>
+      <% columns.each do |column| %>
+        <th class="<%= column[:class] || 'text-left uppercase px-3 py-3 whitespace-nowrap rounded-l' %>" data-control="<%= column[:data_control] %>">
+          <div class="block w-full text-gray-500 tracking-tight leading-tight text-xs font-semibold">
+            <%= column[:header] %>
+          </div>
+        </th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody class="divide-y">
+    <% rows.each do |row| %>
+      <%= render partial: 'row', locals: { row: row, columns: columns } %>
+    <% end %>
+  </tbody>
+</table>

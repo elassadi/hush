@@ -1,0 +1,79 @@
+<div class="flex flex-col">
+  <%= render Avo::PanelComponent.new(name: '', display_breadcrumbs: false) do |c| %>
+    <% c.body do %>
+      <!-- Alert Modal -->
+      <div id="alertModal" class="fixed inset-0 z-50 flex items-center justify-center hidden" >
+        <div class="bg-black bg-opacity-50 absolute inset-0" ></div>
+        <div class="bg-white p-6 rounded-lg shadow-lg z-10 max-w-sm mx-auto flex flex-col items-center" style="min-width: 350px">
+          <!-- Error Icon -->
+          <div id="alertErrorIcon" class="mb-4 hidden">
+            <svg class="w-10 h-10 text-red-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </div>
+
+          <!-- Success Icon -->
+          <div id="alertSuccessIcon" class="mb-4 hidden">
+            <svg class="w-10 h-10 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m0 0l-4 4m0 0l-4-4m0 0l2 2" />
+            </svg>
+          </div>
+
+          <!-- Modal Title and Message -->
+          <h2 id="alertModalTitle" class="text-xl font-semibold mb-4">Title</h2>
+          <p id="alertModalMessage" class="mb-6">Message goes here.</p>
+
+          <!-- OK Button -->
+          <div class="flex justify-end items-baseline space-x-4 p-4">
+            <button id="alertModalCloseButton" type="button" class="button-component inline-flex flex-grow-0 items-center font-semibold leading-6 fill-current whitespace-nowrap transition duration-100 transform cursor-pointer disabled:cursor-not-allowed disabled:opacity-70 border justify-center active:outline active:outline-1 rounded bg-green-500 text-white border-green-500 hover:bg-green-600 hover:border-green-600 active:border-green-600 active:outline-green-600 active:bg-green-600 px-3 py-1 text-sm">
+              <span>OK</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Confirmation Modal -->
+      <div id="confirmModal" class="fixed inset-0 z-50 flex items-center justify-center hidden">
+        <div class="bg-black bg-opacity-50 absolute inset-0"></div>
+        <div class="bg-white p-6 rounded-lg shadow-lg z-10 max-w-sm mx-auto">
+          <h2 class="text-xl font-semibold mb-4"><%= I18n.t(:dialog_title, scope: "js.move_confirmed_event") %></h2>
+          <p class="mb-6"><%= I18n.t(:dialog_question, scope: "js.move_confirmed_event") %></p>
+
+          <div class="flex items-center mb-6">
+            <label for="notify_customer" class="mr-3 text-gray-700 font-medium">Kunde informieren</label>
+            <label class="switch">
+              <input type="checkbox" class="notify_customer" id="notify_customer">
+              <span class="slider round"></span>
+            </label>
+          </div>
+
+          <div class="flex justify-end items-baseline space-x-4 p-4">
+            <button id="confirmModalNoButton" type="button" class="button-component inline-flex flex-grow-0 items-center font-semibold leading-6 fill-current whitespace-nowrap transition duration-100 transform cursor-pointer disabled:cursor-not-allowed disabled:opacity-70 border justify-center active:outline active:outline-1 rounded bg-white text-gray-500 border-gray-500 hover:bg-gray-100 active:bg-gray-100 active:border-gray-500 active:outline-gray-500 px-3 py-1 text-sm">
+              <span>Abbrechen</span>
+            </button>
+            <button id="confirmModalYesButton" type="button" class="button-component inline-flex flex-grow-0 items-center font-semibold leading-6 fill-current whitespace-nowrap transition duration-100 transform cursor-pointer disabled:cursor-not-allowed disabled:opacity-70 border justify-center active:outline active:outline-1 rounded bg-green-500 text-white border-green-500 hover:bg-green-600 hover:border-green-600 active:border-green-600 active:outline-green-600 active:bg-green-600 px-3 py-1 text-sm">
+              <span>Ausführen</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Turbo-stream-start -->
+      <%= turbo_stream_from ["MainCalender", "-", Current.user.account.uuid].join %>
+      <!-- Turbo-stream-end -->
+      <div data-controller="calendar">
+        <input  data-calendar-target="calendarEntryId" type="hidden" value="<%= @calendar_entry_id %>">
+        <input  data-calendar-target="calendarEntryStart" type="hidden" value="<%= @calendar_entry_start %>">
+        <div  id="calendar" style="height: 800px;" >
+        </div>
+
+        <div id="calendar-loader" style="display:none;">
+          <img id="loading-image" src="/icons/loading-image.gif" alt="Loading..." />
+        </div>
+
+      </div>
+    <% end %>
+  <% end %>
+
+
+</div>

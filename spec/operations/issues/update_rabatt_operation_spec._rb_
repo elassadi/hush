@@ -1,0 +1,64 @@
+RSpec.describe Issues::UpdateRabattOperation do
+  describe "#call" do
+    subject(:call) do
+      described_class.call(issue: issue, rabatt: rabatt)
+    end
+
+    include_context "setup demo account and user"
+
+    let(:article) { create(:article, default_retail_price: 114.51) }
+    let(:article2) { create(:article, default_retail_price: 64.51) }
+    let(:article3) { create(:article, default_retail_price: 94.51) }
+    let(:customer_id) { create(:customer).id }
+    let(:device_received) { true }
+    let(:device_model) { create(:device_model, name: "iPhone 10") }
+    let(:device_color) { create(:device_color, name: "black") }
+    let(:device) { create(:device, device_model:, device_color:) }
+    let(:device_failure_category) { create(:device_failure_category, name: "micro") }
+    let(:device_failure_category_two) { create(:device_failure_category, name: "Display") }
+    let(:issue) do
+      create(:issue, status: :draft, device_id: device.id,
+                     input_device_failure_categories: [
+                       device_failure_category.name,
+                       device_failure_category_two.name
+                     ])
+    end
+
+    let!(:existing_rabatt_entry) do
+      create( :issue_entry, issue:,
+                      category: :rabatt,
+                      tax: 19,
+                      qty: 1,
+                      price: 20
+      )
+    end
+    context 'Whith valid data ' do
+      let(:rabatt) { 200 }
+
+      it 'correctly updates the rabat ' do
+        expect(subject).to be_success
+        expect(issue.rabatt_entry.price).to eq(200)
+      end
+    end
+
+    context 'Whith valid data ' do
+      let(:rabatt) { 0 }
+
+      it 'correctly updates the rabat ' do
+        expect(subject).to be_success
+        expect(issue.rabatt_entry.price).to eq(0)
+      end
+    end
+
+    context 'Whith valid data ' do
+      let(:rabatt) { -200 }
+
+      it 'correctly updates the rabat ' do
+        expect(subject).to be_failure
+        expect(issue.rabatt_entry.price).to eq(20)
+        expect(subject.failure).to eq(["Preis muss größer oder gleich 0.0 sein"])
+      end
+    end
+
+  end
+end

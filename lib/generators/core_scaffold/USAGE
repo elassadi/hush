@@ -1,0 +1,8 @@
+Description:
+    Create scaffold
+
+Example:
+    bin/rails generate core_scaffold
+
+    This will create:
+

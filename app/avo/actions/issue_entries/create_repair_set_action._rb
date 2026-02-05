@@ -1,0 +1,27 @@
+module IssueEntries
+  class CreateRepairSetAction < ::ApplicationBaseAction
+    self.name = "CreateRepairSet"
+
+    # test
+    self.visible = lambda do
+      return false unless view == :show
+
+      current_user.may?(:create_repair_set, resource.model)
+    end
+
+    def handle(**args)
+      models = args[:models]
+      models.each do |model|
+        authorize_and_run(:create_repair_set, model) do |issue_entry|
+          create_repair_set(issue_entry)
+        end
+      end
+    end
+
+    private
+
+    def create_repair_set(issue_entry)
+      IssueEntries::CreateRepairSetTransaction.call(issue_entry_id: issue_entry.id)
+    end
+  end
+end

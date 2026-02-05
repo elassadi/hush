@@ -1,0 +1,73 @@
+<%= render 'wellness_meta_styles' %>
+
+<div class="wellness-page">
+  <%= render 'wellness_header' %>
+  <%= render 'wellness_mobile_menu' %>
+  <%= render 'wellness_scroll_to_top' %>
+
+  <main>
+    <div class="container">
+        <section class="wellness-section impressum" style="padding-top: 16rem;">
+        <h1>Impressum</h1>
+
+        <div class="article-section" style="margin-top: 3rem;">
+          <h4>Angaben gemäß § 5 DDG</h4>
+
+          <p>
+            <strong>Hush Haarentfernung</strong><br>
+            Inhaberin: <span class="js-name"></span><br>
+            Pestalozzistraße <span class="js-street"></span><br>
+            10625 Berlin<br>
+            Deutschland
+          </p>
+
+          <h4 style="margin-top: 3rem;">Kontakt</h4>
+          <p>
+            Telefon: <span class="js-phone"></span><br>
+            E-Mail: <span id="mail"></span>
+          </p>
+
+          <h4 style="margin-top: 3rem;">Umsatzsteuer-ID</h4>
+          <p>
+            Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG:<br>
+            <span class="js-ust"></span>
+          </p>
+
+          <h4 style="margin-top: 3rem;">Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h4>
+          <p>
+            <span class="js-name"></span><br>
+            Pestalozzistraße <span class="js-street"></span><br>
+            10625 Berlin
+          </p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const fname = ["Al","ena"].join("");
+    const lname = ["Obl","uchy","nska"].join("");
+    const name = fname + " " + lname;
+    const streetNr = "16";
+    const phone = ["0175", "712", "5889"].join("");
+    const mailUser = "info";
+    const mailDomain = "hush-haarentfernung.de";
+    const ust = "DE15016391102";
+
+    document.querySelectorAll(".js-name").forEach(e => e.textContent = name);
+    document.querySelectorAll(".js-street").forEach(e => e.textContent = streetNr);
+    document.querySelectorAll(".js-phone").forEach(e => e.textContent = phone);
+    document.querySelectorAll(".js-ust").forEach(e => e.textContent = ust);
+
+    const mailEl = document.getElementById("mail");
+    mailEl.innerHTML =
+      '<a href="mailto:' + mailUser + '@' + mailDomain + '">' +
+      mailUser + '@' + mailDomain + '</a>';
+  });
+</script>
+
+  <%= render 'wellness_footer' %>
+</div>
+
+<%= render 'wellness_scripts' %>

@@ -1,0 +1,25 @@
+RSpec.describe <%= module_name %>::<%= operation_class %> do
+  describe "#call" do
+    subject(:call) do
+      described_class.call(<%= model %>: <%= model %>)
+    end
+
+    include_context "setup demo account and user"
+    include_context "setup system user"
+
+
+    context 'when data valid ' do
+
+      let(:<%= model %>) { create(:<%= model %>) }
+
+      it 'returns successfull result' do
+        expect { subject }.to change { <%= model_class %>.count }.by(1)
+        expect(subject).to be_success
+        expect(subject.success).to be_a(<%= model_class %>)
+        expect(subject.success).to be_persisted
+        # expect(subject.success).to have_attributes({ key: value })
+      end
+    end
+
+  end
+end

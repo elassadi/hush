@@ -1,0 +1,16 @@
+<turbo-stream action="update" target="table_possible_repair_sets_turbo_frame">
+  <template>
+      <% if rows.any? %>
+        <%= render partial: 'fields/table/show_table', locals:  {
+          rows: rows,
+          columns: columns ,
+          field: field
+          } %>
+      <% else %>
+        <%= render Avo::EmptyStateComponent.new(message: t('helpers.issue.no_sets_found') ) %>
+      <% end %>
+
+    <script>
+    </script>
+  </template>
+</turbo-stream>

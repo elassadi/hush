@@ -1,0 +1,35 @@
+<!-- Footer -->
+<footer class="wellness-footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>HUSH</h3>
+        <p><%= t('hush.wellness.footer.tagline') %></p>
+      </div>
+      <div class="footer-section">
+        <h3><%= t('hush.wellness.footer.treatments_title') %></h3>
+        <ul>
+          <li><a href="#services">Waxing</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3><%= t('hush.wellness.footer.company_title') %></h3>
+        <ul>
+          <li><a href="<%= about_path(locale: I18n.locale) %>"><%= t('hush.wellness.footer.about_hush') %></a></li>
+          <li><a href="<%= waxing_appointment_path(locale: I18n.locale) %>"><%= t('hush.wellness.footer.book_appointment') %></a></li>
+          <li><a href="#pricing"><%= t('hush.wellness.nav.pricing') %></a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3><%= t('hush.wellness.footer.legal_title') %></h3>
+        <ul>
+          <li><a href="<%= impressum_path(locale: I18n.locale) %>"><%= t('hush.wellness.footer.imprint') %></a></li>
+          <li><a href="<%= datenschutz_path(locale: I18n.locale) %>"><%= t('hush.wellness.footer.privacy') %></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <%= Date.current.year %> HUSH HAARENTFERNUNG. <%= t('hush.wellness.footer.all_rights_reserved') %></p>
+    </div>
+  </div>
+</footer>

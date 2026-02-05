@@ -1,0 +1,27 @@
+# # Helpers for Services to return properly structured return value
+# # on #perform method
+# # TODO: remove as deprecated after migration, use Dry::Monads::Result instead
+# module ResponseHelpers
+#   extend ActiveSupport::Concern
+
+#   included do
+#     private
+
+#     def failure(errors: nil, messages: nil)
+#       ServiceResponse.failure(
+#         errors: errors,
+#         messages: Array.wrap(messages)
+#       )
+#     end
+
+#     def success(resource)
+#       ServiceResponse.success(resource)
+#     end
+
+#     def resource_response(resource)
+#       return success(resource) if resource.errors.blank?
+
+#       failure(errors: resource.errors)
+#     end
+#   end
+# end

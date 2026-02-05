@@ -1,0 +1,279 @@
+roles:
+  - name: public_api
+    type: customer
+    plans: [free, basic, advanced]
+    resources:
+      - { name: CalendarEntry, action_tags: [create] }
+      - { name: DeviceColor, action_tags: [read] }
+      - { name: DeviceFailureCategory, action_tags: [read] }
+      - { name: DeviceManufacturer, action_tags: [read] }
+      - { name: [DeviceModel , DeviceModelCategory], action_tags: [read] }
+      - { name: RepairSet, action_tags: [read] }
+
+  - name: on_boarding
+    type: customer
+    plans: [free, basic, advanced]
+    resources:
+      - { name: Address, action_tags: [create, destroy, read, update] }
+      - { name: Merchant, action_tags: [read, update, upload_attachments] }
+      - { name: Notification, action_tags: [destroy, read] }
+      - { name: User, action_tags: [read, upload_attachments] }
+
+  - name: technician
+    type: customer
+    plans: [basic, advanced]
+    resources:
+      - { name: Activity, action_tags: [read] }
+      - { name: Address, action_tags: [create, destroy, read, update] }
+      - { name: ApiToken, action_tags: [read] }
+      - { name: Article, action_tags: [create, delete_attachments, destroy, download_attachments, read, update, upload_attachments] }
+      - { name: ArticleGroup, action_tags: [create, destroy, read, update] }
+      - { name: BusinessHour, action_tags: [create, destroy, read, update] }
+      - { name: CalendarEntry, action_tags: [cancel, confirm, create, destroy, read, update] }
+      - { name: Comment, action_tags: [create, destroy, read, update, upload_attachments] }
+      - { name: Customer, action_tags: [create, destroy, read, update] }
+      - { name: Device, action_tags: [create, destroy, list_devices_for_customer, list_repair_sets, read, update] }
+      - { name: DeviceColor, action_tags: [create, destroy, read, update] }
+      - { name: DeviceFailureCategory, action_tags: [create, destroy, read, update] }
+      - { name: DeviceManufacturer, action_tags: [create, destroy, read, update] }
+      - { name: [DeviceModel , DeviceModelCategory], action_tags: [create, destroy, download_attachments, read, update, upload_attachments] }
+      - { name: [Document, DefaultDocument, CsvDocument, InvoiceDocument, KvaDocument, OrderDocument, PdfDocument, PreviewDocument, RepairReportDocument], action_tags: [download_attachments, read, upload_attachments] }
+      - { name: Insurance, action_tags: [create, destroy, read, update] }
+      - { name: Issue, action_tags: [table_possible_repair_sets,activate, cancel, create, deactivate, destroy, device_received, done_repairing_successfull, done_repairing_unsuccessfull, edit_workflow, lock, print_kva, preview_document, print_order, re_activate, read, reset_repairing, start_repairing, stop_repairing, unlock, update] }
+      - { name: IssueEntry, action_tags: [create, destroy, read, update] }
+      - { name: Merchant, action_tags: [create, destroy, read, update, upload_attachments] }
+      - { name: Notification, action_tags: [destroy, read] }
+      - { name: PurchaseOrder, action_tags: [cancel, create, destroy, destroy_workflow, edit_workflow, order, order_delivered, read, split_helper, update, view_linked_purchase_orders] }
+      - { name: PurchaseOrderEntry, action_tags: [create, destroy, read, update] }
+      - { name: RepairSet, action_tags: [create, destroy, read, update] }
+      - { name: RepairSetEntry, action_tags: [create, destroy, read, update] }
+      - { name: Stock, action_tags: [export, read] }
+      - { name: StockArea, action_tags: [create, destroy, read, update] }
+      - { name: StockLocation, action_tags: [create, destroy, read, update] }
+      - { name: StockMovement, action_tags: [create, read] }
+      - { name: StockReservation, action_tags: [read] }
+      - { name: Supplier, action_tags: [create, destroy, read, update] }
+      - { name: SupplierArticle, action_tags: [add_to_articles, create, destroy, import, read, reorder, update, upload_attachments] }
+      - { name: SupplierSource, action_tags: [create, destroy, read, update] }
+      - { name: Template, action_tags: [read] }
+      - { name: User, action_tags: [read, upload_attachments] }
+
+  - name: sale
+    type: customer
+    plans: [basic, advanced]
+    resources:
+      - { name: Activity, action_tags: [read] }
+      - { name: Address, action_tags: [create, destroy, read, update] }
+      - { name: ApiToken, action_tags: [read] }
+      - { name: Article, action_tags: [create, delete_attachments, destroy, download_attachments, read, update, upload_attachments] }
+      - { name: ArticleGroup, action_tags: [create, destroy, read, update] }
+      - { name: BusinessHour, action_tags: [create, destroy, read, update] }
+      - { name: CalendarEntry, action_tags: [cancel, confirm, create, destroy, read, update] }
+      - { name: Comment, action_tags: [create, destroy, read, update, upload_attachments] }
+      - { name: Customer, action_tags: [create, destroy, read, update] }
+      - { name: Device, action_tags: [create, destroy, list_devices_for_customer, list_repair_sets, read, update] }
+      - { name: DeviceColor, action_tags: [create, destroy, read, update] }
+      - { name: DeviceFailureCategory, action_tags: [create, destroy, read, update] }
+      - { name: DeviceManufacturer, action_tags: [create, destroy, read, update] }
+      - { name: [DeviceModel , DeviceModelCategory], action_tags: [create, destroy, download_attachments, read, update, upload_attachments] }
+      - { name: [Document, DefaultDocument, CsvDocument, InvoiceDocument, KvaDocument, OrderDocument, PdfDocument, PreviewDocument, RepairReportDocument], action_tags: [download_attachments, read, upload_attachments] }
+      - { name: Insurance, action_tags: [create, destroy, read, update] }
+      - { name: Issue, action_tags: [table_possible_repair_sets,activate, cancel, complete, create, deactivate, destroy, device_received, edit_workflow, lock, print_canceld_invoice, print_invoice, print_kva, preview_document, print_order, re_activate, read, unlock, update] }
+      - { name: IssueEntry, action_tags: [create, destroy, read, update] }
+      - { name: Merchant, action_tags: [create, destroy, read, update, upload_attachments] }
+      - { name: Notification, action_tags: [destroy, read] }
+      - { name: PurchaseOrder, action_tags: [cancel, create, destroy, destroy_workflow, edit_workflow, order, order_delivered, read, split_helper, update, view_linked_purchase_orders] }
+      - { name: PurchaseOrderEntry, action_tags: [create, destroy, read, update] }
+      - { name: RepairSet, action_tags: [read, update] }
+      - { name: RepairSetEntry, action_tags: [create, destroy, read, update] }
+      - { name: Stock, action_tags: [export, read] }
+      - { name: StockArea, action_tags: [create, destroy, read, update] }
+      - { name: StockLocation, action_tags: [create, destroy, read, update] }
+      - { name: StockMovement, action_tags: [create, read] }
+      - { name: StockReservation, action_tags: [read] }
+      - { name: Supplier, action_tags: [create, destroy, read, update] }
+      - { name: SupplierArticle, action_tags: [add_to_articles, create, destroy, import, read, reorder, update, upload_attachments] }
+      - { name: SupplierSource, action_tags: [create, destroy, read, update] }
+      - { name: Template, action_tags: [read] }
+      - { name: User, action_tags: [read, upload_attachments] }
+
+  - name: free_account_admin
+    plans: [free]
+    type: customer
+    resources:
+      - { name: Activity, action_tags: [read] }
+      - { name: Address, action_tags: [create, destroy, read, update] }
+      - { name: Article, action_tags: [create, delete_attachments, destroy, download_attachments, read, update, upload_attachments] }
+      - { name: ArticleGroup, action_tags: [create, destroy, read, update] }
+      - { name: Comment, action_tags: [create, destroy, read, update, upload_attachments] }
+      - { name: Customer, action_tags: [create, destroy, read, update] }
+      - { name: CustomerNotificationRule, action_tags: [read] }
+      - { name: Device, action_tags: [create, destroy, list_devices_for_customer, list_repair_sets, read, update] }
+      - { name: DeviceColor, action_tags: [create, destroy, read, update] }
+      - { name: DeviceFailureCategory, action_tags: [create, destroy, read, update] }
+      - { name: DeviceManufacturer, action_tags: [create, destroy, read, update] }
+      - { name: [DeviceModel , DeviceModelCategory], action_tags: [create, destroy, download_attachments, read, update, upload_attachments] }
+      - { name: [Document, DefaultDocument, CsvDocument, InvoiceDocument, KvaDocument, OrderDocument, PdfDocument, PreviewDocument, RepairReportDocument], action_tags: [download_attachments, read, upload_attachments] }
+      - { name: Issue, action_tags: [table_possible_repair_sets,activate, cancel, complete, create, deactivate, destroy, device_received, done_repairing_successfull, done_repairing_unsuccessfull, edit_workflow, lock, open, print_canceld_invoice, print_invoice, print_kva, preview_document, print_order, re_activate, read, reset_repairing, start_repairing, stop_repairing, unlock, update] }
+      - { name: IssueEntry, action_tags: [create, destroy, read, update] }
+      - { name: Merchant, action_tags: [read, update, upload_attachments] }
+      - { name: Notification, action_tags: [destroy, read] }
+      - { name: RepairSet, action_tags: [create, destroy, read, update] }
+      - { name: RepairSetEntry, action_tags: [create, destroy, read, update] }
+      - { name: Setting, action_tags: [read, update] }
+      - { name: ApplicationSetting, action_tags: [read, update] }
+      - { name: GlobalSetting, action_tags: [read, update] }
+      - { name: BookingSetting, action_tags: [read, update] }
+      - { name: Stock, action_tags: [export, read] }
+      - { name: StockArea, action_tags: [create, destroy, read, update] }
+      - { name: StockLocation, action_tags: [create, destroy, read, update] }
+      - { name: StockMovement, action_tags: [create, read] }
+      - { name: StockReservation, action_tags: [read] }
+      - { name: Supplier, action_tags: [create, destroy, read, update] }
+      - { name: SupplierArticle, action_tags: [add_to_articles, create, destroy, import, read, reorder, update, upload_attachments] }
+      - { name: SupplierSource, action_tags: [create, destroy, read, update] }
+      - { name: Template, action_tags: [create, destroy, read, update] }
+      - { name: User, action_tags: [activate,  read, update, upload_attachments] }
+
+
+
+  - name: account_admin
+    plans: [basic, advanced]
+    type: customer
+    resources:
+      - { name: Activity, action_tags: [read] }
+      - { name: Address, action_tags: [create, destroy, read, update] }
+      - { name: ApiToken, action_tags: [read] }
+      - { name: Article, action_tags: [create, delete_attachments, destroy, download_attachments, read, update, upload_attachments] }
+      - { name: ArticleGroup, action_tags: [create, destroy, read, update] }
+      - { name: BusinessHour, action_tags: [create, destroy, read, update] }
+      - { name: CalendarEntry, action_tags: [cancel, confirm, create, destroy, read, update] }
+      - { name: Comment, action_tags: [create, destroy, read, update, upload_attachments] }
+      - { name: Customer, action_tags: [create, destroy, read, update] }
+      - { name: CustomerNotificationRule, action_tags: [create, destroy, read, update] }
+      - { name: Device, action_tags: [create, destroy, list_devices_for_customer, list_repair_sets, read, update] }
+      - { name: DeviceColor, action_tags: [create, destroy, read, update] }
+      - { name: DeviceFailureCategory, action_tags: [create, destroy, read, update] }
+      - { name: DeviceManufacturer, action_tags: [create, destroy, read, update] }
+      - { name: [DeviceModel , DeviceModelCategory], action_tags: [create, destroy, download_attachments, read, update, upload_attachments] }
+      - { name: [Document, DefaultDocument, CsvDocument, InvoiceDocument, KvaDocument, OrderDocument, PdfDocument, PreviewDocument, RepairReportDocument], action_tags: [download_attachments, read, upload_attachments] }
+      - { name: Insurance, action_tags: [create, destroy, read, update] }
+      - { name: Issue, action_tags: [table_possible_repair_sets,activate, cancel, complete, create, deactivate, destroy, device_received, done_repairing_successfull, done_repairing_unsuccessfull, edit_workflow, lock, open, print_canceld_invoice, print_invoice, print_kva, preview_document, print_order, re_activate, read, reset_repairing, start_repairing, stop_repairing, unlock, update] }
+      - { name: IssueEntry, action_tags: [create, destroy, read, update] }
+      - { name: Merchant, action_tags: [create, destroy, read, update, upload_attachments] }
+      - { name: Notification, action_tags: [destroy, read] }
+      - { name: PaperTrail::IssueVersion, action_tags: [read] }
+      - { name: PurchaseOrder, action_tags: [cancel, create, destroy, destroy_workflow, edit_workflow, order, order_delivered, read, split_helper, update, view_linked_purchase_orders] }
+      - { name: PurchaseOrderEntry, action_tags: [create, destroy, read, update] }
+      - { name: RepairSet, action_tags: [create, destroy, read, update] }
+      - { name: RepairSetEntry, action_tags: [create, destroy, read, update] }
+      - { name: Sequence, action_tags: [create, destroy, read, update] }
+      - { name: Setting, action_tags: [read, update] }
+      - { name: ApplicationSetting, action_tags: [read, update] }
+      - { name: GlobalSetting, action_tags: [read, update] }
+      - { name: BookingSetting, action_tags: [read, update] }
+      - { name: Stock, action_tags: [export, read] }
+      - { name: StockArea, action_tags: [create, destroy, read, update] }
+      - { name: StockLocation, action_tags: [create, destroy, read, update] }
+      - { name: StockMovement, action_tags: [create, read] }
+      - { name: StockReservation, action_tags: [read] }
+      - { name: Supplier, action_tags: [create, destroy, read, update] }
+      - { name: SupplierArticle, action_tags: [add_to_articles, create, destroy, import, read, reorder, update, upload_attachments] }
+      - { name: SupplierSource, action_tags: [create, destroy, read, update] }
+      - { name: Template, action_tags: [create, destroy, read, update] }
+      - { name: User, action_tags: [activate, create, create_api_token, destroy, disable, login_as, read, update, upload_attachments] }
+  - name: trail_basic_account_admin
+    plans: [free, basic, advanced]
+    type: customer
+    resources:
+      - { name: Activity, action_tags: [read] }
+      - { name: Address, action_tags: [create, destroy, read, update] }
+      - { name: ApiToken, action_tags: [read] }
+      - { name: Article, action_tags: [create, delete_attachments, destroy, download_attachments, read, update, upload_attachments] }
+      - { name: ArticleGroup, action_tags: [create, destroy, read, update] }
+      - { name: BusinessHour, action_tags: [create, destroy, read, update] }
+      - { name: CalendarEntry, action_tags: [cancel, confirm, create, destroy, read, update] }
+      - { name: Comment, action_tags: [create, destroy, read, update, upload_attachments] }
+      - { name: Customer, action_tags: [create, destroy, read, update] }
+      - { name: CustomerNotificationRule, action_tags: [create, destroy, read, update] }
+      - { name: Device, action_tags: [create, destroy, list_devices_for_customer, list_repair_sets, read, update] }
+      - { name: DeviceColor, action_tags: [create, destroy, read, update] }
+      - { name: DeviceFailureCategory, action_tags: [create, destroy, read, update] }
+      - { name: DeviceManufacturer, action_tags: [create, destroy, read, update] }
+      - { name: [DeviceModel , DeviceModelCategory], action_tags: [create, destroy, download_attachments, read, update, upload_attachments] }
+      - { name: [Document, DefaultDocument, CsvDocument, InvoiceDocument, KvaDocument, OrderDocument, PdfDocument, PreviewDocument, RepairReportDocument], action_tags: [download_attachments, read, upload_attachments] }
+      - { name: Insurance, action_tags: [create, destroy, read, update] }
+      - { name: Issue, action_tags: [table_possible_repair_sets,activate, cancel, complete, create, deactivate, destroy, device_received, done_repairing_successfull, done_repairing_unsuccessfull, edit_workflow, lock, open, print_canceld_invoice, print_invoice, print_kva, preview_document, print_order, re_activate, read, reset_repairing, start_repairing, stop_repairing, unlock, update] }
+      - { name: IssueEntry, action_tags: [create, destroy, read, update] }
+      - { name: Merchant, action_tags: [create, destroy, read, update, upload_attachments] }
+      - { name: Notification, action_tags: [destroy, read] }
+      - { name: PaperTrail::IssueVersion, action_tags: [read] }
+      - { name: PurchaseOrder, action_tags: [cancel, create, destroy, destroy_workflow, edit_workflow, order, order_delivered, read, split_helper, update, view_linked_purchase_orders] }
+      - { name: PurchaseOrderEntry, action_tags: [create, destroy, read, update] }
+      - { name: RepairSet, action_tags: [create, destroy, read, update] }
+      - { name: RepairSetEntry, action_tags: [create, destroy, read, update] }
+      - { name: Sequence, action_tags: [create, destroy, read, update] }
+      - { name: Setting, action_tags: [read, update] }
+      - { name: ApplicationSetting, action_tags: [read, update] }
+      - { name: GlobalSetting, action_tags: [read, update] }
+      - { name: BookingSetting, action_tags: [read, update] }
+      - { name: Stock, action_tags: [export, read] }
+      - { name: StockArea, action_tags: [create, destroy, read, update] }
+      - { name: StockLocation, action_tags: [create, destroy, read, update] }
+      - { name: StockMovement, action_tags: [create, read] }
+      - { name: StockReservation, action_tags: [read] }
+      - { name: Supplier, action_tags: [create, destroy, read, update] }
+      - { name: SupplierArticle, action_tags: [add_to_articles, create, destroy, import, read, reorder, update, upload_attachments] }
+      - { name: SupplierSource, action_tags: [create, destroy, read, update] }
+      - { name: Template, action_tags: [create, destroy, read, update] }
+      - { name: User, action_tags: [activate, create, create_api_token, destroy, disable, login_as, read, update, upload_attachments] }
+
+  - name: admin
+    type: system
+    resources:
+      - { name: Account, action_tags: [create, destroy, read, update, activate] }
+      - { name: Activity, action_tags: [read] }
+      - { name: Address, action_tags: [create, destroy, read, update] }
+      - { name: ApiToken, action_tags: [read] }
+      - { name: AppConfig, action_tags: [create, destroy, read, update] }
+      - { name: Article, action_tags: [create, delete_attachments, destroy, download_attachments, read, update, upload_attachments] }
+      - { name: ArticleGroup, action_tags: [create, destroy, read, update] }
+      - { name: BusinessHour, action_tags: [create, destroy, read, update] }
+      - { name: CalendarEntry, action_tags: [cancel, confirm, create, destroy, read, update] }
+      - { name: Comment, action_tags: [create, destroy, read, update, upload_attachments] }
+      - { name: Customer, action_tags: [create, destroy, read, update] }
+      - { name: CustomerNotificationRule, action_tags: [create, destroy, read, update] }
+      - { name: Device, action_tags: [create, destroy, list_devices_for_customer, list_repair_sets, read, update] }
+      - { name: DeviceColor, action_tags: [create, destroy, read, update] }
+      - { name: DeviceFailureCategory, action_tags: [create, destroy, read, update] }
+      - { name: DeviceManufacturer, action_tags: [create, destroy, read, update] }
+      - { name: [DeviceModel , DeviceModelCategory], action_tags: [create, destroy, download_attachments, read, update, upload_attachments] }
+      - { name: [Document, DefaultDocument, CsvDocument, InvoiceDocument, KvaDocument, OrderDocument, PdfDocument, PreviewDocument, RepairReportDocument], action_tags: [download_attachments, read, upload_attachments] }
+      - { name: Insurance, action_tags: [create, destroy, read, update] }
+      - { name: Issue, action_tags: [table_possible_repair_sets,activate, cancel, complete, create, deactivate, destroy, device_received, done_repairing_successfull, done_repairing_unsuccessfull, edit_workflow, lock, open, print_canceld_invoice, print_invoice, print_kva, preview_document, print_order, re_activate, read, reset_repairing, start_repairing, stop_repairing, unlock, update] }
+      - { name: IssueEntry, action_tags: [create, destroy, read, update] }
+      - { name: Merchant, action_tags: [create, destroy, read, update, upload_attachments] }
+      - { name: Notification, action_tags: [destroy, read] }
+      - { name: PurchaseOrder, action_tags: [cancel, create, destroy, destroy_workflow, edit_workflow, order, order_delivered, read, split_helper, update, view_linked_purchase_orders] }
+      - { name: PurchaseOrderEntry, action_tags: [create, destroy, read, update] }
+      - { name: RepairSet, action_tags: [create, destroy, read, update] }
+      - { name: RepairSetEntry, action_tags: [create, destroy, read, update] }
+      - { name: Sequence, action_tags: [create, destroy, read, update] }
+      - { name: Setting, action_tags: [read, update] }
+      - { name: ApplicationSetting, action_tags: [read, update] }
+      - { name: GlobalSetting, action_tags: [read, update] }
+      - { name: BookingSetting, action_tags: [read, update] }
+      - { name: Stock, action_tags: [export, read] }
+      - { name: StockArea, action_tags: [create, destroy, read, update] }
+      - { name: StockLocation, action_tags: [create, destroy, read, update] }
+      - { name: StockMovement, action_tags: [create, read] }
+      - { name: StockReservation, action_tags: [read] }
+      - { name: Supplier, action_tags: [create, destroy, read, update] }
+      - { name: SupplierArticle, action_tags: [add_to_articles, create, destroy, import, read, reorder, update, upload_attachments] }
+      - { name: SupplierSource, action_tags: [create, destroy, read, update] }
+      - { name: Template, action_tags: [create, destroy, read, update] }
+      - { name: User, action_tags: [activate, create, create_api_token, destroy, disable, login_as, read, update, upload_attachments] }
+      - { name: Event, action_tags: [read] }
+      - { name: EventJob, action_tags: [read] }
+      - { name: WebhookRequest, action_tags: [read] }
+      - { name: WebhookRequestJob, action_tags: [read] }

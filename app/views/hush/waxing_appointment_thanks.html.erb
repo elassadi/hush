@@ -1,0 +1,39 @@
+<%= render 'wellness_meta_styles' %>
+
+<div class="wellness-page">
+  <%= render 'wellness_header' %>
+  <%= render 'wellness_mobile_menu' %>
+  <%= render 'wellness_scroll_to_top' %>
+
+  <main>
+    <div class="container">
+      <div class="appointment-booking" style="max-width: 800px; margin: 140px auto 8rem; padding: 4rem 2rem; text-align: center;">
+        <div class="booking-header">
+          <h1 style="font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 300; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 2rem;">
+            <%= t('hush.wellness.appointment.thanks_title', default: 'Vielen Dank!') %>
+          </h1>
+          <p class="booking-subtitle" style="font-size: 1.1rem; font-weight: 300; color: var(--gray); margin-top: 1rem;">
+            <%= t('hush.wellness.appointment.thanks_subtitle', default: 'Ihre Terminanfrage wurde erfolgreich übermittelt.') %>
+          </p>
+        </div>
+
+        <div style="margin-top: 3rem; padding: 2rem; border: 1px solid var(--black);">
+          <p style="font-size: 1rem; line-height: 1.8; color: var(--black); margin-bottom: 1.5rem;">
+            <%= t('hush.wellness.appointment.thanks_message', default: 'Wir werden Ihre Anfrage überprüfen und Sie in Kürze kontaktieren, um den Termin zu bestätigen.') %>
+          </p>
+          <p style="font-size: 0.95rem; line-height: 1.8; color: var(--gray);">
+            <%= t('hush.wellness.appointment.thanks_footer', default: 'Sie erhalten eine Bestätigung per SMS oder E-Mail.') %>
+          </p>
+        </div>
+
+        <div style="margin-top: 3rem;">
+          <a href="<%= waxing_appointment_path(locale: I18n.locale) %>" class="cta-button" style="display: inline-block; padding: 1rem 3rem; background: var(--black); color: var(--white); text-decoration: none; text-transform: uppercase; letter-spacing: 0.1em; transition: all 0.3s ease;">
+            <%= t('hush.wellness.appointment.book_another', default: 'Weiteren Termin buchen') %>
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <%= render 'wellness_footer' %>
+</div>

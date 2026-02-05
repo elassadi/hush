@@ -1,0 +1,5 @@
+name: default-calendar-reminder-sms-template
+type: sms
+protected: true
+body: |
+  Hallo, Bitte denken Sie an Ihren Termin bei {{merchant.branch_name}}. {{calendar_entry.start_at}}. {{merchant.address.street_address}}, {{merchant.address.post_code}} {{merchant.address.city}}

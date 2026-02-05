@@ -1,0 +1,58 @@
+<% if resource.generate_two_factor_secret_if_missing! %>
+<section >
+		<div class="container">
+			<div class="row justify-content-md-center ">
+        <div class="card">
+          <div class="card-header">
+            1. Scan QR Code
+          </div>
+          <div class="card-body">
+            <p>Please scan the below QR code using an OTP compatible app (such as Google Authenticator or Authy).</p>
+            <hr />
+            <p class="text-center">
+              <%= qr_code_as_svg(resource.two_factor_qr_code_uri) %>
+            </p>
+            <hr />
+            <p class="text-center">
+              If you cannot scan, please enter the following code manually: <code><%= resource.otp_secret%></code>
+            </p>
+          </div>
+        </div>
+
+			</div>
+		</div>
+	</section>
+
+<% end %>
+
+	<section class="h-100">
+		<div class="container h-100">
+			<div class="row justify-content-md-center h-100">
+				<div class="card-wrapper">
+					<div class="brand">
+						<img src="/fresh-logo.svg" alt="logo">
+					</div>
+					<div class="card fat">
+						<div class="card-body">
+							<h4 class="card-title">Two Factor Authentication</h4>
+             <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), method: :post) do |f| %>
+              <div class="form-group">
+                <%= f.input :otp_attempt, label: 'Code',  :input_html => { :class => 'form-control'}  %>
+              </div>
+              <div class="actions">
+
+                <%= f.submit 'Login', class: 'btn btn-primary btn-block  login-button ' %>
+              </div>
+            <% end %>
+						</div>
+					</div>
+					<div class="footer">
+						Copyright &copy; 2024 &mdash; Recloud
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+<%= render "static_pages/footer" %>

@@ -1,0 +1,37 @@
+require 'rails_helper'
+RSpec.describe <%= module_name %>::<%= module_event_name %>::<%= @action.camelize %> do
+  describe "#call" do
+    subject(:call) do
+      described_class.call()
+    end
+
+    include_context "setup demo account and user"
+    include_context "setup system user"
+
+    let(:<%= @action %>) do
+      instance_double(GenericClass::TobeMocked)
+    end
+
+    before do
+      allow(GenericClass::TobeMocked).to receive(:new).and_return(<%= @action %>)
+    end
+
+    context "" do
+      let(:contract) { create(:contract, :active) }
+
+      it "returns success result" do
+        expect(<%= @action %>).to receive(:call).and_return(Dry::Monads::Success(contract))
+        expect(call).to be_success
+        expect(call.success).to be_truthy
+      end
+    end
+  end
+end
+
+
+
+
+
+
+
+

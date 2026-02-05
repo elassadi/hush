@@ -1,0 +1,37 @@
+<%= field_wrapper **field_wrapper_args do %>
+
+  <%
+  @columns = [
+  { header: 'Auftragsnummer', key: :sequence_id, field_id: 'sequence_id', field_type: 'uuid' },
+  { header: 'Status', key: :status, field_id: 'status', field_type: 'status_badge', cell_class: 'text-center' },
+  { header: 'Kunde', key: :customer, field_id: 'customer', field_type: 'belongs_to' },
+  { header: 'Erstellt am', key: :created_at, field_id: 'created_at', field_type: 'date_time' }
+]
+
+@columns = [
+  { header: 'Setname', key: :sequence_id, field_id: 'sequence_id', field_type: 'uuid' },
+  { header: 'Status', key: :status, field_id: 'status', field_type: 'status_badge', cell_class: 'text-center' },
+  { header: 'Price', key: :customer, field_id: 'customer', field_type: 'belongs_to' }
+]
+
+
+@rows = [
+  { id: 100957, resource_name: 'issues', sequence_id: '11162', status: 'Entwurf', customer: 'Ingrid Olsen'},
+  { id: 100957, resource_name: 'issues', sequence_id: '11162', status: 'Entwurf', customer: 'Ingrid Olsen'},
+  { id: 100957, resource_name: 'issues', sequence_id: '11162', status: 'Entwurf', customer: 'Ingrid Olsen'},
+  { id: 100957, resource_name: 'issues', sequence_id: '11162', status: 'Entwurf', customer: 'Ingrid Olsen'},
+  { id: 100957, resource_name: 'issues', sequence_id: '11162', status: 'Entwurf', customer: 'Ingrid Olsen'},
+  { id: 100957, resource_name: 'issues', sequence_id: '11162', status: 'Entwurf', customer: 'Ingrid Olsen'},
+  { id: 100957, resource_name: 'issues', sequence_id: '11162', status: 'Entwurf', customer: 'Ingrid Olsen'},
+  { id: 100957, resource_name: 'issues', sequence_id: '11162', status: 'Entwurf', customer: 'Ingrid Olsen'},
+  { id: 100957, resource_name: 'issues', sequence_id: '11162', status: 'Entwurf', customer: 'Ingrid Olsen'},
+  { id: 100957, resource_name: 'issues', sequence_id: '11162', status: 'Entwurf', customer: 'Ingrid Olsen'},
+  { id: 100957, resource_name: 'issues', sequence_id: '11162', status: 'Entwurf', customer: 'Ingrid Olsen'},
+  { id: 100957, resource_name: 'issues', sequence_id: '11162', status: 'Entwurf', customer: 'Ingrid Olsen'},
+  { id: 100957, resource_name: 'issues', sequence_id: '11162', status: 'Entwurf', customer: 'Ingrid Olsen'},
+  { id: 100957, resource_name: 'issues', sequence_id: '11162', status: 'Entwurf', customer: 'Ingrid Olsen'},
+  { id: 100958, resource_name: 'issues', sequence_id: '11163', status: 'Offen', customer: 'Hans Müller' }
+]
+  %>
+  <%= render partial: 'fields/table/show_table', locals: { columns: @columns, rows: @rows } %>
+<% end %>

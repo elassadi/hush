@@ -1,0 +1,2 @@
+class GlobalSetting < Setting
+end

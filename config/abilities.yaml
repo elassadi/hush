@@ -1,0 +1,263 @@
+abilities:
+
+  - name: public_api_abilities
+    resources:
+      - { name: DeviceManufacturer, action_tags: [read] }
+      - { name: DeviceModel, action_tags: [read] }
+      - { name: DeviceColor, action_tags: [read] }
+      - { name: DeviceFailureCategory, action_tags: [read] }
+      - { name: RepairSet, action_tags: [read] }
+      - { name: CalendarEntry, action_tags: [create] }
+
+
+
+
+  - name: basic_abilities
+    resources:
+      - { name: Address, action_tags: [read] }
+      - { name: Activity, action_tags: [read] }
+      - { name: Comment, action_tags: [read, upload_attachments] }
+      - { name: Device, action_tags: [read, list_devices_for_customer] }
+      - { name: DeviceColor, action_tags: [read] }
+      - { name: DeviceFailureCategory, action_tags: [read] }
+      - { name: DeviceManufacturer, action_tags: [read] }
+      - { name: DeviceModel, action_tags: [read] }
+      - { name: Document, action_tags: [read, upload_attachments, download_attachments] }
+      - { name: Customer, action_tags: [read] }
+      - { name: Merchant, action_tags: [read, destroy] }
+      - { name: StockArea, action_tags: [read] }
+      - { name: StockLocation, action_tags: [read] }
+      - { name: Supplier, action_tags: [read] }
+      - { name: Insurance, action_tags: [read] }
+      - { name: Notification, action_tags: [read] }
+      - { name: StockReservation, action_tags: [read] }
+      - { name: ApiToken, action_tags: [read] }
+
+
+
+  - name: user_abilities
+    resources:
+      - { name: User, action_tags: [read, upload_attachments] }
+
+
+  - name: comment_abilities
+    resources:
+      - { name: Comment, action_tags: [read, create, update, destroy] }
+
+  - name: notification_abilities
+    resources:
+      - { name: Notification, action_tags: [read, destroy] }
+
+  - name: stock_abilities
+    resources:
+      - { name: Stock, action_tags: [read, export] }
+      - { name: StockArea, action_tags: [read, create, update, destroy] }
+      - { name: StockLocation, action_tags: [read, create, update, destroy] }
+      - { name: StockMovement, action_tags: [read, create] }
+
+  - name: crm_abilities
+    resources:
+      - { name: Customer, action_tags: [read, create, update, destroy] }
+      - { name: Address, action_tags: [read, create, update, destroy] }
+      - { name: Supplier, action_tags: [read, create, update, destroy] }
+      - { name: Insurance, action_tags: [read, create, update, destroy] }
+      - { name: Merchant, action_tags: [read, create, update, destroy, upload_attachments] }
+      - { name: BusinessHour, action_tags: [read, create, update, destroy] }
+
+  - name: device_abilities
+    resources:
+      - { name: Device, action_tags: [read, create, update, destroy] }
+      - { name: DeviceColor, action_tags: [read, create, update, destroy] }
+      - { name: DeviceFailureCategory, action_tags: [read, create, update, destroy] }
+      - { name: DeviceManufacturer, action_tags: [read, create, update, destroy] }
+      - { name: DeviceModel, action_tags: [read, create, update, destroy, upload_attachments, download_attachments] }
+
+
+  - name: article_abilities
+    resources:
+      - { name: Article, action_tags: [
+            read, create, update, destroy,
+            upload_attachments, download_attachments, delete_attachments
+          ]
+        }
+      - { name: ArticleGroup, action_tags: [read, create, update, destroy] }
+      - { name: SupplierArticle, action_tags: [read, create, update, destroy, reorder] }
+      - { name: SupplierSource, action_tags: [read, create, update, destroy] }
+
+  - name: issue_abilities
+    resources:
+      - { name: RepairSet, action_tags: [read, create, update, destroy] }
+      - { name: RepairSetEntry, action_tags: [read, create, update, destroy] }
+      - { name: Issue, action_tags: [read, create, update, destroy, deactivate, activate,re_activate, lock, unlock] }
+      - { name: IssueEntry, action_tags: [read, create, update, destroy] }
+      - { name: Template, action_tags: [read] }
+      - { name: CalendarEntry, action_tags: [read, create, update, cancel, confirm, destroy] }
+
+  - name: admin_issue_actions
+    resources:
+      - { name: Issue, action_tags: [open, print_kva, device_received, cancel, edit_workflow,print_invoice, print_canceld_invoice, complete, print_order, start_repairing,stop_repairing, reset_repairing,
+          done_repairing_successfull, done_repairing_unsuccessfull, lock, unlock] }
+      - { name: CalendarEntry, action_tags: [read, create, update, cancel, confirm, destroy] }
+
+  - name: technician_issue_actions
+    resources:
+      - { name: Issue, action_tags: [print_kva, device_received, cancel, edit_workflow, print_order, start_repairing,stop_repairing, reset_repairing,
+          done_repairing_successfull, done_repairing_unsuccessfull]
+        }
+
+  - name: sale_issue_actions
+    resources:
+      - { name: Issue, action_tags: [print_kva, device_received, cancel, edit_workflow, print_invoice, print_canceld_invoice,
+          complete, print_order] }
+
+  - name: supplier_article_actions
+    resources:
+      - { name: SupplierArticle, action_tags: [import, upload_attachments, add_to_articles] }
+
+  - name: user_acount_admin_abilities
+    resources:
+      - { name: User, action_tags: [read, create, update, destroy, login_as,  activate, disable, upload_attachments, create_api_token] }
+
+  - name: settings_abilities
+    resources:
+      - { name: Setting, action_tags: [read, update] }
+      - { name: ApplicationSetting, action_tags: [read, update] }
+      - { name: GlobalSetting, action_tags: [read, update] }
+      - { name: CustomerNotificationRule, action_tags: [read, update, create, destroy] }
+      - { name: Sequence, action_tags: [read, update, create, destroy] }
+
+  - name: on_boarding_basic
+    resources:
+      - { name: Address, action_tags: [read, create, update, destroy] }
+
+  - name: on_boarding_merchant
+    resources:
+      - { name: Merchant, action_tags: [read, update, upload_attachments] }
+
+  - name: purchase_abilities
+    resources:
+      - { name: PurchaseOrder, action_tags: [read, create, update, destroy, order, cancel,
+          order_delivered, split_helper, view_linked_purchase_orders]
+        }
+      - { name: PurchaseOrderEntry, action_tags: [read, create, update, destroy] }
+
+  - name: purchase_actions
+    resources:
+      - { name: PurchaseOrder, action_tags: [edit_workflow, destroy_workflow] }
+
+
+
+
+# admin abilties
+
+  - name: account_admin_abilities
+    resources:
+      - { name: Template, action_tags: [read, create, update, destroy] }
+      - { name: PaperTrail::IssueVersion, action_tags: [read] }
+
+
+
+
+
+
+# admin abilties
+
+  - name: admin_abilities
+    resources:
+      - { name: Account, action_tags: [read, create, update, destroy] }
+      - { name: Template, action_tags: [read, create, update, destroy] }
+      - { name: AppConfig, action_tags: [read, create, update, destroy] }
+      - { name: User, action_tags: [read, create, update, destroy, login_as, create_api_token, activate, disable] }
+
+
+
+roles:
+
+  - name: public_api
+    type: customer
+    abilities:
+      - public_api_abilities
+
+  - name: on_boarding
+    type: customer
+    abilities:
+      - on_boarding_merchant
+      - on_boarding_basic
+      - user_abilities
+      - notification_abilities
+
+  - name: technician
+    type: customer
+    abilities:
+      - basic_abilities
+      - user_abilities
+      - comment_abilities
+      - notification_abilities
+      - stock_abilities
+      - crm_abilities
+      - article_abilities
+      - issue_abilities
+      - technician_issue_actions
+      - device_abilities
+      - purchase_abilities
+      - purchase_actions
+      - supplier_article_actions
+
+  - name: sale
+    type: customer
+    abilities:
+      - basic_abilities
+      - user_abilities
+      - comment_abilities
+      - notification_abilities
+      - stock_abilities
+      - crm_abilities
+      - article_abilities
+      - issue_abilities
+      - sale_issue_actions
+      - device_abilities
+      - purchase_abilities
+      - purchase_actions
+      - supplier_article_actions
+
+
+  - name: account_admin
+    type: customer
+    abilities:
+      - basic_abilities
+      - comment_abilities
+      - notification_abilities
+      - stock_abilities
+      - crm_abilities
+      - article_abilities
+      - issue_abilities
+      - admin_issue_actions
+      - device_abilities
+      - supplier_article_actions
+      - user_acount_admin_abilities
+      - settings_abilities
+      - purchase_abilities
+      - purchase_actions
+      - account_admin_abilities
+
+
+
+  - name: admin
+    type: system
+    abilities:
+      - admin_abilities
+      - basic_abilities
+      - comment_abilities
+      - notification_abilities
+      - stock_abilities
+      - crm_abilities
+      - article_abilities
+      - issue_abilities
+      - admin_issue_actions
+      - device_abilities
+      - supplier_article_actions
+      - user_acount_admin_abilities
+      - settings_abilities
+      - purchase_abilities
+      - purchase_actions
+

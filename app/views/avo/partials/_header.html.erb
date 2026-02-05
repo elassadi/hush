@@ -1,0 +1,9 @@
+
+sssss
+ssssss<div class="flex items-center p-3 rounded shadow-md">
+  <%= link_to '/', class: "flex items-center font-semibold space-x-2 #{Rails.env.production? ? 'text-red-500' : 'text-blue-500'}", target: :_blank do %>
+    <span class="text-gray-800 font-bold">Core:</span>
+    <span class=" whitespace-nowrap  text-xs uppercase font-semibold inline-flex items-center px-2 py-1 rounded  text-white bg-primary-500 "><%= ENV["RELEASE_NAME"] %></span>
+    <span class="text-gray-500">deployed: <%= time_ago_in_words(Time.parse(ENV["RELEASE_DATE"])) %> ago</span>
+  <% end %>
+</div>

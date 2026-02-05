@@ -1,0 +1,3 @@
+<%= field_wrapper **field_wrapper_args do %>
+  <%= @field.input_mode == :netto ? @field.value.to_currency : @field.value.to_brutto_currency(@field) %>
+<% end %>

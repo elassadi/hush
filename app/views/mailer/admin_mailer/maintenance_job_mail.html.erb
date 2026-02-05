@@ -1,0 +1,12 @@
+<h1>New Maintenance Job Completed</h1>
+
+<p><strong>Summary of the maintenance job:</strong></p>
+<ul>
+  <li>Mismatch found in <%= @stats[:miss_match_reservation_counter] %> reservations</li>
+  <li>Stock mismatch corrected for <%= @stats[:miss_match_counter] %> articles</li>
+  <li>Supplier sources updated for <%= @stats[:mismatched_articles] %> articles</li>
+  <li>Total articles checked: <%= @stats[:total_articles_checked] %></li>
+  <li>Total pending reservations: <%= @stats[:total_pending_reservations] %></li>
+</ul>
+
+<p>Maintenance job details were completed successfully.</p>

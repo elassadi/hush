@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Buchungsfunktion nicht aktiviert</title>
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <link rel="stylesheet" href="/assets/avo.tailwind.css" media="all" />
+  <link rel="stylesheet" href="/assets/core.css" media="all" />
+  <link rel="stylesheet" href="/avo-assets/avo.base.css" data-turbo-track="reload" defer="defer" />
+</head>
+
+<body class="rails-default-error-page">
+  <!-- component -->
+  <div class="bg-gray-200 w-full px-16 md:px-0 h-screen flex items-center justify-center">
+    <div class="bg-white border border-gray-200 flex flex-col items-center justify-center px-4 md:px-8 lg:px-24 py-8 rounded-lg shadow-2xl">
+      <p class="text-2xl md:text-3xl lg:text-5xl font-bold tracking-wider text-gray-500 mt-4">Buchungsfunktion nicht aktiviert</p>
+      <p class="text-gray-500 mt-4 pb-4 border-b-2 text-center">
+        Die Buchungsfunktion f&uuml;r dieses Konto ist derzeit nicht aktiviert.
+      </p>
+
+      <div class="bg-blue-100 border border-blue-300 text-blue-700 px-4 py-3 rounded-lg mt-6 text-center" role="alert">
+        <p class="font-semibold">Hinweis f&uuml;r Administratoren</p>
+        <p class="mt-2">
+          Wenn Sie der Administrator dieses Kontos sind, melden Sie sich bitte unten an, und aktivieren Sie die Buchungsfunktion in den globalen Einstellungen.
+        </p>
+      </div>
+
+      <a href="/users/sign_in" class="flex items-center space-x-2 bg-teal-600 hover:bg-teal-700 text-gray-100 px-4 py-2 mt-6 rounded transition duration-150" title="Anmelden">
+        <span>Anmelden</span>
+      </a>
+    </div>
+  </div>
+</body>
+</html>

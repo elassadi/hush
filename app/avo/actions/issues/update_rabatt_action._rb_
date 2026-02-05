@@ -1,0 +1,28 @@
+module Issues
+  class UpdateRabattAction < ::ApplicationBaseAction
+    self.name = t(:name)
+    self.message = t(:message)
+
+    self.visible = lambda do
+      return false
+    end
+
+    field :rabatt, as: :price, default: "0.0", input_mode: :brutto,
+                  help: t(:help)
+
+    def handle(**args)
+      model = args[:models].first
+      rabatt = args[:fields][:rabatt].to_f
+
+      authorize_and_run(:update, model) do |issue|
+        update_rabatt.call(issue_id: issue.id, rabatt: )
+      end
+
+      close_frame
+    end
+
+    private
+
+    def update_rabatt = Issues::UpdateRabattTransaction
+  end
+end

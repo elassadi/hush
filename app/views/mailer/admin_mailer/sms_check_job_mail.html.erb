@@ -1,0 +1,27 @@
+
+  <h1>SMS Check Job Summary</h1>
+
+  <p>Hello Admin,</p>
+
+  <p>The SMS Check Job has completed its execution. Below is the summary:</p>
+
+  <table style="border-collapse: collapse; width: 100%;">
+    <thead>
+      <tr>
+        <th style="border: 1px solid #ddd; padding: 8px;">Statistic</th>
+        <th style="border: 1px solid #ddd; padding: 8px;">Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="border: 1px solid #ddd; padding: 8px;">Total Checks Done</td>
+        <td style="border: 1px solid #ddd; padding: 8px;"><%= @stats[:checks_done] %></td>
+      </tr>
+      <tr>
+        <td style="border: 1px solid #ddd; padding: 8px;">Successful Checks</td>
+        <td style="border: 1px solid #ddd; padding: 8px;"><%= @stats[:successful_checks] %></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>Best regards,<br>ReCloud SMS Monitoring Team</p>

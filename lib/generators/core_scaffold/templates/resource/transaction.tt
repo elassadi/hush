@@ -1,0 +1,22 @@
+module <%= module_name %>
+  class <%= transaction_class %> < BaseTransaction
+    attributes :<%= model %>_id
+
+    def call
+      <%= model %> = <%= model_class %>.find(<%= model %>_id)
+      ActiveRecord::Base.transaction do
+        yield <%= action_name %>_<%= model %>.call(<%= model %>:)
+      end
+      Success(<%= model %>)
+    rescue Dry::Monads::Do::Halt => e
+      ErrorTracking.capture_message(
+        "#{self.class.name} for <%= model %> #{<%= model %>_id} failed with #{e.result.failure}"
+      )
+      raise
+    end
+
+    private
+
+    def <%= action_name %>_<%= model %> = <%= module_name %>::<%= class_name %>Operation
+  end
+end

@@ -1,0 +1,70 @@
+<!-- Pricing Section -->
+<section id="pricing" class="wellness-section">
+  <h2><%= t('hush.wellness.nav.pricing') %></h2>
+
+  <div class="pricing-section">
+    <p style="text-align: center; max-width: 600px; margin: 0 auto 2rem;"><%= t('hush.wellness.pricing.description') %></p>
+
+    <!-- Gender Tabs -->
+    <div class="pricing-tabs">
+      <button class="pricing-tab active" data-gender="women" onclick="switchPricingTab('women')">
+        <%= t('hush.wellness.pricing.women') %>
+      </button>
+      <button class="pricing-tab" data-gender="men" onclick="switchPricingTab('men')">
+        <%= t('hush.wellness.pricing.men') %>
+      </button>
+    </div>
+
+    <!-- Women's Pricing Table -->
+    <table class="pricing-table" id="pricing-table-women">
+      <thead>
+        <tr>
+          <th><%= t('hush.wellness.pricing.title') %></th>
+          <th><%= t('hush.wellness.pricing.price') %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render 'treatments_list', articles: @women_articles, mode: :pricing, gender: :women %>
+      </tbody>
+    </table>
+
+    <!-- Men's Pricing Table -->
+    <table class="pricing-table" id="pricing-table-men" style="display: none;">
+      <thead>
+        <tr>
+          <th><%= t('hush.wellness.pricing.title') %></th>
+          <th><%= t('hush.wellness.pricing.price') %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render 'treatments_list', articles: @men_articles, mode: :pricing, gender: :men %>
+      </tbody>
+    </table>
+
+    <div style="text-align: right; margin-top: 3rem;">
+      <a href="<%= waxing_appointment_path(locale: I18n.locale) %>" class="cta-button"><%= t('hush.wellness.hero.cta') %></a>
+    </div>
+  </div>
+</section>
+
+<script>
+  function switchPricingTab(gender) {
+    // Hide both tables
+    document.getElementById('pricing-table-women').style.display = 'none';
+    document.getElementById('pricing-table-men').style.display = 'none';
+
+    // Remove active class from all tabs
+    document.querySelectorAll('.pricing-tab').forEach(tab => {
+      tab.classList.remove('active');
+    });
+
+    // Show selected table and activate corresponding tab
+    if (gender === 'women') {
+      document.getElementById('pricing-table-women').style.display = 'table';
+      document.querySelector('.pricing-tab[data-gender="women"]').classList.add('active');
+    } else {
+      document.getElementById('pricing-table-men').style.display = 'table';
+      document.querySelector('.pricing-tab[data-gender="men"]').classList.add('active');
+    }
+  }
+</script>

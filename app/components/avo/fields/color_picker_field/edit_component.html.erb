@@ -1,0 +1,23 @@
+<%= field_wrapper **field_wrapper_args do %>
+  <%= @form.color_field @field.id,
+    class: helpers.input_classes('w-full py-0', has_error: @field.model_errors.include?(@field.id)).gsub('py-2', ''),
+    placeholder: @field.placeholder,
+    disabled: disabled?,
+    list: "beautifulColors"
+  %>
+
+
+
+<datalist id="beautifulColors">
+    <option>#F7CAC9</option> <!-- Pale Pink -->
+    <option>#F5CBA7</option> <!-- Peach -->
+    <option>#FFD662</option> <!-- Sunflower Yellow -->
+    <option>#d1edbc</option> <!-- Greenery -->
+    <option>#92A8D1</option> <!-- Serenity Blue -->
+    <option>#FFB3A5</option> <!-- Lighter Living Coral -->
+    <option>#A89DC9</option> <!-- Lighter Purple Haze -->
+    <option>#66CCB0</option> <!-- Lighter Sea Green -->
+    <option>#C89D9C</option> <!-- Lighter Marsala -->
+    <option>#6695B8</option> <!-- Lighter Deep Teal -->
+    </datalist>
+<% end %>

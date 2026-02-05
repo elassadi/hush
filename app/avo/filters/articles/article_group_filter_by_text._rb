@@ -1,0 +1,12 @@
+module Articles
+  class ArticleGroupFilter < Avo::Filters::TextFilter
+    self.name = 'Articlegroup Filter'
+
+    self.button_label = "Filter by group"
+
+    def apply(_request, query, value)
+      #query.where('article_group_id in (SELECT )', "%#{value}%")
+      query.where(article_group_id:  ArticleGroup.where('name LIKE ?', "%#{value}%"))
+    end
+  end
+end

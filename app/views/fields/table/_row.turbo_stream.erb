@@ -1,0 +1,23 @@
+<tr class="hover:bg-gray-50" data-action="click->table-field#selectRow" data-table-field-target="row" style="cursor: pointer;">
+  <!-- Checkbox Column -->
+  <td class="w-10">
+    <div class="flex justify-center h-full">
+      <input type="checkbox" name="<%= field.resource.model_class.to_s.underscore %>[<%= field.id %>][]"
+      class="mx-3 rounded checked:bg-primary-400 focus:checked:!bg-primary-400 w-4 h-4"
+      data-table-field-target="rowCheckbox"
+      value="<%= row[:id] %>"
+      <%= "checked" if row[:selected] %>
+      >
+    </div>
+  </td>
+
+  <% columns.each do |column| %>
+    <td class="<%= column[:cell_class] || '  cursor-pointer min-h-[3rem] px-3 leading-tight whitespace-nowrap h-full text-slate-800 text-base py-3' %>" data-field-id="<%= column[:id] %>" data-field-type="<%= column[:field_type] %>">
+      <% if column[:render_partial] %>
+        <%= render partial: column[:render_partial], locals: { value: row[column[:id]], row: row } %>
+      <% else %>
+        <%= row[column[:id]] %>
+      <% end %>
+    </td>
+  <% end %>
+</tr>

@@ -1,0 +1,157 @@
+# Name of your application. Used to uniquely configure containers.
+service: hush
+
+# Name of the container image.
+image: elassadi/hush
+
+# Deploy to these servers.
+servers:
+  web:
+    hosts:
+      - 157.180.33.216
+
+  job:
+    hosts:
+      - 157.180.33.216
+    cmd: bundle exec sidekiq -C config/sidekiq.yml
+    # options:
+    #   network: "private"
+# Credentials for your image host.
+
+registry:
+  # Specify the registry server, if you're not using Docker Hub
+  server: ghcr.io
+  username: elassadi
+
+  # Always use an access token rather than real password when possible.
+  password:
+    - KAMAL_REGISTRY_PASSWORD
+
+# Inject ENV variables into containers (secrets come from .env).
+# Remember to run `kamal env push` after making changes!
+env:
+  clear:
+    DB_HOST: 10.0.0.2
+    RAILS_ENV: production
+    ACTIVE_STORAGE_SERVICE: microsoft
+    AZURE_STORAGE_ACCOUNT_NAME: myrecloud
+    AZURE_STORAGE_CONTAINER: production-documents
+    CONVERTER_URL: http://10.0.0.2:5000
+    DATABASE_HOST: 10.0.0.2
+    DATABASE_NAME: hush_production
+    DATABASE_PORT: '3306'
+    HUSH_DB: hush_production
+    MAILJET_ATTACHMENTS_FOLDER: storage/attachments
+    MAILJET_DEFAULT_FROM: '"support@hush-haarentfernung.de"'
+    MAX_IMPORT_LIMIT: '1000000'
+    RAILS_MAX_THREADS: '5'
+    RAILS_SERVE_STATIC_FILES: 'true'
+    REDIS_SIDEKIQ_URL: redis://10.0.0.2:6379/10
+    REDIS_URL: redis://10.0.0.2:6379/10
+    REDOCS_URL: https://docs.hush-haarentfernung.de
+    SMTP_ADDRESS: mail.your-server.de
+    SMTP_AUTHENTICATION: login
+    SMTP_DOMAIN: your-server.de
+    SMTP_ENABLE_STARTTLS_AUTO: 'true'
+    SMTP_PORT: '587'
+    DATABASE_USER: root
+    LOG_LEVEL: error
+    RAILS_LOG_TO_STDOUT: 'true'
+    RECLOUD_SMS_API_URL: http://sms-server.myhush-haarentfernung.de:8080
+    RECLOUD_SMS_API_PASSWORD: DZn7pzdC
+    RECLOUD_SMS_API_USERNAME: sms
+    SMS_SERVER_ZONE_ID: 443ba2b91b4f6be7a23349fefcc60a2f
+    SMS_SERVER_RECORD_ID: 86b2427e3f25644df3e300bce21a9e6c
+    SMS_SERVER_RECORD_NAME: sms-server
+
+
+  secret:
+    - MYSQL_ROOT_PASSWORD
+    - AZURE_STORAGE_ACCESS_KEY
+    - CONVERTER_TOKEN
+    - DATABASE_PASSWORD
+    - MAILJET_API_KEY
+    - MAILJET_API_SECRET
+    - RAILS_MASTER_KEY
+    - SECRET_TOKEN
+    - SENTRY_DSN
+    - SIDEKIQ_AUTH_PASSWORD
+    - SIDEKIQ_AUTH_USERNAME
+    - SMTP_PASSWORD
+    - SMTP_USERNAME
+    - RELEASE_DATE
+    - RELEASE_NAME
+    - RECAPTCHA_SITE_KEY
+    - RECAPTCHA_SECRET_KEY
+    - CLOUDFLARE_API_TOKEN
+
+
+
+# Configure builder setup.
+builder:
+  remote: ssh://root@157.180.33.216
+  arch: amd64
+  local: false
+  secrets:
+    - RAILS_MASTER_KEY
+    - SECRET_TOKEN
+  dockerfile: KamalDockerfile
+
+
+# Use accessory services (secrets come from .env).
+accessories:
+  db:
+    image: mysql:8.0
+    host: 157.180.33.216
+    port: 3306
+    env:
+      clear:
+        MYSQL_ROOT_HOST: '%'
+      secret:
+        - MYSQL_ROOT_PASSWORD
+    files:
+      # - config/mysql/production.cnf:/etc/mysql/my.cnf
+      - db/production.sql:/docker-entrypoint-initdb.d/setup.sql
+      - bin/backup_db.sh:/usr/bin/backup_db.sh
+    directories:
+      - data:/var/lib/mysql
+      #- backup:/backup
+    cmd: bash -c "docker-entrypoint.sh mysqld"
+  redis:
+    image: redis:7.0
+    host: 157.180.33.216
+    port: 6379
+    directories:
+      - data:/data
+  liquid:
+    image: ghcr.io/elassadi/liquid:68d7f8e
+    host: 157.180.33.216
+    port: 5000
+    cmd: bundle exec rails s -p 5000 -b 0.0.0.0
+
+
+
+
+# Configure a custom healthcheck (default is /up on port 3000)
+
+
+proxy:
+  hosts:
+    - www.hush-haarentfernung.de
+    - www.hush-app.de
+    - app.hush-haarentfernung.de
+    - hush-app.de
+    - hush-haarentfernung.de
+  ssl: true
+  app_port: 80
+  healthcheck:
+    path: /healthcheck
+
+deploy_timeout: 120   # in seconds
+drain_timeout: 60     # in seconds
+
+aliases:
+  info: details
+  shell: app exec --interactive --reuse "bash"
+  exec: app exec --reuse -p -r console
+  console: app exec --reuse -i "bin/rails console"

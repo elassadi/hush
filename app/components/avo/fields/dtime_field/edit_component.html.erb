@@ -1,0 +1,130 @@
+<%= field_wrapper **field_wrapper_args do %>
+  <%= content_tag :div, data:  { controller: "dtime-field"} do %>
+    <div class="flex space-x-2">
+      <%= content_tag :div, data: {
+          controller: "date-field",
+          date_field_view_value: @view,
+          date_field_enable_time_value: false,
+          date_field_format_value: @field.format,
+          date_field_picker_format_value: @field.picker_format || "d-m-Y H:i",
+          date_field_first_day_of_week_value: @field.first_day_of_week || 1,
+          date_field_disable_mobile_value: @field.disable_mobile,
+          date_field_field_type_value: "date",
+          date_field_locale_value: "de",
+          date_field_picker_options_value: @field.picker_options
+      } do %>
+        <%= @form.text_field @field.start_id,
+          value: @field.start_date_formatted_value,
+          class: classes("w-full #{"hidden" unless params[:avo_show_hidden_inputs]}"),
+          data: {
+            'date-field-target': 'input',
+            'dtime-field-target': 'startDateInput',
+            'action': "dtime-field#onDateChanged",
+            placeholder: @field.placeholder,
+            **@field.get_html(:data, view: view, element: :input)
+          },
+          disabled: disabled?,
+          placeholder: @field.placeholder,
+          style: @field.get_html(:style, view: view, element: :input)
+        %>
+        <%= datetime_field "fake_#{@field.start_id}", "fake",
+          value: @field.start_date_formatted_value,
+          class: classes("w-full"),
+          data: {
+            'date-field-target': 'fakeInput',
+            'dtime-field-target': 'startDateFakeInput',
+            'action': "dtime-field#onDateChanged",
+            placeholder: @field.placeholder,
+            **@field.get_html(:data, view: view, element: :input)
+          },
+          disabled: disabled?,
+          placeholder: @field.placeholder,
+          style: @field.get_html(:style, view: view, element: :input)
+        %>
+      <% end %>
+      <%= @form.select("#{@field.start_id}_time",
+          options_for_select(@field.generate_time_options,
+          selected: @field.start_time_formatted_value), {
+            include_blank: false
+          },
+          aria: {
+            placeholder: "place"
+          },
+          class: classes("w-24"),
+          data: {
+            'dtime-field-target': 'startTimeInput',
+            'action': "dtime-field#onDateChanged",
+          },
+          #data: @field.get_html(:data, view: view, element: :input),
+          disabled: disabled?,
+          style: @field.get_html(:style, view: view, element: :input),
+          value: @field.start_time_formatted_value,
+          placeholder: nil
+      ) unless @field.all_day
+      %>
+
+
+      <%= content_tag :div, data: {
+          controller: "date-field",
+          date_field_view_value: @view,
+          date_field_enable_time_value: false,
+          date_field_format_value: @field.format,
+          date_field_picker_format_value: @field.picker_format,
+          date_field_first_day_of_week_value: @field.first_day_of_week,
+          date_field_disable_mobile_value: @field.disable_mobile,
+          date_field_field_type_value: "date",
+          date_field_picker_options_value: @field.picker_options,
+      } do %>
+
+        <%= @form.text_field field.end_id,
+          value: @field.end_date_formatted_value,
+          class: classes("w-full #{"hidden" unless params[:avo_show_hidden_inputs]}"),
+          data: {
+            'date-field-target': 'input',
+            'dtime-field-target': 'endDateInput',
+            placeholder: @field.placeholder,
+            **@field.get_html(:data, view: view, element: :input)
+          },
+          disabled: disabled?,
+          placeholder: @field.placeholder,
+          style: @field.get_html(:style, view: view, element: :input)
+        %>
+        <%= datetime_field "fake_#{@field.end_id}", "fake",
+          value: @field.end_date_formatted_value,
+          class: classes("w-full"),
+          data: {
+            'date-field-target': 'fakeInput',
+            'dtime-field-target': 'endDateFakeInput',
+            'action': "dtime-field#onDateChanged",
+            placeholder: @field.placeholder,
+            **@field.get_html(:data, view: view, element: :input)
+          },
+          disabled: disabled?,
+          placeholder: @field.placeholder,
+          style: @field.get_html(:style, view: view, element: :input)
+        %>
+      <% end %>
+     <%= @form.select("#{@field.end_id}_time",
+          options_for_select(@field.generate_time_options,
+          selected: @field.end_time_formatted_value), {
+            include_blank: false
+          },
+          aria: {
+            placeholder: "place"
+          },
+          class: classes("w-24"),
+          #data: @field.get_html(:data, view: view, element: :input),
+          data: {
+            'dtime-field-target': 'endTimeInput',
+            'action': "dtime-field#onDateChanged",
+          },
+          disabled: disabled?,
+          style: @field.get_html(:style, view: view, element: :input),
+          #value: @field.model.present? ? @field.model[@field.id] : @field.value,
+          value: @field.end_time_formatted_value,
+          placeholder: nil
+      ) unless @field.all_day
+      %>
+    </div>
+  <% end %>
+<% end %>

@@ -1,0 +1,60 @@
+
+DDDDDDDDDDDDD
+<div class="flex flex-col">
+  <%= render Avo::PanelComponent.new(name: 'Wizard') do |c| %>
+    <% c.tools do %>
+      <div class="text-sm italic">This is the panels tools section.</div>
+    <% end %>
+
+    <% c.body do %>
+      <div class="flex flex-col justify-between py-6 min-h-24">
+        <div class="px-6 space-y-4">
+
+          <h3>What a nice new tool 👋</h3>
+
+          <p>
+            You can edit this file here <code class='p-1 rounded bg-gray-500 text-white text-sm'>app/views/avo/tools/issue_wizard.html.erb</code>.
+          </p>
+
+          <p>
+            For this tool we created the <code class='p-1 rounded bg-gray-500 text-white text-sm'>issue_wizard</code> method in the <code class='p-1 rounded bg-gray-500 text-white text-sm'>Avo::ToolsController</code>. You may delete it or move it to your own controller.
+          </p>
+
+          <p>
+            A new <code class='p-1 rounded bg-gray-500 text-white text-sm'>Issue wizard</code> item should have been added to the sidebar. Edit it in <code class='p-1 rounded bg-gray-500 text-white text-sm'>app/views/avo/sidebar/items/_issue_wizard.html.erb</code>
+          </p>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+
+<div class="flex flex-col">
+  <%= render Avo::PanelComponent.new(name: "NAmmmmme", description: "There should be an image of this fish below 🐠") do |c| %>
+
+    <% if form.present? %>
+      <% c.body do %>
+        <div class="divide-y">
+          <%= avo_edit_field :status, as: :text, form: form, helwp: "Set the fish type", required: true, component_options: {compact: false, stacked: false} %>
+
+        <%= avo_edit_field :device_manufacturer, form: form, resource: IssueResource.new(), as: :belongs_to,html: {
+    edit: {
+      input: {data: {"issue-resource-target": "deviceManufacturerBelongsToInput"}},
+      wrapper: {
+        style: "background: red;",
+      }
+    }
+  } %>
+
+
+          <%=  avo_edit_field :device_manufacturer_input,form: form, as: :select, hide_on: %i[show index],
+               options: lambda { |_args| ::Article.human_enum_names(:unit).invert}, display_with_value: true,
+               include_blank: false, searchable: true %>
+
+        </div>
+      <% end %>
+    <% else %>
+    <% end %>
+  <% end %>
+</div>

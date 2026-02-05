@@ -1,0 +1,27 @@
+module Merchants
+  class CreateAction < ::ApplicationBaseAction
+    self.name = "Create"
+
+    # test
+    self.visible = lambda do
+      return false unless view == :show
+
+      current_user.may?(:create, resource.model)
+    end
+
+    def handle(**args)
+      models = args[:models]
+      models.each do |model|
+        authorize_and_run(:create, model) do |merchant|
+          create(merchant)
+        end
+      end
+    end
+
+    private
+
+    def create(merchant)
+      Merchants::CreateTransaction.call(merchant_id: merchant.id)
+    end
+  end
+end

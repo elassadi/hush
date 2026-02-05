@@ -1,0 +1,235 @@
+
+#standort-panel {
+  padding-bottom: 10px;
+}
+#branch-address {
+  text-wrap: wrap;
+}
+/* Container for the steps */
+.steps-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Style for step number */
+.step-number {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  font-weight: bold;
+  color: #fff;
+}
+
+/* Active step number styling */
+.active-step {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+/* Inactive step styling */
+.step-number:not(.active-step) {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.3);
+}
+
+/* Step label styling */
+.step-label {
+  font-size: 16px;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+/* Step dividers */
+.step-divider {
+  flex-grow: 1;
+  height: 2px;
+  background-color: rgba(0, 0, 0, 0.1);
+  margin: 0 10px;
+}
+
+/* Make the active step label bold */
+.step-number.active-step + .step-label {
+  color: #007bff;
+}
+
+/* end header steps */
+
+
+  /* New wrapper for both main container and right panel */
+  .content-wrapper {
+    max-width: 1000px;
+    margin: 20px auto; /* Center with a margin */
+    padding: 20px;
+    background-color: #fff; /* Ensure it has a white background */
+  }
+
+  /* Main container styling */
+  .main-container {
+    border: 1px solid #d3d3d3; /* Grey border */
+    border-radius: 5px;
+    padding: 15px;
+    max-width: 550px;
+  }
+
+  /* Right panel styling */
+  .right-panel {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid #d3d3d3; /* Grey border for right panel */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); /* Apply the same shadow */
+    margin-left: 10px;
+  }
+
+  /* Small spacer container with fixed width */
+  .spacer-container {
+    width: 20px;
+    height: auto; /* Maintain full height of the row */
+  }
+
+  .row_flex {
+    display: flex;
+    flex-wrap: nowrap; /* Allow independent wrapping and height */
+    align-items: flex-start; /* Ensure independent alignment at the top */
+    margin-right: -15px;
+    margin-left: -15px;
+  }
+
+  .termin_p {
+    border-bottom: 1px solid rgb(233, 233, 233);
+    color: rgb(61, 61, 61);
+    color: #007bff;
+    margin-bottom: 4px;
+    padding-bottom: 4px;
+  }
+
+
+
+  .product-row {
+    display: flex;
+    justify-content: space-between; /* Align items to opposite sides */
+    width: 100%; /* Full width */
+    padding: 1px;
+    margin-bottom: 2px; /* Space between rows */
+    align-items: baseline;
+  }
+
+  .product-name {
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .product-price {
+    font-size: 16px;
+    color: #28a745; /* Optional color for the price */
+  }
+  .big-price {
+    margin: 10px; color:  #a2c613;
+    text-wrap: nowrap;
+  }
+  .price {
+    margin: 10px; color:  black;
+    text-wrap: nowrap;
+    font-size: 20px;
+  }
+  .hidden {
+    display: none;
+  }
+  .select2-container {
+    min-width: 100px !important;
+    width: 100% !important;
+  }
+
+
+  .container-flex {
+    display: flex;
+    align-items: flex-start; /* Align items at the top */
+  }
+
+  /* Calendar container to mimic the layout */
+  .calendar {
+    /* width: 300px;
+    border: 1px solid #ddd; */
+    padding: 10px;
+  }
+
+  /* Time picker scrollable div */
+  .time-picker {
+    width: 150px;
+    max-height: 300px; /* Set a max height to make it scrollable */
+    overflow-y: auto; /* Scrollable */
+    margin-left: 20px; /* Space between calendar and time picker */
+    /* border: 1px solid #ddd; */
+    border-radius: 5px;
+    padding: 10px;
+  }
+
+  /* Styling the time buttons */
+  .time-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    color: #007bff;
+    background-color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  /* Highlight button with blue border on hover */
+  .time-button:hover {
+    border-color: #007bff;
+    background-color: #e7f3ff;
+  }
+
+  /* Highlight selected button */
+  .time-button.active {
+    border-color: #007bff;
+    background-color: #f0f8ff;
+  }
+
+  .my-d-flex {
+    display: flex;
+    justify-content: space-between;
+  }
+  .form-group label{
+    font-size:12px;
+  }
+
+  /* On mobile, move the right panel under the main content */
+  @media (max-width: 768px) {
+    .flatpickr-calendar.inline {
+      margin: auto;
+    }
+    .right-panel {
+      margin-top: 20px;
+    }
+    .row_flex {
+      display: flex;
+      flex-wrap: wrap;
+      margin-right: -15px;
+      margin-left: -15px;
+    }
+
+    /* Hide spacer on mobile */
+    .spacer-container {
+      display: none;
+    }
+
+    .time-picker{
+        width: 95%;
+      }
+    .container-flex-mobile {
+      display: block;
+      align-items: flex-start; /* Align items at the top */
+    }
+
+  }

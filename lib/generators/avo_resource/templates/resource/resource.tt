@@ -1,0 +1,41 @@
+class <%= resource_class %>  < ApplicationBaseResource
+  include Concerns::ResourcesDefaultSetting
+  include Concerns::AccountField
+  _include Concerns::MerchantField
+  _include Concerns::OwnerField
+  include Concerns::DateResourceSidebar.with_fields(date_fields: %i(created_at updated_at))
+
+  STATUS_OPTIONS = {
+    gray: %w[unknown],
+    info: %w[],
+    success: %w[paid],
+    warning: %w[refunded],
+    danger: %w[unknown]
+  }.freeze
+
+  self.title = :id
+  self.includes = []
+  self.authorization_policy = GlobalDataAccessPolicy
+  # self.search_query = -> do
+  #   scope.ransack(id_eq: params[:q], m: "or").result(distinct: false)
+  # end
+
+ # self.resolve_query_scope = ->(model_class:) do
+  #   model_class.order(name: :asc)
+  # end
+
+   self.includes = []
+  
+  field :id, as: :id
+  field :status, as: :status_badge, options: STATUS_OPTIONS
+  # field :status, as: :select, hide_on: %i[show index],
+  #                options: lambda { |_args|
+  #                           ::Ability.human_enum_names(:status, translate: false).invert
+  #                         }, display_with_value: true,
+  #                placeholder: :please_select_ability, include_blank: false
+
+
+  # field :versions, as: :has_many, use_resource: ContractVersionResource, is_readonly: true
+  # filter ::Contracts::StatusFilter
+  # action ::Contracts::CreatePayment
+end

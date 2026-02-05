@@ -1,0 +1,112 @@
+name: default-calendar-confirmed-mail-template
+type: mail
+subject: Ihr Termin wurde bestätigt
+protected: true
+body: |
+  <center style="width: 100%; background: #ffffff">
+    <div style="max-width: 600px; margin: auto; padding: 0">
+      <table
+        style="border-collapse: collapse; max-width: 600px; margin: 0 auto"
+        width="100%"
+        align="center"
+      >
+        <tbody>
+          <tr>
+            <td style="padding: 30px 35px">
+              <p style="margin: 0; color: #555555">
+                Hallo {{customer.salutation}} {{customer.name}},<br /><br /><br />
+                Ihr Termin wurde best&auml;tigt!
+              </p>
+              <hr style="border-color: #f5f5f5; border-width: 1px; margin: 5px" />
+              <table style="border-collapse: collapse" width="100%">
+                <tbody>
+                  <tr>
+                    <td
+                      style="width: 60px; vertical-align: middle"
+                      align="center"
+                    >
+                      <img
+                        style="width: 30px"
+                        src="https://www.hush-haarentfernung.de/icons/mail-calendar.png"
+                      />
+                    </td>
+                    <td>
+                      <h2 style="font-size: 16px; margin: 0; font-weight: bold">
+                        Wann:
+                      </h2>
+                      <p style="margin: 0; color: #555555">
+                        {{calendar_entry.start_at}}
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <hr style="border-color: #f5f5f5; border-width: 1px; margin: 5px" />
+              <table style="border-collapse: collapse" width="100%">
+                <tbody>
+                  <tr>
+                    <td
+                      style="width: 60px; vertical-align: middle"
+                      align="center"
+                    >
+                      <img
+                        style="width: 30px"
+                        src="https://app.hush-haarentfernung.de/icons/mail-what.png"
+                      />
+                    </td>
+                    <td>
+                      <h2 style="font-size: 16px; margin: 0; font-weight: bold">
+                        Was:
+                      </h2>
+                      <p style="margin: 0; color: #555555">{{service_name}}</p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <hr style="border-color: #f5f5f5; border-width: 1px; margin: 5px" />
+              <table style="border-collapse: collapse" width="100%">
+                <tbody>
+                  <tr>
+                    <td
+                      style="width: 60px; vertical-align: middle"
+                      align="center"
+                    >
+                      <img
+                        style="width: 30px"
+                        src="https://www.hush-haarentfernung.de/icons/mail-where.png"
+                      />
+                    </td>
+                    <td>
+                      <h2 style="font-size: 16px; margin: 0; font-weight: bold">
+                        Wo:
+                      </h2>
+                      <p style="margin: 0; color: #555555">{{service_location}}</p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <hr style="border-color: #f5f5f5; border-width: 1px; margin: 5px" />
+              <table style="border-collapse: collapse" width="100%">
+                <tbody>
+                  <tr>
+                    <td
+                      style="width: 60px; vertical-align: middle"
+                      align="center"
+                    >
+                    <p style="font-size: smaller">
+                      {{merchant.branch_name}} <br>
+                      {{merchant.address.street_address}}<br>
+                      {{merchant.address.post_code}} {{merchant.address.city}}<br
+                    </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </center>
+

@@ -1,0 +1,4 @@
+# Dockerfile.min
+FROM alpine:3.20
+RUN echo "ok" > /ok.txt
+CMD ["sh", "-c", "cat /ok.txt && echo minimal-image-running && sleep 3600"]

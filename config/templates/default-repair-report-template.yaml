@@ -1,0 +1,83 @@
+name: default-repair-report-template
+type: print
+protected: true
+body: |
+  <table style="width: 100%" border="0">
+    <tbody>
+      <tr>
+        <td>
+          <h1>Reparaturbericht zum AUFTRAG {{issue.sequence_id}}</h1>
+        </td>
+        <td align="right">
+          <img
+            class="merchant_logo"
+            style="height: 80px"
+            src="{{merchant.logo_url}}"
+          />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <hr />
+  <table style="height: 431px" width="100%">
+    <tbody>
+      <tr>
+        <td width="70%">
+          <p style="font-size: smaller">
+            {{merchant.company_name}} ~ {{merchant.address.street_address}} ~
+            {{merchant.address.post_code}} {{merchant.address.city}}
+          </p>
+          <p>
+            <br />{{customer.salutation}}<br />{{customer.company_name}}<br />{{customer.name}}<br />{{customer.address.street_address}}
+            <br />{{customer.address.post_code}} {{customer.address.city}}
+          </p>
+        </td>
+        <td style="white-space: nowrap" align="right">
+          <p>
+            Auftragsnr. {{issue.sequence_id}}<br />Auftragsdatum:
+            {{issue.created_at | date}}<br />Kundennr.:{{customer.sequence_id}}<br />Ansprechpartner:
+            {{issue.owner_name}}
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td width="80%">
+          <p style="font-weight: bold">
+            Ger&auml;t: {{device.device_manufacturer_name}}
+            {{device.device_model_name}} {{device.device_color_name}}
+          </p>
+        </td>
+        <td style="white-space: nowrap" align="right">
+          <!-- {% if device.imei %}-->
+          <p style="font-weight: bold">IMEI: {{device.imei}}</p>
+          <!-- {% endif %}-->
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <h3>Auftrags-Nr.: {{issue.sequence_id}}</h3>
+  <p>
+    <br /><br />Sehr geehrte Damen und Herren,<br />Vielen Dank f&uuml;r Ihr
+    Vertrauen in uns. Wir haben Ihr Ger&auml;t {{device.device_manufacturer_name}}
+    {{device.device_model_name}} {{device.device_color_name}} erhalten und haben
+    folgendes festgestellt:
+  </p>
+  <p>&nbsp;</p>
+  <table>
+    <tbody>
+      <tr style="font-weight: bold">
+        <td colspan="2">
+          <h3>Bericht:</h3>
+        </td>
+      </tr>
+      <tr>
+        <td style="font-size: smaller" colspan="2">
+          {{issue.repair_report_content}}
+        </td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+      </tr>
+    </tbody>
+  </table>
+

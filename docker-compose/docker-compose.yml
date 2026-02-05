@@ -1,0 +1,18 @@
+version: '3.3'
+
+services:
+  nginx:
+    image: nginx:latest
+    ports:
+      - '80:8080'
+      - '443:8443'
+    volumes:
+      - ./cert:/etc/cert
+      - ./../public:/app/public
+      - ./etc_nginx:/etc/nginx
+    # command: [nginx-debug, '-g', 'daemon off;']
+
+
+
+
+

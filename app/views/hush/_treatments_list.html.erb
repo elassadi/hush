@@ -1,0 +1,112 @@
+<%#
+  Reusable partial for rendering treatments/articles list
+
+  Parameters:
+    - articles: Array of Article objects to render
+    - mode: :appointment (with checkboxes) or :pricing (table format)
+    - gender: :women or :men (for generating unique IDs)
+    - container_id: Optional custom container ID
+    - list_id: Optional custom list ID
+%>
+<%
+  mode ||= :appointment
+  gender ||= :women
+  container_id ||= "treatments-container-#{gender}"
+  list_id ||= "treatmentsList#{gender.to_s.capitalize}"
+
+  if articles.present?
+    # Find first package article for header insertion
+    first_package = articles.find { |a| a.sku.to_s.start_with?('pkg-') }
+%>
+
+  <% if mode == :appointment %>
+    <!-- Appointment Mode: Div-based structure with checkboxes -->
+    <% container_style = local_assigns[:container_style] || '' %>
+    <div class="treatments-list-container" id="<%= container_id %>"<% if container_style.present? %> style="<%= container_style %>"<% end %>>
+      <div class="treatments-list" id="<%= list_id %>">
+        <% articles.each do |article| %>
+          <%
+            # Calculate brutto prices for display
+            brutto_price = article.default_retail_price.to_brutto(article, tax: article.tax)
+            brutto_min_price = article.min_preis.present? ? article.min_preis.to_brutto(article, tax: article.tax) : brutto_price
+            is_package = article.sku.to_s.start_with?('pkg-')
+            # Use name_en for English, name for German
+            article_name = I18n.locale == :en && article.name_en.present? ? article.name_en : article.name
+          %>
+          <% if is_package && article == first_package %>
+            <!-- Packages Section Header -->
+            <div class="treatment-row package-header-row">
+              <div class="treatment-row-content">
+                <span class="treatment-name"><strong><%= t('hush.wellness.pricing.packages') %></strong></span>
+                <span class="treatment-price"></span>
+              </div>
+              <div class="treatment-checkbox"></div>
+            </div>
+          <% end %>
+          <div class="treatment-row <%= 'package-row' if is_package %>"
+               data-sku="<%= article.sku %>"
+               data-price-min="<%= brutto_min_price %>"
+               data-price-max="<%= brutto_price %>">
+            <div class="treatment-row-content">
+              <span class="treatment-name"><%= article_name %></span>
+              <span class="treatment-price">
+                <% if brutto_min_price == brutto_price %>
+                  <%= brutto_price.to_currency %>
+                <% else %>
+                  <%= brutto_min_price.to_currency %> - <%= brutto_price.to_currency %>
+                <% end %>
+              </span>
+            </div>
+            <div class="treatment-checkbox">
+              <input type="checkbox" id="article_<%= article.sku %>" name="article_skus[]" value="<%= article.sku %>">
+              <label for="article_<%= article.sku %>"></label>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% else %>
+    <!-- Pricing Mode: Table format -->
+    <% articles.each do |article| %>
+      <%
+        # Calculate brutto prices for display
+        brutto_price = article.default_retail_price.to_brutto(article, tax: article.tax)
+        brutto_min_price = article.min_preis.present? ? article.min_preis.to_brutto(article, tax: article.tax) : brutto_price
+        is_package = article.sku.to_s.start_with?('pkg-')
+        # Use name_en for English, name for German
+        article_name = I18n.locale == :en && article.name_en.present? ? article.name_en : article.name
+      %>
+      <% if is_package && article == first_package %>
+        <!-- Packages Section Header -->
+        <tr class="package-header-row">
+          <td colspan="2"><strong><%= t('hush.wellness.pricing.packages') %></strong></td>
+        </tr>
+      <% end %>
+      <tr class="<%= 'package-row' if is_package %>">
+        <td><%= article_name %></td>
+        <td class="price">
+          <% if brutto_min_price == brutto_price %>
+            <%= brutto_price.to_currency %>
+          <% else %>
+            <%= brutto_min_price.to_currency %> - <%= brutto_price.to_currency %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  <% end %>
+
+<% else %>
+  <!-- No articles available -->
+  <% if mode == :appointment %>
+    <% container_style = local_assigns[:container_style] || '' %>
+    <div class="treatments-list-container" id="<%= container_id %>"<% if container_style.present? %> style="<%= container_style %>"<% end %>>
+      <div class="treatments-list" id="<%= list_id %>">
+        <p><%= t('hush.wellness.appointment.no_treatments_available') %></p>
+      </div>
+    </div>
+  <% else %>
+    <tr>
+      <td colspan="2"><%= t('hush.wellness.appointment.no_treatments_available') %></td>
+    </tr>
+  <% end %>
+<% end %>

@@ -1,0 +1,69 @@
+<article class="p-2 mb-6 text-base bg-white rounded-lg dark:bg-gray-900 comment_article" style="margin-bottom: 20px;">
+  <footer class="flex justify-between items-center pt-2">
+   <% initials = locals[:comment].owner.name.split.map(&:first).join.upcase %>
+
+    <% colors = {
+    'A'..'E' => '#3498db',  # Soft Blue
+    'F'..'J' => '#1abc9c',  # Soft Green
+    'K'..'O' => '#f39c12',  # Soft Orange
+    'P'..'T' => '#9b59b6',  # Soft Purple
+    'U'..'Z' => '#e74c3c'   # Soft Red
+    } %>
+
+    <% color = colors.find { |range, _| range.include?(initials[0]) }&.last || '#7f8c8d' %>
+
+    <div class="flex items-center space-x-3 pb-4">
+        <!-- Circle with initials and background color -->
+        <div class="inline-flex items-center justify-center w-8 h-8 rounded-full text-sm font-medium" style="background-color: <%= color %>; color: white;">
+            <%= initials %>
+        </div>
+        <!-- Owner's full name -->
+        <p class="inline-flex items-center text-sm font-medium text-gray-900 dark:text-white">
+            <%= locals[:comment].owner.name %>
+        </p>
+        <!-- Date and time -->
+        <p class="text-xs text-gray-500 dark:text-gray-400">
+            <time pubdate datetime="<%= locals[:comment].created_at.iso8601 %>" title="<%= I18n.l locals[:comment].created_at, format: :long %>">
+            <%= I18n.l locals[:comment].created_at %>
+            </time>
+        </p>
+    </div>
+    <div class="ml-auto flex items-center ">
+        <% if Current.user.can?(:edit, locals[:comment]) && locals[:comment].owner == Current.user %>
+            <a data-turbo-frame="modal_resource"
+                class=" text-gray-600 h-6 hover:text-gray-600 controll-buttons button-component inline-flex flex-grow-0 items-center font-semibold
+                leading-6 fill-current whitespace-nowrap transition duration-100 transform transition duration-100 cursor-pointer disabled:cursor-not-allowed
+                disabled:opacity-70 justify-center active:outline active:outline-1 rounded px-3 py-1.5 text-sm"
+                href="/resources/comments/<%=locals[:comment].id%>/edit?modal_resource=true&amp;via_child_resource=CommentResource&amp;via_relation=commentable&amp;via_relation_class=<%=@via_model.class.to_s%>&amp;via_resource_id=<%=@via_model.id%>">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" >
+                    <path d="M9.00001 20.2499H4.5C4.30109 20.2499 4.11033 20.1709 3.96967 20.0302C3.82902 19.8896 3.75 19.6988 3.75 19.4999V15.3093C3.74966 15.2119 3.76853 15.1154 3.80553 15.0253C3.84253 14.9352 3.89694 14.8533 3.96563 14.7843L15.2156 3.53429C15.2854 3.46343 15.3686 3.40715 15.4603 3.36874C15.5521 3.33033 15.6506 3.31055 15.75 3.31055C15.8495 3.31055 15.9479 3.33033 16.0397 3.36874C16.1314 3.40715 16.2146 3.46343 16.2844 3.53429L20.4656 7.71554C20.5365 7.78533 20.5928 7.86851 20.6312 7.96026C20.6696 8.052 20.6894 8.15046 20.6894 8.24992C20.6894 8.34938 20.6696 8.44784 20.6312 8.53958C20.5928 8.63132 20.5365 8.71451 20.4656 8.78429L9.00001 20.2499Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M20.25 20.25H9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M12.75 6L18 11.25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+            </a>
+        <% end %>
+
+        <% if  Current.user.can?(:destroy, locals[:comment]) && locals[:comment].owner == Current.user %>
+            <form class="flex items-center" data-turbo-frame="has_many_field_show_comments" action="/resources/comments/<%=locals[:comment].id%>" accept-charset="UTF-8" method="post">
+                <input type="hidden" name="_method" value="delete" autocomplete="off">
+                <input type="hidden" name="authenticity_token" value="xK2wxkPNRvgrFkNzGYWDuuluh-1zYLu-5pCif3bkyMfrVMx6YiePnGu8ldzNm8lo6rwXzKEG7ztN_cBu2lb-Sw" autocomplete="off">
+                <button name="button" type="submit" data-target="control:destroy" data-turbo-confirm="Are you sure?" data-control="destroy" data-resource-id="42" class="controll-buttons">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="text-gray-600 h-6 hover:text-gray-600">
+                        <path d="M20.25 5.25H3.75" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M9.75 9.75V15.75" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M14.25 9.75V15.75" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M18.75 5.25V19.5C18.75 19.6989 18.671 19.8897 18.5303 20.0303C18.3897 20.171 18.1989 20.25 18 20.25H6C5.80109 20.25 5.61032 20.171 5.46967 20.0303C5.32902 19.8897 5.25 19.6989 5.25 19.5V5.25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M15.75 5.25V3.75C15.75 3.35218 15.592 2.97064 15.3107 2.68934C15.0294 2.40804 14.6478 2.25 14.25 2.25H9.75C9.35218 2.25 8.97064 2.40804 8.68934 2.68934C8.40804 2.97064 8.25 3.35218 8.25 3.75V5.25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                </button>
+
+                <input value="has_many_field_show_comments" id="turbo_frame_destroy_42" autocomplete="off" type="hidden" name="turbo_frame">
+                <input value="/resources/issues/<%=locals[:comment].commentable.id%>/comments?turbo_frame=has_many_field_show_comments" id="referrer_destroy_42" autocomplete="off" type="hidden" name="referrer">
+            </form>
+        <% end %>
+    </div>
+  </footer>
+  <div class="pl-2" style="color: #1f2328; padding-left: 2rem">
+    <%= ActionController::Base.helpers.sanitize(locals[:comment].body) %>
+  </div>
+</article>

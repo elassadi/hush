@@ -1,0 +1,27 @@
+module StockReservations
+  class SyncAction < ::ApplicationBaseAction
+    self.name = "Sync"
+
+    # test
+    self.visible = lambda do
+      return false unless view == :show
+
+      current_user.may?(:sync, resource.model)
+    end
+
+    def handle(**args)
+      models = args[:models]
+      models.each do |model|
+        authorize_and_run(:sync, model) do |stock_reservation|
+          sync(stock_reservation)
+        end
+      end
+    end
+
+    private
+
+    def sync(_stock_reservation)
+      StockReservations::SyncTransaction.call(article_id: article.id)
+    end
+  end
+end

@@ -1,0 +1,29 @@
+
+
+
+<%= render Avo::TurboFrameWrapperComponent.new(params[:turbo_frame]) do %>
+  <% if @issue.issue_entries.present? %>
+    <div class="flex flex-col">
+      <%= render Avo::PanelComponent.new(name: '') do |c| %>
+        <% c.body do %>
+          <div class="relative flex py-5 items-center">
+            <div class="flex-grow border-t border-gray-400"></div>
+            <span class="flex-shrink mx-4 text-gray-400">Summary</span>
+            <div class="flex-grow border-t border-gray-400"></div>
+          </div>
+          <table class="w-full px-4 bg-white">
+            <tbody class="divide-y">
+              <%= render  'summary_row', locals: {price:@issue.rabatt.to_brutto_currency ,
+                title: t(:rabatt, scope: :shared), rabatt: true, rabatt_entry_id: @issue.rabatt_entry.id, id: @issue.id } if @issue.rabatt_entry %>
+              <%= render  'summary_row', locals: {price:@issue.price.to_currency , title: t(:netto_sum, scope: :shared)} %>
+              <%= render  'summary_row', locals: {price:@issue.price.to_tax_currency , title: t(:tax_sum, scope: :shared)} %>
+              <%= render  'summary_row', locals: {price:@issue.price.to_brutto_currency , title: t(:brutto_sum, scope: :shared) ,bold: true }%>
+            </tbody>
+          </table>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+<% end%>
+
+

@@ -1,0 +1,34 @@
+<%
+  backgrounds = Constants::STATUS_BADGE_BACKGROUND
+  background = :info
+
+  options = {
+    gray: %w[shortly_available],
+    info: %w[ordered delivered],
+    success: %w[available],
+    warning: %w[reserved will_be_ordered can_be_ordered upon_order],
+    danger: %w[unavailable unknown]
+  }.freeze
+
+
+  options.invert.each do |values, type|
+    if [values].flatten.map { |value| value }.include? value
+      background = type.to_sym
+      next
+    end
+  end
+  text_color = background == :light ? "text-gray-400" : "text-white"
+  classes =  background == :light ? "border border-gray-500 " : ""
+  classes += backgrounds[background].present? ? "#{backgrounds[background]} #{text_color}" : "bg-blue-400 #{text_color} "
+
+
+
+    translation_key =  "activerecord.attributes.supplier_source.stock_statuses.#{value}"
+    i18n_value = I18n.t(translation_key) if I18n.exists?(translation_key)
+%>
+
+  <span class=" whitespace-nowrap  text-xs uppercase font-semibold inline-flex items-center px-2 py-1 rounded
+    <%= classes %>" >
+  <%= i18n_value %>
+  </span>
+

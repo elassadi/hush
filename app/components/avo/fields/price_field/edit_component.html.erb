@@ -1,0 +1,50 @@
+
+
+<%= field_wrapper **field_wrapper_args do %>
+  <div class="flex items-center relative mt-2 rounded-md shadow-sm"
+    data-controller="price-field"
+    data-price-field-view-value="edit"
+    >
+      <div class="pointer-events-none absolute inset-y-0 flex items-center pl-3 px-2" >
+        <span class="text-gray-500 sm:text-sm input-icon">
+        <%= @field.as_percent ? "%" : "€" %>
+        </span>
+      </div>
+    <%= @form.number_field "#{@field.id}_visble",
+      class: classes("w-full px-6 appearance-none #{@field.input_mode} "),
+      data: self.with_extra_data(@field.get_html(:data, view: view, element: :input)),
+      disabled: disabled?,
+      max: @field.max,
+      min: @field.min,
+      placeholder: @field.placeholder,
+      step: nil,
+      style: @field.get_html(:style, view: view, element: :input),
+      value: @field.initial_value,
+      step: "0.01"
+
+    %>
+    <%= @form.hidden_field @field.id, data: self.hidden_field_data %>
+    <% if @field.show_tax? %>
+
+    <div class="absolute inset-y-2 right-0 flex items-center">
+      <!--select id="<%="#{@field.id}_tax_select"%>"  <%=self.subfield_stimulus_attributes("tax_select")%>
+      class="h-full rounded-md border-0 bg-transparent py-0 pl-2 pr-7 text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm">
+        <option value="netto">Netto</option>
+        <option value="brutto" >Brutto</option>
+      </select-->
+      <span class="mx-2 text-xs h-full rounded-md border-0 bg-transparent py-0 pl-2 pr-1
+        text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm" >
+        € <span id="<%=@field.id%>_netto_brutto_span"  <%=self.subfield_stimulus_attributes("netto_brutto_span").html_safe %> >
+        <%= @field.initial_value_toggled %></span>
+        <span class="rounded bg-primary-500 text-white p-1 cursor-pointer"
+          id="<%=@field.id%>_netto_brutto_label"
+          data-action="click->price-field#onpriceFieldNettoBruttoLabelClicked"
+          <%=self.subfield_stimulus_attributes("netto_brutto_label").html_safe %>
+         >
+          <%=@field.netto_brutto_label %>
+        </span>
+      </span>
+    </div>
+    <% end %>
+  </div>
+<% end %>

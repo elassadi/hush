@@ -1,0 +1,5 @@
+name: default-calendar-confirmed-sms-template
+type: sms
+protected: true
+body: |
+  Hallo {{customer.name}}, Ihr Termin bei {{merchant.branch_name}} wurde bestätigt. Wir erwarten Sie am {{calendar_entry.start_at}}.

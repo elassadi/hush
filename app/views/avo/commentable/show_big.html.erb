@@ -1,0 +1,46 @@
+
+<%= render Avo::TurboFrameWrapperComponent.new(params[:turbo_frame]) do %>
+
+  <div class="flex-1 flex flex-col xl:flex-row justify-between mb-4">
+    <div class="overflow-hidden flex flex-col">
+      <div class="text-2xl tracking-normal font-semibold text-gray-800 truncate items-center flex flex-1"
+        data-target="title">
+        <span><%= t('activerecord.attributes.comment.other') %></span>
+      </div>
+    </div>
+    <% if Current.user.can?(:create, Comment) %>
+      <div class="flex-1 w-full flex flex-wrap flex-col sm:flex-row xl:justify-end sm:items-end gap-2 mt-4 xl:mt-0"
+        data-target="panel-tools">
+        <a data-turbo-frame="modal_resource"
+          class="button-component inline-flex flex-grow-0 items-center font-semibold leading-6 fill-current whitespace-nowrap transition duration-100 transform transition duration-100 cursor-pointer disabled:cursor-not-allowed disabled:opacity-70 border justify-center active:outline active:outline-1  rounded bg-primary-500 text-white border-primary-500 hover:bg-primary-600 hover:border-primary-600 active:border-primary-600 active:outline-primary-600 active:bg-primary-600 px-3 py-1.5 text-sm"
+          href="/resources/comments/new?modal_resource=true&amp;via_child_resource=CommentResource&amp;via_relation=commentable&amp;via_relation_class=<%=@via_model.class%>&amp;via_resource_id=<%=@via_model.id%>">
+
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+            class="w-6 h-6 p-1">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" />
+          </svg>
+
+          <span>
+            <%= t(:create_new_item, scope: :avo, item: t('activerecord.attributes.comment.one')) %>
+          </span></a>
+      </div>
+    <% end %>
+  </div>
+
+
+
+  <div class="flex flex-col" >
+    <div class="overflow-hidden flex flex-col">
+
+
+      <% @via_model.comments.where(protected: false).order(created_at: :desc).each do | comment | %>
+        <%= render 'comment', locals: {comment:} %>
+      <% end %>
+    </div>
+  </div>
+
+
+<% end %>
+
+

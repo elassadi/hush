@@ -1,0 +1,11 @@
+<%= field_wrapper **field_wrapper_args do %>
+  <turbo-frame
+    id="<%= @field.turbo_frame %>" src="<%= @field.frame_url %>" target="_top" class="block"
+    style="margin-left: -8px;margin-right: -8px;"
+  >
+    <%= render(Avo::LoadingComponent.new(title: @field.name)) %>
+  </turbo-frame>
+<% end %>
+
+
+

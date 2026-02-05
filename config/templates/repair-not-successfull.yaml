@@ -1,0 +1,11 @@
+name: Reparatur nicht erfolgreich
+type: repair_report
+tags: [unsuccessfull]
+body: |
+  <p>Kein Fehler gefunden</p>
+  <p><strong>Durchgef&uuml;hrte Arbeiten:</strong></p>
+  <p>- Demontage<br />- Diagnose<br />- &Uuml;berpr&uuml;fung einzelner Kompnenten</p>
+  <p><strong>Anmerkungen:</strong></p>
+  <p><span>Trotz intensivem Test konnte der von Ihnen angegebene Fehler nicht nachvollzogen werden.</span></p>
+  <p>F&uuml;r von Drittanbietern verwendete oder installierte Dateien, Software und Anwendungen kann vom Hersteller keine Garantie f&uuml;r eine fehlerfreie Funktion oder einen stabilen Betrieb des Ger&auml;tes &uuml;bernommen werden.</p>
+  <p>H&auml;ufige Ursache f&uuml;r derartige Fehler ist eine defekte Speicherkarte. Testen Sie Ihr Ger&auml;t bitte ggf. ohne Speicherkarte bzw. lassen Sie diese von Ihrem Fachh&auml;ndler &uuml;berpr&uuml;fen.;</p>

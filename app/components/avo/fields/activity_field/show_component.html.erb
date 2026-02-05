@@ -1,0 +1,97 @@
+
+      <%
+        avatar_source = "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+        avatar_source = url_for(Current.user.avatar_icon) if Current.user.avatar.present?
+      %>
+
+<% activities = @field.value.merge(Activity.notification_only) %>
+<div class="max-w-4xl mx-auto py-4">
+  <div class="overflow-y-scroll space-y-4 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:ml-[8.75rem] md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-300 before:to-transparent" style="max-height: 300px; overflow: auto"> <!-- Inline CSS für genaue Höhe -->
+    <div class="ml-30" style="margin-left:30px" >
+      <p class="text-sm text-gray-800"><span class="text-gray-500"><%= I18n.t(:other, scope: :"activerecord.models.activity") %></span> (<span class="font-bold"><%= activities.count %></span>)</p>
+    </div>
+    <% activities.each do |activity| %>
+      <div class="mb-4 p-4 bg-white shadow rounded-lg">
+        <div class="flex items-center mb-2">
+         <% if activity.email_sent? %>
+          <div style="margin-right:10px" class="flex items-center justify-center w-14 h-10 rounded-full bg-white shadow md:order-1" >
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+                  <path class="fill-blue-400" d="M0 4.5v-1C0 2.673.673 2 1.5 2h13C15.327 2 16 2.673 16 3.5v1L8 9 0 4.5zm0 2.5l4.05 2.763a3.003 3.003 0 0 0 3.9 0L16 7v5.5c0 .827-.673 1.5-1.5 1.5h-13C.673 14 0 13.327 0 12.5V7z"></path>
+              </svg>
+          </div>
+          <% end %>
+          <% if activity.workflow_transition? %>
+            <div style="margin-right:10px" class="flex items-center justify-center w-10 h-10 rounded-full bg-white shadow md:order-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+                    <path class="fill-green-500" d="M4.5 0a3.5 3.5 0 0 0 0 7H5v2H3.5A1.5 1.5 0 0 0 2 10.5v2.002A1.5 1.5 0 0 0 3.5 14h1.999a1.5 1.5 0 0 0 1.5-1.498V10.5A1.5 1.5 0 0 0 5.5 9H4V7h.5a3.5 3.5 0 0 0 0-7zm7 0A3.5 3.5 0 1 0 15 3.5 3.5 3.5 0 0 0 11.5 0zm0 2A1.5 1.5 0 1 1 10 3.5 1.5 1.5 0 0 1 11.5 2zm-7 7a1.5 1.5 0 1 0 1.5 1.5A1.5 1.5 0 0 0 4.5 9zm7 0a1.5 1.5 0 1 0 1.5 1.5A1.5 1.5 0 0 0 11.5 9z"></path>
+                </svg>
+            </div>
+          <% end %>
+
+          <% if activity.sms_sent? %>
+            <div style="margin-right:10px" class="flex items-center justify-center w-10 h-10 rounded-full bg-white shadow md:order-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+                    <path class="fill-orange-400" d="M14 0H2C.895 0 0 .895 0 2v9c0 1.105.895 2 2 2h3v3l4-3h5c1.105 0 2-.895 2-2V2c0-1.105-.895-2-2-2zM4 7h8V5H4v2zm6 2H4v-1h6v1zm2-4H4V4h8v1z"></path>
+                </svg>
+            </div>
+          <% end %>
+
+          <div>
+            <p class="text-sm text-gray-800"><%=activity.title.html_safe %></span></p>
+            <p class="text-xs text-gray-500">vor <%= time_ago_in_words(activity.created_at) %> </p>
+          </div>
+        </div>
+        <% if activity.workflow_transition? %>
+          <div class="ml-30" style="margin-left:30px" >
+            <p class="text-sm text-gray-800"><span class="text-gray-500"><%= activity.i18n_status_before %></span> → <span class="font-bold"><%= activity.i18n_status_after %></span></p>
+          </div>
+        <% else %>
+        <div class="ml-30" style="margin-left:30px" >
+            <p class="text-sm text-gray-800"><span class=" font-bold"><%= activity.i18n_status_after %></span></p>
+          </div>
+        <% end %>
+        <!--
+        <div class="ml-11 mt-2">
+          <p class="text-sm text-gray-800"><%= activity.activity_name %> → <%= activity.activity_name %></p>
+          <p class="text-xs text-gray-500"><%= l(activity.created_at, format: :long) %></p>
+        </div>
+        -->
+      </div>
+
+    <% end %>
+  </div>
+</div>
+
+
+
+<!--
+
+
+<div class="flex items-center justify-center w-10 h-10 rounded-full bg-white shadow md:order-1">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+                  <path class="fill-slate-300" d="M14.853 6.861C14.124 10.348 10.66 13 6.5 13c-.102 0-.201-.016-.302-.019C7.233 13.618 8.557 14 10 14c.51 0 1.003-.053 1.476-.143L14.2 15.9a.499.499 0 0 0 .8-.4v-3.515c.631-.712 1-1.566 1-2.485 0-.987-.429-1.897-1.147-2.639Z"></path>
+                  <path class="fill-slate-500" d="M6.5 0C2.91 0 0 2.462 0 5.5c0 1.075.37 2.074 1 2.922V11.5a.5.5 0 0 0 .8.4l1.915-1.436c.845.34 1.787.536 2.785.536 3.59 0 6.5-2.462 6.5-5.5S10.09 0 6.5 0Z"></path>
+              </svg>
+          </div>
+
+<div class="flex items-center justify-center w-10 h-10 rounded-full bg-white shadow md:order-1">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+        <path class="fill-green-500" d="M0 4.5v-1C0 2.673.673 2 1.5 2h13C15.327 2 16 2.673 16 3.5v1L8 9 0 4.5zm0 2.5l4.05 2.763a3.003 3.003 0 0 0 3.9 0L16 7v5.5c0 .827-.673 1.5-1.5 1.5h-13C.673 14 0 13.327 0 12.5V7z"></path>
+    </svg>
+</div>
+
+
+
+          <div class="flex items-center justify-center w-10 h-10 rounded-full bg-white shadow md:order-1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+                <path class="fill-slate-500 fill-green-500" d="M14 0H2C.895 0 0 .895 0 2v9c0 1.105.895 2 2 2h3v3l4-3h5c1.105 0 2-.895 2-2V2c0-1.105-.895-2-2-2zM4 7h8V5H4v2zm6 2H4v-1h6v1zm2-4H4V4h8v1z"></path>
+            </svg>
+        </div>
+        <div class="flex items-center justify-center w-10 h-10 rounded-full bg-white shadow md:order-1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+                <path class="fill-green-500" d="M4.5 0a3.5 3.5 0 0 0 0 7H5v2H3.5A1.5 1.5 0 0 0 2 10.5v2.002A1.5 1.5 0 0 0 3.5 14h1.999a1.5 1.5 0 0 0 1.5-1.498V10.5A1.5 1.5 0 0 0 5.5 9H4V7h.5a3.5 3.5 0 0 0 0-7zm7 0A3.5 3.5 0 1 0 15 3.5 3.5 3.5 0 0 0 11.5 0zm0 2A1.5 1.5 0 1 1 10 3.5 1.5 1.5 0 0 1 11.5 2zm-7 7a1.5 1.5 0 1 0 1.5 1.5A1.5 1.5 0 0 0 4.5 9zm7 0a1.5 1.5 0 1 0 1.5 1.5A1.5 1.5 0 0 0 11.5 9z"></path>
+            </svg>
+        </div>
+
+
+-->

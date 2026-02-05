@@ -1,0 +1,5 @@
+name: default-sms-template
+type: sms
+protected: true
+body: |
+  Hallo {{customer.name}},  {{issue.sms_comment}}

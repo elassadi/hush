@@ -1,0 +1,12 @@
+module <%= module_name %>
+  module <%= module_event_name %>
+    class <%= @action.camelize %> < BaseEvent
+      subscribe_to :<%= event_name %>
+      attributes :some_attribute
+
+      def call
+        # Add your event logic here
+      end
+    end
+  end
+end

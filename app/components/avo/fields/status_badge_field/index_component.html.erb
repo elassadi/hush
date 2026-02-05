@@ -1,0 +1,11 @@
+<%= index_field_wrapper **field_wrapper_args do %>
+    <%=  render Avo::Fields::StatusBadgeField::StatusBadgeViewerComponent.new(
+        i18n_value: @field.i18n_value, value: @field.value, options: @field.options, shorten: @field.shorten,
+        i18n_value_tooltip: @field.i18n_value_tooltip, link_to: @field.link_to
+    )
+    %>
+<% end %>
+
+
+
+

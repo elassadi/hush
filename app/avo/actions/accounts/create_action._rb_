@@ -1,0 +1,28 @@
+module Accounts
+  class CreateAction < ::ApplicationBaseAction
+    self.name = "Create"
+
+    # test
+    self.visible = lambda do
+      return true
+      return false unless view == :show
+
+      current_user.may?(:create, resource.model)
+    end
+
+    def handle(**args)
+      models = args[:models]
+      models.each do |model|
+        authorize_and_run(:create, model) do |account|
+          create(account)
+        end
+      end
+    end
+
+    private
+
+    def create(account)
+      Accounts::CreateTransaction.call(account_id: account.id)
+    end
+  end
+end

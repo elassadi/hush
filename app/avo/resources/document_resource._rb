@@ -1,0 +1,28 @@
+class DocumentResource < ApplicationBaseResource
+  STATUS_BADGE_OPTIONS = {
+    success: "active",
+    warning: %w[archived],
+    danger: %w[deleted]
+  }.freeze
+
+  self.title = :key
+  self.includes = []
+
+  # self.search_query = -> do
+  #   scope.ransack(id_eq: params[:q], m: "or").result(distinct: false)
+  # end
+
+  field :id, as: :id
+  field :status, as: :status_badge, options: STATUS_BADGE_OPTIONS
+  field :key, as: :text
+  field :file, as: :file
+
+  field :status, as: :select, hide_on: %i[index show],
+                 options: ->(_args) { ::Document.human_enum_names(:status, reject: :deleted).invert },
+                 display_with_value: true, placeholder: :please_select_status
+
+  field :documentable, as: :belongs_to, polymorphic_as: :documentable, types: [::Product, ::Provider]
+
+  # add fields here
+  filter DocumentTypeFilter
+end

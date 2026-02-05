@@ -1,0 +1,27 @@
+module IssueEntries
+  class CreateStockReservationAction < ::ApplicationBaseAction
+    self.name = "CreateStockReservation"
+
+    # test
+    self.visible = lambda do
+      return false unless view == :show
+
+      current_user.may?(:create_stock_reservation, resource.model)
+    end
+
+    def handle(**args)
+      models = args[:models]
+      models.each do |model|
+        authorize_and_run(:create_stock_reservation, model) do |issue_entry|
+          create_stock_reservation(issue_entry)
+        end
+      end
+    end
+
+    private
+
+    def create_stock_reservation(issue_entry)
+      IssueEntries::CreateStockReservationTransaction.call(issue_entry_id: issue_entry.id)
+    end
+  end
+end

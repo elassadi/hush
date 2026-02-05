@@ -1,0 +1,92 @@
+<turbo-stream action="update" target="split_helper_target">
+  <template>
+    <% purchase_order_entries.each do | entry | %>
+      <div class="field-wrapper relative flex flex-col flex-grow pb-2 md:pb-0 leading-tight min-h-14 field-wrapper-layout-inline md:flex-row md:items-center field-wrapper-size-compact field-width-regular" >
+        <div class="h-full w-full  md:pt-0 md:h-14  pt-4 flex self-start items-center   px-6 uppercase font-semibold text-gray-500 text-sm" data-slot="label">
+            <label ><%=entry.article.name%></label>
+        </div>
+        <div class="flex-1 flex flex-row md:min-h-inherit py-2  px-6 " data-slot="value">
+          <div class="self-center  ">
+            <input class="appearance-none inline-flex bg-gray-25 disabled:cursor-not-allowed text-gray-600 disabled:opacity-50 rounded py-2 px-3 leading-tight border focus:border-gray-600 focus-visible:ring-0
+            focus:text-gray-700 placeholder:text-gray-300 border-gray-200  "
+            name="fields[qty][<%= entry.id %>]" id="qty_<%= entry.id %>"
+              value="<%=entry.qty%>" type="number" step="0" min="0" max="<%=entry.qty%>" required>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <script>
+
+      {
+        /* This script is used to prevent the form from being submitted if all quantities are 0 */
+
+
+        let action_show = document.querySelector('#actions_show');
+
+        function allMax() {
+          let allMax = true;
+          let inputs = document.querySelectorAll('input[name^="fields[qty]"]');
+          inputs.forEach(input => {
+            let maxValue = parseInt(input.getAttribute('max'));
+            let inputValue = parseInt(input.value);
+
+
+
+            // Check if the input's value is less than the max
+            if (inputValue < maxValue) {
+              allMax = false;
+            }
+          });
+          return allMax;
+        }
+
+        function allZero() {
+          let inputs = document.querySelectorAll('input[name^="fields[qty]"]');
+          let allZero = true;
+
+          inputs.forEach(input => {
+            if (parseInt(input.value) > 0) {
+              allZero = false;
+            }
+          });
+
+          return allZero;
+        }
+
+        function submitHandler(event) {
+
+          if (allMax() || allZero()) {
+            event.preventDefault();
+
+            let html = `
+              <p>Bitte geben Sie eine Menge ein, die kleiner als die
+              ursprüngliche Menge ist. Nicht alle Positionen dürfen auf Null gesetzt sein.</p>
+            `;
+            Swal.fire({
+              title: 'Achtung!',
+              html: html,
+              icon: 'warning',
+              confirmButtonText: 'Verstanden',
+              customClass: {
+                confirmButton: 'custom-confirm-button'
+              }
+            });
+          } else {
+            action_show.querySelector('form').removeEventListener('submit', submitHandler);
+          }
+        }
+
+
+        action_show.querySelector('form').addEventListener('submit', submitHandler);
+      }
+
+
+
+
+    </script>
+  </template>
+</turbo-stream>
+
+
+
+

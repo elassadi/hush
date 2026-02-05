@@ -1,0 +1,22 @@
+
+<% if !Current.account.status_active? && !Current.user.account.completed_onboarding? %>
+<div class="w-full bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4">
+  <p class="font-medium">
+    Um weiter mit ReCloud zu arbeiten, müssen Sie zunächst Ihre Geschäftsinformationen vervollständigen.
+  </p>
+  <p class="mt-2">
+    Wir benötigen noch Ihre Adresse. Gehen Sie auf das Menu Händler und vervollständigen Sie Ihre Geschäftsinformationen.
+  </p>
+</div>
+<% end %>
+
+<% if !Current.account.status_active? && Current.user.account.completed_onboarding? %>
+<div class="w-full bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4">
+  <p class="font-medium">
+    Wir verarbeiten Ihre Daten und richten Ihr Konto für Sie ein.
+  </p>
+  <p class="mt-2">
+    Sobald dieser Vorgang abgeschlossen ist, erhalten Sie eine Nachricht von uns und können mit Ihrem Konto starten.
+  </p>
+</div>
+<% end %>

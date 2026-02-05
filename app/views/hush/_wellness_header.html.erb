@@ -1,0 +1,32 @@
+<header class="wellness-header" id="wellnessHeader">
+  <div class="header-top">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+      <a href="<%= wellness_path(locale: I18n.locale) %>" class="wellness-logo">
+        <img src="/hush-logo.png" alt="HUSH">
+      </a>
+      <a href="<%= waxing_appointment_path(locale: I18n.locale) %>" class="cta-button"><%= t('hush.wellness.hero.cta') %></a>
+    </div>
+  </div>
+  <div class="header-bottom">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+      <a href="<%= wellness_path(locale: I18n.locale) %>" class="wellness-logo" style="display: none;" id="headerLogo">
+        <img src="/hush-logo.png" alt="HUSH">
+      </a>
+      <ul class="wellness-nav-links" id="navLinks">
+        <li><a href="<%= wellness_path(locale: I18n.locale) %>#services"><%= t('hush.wellness.nav.services') %></a></li>
+        <li><a href="<%= wellness_path(locale: I18n.locale) %>#why-waxing"><%= t('hush.wellness.nav.why_waxing') %></a></li>
+        <li><a href="<%= wellness_path(locale: I18n.locale) %>#how-it-works"><%= t('hush.wellness.nav.how_it_works') %></a></li>
+        <li><a href="<%= wellness_path(locale: I18n.locale) %>#pricing"><%= t('hush.wellness.nav.pricing') %></a></li>
+        <li><a href="<%= wellness_path(locale: I18n.locale) %>#contact"><%= t('hush.wellness.nav.contact') %></a></li>
+      </ul>
+      <div class="header-cta">
+        <div class="lang-toggle" id="langToggle">
+          <%= link_to 'DE', wellness_path(locale: :de), class: ('active' if I18n.locale == :de) %>
+          <%= link_to 'EN', wellness_path(locale: :en), class: ('active' if I18n.locale == :en) %>
+        </div>
+        <a href="<%= waxing_appointment_path(locale: I18n.locale) %>" class="cta-button" id="headerCtaButton" style="display: none;"><%= t('hush.wellness.hero.cta') %></a>
+        <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
+      </div>
+    </div>
+  </div>
+</header>

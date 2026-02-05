@@ -1,0 +1,38 @@
+module <%= module_name %>
+  class <%= operation_class %> < BaseOperation
+    attributes :<%= model %>
+
+    def call
+      result = <%= action_name %>_<%= model %>
+      <%= model %> = result.success
+      if result.success?
+        # Event.broadcast(:<%= model %>_activated, <%= model %>_id: <%= model %>.id) if <%= model %>.status_active?
+        return Success(<%= model %>)
+      end
+      Failure(result.failure)
+    end
+
+    private
+
+    def <%= action_name %>_<%= model %>
+      yield validate_statuses
+
+      #<%= model %>.status_active!
+      #<%= model %>.client.status_active!
+
+      # yield some_other_methods
+
+      Success(<%= model %>)
+    end
+
+
+
+    def validate_statuses
+      # unless <%= model %>.status_approved?
+      #   return Failure("#{self.class} invalid_status Must be approved <%= model %>_id: #{<%= model %>.id} ")
+      # end
+
+      Success(true)
+    end
+  end
+end

@@ -1,0 +1,26 @@
+<h1>Reminder Job Completed</h1>
+<p><strong>Started at:</strong> <%= @stats[:started_at] %></p>
+<p><strong>Completed at:</strong> <%= @stats[:completed_at] %></p>
+<p><strong>Total Calendar Entries Processed:</strong> <%= @stats[:total_entries] %></p>
+<p><strong>Successful Reminders:</strong> <%= @stats[:successes] %></p>
+<p><strong>Failed Reminders:</strong> <%= @stats[:failures] %></p>
+
+<% if @stats[:success_details].any? %>
+  <h2>Successful Reminders</h2>
+  <ul>
+    <% @stats[:success_details].each do |success| %>
+      <li>Calendar Entry ID: <%= success[:calendar_entry_id] %>, Frequency: <%= success[:frequency] %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<% if @stats[:failed_entries].any? %>
+  <h2>Failed Reminders</h2>
+  <ul>
+    <% @stats[:failed_entries].each do |failure| %>
+      <li>Calendar Entry ID: <%= failure[:calendar_entry_id] %>, Error: <%= failure[:error] %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<p>Reminder job details were completed successfully.</p>

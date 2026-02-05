@@ -1,0 +1,55 @@
+;;
+;; Domain:     hush-haarentfernung.de.
+;; Exported:   2024-09-04 15:10:12
+;;
+;; This file is intended for use for informational and archival
+;; purposes ONLY and MUST be edited before use on a production
+;; DNS server.  In particular, you must:
+;;   -- update the SOA record with the correct authoritative name server
+;;   -- update the SOA record with the contact e-mail address information
+;;   -- update the NS record(s) with the authoritative name servers for this domain.
+;;
+;; For further information, please consult the BIND documentation
+;; located on the following website:
+;;
+;; http://www.isc.org/
+;;
+;; And RFC 1035:
+;;
+;; http://www.ietf.org/rfc/rfc1035.txt
+;;
+;; Please note that we do NOT offer technical support for any use
+;; of this zone data, the BIND name server, or any other third-party
+;; DNS software.
+;;
+;; Use at your own risk.
+;; SOA Record
+hush-haarentfernung.de	3600	IN	SOA	heidi.ns.cloudflare.com. dns.cloudflare.com. 2047712921 10000 2400 604800 3600
+
+;; NS Records
+hush-haarentfernung.de.	86400	IN	NS	heidi.ns.cloudflare.com.
+hush-haarentfernung.de.	86400	IN	NS	roan.ns.cloudflare.com.
+
+;; A Records
+cname.hush-haarentfernung.de.	1	IN	A	142.132.247.50
+hush.hush-haarentfernung.de.	1	IN	A	167.233.9.37
+hush-haarentfernung.de.	1	IN	A	142.132.247.50
+
+;; CNAME Records
+*.hush-haarentfernung.de.	1	IN	CNAME	cname.hush-haarentfernung.de.
+www.hush-haarentfernung.de.	1	IN	CNAME	cname.hush-haarentfernung.de.
+zb76466298.hush-haarentfernung.de.	600	IN	CNAME	zmverify.zoho.eu.
+
+;; MX Records
+hush-haarentfernung.de.	1	IN	MX	10 alt4.aspmx.l.google.com.
+hush-haarentfernung.de.	1	IN	MX	10 alt3.aspmx.l.google.com.
+hush-haarentfernung.de.	1	IN	MX	5 alt2.aspmx.l.google.com.
+hush-haarentfernung.de.	1	IN	MX	5 alt1.aspmx.l.google.com.
+hush-haarentfernung.de.	1	IN	MX	1 aspmx.l.google.com.
+
+;; TXT Records
+_acme-challenge.hush-haarentfernung.de.	60	IN	TXT	"7VHVVvlM9-iqcC-Z6L8D_aVUVR7dq_4xWqUJaYOMeqY"
+mailjet._3ce3aac2.hush-haarentfernung.de.	1	IN	TXT	"3ce3aac2e6b5267bf99d10c3ff78cdaf"
+mailjet._domainkey.hush-haarentfernung.de.	1	IN	TXT	"k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDTdRdBTz7mxUaYUQ333lH7eSqpYrGa2ZN+F2cEN/ivJfUYwnhyCFhecw5uVulP8I3igHHrMofhGvtlApuub6GeQ1MQaNORGQH7R6W/ajiwyLj9WihZVW2OXySTK79cCiHBYmf3VRhojCrBFjO8Gr5Gyr5W4WdG+1MmK8GPKOLNNQIDAQAB"
+hush-haarentfernung.de.	1	IN	TXT	"v=spf1 include:spf.mailjet.com ?all"
+hush-haarentfernung.de.	1	IN	TXT	"google-site-verification=J1s-Ws2jQIQDA4W8UhpL-wd84ivj18DerzCNfp3hs_E"

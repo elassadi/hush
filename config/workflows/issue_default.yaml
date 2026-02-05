@@ -1,0 +1,113 @@
+
+states:
+  draft:
+    meta:
+      category: open
+    events:
+      - { name: print_kva, transitions_to: awaiting_approval, meta: {hide: true } }
+      - { name: print_order, transitions_to: ready_to_repair, if: ready_to_repair_and_device_is_received, meta: {hide: true } }
+      - { name: print_order, transitions_to: awaiting_device, if: ready_to_repair, meta: {hide: true } }
+      - { name: print_order, transitions_to: awaiting_parts, meta: {hide: true } }
+      - { name: device_received, transitions_to: draft, unless: device_is_received, meta: {hide: true } }
+      - { name: cancel, transitions_to: canceld }
+
+  awaiting_approval:
+    meta:
+      category: open
+    events:
+      - { name: print_kva, transitions_to: awaiting_approval, meta: {hide: true } }
+      - { name: print_order, transitions_to: ready_to_repair, if: ready_to_repair_and_device_is_received, meta: {hide: true } }
+      - { name: print_order, transitions_to: awaiting_device, if: ready_to_repair, meta: {hide: true } }
+      - { name: print_order, transitions_to: awaiting_parts, meta: {hide: true } }
+      - { name: device_received, transitions_to: awaiting_approval, unless: device_is_received, meta: {hide: true } }
+      - { name: open, transitions_to: draft }
+      - { name: cancel, transitions_to: canceld }
+
+  awaiting_device:
+    meta:
+      category: in_progress
+    events:
+      - { name: print_kva, transitions_to: awaiting_device, meta: {hide: true } }
+      - { name: print_order, transitions_to: awaiting_device, meta: {hide: true } }
+      - { name: device_received, transitions_to: ready_to_repair, if: ready_to_repair }
+      - { name: device_received, transitions_to: awaiting_parts }
+      - { name: deactivate, transitions_to: awaiting_parts, unless: ready_to_repair }
+      - { name: open, transitions_to: draft } # should be removed for debug only
+      - { name: cancel, transitions_to: canceld }
+
+  awaiting_parts:
+    meta:
+      category: in_progress
+    events:
+      - { name: print_kva, transitions_to: awaiting_parts, meta: {hide: true } }
+      - { name: print_order, transitions_to: awaiting_parts, meta: {hide: true } }
+      - { name: device_received, transitions_to: awaiting_parts, unless: device_is_received}
+      - { name: activate, transitions_to: ready_to_repair, if: ready_to_repair_and_device_is_received, meta: {hide: true } }
+      - { name: activate, transitions_to: awaiting_device, if: ready_to_repair_and_device_is_missing, meta: {hide: true } }
+      - { name: open, transitions_to: draft } # should be removed for debug only
+      - { name: cancel, transitions_to: canceld }
+
+  ready_to_repair:
+    meta:
+      category: in_progress
+    events:
+      - { name: print_kva, transitions_to: ready_to_repair, meta: {hide: true } }
+      - { name: print_order, transitions_to: ready_to_repair, meta: {hide: true } }
+      - { name: start_repairing, transitions_to: repairing, if: ready_to_repair_and_device_is_received }
+      - { name: deactivate, transitions_to: awaiting_parts, unless: ready_to_repair  }
+      - { name: deactivate, transitions_to: awaiting_device, if: ready_to_repair_and_device_is_missing  }
+      - { name: open, transitions_to: draft } # should be removed for debug only
+      - { name: cancel, transitions_to: canceld }
+
+  repairing:
+    meta:
+      category: in_progress
+    events:
+      - { name: stop_repairing, transitions_to: ready_to_repair, if: ready_to_repair, meta: {hide: true }  }
+      - { name: done_repairing_successfull, transitions_to: repairing_successfull, meta: {hide: true }  }
+      - { name: done_repairing_unsuccessfull, transitions_to: repairing_unsuccessfull, meta: {hide: true }  }
+      - { name: deactivate, transitions_to: awaiting_parts, meta: {hide: true }  }
+      - { name: open, transitions_to: draft } # should be removed for debug only
+      - { name: cancel, transitions_to: canceld }
+
+
+
+  repairing_successfull:
+    meta:
+      category: in_progress
+    events:
+      - { name: complete, transitions_to: completed, meta: {hide: true } }
+      - { name: reset_repairing, transitions_to: repairing, unless: invoiced }
+      - { name: open, transitions_to: draft } # should be removed for debug only
+
+
+  repairing_unsuccessfull:
+    meta:
+      category: in_progress
+    events:
+      - { name: complete, transitions_to: completed, meta: {hide: true } }  # debug only
+      - { name: reset_repairing, transitions_to: repairing, unless: invoiced }
+      - { name: open, transitions_to: draft } # should be removed for debug only
+
+  completed:
+    meta:
+      category: done
+    events:
+      - { name: print_invoice, transitions_to: completed, meta: {hide: true } }
+      - { name: reset_repairing, transitions_to: repairing, unless: invoiced }
+      - { name: cancel, transitions_to: canceld, meta: {hide: true } }
+      - { name: open, transitions_to: draft } # should be removed for debug only
+      - { name: print_canceld_invoice, transitions_to: completed, if: invoiced }
+
+
+  canceld:
+    meta:
+      category: done
+    events:
+      - { name: re_activate, transitions_to: draft }
+      - { name: print_canceld_invoice, transitions_to: canceld, if: invoiced }
+
+
+
+
+

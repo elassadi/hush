@@ -1,0 +1,27 @@
+module Issues
+  class UpdateAction < ::ApplicationBaseAction
+    self.name = "Update"
+
+    # test
+    self.visible = lambda do
+      return false unless view == :show
+
+      current_user.may?(:update, resource.model)
+    end
+
+    def handle(**args)
+      models = args[:models]
+      models.each do |model|
+        authorize_and_run(:update, model) do |issue|
+          update(issue)
+        end
+      end
+    end
+
+    private
+
+    def update(issue)
+      Issues::UpdateTransaction.call(issue_id: issue.id)
+    end
+  end
+end

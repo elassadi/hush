@@ -1,0 +1,23 @@
+<%= field_wrapper **field_wrapper_args do %>
+  <%
+  tooltip_enabled = true
+  classes = "uuid-button cursor-pointer uuid-copy-button "
+
+  %>
+
+  <span
+    data-controller="uuid-field"
+    id="<%=@field.id%>_test"
+    data-action="click->uuid-field#onUuidFieldClicked"
+    data-uuid-field-view-value="show"
+    data-tippy="<%= tooltip_enabled ? "tooltip" : "" %>" title="<%= "Kopieren" %>"
+    class=" whitespace-nowrap  text-xs font-semibold inline-flex items-center px-2 py-1 rounded <%= classes %>">
+    <%= @field.value %>
+  </span>
+
+<% end %>
+
+
+
+
+

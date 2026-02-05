@@ -1,0 +1,131 @@
+de:
+  avo:
+    notifications:
+      preview:
+        notification-list-header-label: Benachrichtigungen
+        new-message-from: Neu Nachricht von
+        view-all: Alles ansehen
+        view-old: Alte Nachrichten abrufen
+        no-notifications: Keine neuen Benachrichtigungen
+
+
+#-------------------------------------
+    dashboard: 'Dashboard'
+    dashboards: 'Dashboards'
+    choose_a_country: 'Wählen Sie ein Land'
+    choose_an_option: 'Wählen Sie eine Option'
+    are_you_sure_you_want_to_run_this_option: 'Sind Sie sicher, dass Sie diese Aktion ausführen möchten?'
+    are_you_sure_detach_item: 'Sind Sie sicher, dass Sie dieses %{item} abtrennen möchten?'
+    run: 'Ausführen'
+    cancel: 'Abbrechen'
+    action_ran_successfully: 'Aktion erfolgreich ausgeführt!'
+    details: "Details"
+    unauthorized: 'Unbefugt'
+    attachment_class_attached: '%{attachment_class} angehängt.'
+    attachment_class_detached: '%{attachment_class} abgetrennt.'
+    resource_updated: 'Datensatz aktualisiert'
+    resource_created: 'Datensatz erstellt'
+    resource_destroyed: 'Datensatz gelöscht'
+    resource_can_not_be_destroyed: Datensatz kann nicht gelöscht werden
+    switch_to_view: "Wechseln zur %{view_type} Ansicht"
+    click_to_reveal_filters: "Klicken Sie, um Filter anzuzeigen"
+    attachment_destroyed: 'Anhang gelöscht'
+    failed_to_find_attachment: 'Anhang konnte nicht gefunden werden'
+    you_missed_something_check_form: 'Sie haben möglicherweise etwas übersehen. Bitte überprüfen Sie das Formular.'
+    remove_selection: 'Auswahl aufheben'
+    select_item: 'Artikel auswählen'
+    select_all: 'Alle auswählen'
+    select_all_matching: 'Alle übereinstimmenden auswählen'
+    undo: Rückgängig machen
+    delete_file: 'Datei löschen'
+    delete: 'Löschen'
+    delete_item: '%{item} löschen'
+    download_item: '%{item} herunterladen'
+    download_file: 'Datei herunterladen'
+    download: 'Herunterladen'
+    view: 'Anzeigen'
+    view_item: '%{item} anzeigen'
+    edit: 'Bearbeiten'
+    edit_item: '%{item} bearbeiten'
+    detach_item: '%{item} abtrennen'
+    number_of_items:
+      zero: 'keine %{item}'
+      one: 'ein %{item}'
+      other: '%{count} %{item}'
+    x_items_more:
+      zero: 'keine weiteren Elemente'
+      one: 'ein weiteres Element'
+      other: '%{count} weitere Elemente'
+    are_you_sure: 'Sind Sie sicher?'
+    filters: 'Filter'
+    filter_by: "Filtern"
+    per_page: 'Pro Seite'
+    more: 'Mehr'
+    attach: 'Anhängen'
+    save: 'Speichern'
+    attach_and_attach_another: 'Anhängen & ein anderes anhängen'
+    hide_content: 'Inhalt ausblenden'
+    show_content: 'Inhalt anzeigen'
+    no_related_item_found: 'Noch keine Daten vorhanden '
+    no_item_found: 'Kein %{item} gefunden'
+    loading: 'Wird geladen'
+    confirm: 'Bestätigen'
+    actions: 'Aktionen'
+    resources: 'Ressourcen'
+    oops_nothing_found: 'Hoppla! Nichts gefunden ...'
+    type_to_search: 'Tippen Sie zum Suchen.'
+    and_x_other_resources: 'und %{count} andere Ressourcen'
+    go_back: 'Zurück'
+    home: 'Home'
+    new: 'neu'
+    attach_item: '%{item} anhängen'
+    choose_item: '%{item} auswählen'
+    create_new_item: ''
+    create_new_item__: '%{item} erstellen'
+    table_view: 'Tabellenansicht'
+    grid_view: 'Rasteransicht'
+    next_page: 'Nächste Seite'
+    prev_page: 'Vorherige Seite'
+    list_is_empty: 'Liste ist leer'
+    field_translations:
+      file:
+        zero: 'Dateien'
+        one: 'Datei'
+        other: 'Dateien'
+      people:
+        zero: 'Personen'
+        one: 'Person'
+        other: 'Personen'
+    resource_translations:
+      user:
+        zero: 'Benutzer'
+        one: 'Benutzer'
+        other: 'Benutzer'
+    reset_filters: 'Filter zurücksetzen'
+    not_authorized: 'Sie sind nicht berechtigt, diese Aktion auszuführen.'
+    search:
+      placeholder: 'Suchen'
+      cancel_button: 'Abbrechen'
+    sign_out: 'Abmelden'
+    failed: 'Fehlgeschlagen'
+    failed_to_load: 'Fehler beim Laden'
+    key_value_field:
+      key: 'Schlüssel'
+      value: 'Wert'
+      add_row: 'Zeile hinzufügen'
+      delete_row: 'Zeile löschen'
+    was_successfully_created: 'wurde erfolgreich erstellt'
+    was_successfully_updated: 'wurde erfolgreich aktualisiert'
+    clear_value: "Wert löschen"
+    tools: 'Werkzeuge'
+    order:
+      reorder_record: 'Datensatz neu anordnen'
+      higher: 'Datensatz nach oben verschieben'
+      lower: 'Datensatz nach unten verschieben'
+      to_top: 'Datensatz an den Anfang verschieben'
+      to_bottom: 'Datensatz ans Ende verschieben'
+    empty_dashboard_message: 'Fügen Sie Karten zu diesem Dashboard hinzu'
+    no_cards_present: 'Keine Karten vorhanden'
+    no_options_available: 'Keine Optionen verfügbar'
+    x_records_selected_from_a_total_of_x_html: '<span class="font-bold text-gray-700">%{selected}</span> Datensätze auf dieser Seite von insgesamt <span class="font-bold text-gray-700">%{count}</span> ausgewählt'
+    x_records_selected_from_all_pages_html: '<span class="font-bold text-gray-700">%{count}</span> Datensätze aus allen Seiten ausgewählt'

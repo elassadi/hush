@@ -1,0 +1,27 @@
+module PurchaseOrders
+  class SyncBySupplierSourceOperationAction < ::ApplicationBaseAction
+    self.name = "SyncBySupplierSourceOperation"
+
+    # test
+    self.visible = lambda do
+      return false unless view == :show
+
+      current_user.may?(:sync_by_supplier_source_operation, resource.model)
+    end
+
+    def handle(**args)
+      models = args[:models]
+      models.each do |model|
+        authorize_and_run(:sync_by_supplier_source_operation, model) do |purchase_order|
+          sync_by_supplier_source_operation(purchase_order)
+        end
+      end
+    end
+
+    private
+
+    def sync_by_supplier_source_operation(purchase_order)
+      PurchaseOrders::SyncBySupplierSourceOperationTransaction.call(purchase_order_id: purchase_order.id)
+    end
+  end
+end

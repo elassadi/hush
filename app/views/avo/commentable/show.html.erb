@@ -1,0 +1,58 @@
+
+<%= render Avo::TurboFrameWrapperComponent.new(params[:turbo_frame]) do %>
+
+  <div class="flex flex-col" style="max-height: 400px; overflow: auto">
+    <div class=" overflow-y-scroll flex flex-col">
+      <% @via_model.comments.where(protected: false).order(created_at: :asc).each do | comment | %>
+        <%= render 'comment', locals: {comment:} %>
+      <% end %>
+    </div>
+  </div>
+
+<% colors = {
+  'A'..'E' => '#3498db',
+  'F'..'J' => '#1abc9c',
+  'K'..'O' => '#f39c12',
+  'P'..'T' => '#9b59b6',
+  'U'..'Z' => '#e74c3c'
+} %>
+
+
+
+  <% initials = Current.user.name.split.map(&:first).join.upcase %>
+  <% color = colors.find { |range, _| range.include?(initials[0]) }&.last || '#7f8c8d' %>
+
+  <div class="pt-2 " data-controller="inline-comment" data-inline-comment-target="commentBox">
+    <div class="flex items-center space-x-3 pb-2">
+      <div class="inline-flex items-center justify-center w-6 h-6 rounded-full text-sm font-medium" style="background-color: <%= color %>; color: white;">
+        <%= initials %>
+      </div>
+      <input type="text" class="w-full bg-white hover:bg-gray-100 text-gray-900 text-sm rounded px-4 py-2 transition duration-300"
+              placeholder="Einen Kommentar hinzufügen ..." data-action="click->inline-comment#showCommentInput" id="comment-input">
+      <span class="hidden inline-flex items-center text-sm font-medium text-gray-900 dark:text-white" id="comment-input-label">Kommentar hinzufügen</span>
+    </div>
+
+    <div id="comment-area" class="hidden">
+      <textarea class="w-full bg-white border rounded p-3 text-gray-800 focus:outline-none focus:ring-1 focus:ring-teal-500 resize-y inline-comment-textarea"
+                placeholder="Geben Sie Ihren Kommentar ein!" rows="2" data-inline-comment-target="inlineCommentTextArea"
+                data-action="keydown->inline-comment#handleKeydown"></textarea>
+      <div class="mt-2 flex justify-end space-x-2">
+        <a class="button-component inline-flex flex-grow-0 items-center font-semibold leading-6 fill-current whitespace-nowrap
+          transition duration-100 transform transition duration-100 cursor-pointer disabled:cursor-not-allowed disabled:opacity-70
+          border justify-center active:outline active:outline-1 rounded text-gray-500 active:outline-gray-500 hover:bg-gray-100
+          border-transparent px-3 py-1.5 text-sm" href="#" data-action="click->inline-comment#cancelComment">
+          <span>Abbrechen</span>
+        </a>
+        <button id="submit-comment" name="button" loading="true" data-via-resource-id="<%=@via_model.id%>" data-commentable-type="<%= @via_model.class.to_s%>" data-action="click->inline-comment#postComment" class="button-component inline-flex flex-grow-0 items-center font-semibold leading-6 fill-current whitespace-nowrap transition duration-100 transform transition duration-100 cursor-pointer disabled:cursor-not-allowed disabled:opacity-70 border justify-center active:outline active:outline-1 rounded bg-primary-500 text-white border-primary-500 hover:bg-primary-600 hover:border-primary-600 active:border-primary-600 active:outline-primary-600 active:bg-primary-600 px-3 py-1.5 text-sm">
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 515 450" style="enable-background:new 0 0 515 450;" xml:space="preserve" class="mr-1 h-4 my-1">
+            <path d="M438.4,116.4l-72.3-72.3c-7.8-7.8-18.3-12.1-29.2-12.1h-231C83,32,64.5,50.5,64.5,73.4v303.3c0,22.8,18.5,41.4,41.4,41.4h303.3c22.8,0,41.4-18.5,41.4-41.4v-231C450.5,134.7,446.1,124.1,438.4,116.4z M298.9,73.4v68.9H188.6V73.4H298.9z M404,376.6H111c-2.9,0-5.2-2.3-5.2-5.2V78.5c0-2.9,2.3-5.2,5.2-5.2h36.2V163c0,11.4,9.3,20.7,20.7,20.7h151.6c11.4,0,20.7-9.3,20.7-20.7V76.7l67.4,67.4c1,1,1.5,2.3,1.5,3.7v223.7C409.1,374.3,406.8,376.6,404,376.6z M257.5,204.3c-41.8,0-75.8,34-75.8,75.8s34,75.8,75.8,75.8s75.8-34,75.8-75.8S299.3,204.3,257.5,204.3z M257.5,314.6c-19,0-34.5-15.5-34.5-34.5s15.5-34.5,34.5-34.5s34.5,15.5,34.5,34.5S276.5,314.6,257.5,314.6z"></path>
+          </svg>
+          <span>Speichern</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+<% end %>
+
+
