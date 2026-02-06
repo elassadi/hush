@@ -178,6 +178,8 @@ Rails.application.routes.draw do
   # Default wellness route (without locale - uses default language)
   get '/wellness', to: 'hush#wellness'
   get '/waxing_termin', to: 'hush#waxing_appointment'
+  get '/termin-buchen', to: 'hush#waxing_appointment'
+  get '/appointment', to: 'hush#waxing_appointment'
   get '/waxing_appointment', to: 'hush#waxing_appointment'
   get '/waxing_appointment/thanks', to: 'hush#waxing_appointment_thanks'
   get '/about', to: 'hush#about'

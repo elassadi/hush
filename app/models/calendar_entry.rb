@@ -61,7 +61,7 @@ class CalendarEntry < ApplicationRecord
       canceld: status_canceld?,
       just_confirmed: confirmed? && confirmed_at > updated_at - 5.minutes,
       confirmed: confirmed?,
-      booking_url: "https://www.hush-haarentfernung.de/appointment"
+      booking_url: "https://www.hush-haarentfernung.de/termin-buchen"
     }
   end
 
