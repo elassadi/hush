@@ -85,7 +85,7 @@ class Template < ApplicationRecord
 
     {
       customer: customer.template_attributes,
-      calendar_entry: calendar_entry.template_attributes,
+      calendar_entry: I18n.with_locale(:de) { calendar_entry.template_attributes },
       service_name: service_name(calendar_entry),
       service_location: calendar_entry.merchant.primary_address.one_liner,
       merchant: merchant&.template_attributes
