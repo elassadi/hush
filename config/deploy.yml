@@ -34,7 +34,7 @@ env:
     DB_HOST: 10.0.0.2
     RAILS_ENV: production
     ACTIVE_STORAGE_SERVICE: microsoft
-    AZURE_STORAGE_ACCOUNT_NAME: myrecloud
+    AZURE_STORAGE_ACCOUNT_NAME: hushstorage
     AZURE_STORAGE_CONTAINER: production-documents
     CONVERTER_URL: http://10.0.0.2:5000
     DATABASE_HOST: 10.0.0.2

@@ -276,8 +276,8 @@ class CalendarEntry < ApplicationRecord
   #       event.sequence = updated_at.to_i
   #       event.dtstart = start_at
   #       event.dtend = end_at
-  #       event.summary = "#{account.merchant.company_name} / Reparaturtermin"
-  #       event.description = "Reparaturtermin "
+  #       event.summary = "#{account.merchant.company_name} / Behandlungstermin"
+  #       event.description = "Behandlungstermin "
   #       event.organizer = "mailto:#{account.merchant.email}"
   #       event.location = account.merchant.primary_address.one_liner
   #       event.status = ics_status
@@ -298,14 +298,14 @@ class CalendarEntry < ApplicationRecord
     event.dtstart = start_at
     event.dtend = end_at
     event.summary = event_summary
-    event.description = "Reparaturtermin"
+    event.description = "Behandlungstermin"
     event.organizer = "mailto:#{account.merchant.email}"
     event.location = account.merchant.primary_address.one_liner
     event.status = ics_status
   end
 
   def event_summary
-    "#{account.merchant.company_name} / Reparaturtermin"
+    "#{account.merchant.company_name} / Behandlungstermin"
   end
 
   def ics_status
