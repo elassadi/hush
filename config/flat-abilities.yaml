@@ -1,7 +1,7 @@
 roles:
   - name: public_api
     type: customer
-    plans: [free, basic, advanced]
+    plans: [free, basic, advanced, unlimited]
     resources:
       - { name: CalendarEntry, action_tags: [create] }
       - { name: DeviceColor, action_tags: [read] }
@@ -12,7 +12,7 @@ roles:
 
   - name: on_boarding
     type: customer
-    plans: [free, basic, advanced]
+    plans: [free, basic, advanced, unlimited]
     resources:
       - { name: Address, action_tags: [create, destroy, read, update] }
       - { name: Merchant, action_tags: [read, update, upload_attachments] }
@@ -21,7 +21,7 @@ roles:
 
   - name: technician
     type: customer
-    plans: [basic, advanced]
+    plans: [basic, advanced, unlimited]
     resources:
       - { name: Activity, action_tags: [read] }
       - { name: Address, action_tags: [create, destroy, read, update] }
@@ -39,7 +39,7 @@ roles:
       - { name: [DeviceModel , DeviceModelCategory], action_tags: [create, destroy, download_attachments, read, update, upload_attachments] }
       - { name: [Document, DefaultDocument, CsvDocument, InvoiceDocument, KvaDocument, OrderDocument, PdfDocument, PreviewDocument, RepairReportDocument], action_tags: [download_attachments, read, upload_attachments] }
       - { name: Insurance, action_tags: [create, destroy, read, update] }
-      - { name: Issue, action_tags: [table_possible_repair_sets,activate, cancel, create, deactivate, destroy, device_received, done_repairing_successfull, done_repairing_unsuccessfull, edit_workflow, lock, print_kva, preview_document, print_order, re_activate, read, reset_repairing, start_repairing, stop_repairing, unlock, update] }
+      - { name: Issue, action_tags: [table_possible_repair_sets,activate, cancel, create, deactivate, complete, destroy, device_received, done_repairing_successfull, done_repairing_unsuccessfull, edit_workflow, lock, print_kva, preview_document, print_order, re_activate, read, reset_repairing, start_repairing, stop_repairing, unlock, update] }
       - { name: IssueEntry, action_tags: [create, destroy, read, update] }
       - { name: Merchant, action_tags: [create, destroy, read, update, upload_attachments] }
       - { name: Notification, action_tags: [destroy, read] }
@@ -60,7 +60,7 @@ roles:
 
   - name: sale
     type: customer
-    plans: [basic, advanced]
+    plans: [basic, advanced, unlimited]
     resources:
       - { name: Activity, action_tags: [read] }
       - { name: Address, action_tags: [create, destroy, read, update] }
@@ -138,7 +138,7 @@ roles:
 
 
   - name: account_admin
-    plans: [basic, advanced]
+    plans: [basic, advanced, unlimited]
     type: customer
     resources:
       - { name: Activity, action_tags: [read] }
@@ -183,7 +183,7 @@ roles:
       - { name: Template, action_tags: [create, destroy, read, update] }
       - { name: User, action_tags: [activate, create, create_api_token, destroy, disable, login_as, read, update, upload_attachments] }
   - name: trail_basic_account_admin
-    plans: [free, basic, advanced]
+    plans: [free, basic, advanced, unlimited]
     type: customer
     resources:
       - { name: Activity, action_tags: [read] }
