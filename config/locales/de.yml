@@ -981,6 +981,7 @@ de:
           cancel: Auftrag stornieren
           cancel_invoice: Rechnung stornieren
           complete_order: Auftrag abgeschlossen
+          complete: Auftrag abschliessen
           create_delivery_note: Lieferschein erstellen
           create_invoice: Rechnung erstellen
           create_pickup: Abholschein erstellen

@@ -190,3 +190,7 @@ ufw allow from 172.18.0.0/16 to any port 3306 proto tcp
 ufw allow from 172.18.0.0/16 to any port 6379 proto tcp
 ufw allow from 172.18.0.0/16 to any port 5000 proto tcp
 sudo ufw status verbose
+
+
+google
+https://g.page/r/CWY333COlPsPEBM/review

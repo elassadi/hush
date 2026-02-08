@@ -85,11 +85,11 @@ class IssueResource < ApplicationBaseResource
     #   end
     # end
 
-    # if current_user.can?(:edit_workflow, record) && Issues::B2cWorkflow.human_workflow_event_names(record).any?
-    #   action Issues::WorkflowAction, style: :primary, color: :primary, icon: "heroicons/outline/cog-6-tooth"
-    # end
+    items = if current_user.can?(:edit_workflow, record) && Issues::B2cWorkflow.human_workflow_event_names(record).any?
+      action Issues::WorkflowAction, style: :primary, color: :primary, icon: "heroicons/outline/cog-6-tooth"
+    end
     # edit_button if current_user.can?(:edit, record)
-    # items
+    items
   }
 
   include Concerns::IssueResources::ShowFields

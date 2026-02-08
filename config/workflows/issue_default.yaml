@@ -10,6 +10,8 @@ states:
       - { name: print_order, transitions_to: awaiting_parts, meta: {hide: true } }
       - { name: device_received, transitions_to: draft, unless: device_is_received, meta: {hide: true } }
       - { name: cancel, transitions_to: canceld }
+      - { name: complete, transitions_to: completed }  # debug only
+
 
   awaiting_approval:
     meta:
