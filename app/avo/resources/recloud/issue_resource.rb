@@ -85,6 +85,7 @@ class IssueResource < ApplicationBaseResource
     #   end
     # end
 
+    action Issues::CompleteAction, style: :primary, color: :green, icon: "heroicons/outline/check-circle"
     items = if current_user.can?(:edit_workflow, record) && Issues::B2cWorkflow.human_workflow_event_names(record).any?
       action Issues::WorkflowAction, style: :primary, color: :primary, icon: "heroicons/outline/cog-6-tooth"
     end
