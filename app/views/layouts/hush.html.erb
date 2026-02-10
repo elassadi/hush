@@ -9,13 +9,13 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
     <title><%= content_for?(:title) ? content_for(:title) : 'HUSH | Professionelle Haarentfernung & Beauty-Behandlungen' %></title>
-    <meta name="description" content="<%= content_for?(:meta_description) ? content_for(:meta_description) : 'HUSH bietet professionelle Haarentfernung durch Waxing, Sugaring und dauerhafte Haarentfernung. Buche jetzt Deinen Termin online in unseren Kosmetikstudios.' %>">
-    <meta name="keywords" content="<%= content_for?(:meta_keywords) ? content_for(:meta_keywords) : 'Haarentfernung, Waxing, Sugaring, dauerhafte Haarentfernung, Beauty-Behandlung, Kosmetikstudio' %>">
+    <meta name="description" content="<%= content_for?(:meta_description) ? content_for(:meta_description) : 'HUSH bietet professionelle Haarentfernung durch Waxing und dauerhafte Haarentfernung. Buche jetzt Deinen Termin online in unseren Kosmetikstudios.' %>">
+    <meta name="keywords" content="<%= content_for?(:meta_keywords) ? content_for(:meta_keywords) : 'Haarentfernung, Waxing, dauerhafte Haarentfernung, Beauty-Behandlung, Kosmetikstudio' %>">
     <meta name="robots" content="index, follow">
 
     <!-- Open Graph Tags -->
     <meta property="og:title" content="HUSH | Professionelle Haarentfernung & Beauty-Behandlungen">
-    <meta property="og:description" content="HUSH bietet professionelle Haarentfernung durch Waxing, Sugaring und dauerhafte Haarentfernung. Buche jetzt Deinen Termin online.">
+    <meta property="og:description" content="HUSH bietet professionelle Haarentfernung durch Waxing und dauerhafte Haarentfernung. Buche jetzt Deinen Termin online.">
     <meta property="og:image" content="https://www.hush-haarentfernung.de/hush-logo.png">
     <meta property="og:url" content="https://www.hush-haarentfernung.de">
     <meta property="og:site_name" content="HUSH">
@@ -29,6 +29,8 @@
     <!-- Favicon and Apple Touch Icons -->
 
     <link rel="icon" href="/favs/<%= Rails.env.development? ? "dev-" : "" %>favicon.ico" type="image/x-icon">
+
+    <%= AppConfig["google_analytics"].html_safe if AppConfig["google_analytics"].present? %>
 
 
     <%= csrf_meta_tags %>
@@ -102,6 +104,7 @@ setTimeout(() => {
     }
   }, 45000);
 </script>
+
 
 
 
