@@ -39,6 +39,14 @@ module CalendarEntries
           #{customer_name}
           #{customer_phone_line}
 
+          <b>🔧 Auftrag:</b>
+          #{appointment_details}
+
+          <b>📍 Standort:</b>
+          #{merchant_branch_name}
+
+          <a href="#{calendar_entry_url}">Zur Terminanfrage</a>
+
           Bitte im System prüfen und bestätigen.
         HTML
       end
@@ -57,7 +65,32 @@ module CalendarEntries
         customer.mobile_number
       end
 
+      def appointment_details
+        details = []
+        
+        if calendar_entry.entry_type.in?(%w[repair regular]) && calendar_entry.issue_sequence_id.present?
+          details << "REP-#{calendar_entry.issue_sequence_id}"
+        end
 
+        if issue&.device&.name.present?
+          details << issue.device.name
+        end
+
+        details.join("\n")
+      end
+
+      def merchant_branch_name
+        calendar_entry.merchant.branch_name.presence || calendar_entry.merchant.company_name
+      end
+
+      def calendar_entry_url
+        [
+          Rails.application.config.default_url_options[:protocol],
+          "://",
+          Rails.application.config.default_url_options[:host],
+          "/calendar_tool?calendar_entry_id=#{calendar_entry.id}"
+        ].join
+      end
 
       def customer
         @customer ||= begin
