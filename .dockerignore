@@ -38,3 +38,27 @@
 .env
 .env.production
 /.kamal/secrets
+
+# Ignore Docker files.
+/Dockerfile*
+/docker-compose/
+/.dockerignore
+
+# Ignore test/spec files.
+/spec/
+/test/
+
+# Ignore CI/IDE/editor files.
+/.github/
+/.vscode/
+/.idea/
+*.swp
+*.swo
+
+# Ignore documentation.
+/README*
+/CHANGELOG*
+/LICENSE*
+
+# Ignore vendor cache (rebuilt in Docker).
+/vendor/bundle/
