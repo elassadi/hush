@@ -10,6 +10,7 @@ class ApplicationMailer < ActionMailer::Base
 
   DEVELOPMENT_RECIPIENT_EMAILS = "mohamed.elassadi@gmail.com"
   DEFAULT_BCC_EMAIL = "mohamed.elassadi+bcc@gmail.com"
+  DUMMY_EMAIL_PATTERN = /\A\d+@hush-haarentfernung\.de\z/i
 
   def check_recipient_emails(emails)
     return emails if Rails.env.production? || Rails.env.test?
@@ -38,9 +39,26 @@ class ApplicationMailer < ActionMailer::Base
   end
 
   def mail(headers = {}, &)
+    # Skip sending if recipient matches the dummy email pattern (digits@hush-haarentfernung.de)
+    recipient_emails = Array(headers[:to])
+    if recipient_emails.any? { |email| email.to_s.match?(DUMMY_EMAIL_PATTERN) }
+      return NullMailDelivery.new
+    end
+
     headers[:bcc] = Array(headers[:bcc]) + [DEFAULT_BCC_EMAIL]
     configure_smtp_settings
     super(headers, &)
+  end
+
+  # Null object pattern for skipped emails
+  class NullMailDelivery
+    def deliver_now
+      # No-op: email sending was skipped
+    end
+
+    def deliver_later
+      # No-op: email sending was skipped
+    end
   end
 
   private
