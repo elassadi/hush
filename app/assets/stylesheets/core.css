@@ -896,3 +896,260 @@ select[data-resource-edit-target="possibleRepairSetsSelectInput"] option:checked
 #issue_possible_repair_sets.no-sets:focus::before {
   content: "Keine Sets gefunden"; /* Ensure the message stays visible on focus */
 }
+
+
+/* Mobile Calendar Tool (mct) - wellness-style, 100% mobile, no FullCalendar */
+.mct-widget {
+  width: 100%;
+  max-width: 100%;
+  min-height: calc(100vh - 7rem);
+  min-height: calc(100dvh - 7rem);
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.mct-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.mct-container {
+  width: 100%;
+  border: 1px solid #000;
+  box-sizing: border-box;
+}
+
+.mct-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background: #000;
+  color: #fff;
+}
+
+.mct-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0;
+  color: #fff;
+}
+
+.mct-nav {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  background: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  font-size: 1.25rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.mct-nav:hover {
+  background: #fff;
+  color: #000;
+}
+
+.mct-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0;
+  background: #f5f5f5;
+}
+
+.mct-day-header {
+  padding: 0.4rem 0.25rem;
+  text-align: center;
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #374151;
+  border-bottom: 1px solid #e5e7eb;
+  border-right: 1px solid #e5e7eb;
+  background: #f5f5f5;
+}
+
+.mct-day-header:nth-child(7n) {
+  border-right: none;
+}
+
+.mct-day {
+  min-height: 2.5rem;
+  padding: 0.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-bottom: 1px solid #e5e7eb;
+  border-right: 1px solid #e5e7eb;
+  cursor: pointer;
+  font-size: 0.8rem;
+  background: #fff;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.mct-day:nth-child(7n) {
+  border-right: none;
+}
+
+.mct-day-other {
+  color: #9ca3af;
+  background: #f5f5f5;
+}
+
+.mct-day-num {
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-weight: 500;
+  color: #374151;
+}
+
+/* Today not selected: red text */
+.mct-day-today:not(.mct-day-selected) .mct-day-num {
+  color: #dc2626;
+  font-weight: 600;
+}
+
+/* Today selected: white on red circle */
+.mct-day-today.mct-day-selected .mct-day-num {
+  background: #dc2626;
+  color: #fff;
+}
+
+/* Other day selected: white on black circle */
+.mct-day-selected:not(.mct-day-today) .mct-day-num {
+  background: #1f2937;
+  color: #fff;
+}
+
+.mct-day-dots {
+  display: flex;
+  gap: 2px;
+  margin-top: 2px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.mct-event-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+}
+
+/* Events section */
+.mct-events {
+  margin-top: 0.75rem;
+  padding: 0.5rem 0;
+}
+
+.mct-events-title {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #6b7280;
+  margin-bottom: 0.5rem;
+}
+
+.mct-events-list {
+  min-height: 3rem;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.mct-no-events {
+  font-size: 0.85rem;
+  color: #9ca3af;
+  padding: 0.75rem 0;
+  text-align: center;
+  margin: 0;
+}
+
+.mct-event-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+  font-size: 0.85rem;
+  border-bottom: 1px solid #e5e7eb;
+  min-height: 2.5rem;
+}
+
+.mct-event-row:last-child {
+  border-bottom: none;
+}
+
+.mct-event-dot-inline {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.mct-event-time {
+  font-size: 0.8rem;
+  color: #6b7280;
+  min-width: 4rem;
+}
+
+.mct-event-title {
+  color: #1f2937;
+  font-weight: 500;
+  flex: 1;
+  word-break: break-word;
+}
+
+/* Footer toolbar - fixed at viewport bottom, supports multiple buttons */
+.mct-footer-toolbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+  background: #fff;
+  border-top: 1px solid #e5e7eb;
+  z-index: 40;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Reserve space so content isn't hidden behind fixed footer */
+.mct-widget {
+  padding-bottom: 4rem;
+}
+
+.mct-footer-btn {
+  flex: 1;
+  padding: 0.65rem 1rem;
+  border: 1px solid #000;
+  background: #fff;
+  color: #000;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.mct-footer-btn:hover {
+  background: #000;
+  color: #fff;
+}
+
+.mct-footer-btn:only-child {
+  max-width: 100%;
+}

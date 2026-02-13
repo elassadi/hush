@@ -4,6 +4,11 @@ module Avo
       @page_title = "Calendar tool"
       add_breadcrumb "Calendar tool"
       @calendar_entry_id = params[:calendar_entry_id]
+
+      if mobile_request?
+        return render "mobile_calendar_tool"
+      end
+
       return if @calendar_entry_id.blank?
 
       calendar_entry = CalendarEntry.by_account.find(@calendar_entry_id)
@@ -13,6 +18,12 @@ module Avo
     def error_page
       @page_title = "Error page"
       add_breadcrumb "errror"
+    end
+
+    private
+
+    def mobile_request?
+      request.user_agent.to_s =~ /Mobile|Android|iPhone|iPad|webOS|BlackBerry|IEMobile|Opera Mini/i
     end
   end
 end
