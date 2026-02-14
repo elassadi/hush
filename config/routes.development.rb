@@ -65,6 +65,13 @@ Rails.application.routes.draw do
   if defined? ::Avo
     Avo::Engine.routes.draw do
       scope :resources do
+        get "mobile/customers", to: "mobile#customers_index"
+        post "mobile/customers", to: "mobile#customers_create"
+        post "mobile/calendar_entries", to: "mobile#calendar_entries_create"
+        post "mobile/calendar_entries/:id/confirm", to: "mobile#calendar_entries_confirm", as: :mobile_calendar_entry_confirm
+        post "mobile/calendar_entries/:id/cancel", to: "mobile#calendar_entries_cancel", as: :mobile_calendar_entry_cancel
+        patch "mobile/calendar_entries/:id", to: "mobile#calendar_entries_update", as: :mobile_calendar_entry_update
+
         get "abilities/actions", to: "abilities#actions"
         get "notifications/preview", to: "notifications#preview"
         get "stocks/areas", to: "stocks#areas"

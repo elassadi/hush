@@ -920,6 +920,7 @@ select[data-resource-edit-target="possibleRepairSetsSelectInput"] option:checked
   width: 100%;
   border: 1px solid #000;
   box-sizing: border-box;
+  flex-shrink: 0;
 }
 
 .mct-header {
@@ -1051,29 +1052,39 @@ select[data-resource-edit-target="possibleRepairSetsSelectInput"] option:checked
   border-radius: 50%;
 }
 
-/* Events section */
+/* Events section - flex to fill available vertical space */
 .mct-events {
-  margin-top: 0.75rem;
-  padding: 0.5rem 0;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  padding: 0 1rem;
 }
 
 .mct-events-title {
-  font-size: 0.8rem;
-  font-weight: 500;
-  color: #6b7280;
-  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.01em;
+  flex-shrink: 0;
 }
 
 .mct-events-list {
-  min-height: 3rem;
-  max-height: 200px;
+  flex: 1;
+  min-height: 0;
   overflow-y: auto;
+  padding: 0.25rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .mct-no-events {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   color: #9ca3af;
-  padding: 0.75rem 0;
+  padding: 1rem 0;
   text-align: center;
   margin: 0;
 }
@@ -1081,36 +1092,235 @@ select[data-resource-edit-target="possibleRepairSetsSelectInput"] option:checked
 .mct-event-row {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 0;
-  font-size: 0.85rem;
-  border-bottom: 1px solid #e5e7eb;
+  gap: 0.625rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.9rem;
+  line-height: 1.4;
   min-height: 2.5rem;
-}
-
-.mct-event-row:last-child {
-  border-bottom: none;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  background: #fff;
 }
 
 .mct-event-dot-inline {
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   flex-shrink: 0;
 }
 
+.mct-event-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.mct-event-primary {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
 .mct-event-time {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   color: #6b7280;
-  min-width: 4rem;
+  min-width: 5.5rem;
+  font-weight: 450;
+  flex-shrink: 0;
 }
 
 .mct-event-title {
-  color: #1f2937;
-  font-weight: 500;
-  flex: 1;
-  word-break: break-word;
+  color: #111827;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
+
+/* Event row status styling - matches calendar_entry / FullCalendar patterns */
+.mct-event-row--canceld {
+  background-color: #ffd9d9;
+  background-image:
+    linear-gradient(45deg, #f0f0f0 25%, transparent 25%, transparent 75%, #f0f0f0 75%, #f0f0f0),
+    linear-gradient(45deg, #f0f0f0 25%, transparent 25%, transparent 75%, #f0f0f0 75%, #f0f0f0);
+  background-position: 0 0, 10px 10px;
+  background-size: 20px 20px;
+  border-color: #fecaca;
+  border-left: 3px solid #dc2626;
+  font-style: italic;
+}
+
+.mct-event-row--canceld .mct-event-title {
+  color: #6b7280;
+}
+
+.mct-event-row--unconfirmed {
+  background-color: #d1edbc;
+  background-image:
+    linear-gradient(45deg, #f0f0f0 25%, transparent 25%, transparent 75%, #f0f0f0 75%, #f0f0f0),
+    linear-gradient(45deg, #f0f0f0 25%, transparent 25%, transparent 75%, #f0f0f0 75%, #f0f0f0);
+  background-position: 0 0, 10px 10px;
+  background-size: 20px 20px;
+  border-color: #bbf7d0;
+}
+
+.mct-event-row--confirmed {
+  background-color: #d1edbc;
+  border-color: #bbf7d0;
+  border-left: 3px solid #16a34a;
+}
+
+/* Event wrapper - selected state + expandable detail */
+.mct-event-wrapper {
+  transition: box-shadow 0.2s ease;
+}
+
+.mct-event-wrapper--selected {
+  box-shadow: 0 0 0 2px rgba(22, 163, 74, 0.35);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.mct-event-wrapper--selected .mct-event-row {
+  border-radius: 10px 10px 0 0;
+}
+
+.mct-event-wrapper--selected .mct-event-detail {
+  border-radius: 0 0 10px 10px;
+}
+
+.mct-event-detail {
+  background: #fff;
+  padding: 0.75rem 1rem;
+  margin-top: -1px;
+  border: 1px solid #e5e7eb;
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+}
+
+.mct-event-section-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  margin-bottom: 0.35rem;
+}
+
+.mct-event-notes-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.mct-event-notes-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.mct-event-detail-divider {
+  height: 1px;
+  background: #e5e7eb;
+  margin: 0.75rem 0;
+}
+
+.mct-event-entry-actions-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.mct-event-entry-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.mct-event-notes-input {
+  width: 100%;
+  min-height: 52px;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: #1f2937;
+  background: #fff;
+  border: 1px solid #a78bfa;
+  border-radius: 6px;
+  resize: none;
+  font-family: inherit;
+  -webkit-appearance: none;
+  appearance: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.mct-event-notes-input::placeholder {
+  color: #9ca3af;
+}
+
+.mct-event-notes-input:focus {
+  outline: none;
+  border-color: #7c3aed;
+  box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.2);
+}
+
+.mct-event-notes-input[readonly] {
+  background: #f9fafb;
+  border-color: #e5e7eb;
+  color: #9ca3af;
+  cursor: default;
+}
+
+.mct-event-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  border: 1px solid #d1d5db;
+  background: #fff;
+  color: #374151;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.mct-event-btn:hover {
+  background: #f9fafb;
+  border-color: #9ca3af;
+}
+
+.mct-event-btn.is-hidden,
+.is-hidden {
+  display: none !important;
+}
+
+.mct-event-btn--approve {
+  color: #16a34a;
+  border-color: #86efac;
+  background: #f0fdf4;
+}
+
+.mct-event-btn--approve:hover {
+  background: #dcfce7;
+  border-color: #22c55e;
+}
+
+.mct-event-btn--cancel-entry {
+  color: #dc2626;
+  border-color: #fecaca;
+  background: #fef2f2;
+}
+
+.mct-event-btn--cancel-entry:hover {
+  background: #fee2e2;
+  border-color: #f87171;
+}
+
 
 /* Footer toolbar - fixed at viewport bottom, supports multiple buttons */
 .mct-footer-toolbar {
@@ -1152,4 +1362,260 @@ select[data-resource-edit-target="possibleRepairSetsSelectInput"] option:checked
 
 .mct-footer-btn:only-child {
   max-width: 100%;
+}
+
+/* Header add button */
+.mct-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.mct-add-btn {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  background: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 300;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.mct-add-btn:hover {
+  background: #fff;
+  color: #000;
+}
+
+/* Sliding bottom sheet */
+.mct-sheet-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 90;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.mct-sheet-backdrop-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Customer form overlay: spacer (grey click-to-close) + sheet (form); sheet is sibling so it receives clicks */
+.mct-customer-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 110;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.mct-customer-overlay-visible {
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.mct-customer-overlay-spacer {
+  flex: 1;
+  min-height: 0;
+  background: rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+}
+
+.mct-sheet-inner {
+  z-index: 120;
+  flex: 0 0 auto;
+  pointer-events: auto;
+}
+
+/* When customer form is open: block interaction with calendar form only; customer form stays usable */
+.mct-sheet-blocked,
+.mct-sheet-backdrop.mct-sheet-blocked {
+  pointer-events: none !important;
+}
+
+.mct-sheet {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border-radius: 1rem 1rem 0 0;
+  z-index: 100;
+  max-height: 90vh;
+  transform: translateY(100%);
+  transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.mct-sheet-open {
+  transform: translateY(0);
+}
+
+.mct-sheet-handle {
+  height: 4px;
+  width: 40px;
+  background: #d1d5db;
+  border-radius: 2px;
+  margin: 0.5rem auto;
+  cursor: pointer;
+}
+
+.mct-sheet-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem 1rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.mct-sheet-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.mct-sheet-close {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  font-size: 1.5rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #6b7280;
+  line-height: 1;
+}
+
+.mct-sheet-form {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+  padding-bottom: max(1rem, env(safe-area-inset-bottom));
+}
+
+.mct-form-group {
+  margin-bottom: 1rem;
+}
+
+.mct-form-group label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 0.35rem;
+}
+
+.mct-optional {
+  font-weight: 400;
+  color: #9ca3af;
+}
+
+.mct-form-group input,
+.mct-form-group textarea {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  font-size: 0.95rem;
+  box-sizing: border-box;
+}
+
+.mct-datetime-row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.mct-datetime-row input {
+  flex: 1;
+}
+
+.mct-customer-field {
+  position: relative;
+}
+
+.mct-customer-results {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  margin-top: 2px;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 10;
+}
+
+.mct-result-item {
+  padding: 0.6rem 0.75rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.mct-result-item:last-child {
+  border-bottom: none;
+}
+
+.mct-result-item:hover,
+.mct-result-new {
+  background: #f9fafb;
+}
+
+.mct-form-errors {
+  color: #dc2626;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+  min-height: 1.2rem;
+}
+
+.mct-sheet-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.mct-btn-secondary,
+.mct-btn-primary {
+  flex: 1;
+  padding: 0.65rem 1rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.mct-btn-secondary {
+  background: #fff;
+  border: 1px solid #000;
+  color: #000;
+}
+
+.mct-btn-primary {
+  background: #000;
+  border: 1px solid #000;
+  color: #fff;
+}
+
+.mct-btn-primary:hover {
+  background: #374151;
 }
