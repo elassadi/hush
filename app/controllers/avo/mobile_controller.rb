@@ -46,7 +46,8 @@ module Avo
     def calendar_entries_confirm
       entry = CalendarEntry.find(params[:id])
       Current.user.authorize!(:confirm, entry)
-      result = CalendarEntries::ConfirmTransaction.call(calendar_entry_id: entry.id, notify_customer: false)
+      notify_customer = params.key?(:notify_customer) ? ActiveModel::Type::Boolean.new.cast(params[:notify_customer]) : true
+      result = CalendarEntries::ConfirmTransaction.call(calendar_entry_id: entry.id, notify_customer:)
       if result.success?
         render json: result.success.as_json, status: :ok
       else

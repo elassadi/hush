@@ -369,7 +369,7 @@ export default class extends Controller {
       const res = await fetch(url, {
         method: "POST",
         headers: { "X-CSRF-Token": csrf, "Content-Type": "application/json", Accept: "application/json" },
-        body: "{}"
+        body: JSON.stringify({ notify_customer: true })
       })
       if (res.ok) {
         this.selectedEventId = null
