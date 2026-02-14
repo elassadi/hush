@@ -2,6 +2,8 @@
 en:
   mobile_calendar:
     notes_label: Note
+    edit_event_title: Edit appointment
+    new_event_title: New appointment
     notes_placeholder: Add note...
     entry_actions_label: Appointment Actions
     cancel_entry_label: Cancel appointment

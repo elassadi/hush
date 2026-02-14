@@ -9,7 +9,9 @@
      data-mobile-calendar-cancel-confirm-message-value="<%= t('mobile_calendar.cancel_entry_confirm_message') %>"
      data-mobile-calendar-cancel-confirm-yes-value="<%= t('mobile_calendar.cancel_entry_confirm_yes') %>"
      data-mobile-calendar-cancel-confirm-no-value="<%= t('mobile_calendar.cancel_entry_confirm_no') %>"
-     data-mobile-calendar-resource-base-value="/resources/issue_calendar_entries">
+     data-mobile-calendar-resource-base-value="/resources/issue_calendar_entries"
+     data-mobile-calendar-entry-form-edit-title-value="<%= t('mobile_calendar.edit_event_title') %>"
+     data-mobile-calendar-entry-form-new-title-value="<%= t('mobile_calendar.new_event_title') %>">
   <%= render Avo::PanelComponent.new(name: '', display_breadcrumbs: false) do |c| %>
     <% c.body do %>
       <div class="mct-body">
@@ -46,7 +48,7 @@
       <div class="mct-sheet" data-mobile-calendar-entry-form-target="sheet">
         <div class="mct-sheet-handle" data-action="click->mobile-calendar-entry-form#close"></div>
         <div class="mct-sheet-header">
-          <h3>Neuer Termin</h3>
+          <h3 data-mobile-calendar-entry-form-target="sheetTitle">Neuer Termin</h3>
           <button type="button" class="mct-sheet-close" data-action="click->mobile-calendar-entry-form#close" aria-label="Schließen">×</button>
         </div>
         <form class="mct-sheet-form" data-mobile-calendar-entry-form-target="form" data-action="submit->mobile-calendar-entry-form#submit">
@@ -62,8 +64,8 @@
           <div class="mct-form-group">
             <label>Von</label>
             <div class="mct-datetime-row">
-              <input type="date" data-mobile-calendar-entry-form-target="startDate" required>
-              <input type="time" data-mobile-calendar-entry-form-target="startTime" required>
+              <input type="date" data-mobile-calendar-entry-form-target="startDate" data-action="change->mobile-calendar-entry-form#startChanged" required>
+              <input type="time" data-mobile-calendar-entry-form-target="startTime" data-action="change->mobile-calendar-entry-form#startChanged" required>
             </div>
           </div>
           <div class="mct-form-group">

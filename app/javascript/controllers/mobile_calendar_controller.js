@@ -248,7 +248,7 @@ export default class extends Controller {
       } else {
         entryActions.push(`<button type="button" class="mct-event-btn mct-event-btn--cancel-entry" data-event-id="${id}" data-action="cancel">${this.escapeHtml(this.cancelEntryLabelValue)}</button>`)
       }
-      entryActions.push(`<a href="${this.editUrl(id)}" class="${avoBtnPrimary} no-underline">${this.escapeHtml(this.editLabelValue)}</a>`)
+      entryActions.push(`<button type="button" class="${avoBtnPrimary}" data-event-id="${id}" data-action="edit">${this.escapeHtml(this.editLabelValue)}</button>`)
       entryActionsBlock = `
         <div class="mct-event-detail-divider"></div>
         <div class="mct-event-entry-actions-section">
@@ -280,9 +280,11 @@ export default class extends Controller {
     `
   }
 
-  editUrl(id) {
-    const base = window.location.pathname.replace(/\/[^/]*$/, "") || ""
-    return `${base}${this.resourceBaseValue}/${id}/edit`
+  openEditForm(eventId) {
+    const ev = this.events.find((e) => String(e.id) === String(eventId))
+    if (!ev) return
+    const formController = this.application.getControllerForElementAndIdentifier(this.element, "mobile-calendar-entry-form")
+    if (formController?.openForEdit) formController.openForEdit(ev)
   }
 
   handleEventListClick(event) {
@@ -295,6 +297,7 @@ export default class extends Controller {
       if (action === "approve") this.confirmEvent(id)
       if (action === "cancel") this.cancelEvent(id)
       if (action === "save") this.saveNotes(id, btn)
+      if (action === "edit") this.openEditForm(id)
       return
     }
 

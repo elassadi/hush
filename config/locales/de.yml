@@ -2,6 +2,8 @@
 de:
   mobile_calendar:
     notes_label: Notiz
+    edit_event_title: Termin bearbeiten
+    new_event_title: Neuer Termin
     notes_placeholder: Notiz hinzufügen...
     entry_actions_label: Termin-Aktionen
     cancel_entry_label: Termin absagen
