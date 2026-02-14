@@ -10,7 +10,7 @@ de:
     cancel_entry_confirm_title: Termin absagen?
     cancel_entry_confirm_message: Möchten Sie diesen Termin wirklich absagen?
     cancel_entry_confirm_yes: Ja, Termin absagen
-    cancel_entry_confirm_no: Abbrechen
+    cancel_entry_confirm_no: "Nein"
   actions:
     accounts:
       login_as_action:

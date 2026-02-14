@@ -10,7 +10,7 @@ en:
     cancel_entry_confirm_title: Cancel appointment?
     cancel_entry_confirm_message: Do you really want to cancel this appointment?
     cancel_entry_confirm_yes: Yes, cancel appointment
-    cancel_entry_confirm_no: Cancel
+    cancel_entry_confirm_no: "No"
   activerecord:
     attributes:
       article:

@@ -19,6 +19,22 @@ export default class extends Controller {
     this.editingEventId = null
   }
 
+  moveSheetToBody() {
+    if (this.sheetTarget.parentNode === document.body) return
+    this._sheetRestoreParent = this.sheetTarget.parentNode
+    this._sheetRestoreBefore = this.sheetTarget.nextElementSibling
+    document.body.appendChild(this.backdropTarget)
+    document.body.appendChild(this.sheetTarget)
+  }
+
+  restoreSheetFromBody() {
+    if (!this._sheetRestoreParent) return
+    this._sheetRestoreParent.insertBefore(this.sheetTarget, this._sheetRestoreBefore)
+    this._sheetRestoreParent.insertBefore(this.backdropTarget, this.sheetTarget)
+    this._sheetRestoreParent = null
+    this._sheetRestoreBefore = null
+  }
+
   openForEdit(eventData) {
     this.editingEventId = String(eventData.id)
     const start = new Date(eventData.start)
@@ -36,15 +52,33 @@ export default class extends Controller {
     this.selectedCustomer = customerId ? { id: customerId, name: customerName } : null
     if (this.hasSheetTitleTarget) this.sheetTitleTarget.textContent = this.editTitleValue
     this.customerSearchTarget.disabled = true
+    this.moveSheetToBody()
     this.sheetTarget.classList.add("mct-sheet-open")
     this.backdropTarget.classList.add("mct-sheet-backdrop-visible")
     document.body.style.overflow = "hidden"
+    requestAnimationFrame(() => this.resizeNotes())
   }
 
   open(event) {
+    const calendarController = this.application.getControllerForElementAndIdentifier(
+      document.querySelector("[data-controller~='mobile-calendar']"),
+      "mobile-calendar"
+    )
+    const selectedDate = calendarController?.selectedDate
+      ? new Date(calendarController.selectedDate.getFullYear(), calendarController.selectedDate.getMonth(), calendarController.selectedDate.getDate())
+      : null
     const now = new Date()
-    const startAt = this.nextFullHour(now)
-    const endAt = this.addMinutes(startAt, 60)
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate())
+    let startAt, endAt
+    if (selectedDate && (selectedDate.getTime() !== today.getTime())) {
+      // Selected day is not today: use 9:00 on the selected date
+      startAt = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), selectedDate.getDate(), 9, 0, 0, 0)
+      endAt = this.addMinutes(startAt, 60)
+    } else {
+      // Today or no selection: use next full hour from now
+      startAt = this.nextFullHour(now)
+      endAt = this.addMinutes(startAt, 60)
+    }
     this.startDateTarget.value = startAt.toISOString().split("T")[0]
     this.startTimeTarget.value = startAt.toTimeString().slice(0, 5)
     this.endDateTarget.value = endAt.toISOString().split("T")[0]
@@ -52,9 +86,19 @@ export default class extends Controller {
     this.editingEventId = null
     if (this.hasSheetTitleTarget) this.sheetTitleTarget.textContent = this.newTitleValue
     this.clearForm()
+    this.moveSheetToBody()
     this.sheetTarget.classList.add("mct-sheet-open")
     this.backdropTarget.classList.add("mct-sheet-backdrop-visible")
     document.body.style.overflow = "hidden"
+    requestAnimationFrame(() => this.resizeNotes())
+  }
+
+  resizeNotes() {
+    if (!this.hasNotesTarget) return
+    const ta = this.notesTarget
+    const minHeight = 52
+    ta.style.height = "auto"
+    ta.style.height = `${Math.max(ta.scrollHeight, minHeight)}px`
   }
 
   close() {
@@ -62,6 +106,7 @@ export default class extends Controller {
     if (this.hasCustomerSearchTarget) this.customerSearchTarget.disabled = false
     this.sheetTarget.classList.remove("mct-sheet-open")
     this.backdropTarget.classList.remove("mct-sheet-backdrop-visible")
+    this.restoreSheetFromBody()
     this.closeCustomerSheet()
     document.body.style.overflow = ""
   }
@@ -120,6 +165,20 @@ export default class extends Controller {
     this.selectedCustomer = { id, name }
   }
 
+  moveCustomerOverlayToBody() {
+    if (this.customerOverlayTarget.parentNode === document.body) return
+    this._customerOverlayRestoreParent = this.customerOverlayTarget.parentNode
+    this._customerOverlayRestoreBefore = this.customerOverlayTarget.nextElementSibling
+    document.body.appendChild(this.customerOverlayTarget)
+  }
+
+  restoreCustomerOverlayFromBody() {
+    if (!this._customerOverlayRestoreParent) return
+    this._customerOverlayRestoreParent.insertBefore(this.customerOverlayTarget, this._customerOverlayRestoreBefore)
+    this._customerOverlayRestoreParent = null
+    this._customerOverlayRestoreBefore = null
+  }
+
   showCreateCustomer(event) {
     const searchText = this.customerSearchTarget?.value?.trim() || ""
     this.customerResultsTarget.innerHTML = ""
@@ -127,6 +186,7 @@ export default class extends Controller {
     this.customerMobileTarget.value = ""
     this.customerEmailTarget.value = ""
     this.customerErrorsTarget.innerHTML = ""
+    this.moveCustomerOverlayToBody()
     this.customerSheetTarget.classList.add("mct-sheet-open")
     this.customerOverlayTarget.classList.add("mct-customer-overlay-visible")
     // Block interaction with the calendar entry form (grey it out); customer form stays interactive
@@ -139,6 +199,7 @@ export default class extends Controller {
     this.customerOverlayTarget.classList.remove("mct-customer-overlay-visible")
     this.sheetTarget.classList.remove("mct-sheet-blocked")
     this.backdropTarget.classList.remove("mct-sheet-blocked")
+    this.restoreCustomerOverlayFromBody()
   }
 
   async submitCustomer(event) {
