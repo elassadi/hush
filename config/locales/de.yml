@@ -1,5 +1,14 @@
 ---
 de:
+  mobile_calendar:
+    notes_label: Notiz
+    notes_placeholder: Notiz hinzufügen...
+    entry_actions_label: Termin-Aktionen
+    cancel_entry_label: Termin absagen
+    cancel_entry_confirm_title: Termin absagen?
+    cancel_entry_confirm_message: Möchten Sie diesen Termin wirklich absagen?
+    cancel_entry_confirm_yes: Ja, Termin absagen
+    cancel_entry_confirm_no: Abbrechen
   actions:
     accounts:
       login_as_action:
