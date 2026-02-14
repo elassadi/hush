@@ -2,13 +2,15 @@
 en:
   mobile_calendar:
     notes_label: Note
+    edit_event_title: Edit appointment
+    new_event_title: New appointment
     notes_placeholder: Add note...
     entry_actions_label: Appointment Actions
     cancel_entry_label: Cancel appointment
     cancel_entry_confirm_title: Cancel appointment?
     cancel_entry_confirm_message: Do you really want to cancel this appointment?
     cancel_entry_confirm_yes: Yes, cancel appointment
-    cancel_entry_confirm_no: Cancel
+    cancel_entry_confirm_no: "No"
   activerecord:
     attributes:
       article:

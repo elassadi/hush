@@ -1,16 +1,62 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
+  static values = {
+    editTitle: { type: String, default: "Termin bearbeiten" },
+    newTitle: { type: String, default: "Neuer Termin" }
+  }
+
   static targets = [
     "sheet", "backdrop", "form", "customerId", "customerSearch", "customerResults",
     "customerSheet", "customerOverlay", "customerForm", "customerName",
     "customerMobile", "customerEmail", "customerErrors",
-    "startDate", "startTime", "endDate", "endTime", "notes", "errors"
+    "startDate", "startTime", "endDate", "endTime", "notes", "errors", "sheetTitle"
   ]
 
   connect() {
     this.searchTimeout = null
     this.selectedCustomer = null
+    this.editingEventId = null
+  }
+
+  moveSheetToBody() {
+    if (this.sheetTarget.parentNode === document.body) return
+    this._sheetRestoreParent = this.sheetTarget.parentNode
+    this._sheetRestoreBefore = this.sheetTarget.nextElementSibling
+    document.body.appendChild(this.backdropTarget)
+    document.body.appendChild(this.sheetTarget)
+  }
+
+  restoreSheetFromBody() {
+    if (!this._sheetRestoreParent) return
+    this._sheetRestoreParent.insertBefore(this.sheetTarget, this._sheetRestoreBefore)
+    this._sheetRestoreParent.insertBefore(this.backdropTarget, this.sheetTarget)
+    this._sheetRestoreParent = null
+    this._sheetRestoreBefore = null
+  }
+
+  openForEdit(eventData) {
+    this.editingEventId = String(eventData.id)
+    const start = new Date(eventData.start)
+    const end = eventData.end ? new Date(eventData.end) : this.addMinutes(start, 30)
+    this.startDateTarget.value = start.toISOString().split("T")[0]
+    this.startTimeTarget.value = start.toTimeString().slice(0, 5)
+    this.endDateTarget.value = end.toISOString().split("T")[0]
+    this.endTimeTarget.value = end.toTimeString().slice(0, 5)
+    const customerId = eventData.extendedProps?.customer_id
+    const customerName = eventData.extendedProps?.name || eventData.title || ""
+    this.customerIdTarget.value = customerId || ""
+    this.customerSearchTarget.value = customerName
+    this.notesTarget.value = eventData.extendedProps?.notes?.trim() || ""
+    this.errorsTarget.innerHTML = ""
+    this.selectedCustomer = customerId ? { id: customerId, name: customerName } : null
+    if (this.hasSheetTitleTarget) this.sheetTitleTarget.textContent = this.editTitleValue
+    this.customerSearchTarget.disabled = true
+    this.moveSheetToBody()
+    this.sheetTarget.classList.add("mct-sheet-open")
+    this.backdropTarget.classList.add("mct-sheet-backdrop-visible")
+    document.body.style.overflow = "hidden"
+    requestAnimationFrame(() => this.resizeNotes())
   }
 
   open(event) {
@@ -18,30 +64,49 @@ export default class extends Controller {
       document.querySelector("[data-controller~='mobile-calendar']"),
       "mobile-calendar"
     )
-    if (calendarController?.selectedDate) {
-      const d = calendarController.selectedDate
-      const dateStr = d.toISOString().split("T")[0]
-      const timeStr = d.toTimeString().slice(0, 5)
-      this.startDateTarget.value = dateStr
-      this.startTimeTarget.value = "09:00"
-      this.endDateTarget.value = dateStr
-      this.endTimeTarget.value = "09:30"
+    const selectedDate = calendarController?.selectedDate
+      ? new Date(calendarController.selectedDate.getFullYear(), calendarController.selectedDate.getMonth(), calendarController.selectedDate.getDate())
+      : null
+    const now = new Date()
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate())
+    let startAt, endAt
+    if (selectedDate && (selectedDate.getTime() !== today.getTime())) {
+      // Selected day is not today: use 9:00 on the selected date
+      startAt = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), selectedDate.getDate(), 9, 0, 0, 0)
+      endAt = this.addMinutes(startAt, 60)
     } else {
-      const now = new Date()
-      this.startDateTarget.value = now.toISOString().split("T")[0]
-      this.startTimeTarget.value = now.toTimeString().slice(0, 5)
-      this.endDateTarget.value = now.toISOString().split("T")[0]
-      this.endTimeTarget.value = this.addMinutes(now, 30).toTimeString().slice(0, 5)
+      // Today or no selection: use next full hour from now
+      startAt = this.nextFullHour(now)
+      endAt = this.addMinutes(startAt, 60)
     }
+    this.startDateTarget.value = startAt.toISOString().split("T")[0]
+    this.startTimeTarget.value = startAt.toTimeString().slice(0, 5)
+    this.endDateTarget.value = endAt.toISOString().split("T")[0]
+    this.endTimeTarget.value = endAt.toTimeString().slice(0, 5)
+    this.editingEventId = null
+    if (this.hasSheetTitleTarget) this.sheetTitleTarget.textContent = this.newTitleValue
     this.clearForm()
+    this.moveSheetToBody()
     this.sheetTarget.classList.add("mct-sheet-open")
     this.backdropTarget.classList.add("mct-sheet-backdrop-visible")
     document.body.style.overflow = "hidden"
+    requestAnimationFrame(() => this.resizeNotes())
+  }
+
+  resizeNotes() {
+    if (!this.hasNotesTarget) return
+    const ta = this.notesTarget
+    const minHeight = 52
+    ta.style.height = "auto"
+    ta.style.height = `${Math.max(ta.scrollHeight, minHeight)}px`
   }
 
   close() {
+    this.editingEventId = null
+    if (this.hasCustomerSearchTarget) this.customerSearchTarget.disabled = false
     this.sheetTarget.classList.remove("mct-sheet-open")
     this.backdropTarget.classList.remove("mct-sheet-backdrop-visible")
+    this.restoreSheetFromBody()
     this.closeCustomerSheet()
     document.body.style.overflow = ""
   }
@@ -100,6 +165,20 @@ export default class extends Controller {
     this.selectedCustomer = { id, name }
   }
 
+  moveCustomerOverlayToBody() {
+    if (this.customerOverlayTarget.parentNode === document.body) return
+    this._customerOverlayRestoreParent = this.customerOverlayTarget.parentNode
+    this._customerOverlayRestoreBefore = this.customerOverlayTarget.nextElementSibling
+    document.body.appendChild(this.customerOverlayTarget)
+  }
+
+  restoreCustomerOverlayFromBody() {
+    if (!this._customerOverlayRestoreParent) return
+    this._customerOverlayRestoreParent.insertBefore(this.customerOverlayTarget, this._customerOverlayRestoreBefore)
+    this._customerOverlayRestoreParent = null
+    this._customerOverlayRestoreBefore = null
+  }
+
   showCreateCustomer(event) {
     const searchText = this.customerSearchTarget?.value?.trim() || ""
     this.customerResultsTarget.innerHTML = ""
@@ -107,6 +186,7 @@ export default class extends Controller {
     this.customerMobileTarget.value = ""
     this.customerEmailTarget.value = ""
     this.customerErrorsTarget.innerHTML = ""
+    this.moveCustomerOverlayToBody()
     this.customerSheetTarget.classList.add("mct-sheet-open")
     this.customerOverlayTarget.classList.add("mct-customer-overlay-visible")
     // Block interaction with the calendar entry form (grey it out); customer form stays interactive
@@ -119,6 +199,7 @@ export default class extends Controller {
     this.customerOverlayTarget.classList.remove("mct-customer-overlay-visible")
     this.sheetTarget.classList.remove("mct-sheet-blocked")
     this.backdropTarget.classList.remove("mct-sheet-blocked")
+    this.restoreCustomerOverlayFromBody()
   }
 
   async submitCustomer(event) {
@@ -203,9 +284,16 @@ export default class extends Controller {
     payload.customer_id = parseInt(customerId, 10)
 
     const csrfToken = document.querySelector('[name="csrf-token"]')?.content
+    const base = window.location.pathname.replace(/\/[^/]*$/, "") || ""
+    const isEdit = this.editingEventId != null
+    const url = isEdit
+      ? `${base}/resources/mobile/calendar_entries/${this.editingEventId}`
+      : `${base}/resources/mobile/calendar_entries`
+    const method = isEdit ? "PATCH" : "POST"
+
     try {
-      const res = await fetch("/resources/mobile/calendar_entries", {
-        method: "POST",
+      const res = await fetch(url, {
+        method,
         headers: {
           "Content-Type": "application/json",
           "X-CSRF-Token": csrfToken,
@@ -233,10 +321,18 @@ export default class extends Controller {
     }
   }
 
+  refreshDatetimePickers() {
+    this.element.querySelectorAll('[data-controller~="mobile-calendar-datetime-picker"]').forEach((el) => {
+      const ctrl = this.application.getControllerForElementAndIdentifier(el, "mobile-calendar-datetime-picker")
+      if (ctrl?.refreshDisplay) ctrl.refreshDisplay()
+    })
+  }
+
   clearForm() {
     this.customerIdTarget.value = ""
     this.customerSearchTarget.value = ""
     this.customerSearchTarget.readOnly = false
+    this.customerSearchTarget.disabled = false
     this.customerResultsTarget.innerHTML = ""
     this.notesTarget.value = ""
     this.errorsTarget.innerHTML = ""
@@ -246,5 +342,27 @@ export default class extends Controller {
 
   addMinutes(d, min) {
     return new Date(d.getTime() + min * 60000)
+  }
+
+  nextFullHour(d) {
+    const next = new Date(d)
+    next.setMinutes(0, 0, 0)
+    next.setHours(next.getHours() + 1)
+    return next
+  }
+
+  startChanged() {
+    const startDate = this.startDateTarget.value
+    const startTime = this.startTimeTarget.value
+    const endDate = this.endDateTarget.value
+    const endTime = this.endTimeTarget.value
+    if (!startDate || !startTime || !endDate || !endTime) return
+    const start = new Date(`${startDate}T${startTime}:00`)
+    const end = new Date(`${endDate}T${endTime}:00`)
+    if (end <= start) {
+      const newEnd = this.addMinutes(start, 60)
+      this.endDateTarget.value = newEnd.toISOString().split("T")[0]
+      this.endTimeTarget.value = newEnd.toTimeString().slice(0, 5)
+    }
   }
 }

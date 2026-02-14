@@ -89,7 +89,8 @@ class CalendarEntry < ApplicationRecord
         status:,
         confirmed:,
         name: name_of_calendarable,
-        default_notes:
+        default_notes:,
+        customer_id: customer_id || (calendarable.respond_to?(:customer) ? calendarable.customer_id : nil)
       }
     }
     data[:color] = event_color if event_color.present?

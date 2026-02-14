@@ -907,6 +907,24 @@ select[data-resource-edit-target="possibleRepairSetsSelectInput"] option:checked
   display: flex;
   flex-direction: column;
   padding: 0;
+  box-sizing: border-box;
+}
+
+/* Integrated mobile calendar layout: no fixed navbar, header inside widget.
+   Avoid transform/contain on .mct-widget so .mct-sheet position:fixed stays viewport-relative. */
+body.mobile-calendar-layout .mct-widget {
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow-x: hidden;
+}
+
+body.mobile-calendar-layout .mct-events-list {
+  -webkit-overflow-scrolling: touch;
+}
+
+body.mobile-calendar-layout .avo-sidebar {
+  height: 100vh;
+  height: 100dvh;
 }
 
 .mct-body {
@@ -925,20 +943,46 @@ select[data-resource-edit-target="possibleRepairSetsSelectInput"] option:checked
 
 .mct-header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  gap: 0.5rem;
   padding: 0.75rem 1rem;
+  padding-top: max(0.75rem, env(safe-area-inset-top));
+  padding-left: max(1rem, env(safe-area-inset-left));
+  padding-right: max(1rem, env(safe-area-inset-right));
   background: #000;
   color: #fff;
 }
 
 .mct-title {
+  flex: 1;
   font-size: 0.95rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin: 0;
+  text-align: center;
   color: #fff;
+}
+
+.mct-burger {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  background: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.mct-burger:hover {
+  background: #fff;
+  color: #000;
 }
 
 .mct-nav {
@@ -1402,10 +1446,12 @@ select[data-resource-edit-target="possibleRepairSetsSelectInput"] option:checked
   z-index: 90;
   opacity: 0;
   pointer-events: none;
+  visibility: hidden;
   transition: opacity 0.3s ease;
 }
 
 .mct-sheet-backdrop-visible {
+  visibility: visible;
   opacity: 1;
   pointer-events: auto;
 }
@@ -1462,9 +1508,13 @@ select[data-resource-edit-target="possibleRepairSetsSelectInput"] option:checked
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 .mct-sheet-open {
+  visibility: visible;
+  pointer-events: auto;
   transform: translateY(0);
 }
 
@@ -1505,9 +1555,26 @@ select[data-resource-edit-target="possibleRepairSetsSelectInput"] option:checked
 
 .mct-sheet-form {
   flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.mct-sheet-form-scroll {
+  flex: 1;
+  min-height: 0;
   overflow-y: auto;
   padding: 1rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+.mct-sheet .mct-sheet-actions {
+  flex-shrink: 0;
+  padding: 1rem;
   padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  border-top: 1px solid #e5e7eb;
+  background: #fff;
 }
 
 .mct-form-group {
@@ -1537,6 +1604,13 @@ select[data-resource-edit-target="possibleRepairSetsSelectInput"] option:checked
   box-sizing: border-box;
 }
 
+.mct-notes-autogrow {
+  resize: none;
+  overflow-y: auto;
+  max-height: 200px;
+  min-height: 52px;
+}
+
 .mct-datetime-row {
   display: flex;
   gap: 0.5rem;
@@ -1548,6 +1622,15 @@ select[data-resource-edit-target="possibleRepairSetsSelectInput"] option:checked
 
 .mct-customer-field {
   position: relative;
+}
+
+.mct-customer-field input:disabled,
+.mct-customer-field input[readonly] {
+  background-color: #f3f4f6;
+  color: #6b7280;
+  cursor: not-allowed;
+  -webkit-text-fill-color: #6b7280;
+  opacity: 1;
 }
 
 .mct-customer-results {
@@ -1590,11 +1673,10 @@ select[data-resource-edit-target="possibleRepairSetsSelectInput"] option:checked
 .mct-sheet-actions {
   display: flex;
   gap: 0.75rem;
-  margin-top: 1.5rem;
 }
 
-.mct-btn-secondary,
-.mct-btn-primary {
+.mct-sheet-actions .mct-btn-secondary,
+.mct-sheet-actions .mct-btn-primary {
   flex: 1;
   padding: 0.65rem 1rem;
   font-size: 0.95rem;
@@ -1602,20 +1684,118 @@ select[data-resource-edit-target="possibleRepairSetsSelectInput"] option:checked
   border-radius: 0.5rem;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
+  appearance: none;
+  line-height: 1.25;
 }
 
-.mct-btn-secondary {
+.mct-sheet-actions .mct-btn-secondary {
   background: #fff;
-  border: 1px solid #000;
-  color: #000;
+  border: 1px solid #d1d5db;
+  color: #374151;
 }
 
-.mct-btn-primary {
-  background: #000;
-  border: 1px solid #000;
-  color: #fff;
+.mct-sheet-actions .mct-btn-primary {
+  background-color: #16a34a;
+  border: 1px solid #15803d;
+  color: #ffffff;
 }
 
-.mct-btn-primary:hover {
-  background: #374151;
+.mct-sheet-actions .mct-btn-primary:hover {
+  background-color: #15803d;
+  border-color: #15803d;
+  color: #ffffff;
+}
+
+/* Confirm modal (same pattern as desktop calendar_tool) */
+.mct-confirm-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.2s, opacity 0.2s;
+}
+
+.mct-confirm-modal.mct-confirm-modal-visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+.mct-confirm-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+
+.mct-confirm-modal-box {
+  position: relative;
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  max-width: 22rem;
+  width: 100%;
+}
+
+.mct-confirm-modal-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 1rem;
+  color: #111827;
+}
+
+.mct-confirm-modal-message {
+  margin: 0 0 1.5rem;
+  color: #374151;
+  line-height: 1.5;
+}
+
+.mct-confirm-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+.mct-confirm-modal-btn {
+  padding: 0.375rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  border: 1px solid transparent;
+  -webkit-tap-highlight-color: transparent;
+  appearance: none;
+  line-height: 1.25;
+}
+
+.mct-confirm-modal-btn--cancel {
+  background-color: #fff;
+  border-color: #d1d5db;
+  color: #374151;
+}
+
+.mct-confirm-modal-btn--cancel:hover {
+  background-color: #f9fafb;
+}
+
+.mct-confirm-modal .mct-confirm-modal-btn--ok {
+  background-color: #16a34a;
+  border-color: #15803d;
+  color: #ffffff;
+}
+
+.mct-confirm-modal .mct-confirm-modal-btn--ok:hover {
+  background-color: #15803d;
+  border-color: #15803d;
+  color: #ffffff;
+}
+
+.mct-confirm-modal .mct-confirm-modal-btn--ok,
+.mct-confirm-modal .mct-confirm-modal-btn--ok span {
+  color: #ffffff;
 }

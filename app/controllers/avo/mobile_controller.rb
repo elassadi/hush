@@ -66,14 +66,27 @@ module Avo
       end
     end
 
-    # PATCH /resources/mobile/calendar_entries/:id (notes only)
+    # PATCH /resources/mobile/calendar_entries/:id (notes, start_at, end_at, customer_id)
     def calendar_entries_update
       entry = CalendarEntry.find(params[:id])
       Current.user.authorize!(:update, entry)
-      if entry.update(notes: params[:notes])
-        render json: entry.as_json, status: :ok
+
+      attrs = {
+        start_at: params[:start_at].present? ? Time.zone.parse(params[:start_at]) : entry.start_at,
+        end_at: params[:end_at].present? ? Time.zone.parse(params[:end_at]) : entry.end_at,
+        all_day: entry.all_day
+      }
+      attrs[:notes] = params[:notes] if params.key?(:notes)
+
+      result = IssueCalendarEntries::UpdateTransaction.call(
+        calendar_entry_id: entry.id,
+        attributes: attrs
+      )
+
+      if result.success?
+        render json: result.success.as_json, status: :ok
       else
-        render json: { errors: entry.errors.full_messages }, status: :unprocessable_entity
+        render json: { errors: Array(result.failure) }, status: :unprocessable_entity
       end
     end
 

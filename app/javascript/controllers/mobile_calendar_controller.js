@@ -8,7 +8,10 @@ const MONTH_NAMES = [
 const DAY_NAMES = ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"]
 
 export default class extends Controller {
-  static targets = ["grid", "monthYear", "eventsList", "eventsTitle"]
+  static targets = [
+    "grid", "monthYear", "eventsList", "eventsTitle",
+    "confirmModal", "confirmModalTitle", "confirmModalMessage", "confirmModalYesLabel", "confirmModalNoLabel"
+  ]
   static values = {
     approveLabel: { type: String, default: "Approve" },
     cancelEntryLabel: { type: String, default: "Cancel appointment" },
@@ -58,6 +61,13 @@ export default class extends Controller {
       this.currentMonth = 0
       this.currentYear++
     }
+    const today = new Date()
+    const todayInView =
+      today.getFullYear() === this.currentYear && today.getMonth() === this.currentMonth
+    this.selectedDate = todayInView
+      ? new Date(today.getFullYear(), today.getMonth(), today.getDate())
+      : new Date(this.currentYear, this.currentMonth, 1)
+    this.selectedEventId = null
     this.fetchEvents()
   }
 
@@ -248,7 +258,7 @@ export default class extends Controller {
       } else {
         entryActions.push(`<button type="button" class="mct-event-btn mct-event-btn--cancel-entry" data-event-id="${id}" data-action="cancel">${this.escapeHtml(this.cancelEntryLabelValue)}</button>`)
       }
-      entryActions.push(`<a href="${this.editUrl(id)}" class="${avoBtnPrimary} no-underline">${this.escapeHtml(this.editLabelValue)}</a>`)
+      entryActions.push(`<button type="button" class="${avoBtnPrimary}" data-event-id="${id}" data-action="edit">${this.escapeHtml(this.editLabelValue)}</button>`)
       entryActionsBlock = `
         <div class="mct-event-detail-divider"></div>
         <div class="mct-event-entry-actions-section">
@@ -280,9 +290,14 @@ export default class extends Controller {
     `
   }
 
-  editUrl(id) {
-    const base = window.location.pathname.replace(/\/[^/]*$/, "") || ""
-    return `${base}${this.resourceBaseValue}/${id}/edit`
+  openEditForm(eventId) {
+    const ev = this.events.find((e) => String(e.id) === String(eventId))
+    if (!ev) return
+    const formElement = document.querySelector("[data-controller~='mobile-calendar-entry-form']")
+    const formController = formElement
+      ? this.application.getControllerForElementAndIdentifier(formElement, "mobile-calendar-entry-form")
+      : null
+    if (formController?.openForEdit) formController.openForEdit(ev)
   }
 
   handleEventListClick(event) {
@@ -295,6 +310,7 @@ export default class extends Controller {
       if (action === "approve") this.confirmEvent(id)
       if (action === "cancel") this.cancelEvent(id)
       if (action === "save") this.saveNotes(id, btn)
+      if (action === "edit") this.openEditForm(id)
       return
     }
 
@@ -367,9 +383,30 @@ export default class extends Controller {
     }
   }
 
-  async cancelEvent(id) {
-    const ok = window.confirm(this.cancelConfirmMessageValue)
-    if (!ok) return
+  cancelEvent(id) {
+    this._pendingCancelEventId = id
+    if (this.hasConfirmModalTitleTarget) this.confirmModalTitleTarget.textContent = this.cancelConfirmTitleValue
+    if (this.hasConfirmModalMessageTarget) this.confirmModalMessageTarget.textContent = this.cancelConfirmMessageValue
+    if (this.hasConfirmModalYesLabelTarget) this.confirmModalYesLabelTarget.textContent = this.cancelConfirmYesValue
+    if (this.hasConfirmModalNoLabelTarget) this.confirmModalNoLabelTarget.textContent = this.cancelConfirmNoValue
+    if (this.hasConfirmModalTarget) {
+      this.confirmModalTarget.classList.add("mct-confirm-modal-visible")
+      this.confirmModalTarget.setAttribute("aria-hidden", "false")
+    }
+  }
+
+  closeCancelConfirm() {
+    this._pendingCancelEventId = null
+    if (this.hasConfirmModalTarget) {
+      this.confirmModalTarget.classList.remove("mct-confirm-modal-visible")
+      this.confirmModalTarget.setAttribute("aria-hidden", "true")
+    }
+  }
+
+  async confirmCancelEntry() {
+    const id = this._pendingCancelEventId
+    this.closeCancelConfirm()
+    if (!id) return
     const csrf = document.querySelector('[name="csrf-token"]')?.content
     const base = window.location.pathname.replace(/\/[^/]*$/, "") || ""
     const url = `${base}/resources/mobile/calendar_entries/${id}/cancel`

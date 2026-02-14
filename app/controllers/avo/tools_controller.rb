@@ -6,6 +6,7 @@ module Avo
       @calendar_entry_id = params[:calendar_entry_id]
 
       if mobile_request?
+        @mobile_calendar_tool = true
         return render "mobile_calendar_tool"
       end
 

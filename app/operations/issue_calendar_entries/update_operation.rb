@@ -30,9 +30,9 @@ module IssueCalendarEntries
         end_at:,
         category: category || calendar_entry.category,
         event_color: event_color || calendar_entry.event_color,
-        notes: notes || calendar_entry.notes,
+        notes: notes.nil? ? calendar_entry.notes : notes,
         all_day:,
-        entry_type:
+        entry_type: entry_type || calendar_entry.entry_type
       )
       return Failure(calendar_entry) unless calendar_entry.valid?
 

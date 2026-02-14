@@ -66,14 +66,14 @@
 
 
   </head>
-  <body class="bg-application os-mac"  data-controller="recloud-app" data-recloud-app-view-value="<%= @view %>" >
+  <body class="bg-application os-mac <%= 'mobile-calendar-layout' if @mobile_calendar_tool %>"  data-controller="recloud-app<%= ' mobile-calendar-entry-form' if @mobile_calendar_tool %>" data-recloud-app-view-value="<%= @view %>" <%= "data-mobile-calendar-entry-form-edit-title-value=\"#{ERB::Util.html_escape(t('mobile_calendar.edit_event_title'))}\" data-mobile-calendar-entry-form-new-title-value=\"#{ERB::Util.html_escape(t('mobile_calendar.new_event_title'))}\"".html_safe if @mobile_calendar_tool %>>
     <%= turbo_stream_from(Current.user.notifications_key) %>
     <div class="relative flex flex-1 w-full min-h-full" data-controller="sidebar" data-sidebar-open-value="<%= @sidebar_open %>">
       <div class="flex-1 flex flex-col max-w-full">
         <%#= render partial: "avo/partials/navbar"
         %>
-        <%= render RecloudCore::NavbarComponent.new  %>
-        <div data-sidebar-target="mainArea" class="content-area flex-1 flex pt-16 relative <%= 'sidebar-open' if @sidebar_open %>">
+        <%= render RecloudCore::NavbarComponent.new unless @mobile_calendar_tool %>
+        <div data-sidebar-target="mainArea" class="content-area flex-1 flex <%= @mobile_calendar_tool ? 'pt-0' : 'pt-16' %> relative <%= 'sidebar-open' if @sidebar_open %>">
           <div class="hidden lg:flex">
             <%= render RecloudCore::SidebarComponent.new sidebar_open: @sidebar_open %>
           </div>
@@ -81,7 +81,7 @@
             <%= render RecloudCore::SidebarComponent.new sidebar_open: false, for_mobile: true %>
           </div>
           <div class="main-content-area flex-1 flex flex-col min-h-full max-w-full">
-            <div class="content p-4 lg:p-6 flex-1 flex flex-col justify-between items-stretch <%= action_name =="calendar_tool" ? "" : @container_classes %>">
+            <div class="content flex-1 flex flex-col justify-between items-stretch <%= @mobile_calendar_tool ? 'p-0' : 'p-4 lg:p-6' %> <%= action_name =="calendar_tool" ? "" : @container_classes %>">
               <%= render partial: "avo/partials/custom_tools_alert" %>
               <div class="flex flex-1 flex-col justify-between items-stretch space-y-8">
                 <%= yield %>
