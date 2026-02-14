@@ -76,9 +76,9 @@ Rails.application.routes.draw do
   end
 
   authenticate :user do
-    #constraints :subdomain => CUSTOMER_SUBDOMAINS do
+    constraints :subdomain => CUSTOMER_SUBDOMAINS do
       mount Avo::Engine, at: Avo.configuration.root_path
-    #end
+    end
   end
   #mount Avo::Engine, at: Avo.configuration.root_path
 
